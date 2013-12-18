@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.11)  18 DEC 2013 14:58
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.11)  18 DEC 2013 15:38
 entering extended mode
 **Master.tex
 (C:\Users\Johnny\Documents\Bachelor\Forprojekt\Master.tex
@@ -1771,7 +1771,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--53
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<filer/opgavebeskrivelse.pdf, id=63, 597.55246pt x 845.07718pt>
+<filer/opgavebeskrivelse.pdf, id=67, 597.55246pt x 845.07718pt>
 File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 
 <use filer/opgavebeskrivelse.pdf>
@@ -1782,7 +1782,7 @@ File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 Package pdftex.def Info: filer/opgavebeskrivelse.pdf used on input line 10.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
-<filer/opgavebeskrivelse.pdf, id=66, page=1, 597.55246pt x 845.07718pt>
+<filer/opgavebeskrivelse.pdf, id=70, page=1, 597.55246pt x 845.07718pt>
 File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 
 <use filer/opgavebeskrivelse.pdf, page 1>
@@ -1816,7 +1816,7 @@ Package pdftex.def Info: filer/opgavebeskrivelse.pdf, page1 used on input line
  [2
 
  <C:/Users/Johnny/Documents/Bachelor/Forprojekt/filer/opgavebeskrivelse.pdf>]
-<filer/opgavebeskrivelse.pdf, id=88, page=2, 597.55246pt x 845.07718pt>
+<filer/opgavebeskrivelse.pdf, id=92, page=2, 597.55246pt x 845.07718pt>
 File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 
 <use filer/opgavebeskrivelse.pdf, page 2>
@@ -1905,11 +1905,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-) [8
+[8
 
 
 
-] (C:\Users\Johnny\Documents\Bachelor\Forprojekt\filer/undersogelse.tex
+]
+Underfull \hbox (badness 10000) in paragraph at lines 34--36
+
+ []
+
+) [9] (C:\Users\Johnny\Documents\Bachelor\Forprojekt\filer/undersogelse.tex
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 2.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
@@ -1930,12 +1935,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--22
 
  []
 
-[9
+[10
 
 
 
 ] (C:\Users\Johnny\Documents\Bachelor\Forprojekt\filer/konklusion.tex)
-[10
+[11
 
 
 
@@ -1951,22 +1956,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 30.
 (C:\Users\Johnny\Documents\Bachelor\Forprojekt\filer/konklusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 30.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 30.
-
-
-Package rerunfilecheck Warning: File `Master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Master.out':
-(rerunfilecheck)             Before: E4D65BA3EF11DF973703B666DCF1B108;718
-(rerunfilecheck)             After:  D9B07911367494F2707DAEAB37A262F8;784.
+Package rerunfilecheck Info: File `Master.out' has not changed.
+(rerunfilecheck)             Checksum: D9B07911367494F2707DAEAB37A262F8;784.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 30.
  ) 
 Here is how much of TeX's memory you used:
- 22734 strings out of 493921
- 395897 string characters out of 3144873
- 692023 words of memory out of 3000000
- 25578 multiletter control sequences out of 15000+200000
+ 22738 strings out of 493921
+ 395943 string characters out of 3144873
+ 692025 words of memory out of 3000000
+ 25579 multiletter control sequences out of 15000+200000
  23142 words of font info for 60 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
  44i,18n,78p,342b,906s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1991,9 +1989,9 @@ type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /urw/bookman/ubkd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/book
 man/ubkl8a.pfb>
-Output written on Master.pdf (10 pages, 548839 bytes).
+Output written on Master.pdf (11 pages, 553554 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 573 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
+ 130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
