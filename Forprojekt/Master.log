@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  18 DEC 2013 16:03
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.4)  19 DEC 2013 15:12
 entering extended mode
 **Master.tex
 (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\Master.tex
@@ -1628,7 +1628,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 85.
 )
-No file Master.aux.
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\Master.aux
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/forside.aux)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/projektbeskrivelse.aux)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/kravspec.aux)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/projektplan.aux)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/undersogelse.aux)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/konklusion.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -1643,6 +1649,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 3.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -1696,10 +1703,13 @@ LaTeX Info: Redefining \nameref on input line 3.
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
 LaTeX Info: Redefining \nameref on input line 3.
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\Master.out)
+(C:\Users\Nicolai\Documents\Bachelor\Forprojekt\Master.out)
 \@outlinefile=\write4
 LaTeX Info: Redefining \Ref on input line 3.
 \c__siunitx_mathsf_int=\count323
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
@@ -1752,7 +1762,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--53
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<filer/opgavebeskrivelse.pdf, id=17, page=1, 597.55246pt x 845.07718pt>
+<filer/opgavebeskrivelse.pdf, id=73, page=1, 597.55246pt x 845.07718pt>
 File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 
 <use filer/opgavebeskrivelse.pdf, page 1>
@@ -1786,7 +1796,7 @@ Package pdftex.def Info: filer/opgavebeskrivelse.pdf, page1 used on input line
  [2
 
  <C:/Users/Nicolai/Documents/Bachelor/Forprojekt/filer/opgavebeskrivelse.pdf>]
-<filer/opgavebeskrivelse.pdf, id=39, page=2, 597.55246pt x 845.07718pt>
+<filer/opgavebeskrivelse.pdf, id=95, page=2, 597.55246pt x 845.07718pt>
 File: filer/opgavebeskrivelse.pdf Graphic file (type pdf)
 
 <use filer/opgavebeskrivelse.pdf, page 2>
@@ -1813,69 +1823,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--11
 
  []
 
-) [4
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
 
 
-] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/kravspec.tex
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+[4
+
+
+]) [5] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/kravspec.tex
+<billeder/GeneralSystem.png, id=149, 348.55219pt x 232.61906pt>
+File: billeder/GeneralSystem.png Graphic file (type png)
+
+<use billeder/GeneralSystem.png>
+Package pdftex.def Info: billeder/GeneralSystem.png used on input line 6.
+(pdftex.def)             Requested size: 340.8013pt x 227.45753pt.
+ [6
+
+
+
+ <C:/Users/Nicolai/Documents/Bachelor/Forprojekt/billeder/GeneralSystem.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
+
+ []
+
+) [8] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/projektplan.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--36
-
- []
-
-[5
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--78
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
-
- []
-
-) [7] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/projektplan.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--3
-
- []
-
-[8
+[9
 
 
 
@@ -1884,7 +1911,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
-) [9] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/undersogelse.tex
+) [10] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/undersogelse.tex
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 2.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
@@ -1905,12 +1932,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--22
 
  []
 
-[10
+[11
 
 
 
 ] (C:\Users\Nicolai\Documents\Bachelor\Forprojekt\filer/konklusion.tex)
-[11
+[12
 
 
 
@@ -1933,18 +1960,18 @@ Package rerunfilecheck Warning: File `Master.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Master.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  DBD33C99B7812BEBB11F1BB89F4BD366;851.
+(rerunfilecheck)             Before: C863C7527C0126816D5741977E510D3F;851
+(rerunfilecheck)             After:  6FF65E2EE3A190F302447AB7E46B1E02;851.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 30.
  ) 
 Here is how much of TeX's memory you used:
- 22932 strings out of 493921
- 409539 string characters out of 3144870
- 677273 words of memory out of 3000000
- 25790 multiletter control sequences out of 15000+200000
- 23142 words of font info for 60 fonts, out of 3000000 for 9000
+ 22995 strings out of 493921
+ 411337 string characters out of 3144870
+ 683414 words of memory out of 3000000
+ 25827 multiletter control sequences out of 15000+200000
+ 25382 words of font info for 63 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
- 44i,18n,78p,455b,922s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,18n,78p,457b,922s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
 C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:
 /Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fil
@@ -1952,22 +1979,23 @@ es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/cm-super/sfrm2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/cm-super/sfti1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/c
-m-super/sftt1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman
-/ubkd8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.p
-fb>
-Output written on Master.pdf (11 pages, 641549 bytes).
+iKTeX 2.9/fonts/type1/public/cm-super/sfbi1000.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/cm-super/sfbx2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/cm-super/sfcc1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/cm-super/sfcc1728.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/cm-super/sfrm1000.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/cm-super/sfrm1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/cm-super/sfrm1200.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/c
+m-super/sfrm2074.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-s
+uper/sfti1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/cm-supe
+r/sftt1095.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkd8
+a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pfb>
+Output written on Master.pdf (12 pages, 706488 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
