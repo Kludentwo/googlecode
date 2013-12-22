@@ -25,14 +25,26 @@ Version & Description & Author & Date\\
 \end{tabular}
 \end{table}
 
-\section{Purpose and scope}
-Formål og omfang samt anvendelse.
+\section{Purpose}
+The purpose of this document is to present a detailed description of the Charcot foot prevention system. It thoroughly outlines and specifies the features, interfaces, purpose of the system as well as under which constraints the system will operate under.\\
+The intended audience of the document is the developers, the supervisor and Delta.\\
+
+\section{Scope of project}
+
 
 \section{References}
-Referencer
+Project description
 
 \section{Glossary}
-Ordforklaringer
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{7cm}|}
+\hline
+Term & Definition\\ \hline
+CDU & Abbreviation of "Central Data Unit", a key component in the system. \\ \hline
+Delta & The company which this project is made in collaboration with.\\ \hline
+\end{tabular}
+\end{table}
 
 \section{General description}
 
@@ -65,8 +77,6 @@ The following definitions are intended as a guideline to prioritize requirements
 \item Priority 4 - This requirement is purely "Nice-to-have" and will not be considered unless there is time to spare.
 \end{itemize}
 
-\subsection{Actor diagram}
-Visio actor diagramme.
 
 \subsection{Actors of the system}
 \begin{table}[H]
@@ -75,7 +85,7 @@ Visio actor diagramme.
 	\hline
 	Actor name & Central data unit \\ \hline
 	Type & Primary \\ \hline
-	Description & asdf dsdf \\ \hline
+	Description & The Central data unit is the main actor of the system. The Central data unit contacts sensors and manage data. It consists of a microcontroller and some memory for data. \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -83,16 +93,43 @@ Visio actor diagramme.
 	\centering
 	\begin{tabular}{|l|p{7cm}|}
 	\hline
-	Actor name & Sensors \\ \hline
-	Type & Primary \\ \hline
-	Description & asdf dsdf \\ \hline
+	Actor name & Sensor \\ \hline
+	Type & Secondary \\ \hline
+	Description & The sensor actor consists of a sensor, a microcontroller and a powercontrol unit. It responds to messages initiated by the central data unit.\\ \hline
 	\end{tabular}
 \end{table}
 
-\subsection{Use Case diagram}
-Visio again.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{7cm}|}
+	\hline
+	Actor name & Computer \\ \hline
+	Type & Secondary \\ \hline
+	Description & The computer can extract data from the central data unit. It is not intended as a control unit but mostly just for demonstration purposes. \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{7cm}|}
+	\hline
+	Actor name & Patient \\ \hline
+	Type & Primary \\ \hline
+	Description &  The patient set the system to run and initiates data extraction from the CDU.\\ \hline
+	\end{tabular}
+\end{table}
+
 
 \subsection{Use Case diagram}
+Below is shown the use case diagram.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/usecase_fig.png}
+\label{usecase_fig}
+\caption{Use case diagram}
+\end{figure}
+
+\subsection{Use Cases}
 \subsubsection{Read data from sensor \#X}
 \begin{table}[H]
 	\centering
