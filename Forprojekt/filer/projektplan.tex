@@ -1,15 +1,45 @@
 \chapter{Project planning}
-\textit{Udkast til projektplan, herunder beskrivelser af hvilke eksperimenter, teknologier mm der forventes udarbejdet i løbet af afgangsprojektet}\\
-
 \section{Time schedule}
-Below is shown the preliminary time schedule of the project. This schedule will change and must be versionized with every change.\\
-Aswell as updated with regards to time on tasks, tasks and details is okay to add and change.\\ 
+Below is shown the preliminary time schedule of the project. This schedule will change and must be versionized with every change and updated with regards to time on tasks, tasks and details is okay to add and change.\\ 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c |p{4cm} |c |c |c |c |c|}
+\hline 
+$\#$ & Task Name & Duration(d) & Start & Finish & Predecessor & Resources \\ 
+\hline 
+1 & System design & 15 days & 03-feb & 24-feb & none & NG \& JK \\ 
+\hline 
+2 & Technology dev and research & 20 days & 24-feb & 24-mar & $\#$1 & NG \& JK \\ 
+\hline 
+3 & Sensor dev & 40 days & 24-mar & 19-may & $\#$2 & NG \& JK \\ 
+\hline 
+4 & Central data collection unit dev & 40 days & 24-mar & 19-may & $\#$2 & NG \& JK \\ 
+\hline 
+5 & Finalize documentation & 10 days & 19-may & 02-jun & $\#$1,2,3,4 & NG \& JK \\ 
+\hline 
+6 & Report & 20 days & 19-may & 16-jun & $\#$1,2,3,4,(5) & NG \& JK \\ 
+\hline \hline
+~ & In total & 95 days & 03-feb & 16-jun & ~ & ~ \\ 
+\hline 
+\end{tabular} 
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/timeschedule.png}
+\caption{Time schedule}
+\end{figure}
 
 \section{Experiments}
-Måling på fødder med temperatursensorer
+\subsection{Determine the optimal placement for sensors}
+A possible extension of the project will be to apply the sensors to a foot and check whether the system works as intended. Before we can apply the sensors to a foot we need to find the optimal placement for the sensors. This can be done with an experiment where we look at heat maps of feet. This experiment will performed by someone other than us but we might use this data to extend our project.
+
+\subsection{Field test of sensor unit}
+It will be most natural to apply a sensor unit to a foot to determine the temperature of the foot. This way we will be able to determine if the sensor need to be applied directly to the skin or if they work by close proximity. 
 
 \section{Techologies}
-
+We want to implement a data communication line, bus or protocol. The technology will revolve around using as few wires as possible. 
 
 \section{Project organizing}
 This section describes organizing, planning and other practical aspects of the project.
@@ -26,7 +56,7 @@ One iteration will vary in time but must not exceed 3 weeks to ensure the agile 
 \subsection{Meetings}
 The project is divided into sprints of 1 week duration. This is to help ensure momentum and agility.\\
 Supervisor meetings: A minimum of one per week, preferably the same weekday: suggestion Monday.\\
-Daily group meetings: A minimum of 3 per week, preferably more. Suggestion: Thursday, Wednesday and Friday.
+Daily group meetings: A minimum of 3 per week, preferably more. Suggestion: Tuesday, Wednesday and Friday.
 
 \subsubsection{Weekly supervisor meetings agenda}
 \textit{This agenda is a guideline and may vary if the group see fit.}
