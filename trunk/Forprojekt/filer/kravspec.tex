@@ -28,6 +28,7 @@ Version & Description & Author & Date\\
 \section{Purpose}
 The purpose of this document is to present a detailed description of the Charcot foot prevention system. It thoroughly outlines and specifies the features, interfaces, purpose of the system as well as under which constraints the system will operate under.\\
 The intended audience of the document is the developers, the supervisor and Delta.\\
+The requirements of the system may only be changed after a review meeting with the group and stakeholders.\\
 
 \section{Scope of project}
 
@@ -59,8 +60,9 @@ Delta & The company which this project is made in collaboration with.\\ \hline
 Et device der skal påmonteres foden på en person der er disponeret til at udvikle Charcotfod. Devicet skal ud fra temperatur og aktivitetsniveau finde ud af om der er en fare for overbelastning. Hvis dette er tilfældet skal brugeren advares.
 
 \subsection{Constraints}
-
+\textit{Currently none.}
 \subsection{Dependencies}
+\textit{Currently none.}
 
 %\subsection{Prototype af UI eller GUI}
 
@@ -79,6 +81,9 @@ The following definitions are intended as a guideline to prioritize requirements
 
 
 \subsection{Actors of the system}
+
+\subsubsection{Primary actors}
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|p{7cm}|}
@@ -88,6 +93,18 @@ The following definitions are intended as a guideline to prioritize requirements
 	Description & The Central data unit is the main actor of the system. The Central data unit contacts sensors and manage data. It consists of a microcontroller and some memory for data. \\ \hline
 	\end{tabular}
 \end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{7cm}|}
+	\hline
+	Actor name & Patient \\ \hline
+	Type & Primary \\ \hline
+	Description &  The patient set the system to run and initiates data extraction from the CDU.\\ \hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Secondary actors}
 
 \begin{table}[H]
 	\centering
@@ -109,15 +126,7 @@ The following definitions are intended as a guideline to prioritize requirements
 	\end{tabular}
 \end{table}
 
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|p{7cm}|}
-	\hline
-	Actor name & Patient \\ \hline
-	Type & Primary \\ \hline
-	Description &  The patient set the system to run and initiates data extraction from the CDU.\\ \hline
-	\end{tabular}
-\end{table}
+
 
 
 \subsection{Use Case diagram}
@@ -130,47 +139,142 @@ Below is shown the use case diagram.
 \end{figure}
 
 \subsection{Use Cases}
-\subsubsection{Read data from sensor \#X}
+
+\subsubsection{Set system to normal operation}
+
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|l|p{7cm}|}
+	\begin{tabular}{|l|p{10cm}|}
 	\hline
-	Goal & asdf dsdf \\ \hline
-	Initialisation & asdf dsdf \\ \hline
-	Actors & asdf dsdf \\ \hline
-	Reference & asdf dsdf \\ \hline
-	\# of concurrent events & asdf dsdf \\ \hline
-	Prerequisite  & asdf dsdf \\ \hline
-	Post condition & asdf dsdf \\ \hline
-	\multirow{3}{*}{Main Scenario} & 1. Henning \\
-	& 2. Henning\\
-	& 3. Henning\\ \hline
-	\multirow{1}{*}{Exceptions} & 1. Henning \\ \hline
+	Goal 							& To set the system to normal operatio.n \\ \hline
+	Initialisation 					& The Patient initiates the use case. \\ \hline
+	\multirow{2}{*}{Actors} 		& Patient \\ 
+									& CDU \\ \hline
+	Reference 						& Get data from sensor \#X \\ \hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& The patient connect the sensors to the port on the CDU. \\ \hline
+	Post condition 					& The system is set to normal operation. \\ \hline
+	\multirow{5}{*}{Main Scenario} 	& 1. The patient clicks the  "ON"-button. \\
+	& 2. The CDU checks if the sensors are connected.\\
+	& 3. The CDU scans for sensors within address range and stores the addresses along with a sensor numbers.\\ 
+	& 4. The CDU checks if the memory is responding.\\
+	& 5. The CDU reads which memory space is being used from the memory.\\ \hline
+	\multirow{6}{*}{Exceptions} & 2a. The sensors are not connected \\ 
+								& - The CDU indicates an error and stops operation.\\											& 2b. There is no response from any sensor\\
+								& - The CDU indicates an error and stops operation. \\
+								& 4c. The memory is not responding\\
+								& - The CDU indicates an error and stops operation. \\ 
+								\hline
+	Priority					& 1\\\hline
 	\end{tabular}
 \end{table}
 
+\subsubsection{Get data from sensor \#X}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{10cm}|}
+	\hline
+	Goal 							& Collect data from a sensor. \\ \hline
+	Initialisation 					& The CDU runs a cycle and each cycle collects data from each sensor. The CDU then initiates the get data from sensor when it is time. \\ \hline
+	\multirow{2}{*}{Actors} 		& CDU \\ 
+									& Sensor \\ \hline
+	\multirow{2}{*}{Reference}		& Set system to normal operation \\ 
+									& Store data \\\hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& The usecase "Set system to normal operation" must have been completed. \\ \hline
+	Post condition 					& Data has been acquired from sensor \#X \\ \hline
+	\multirow{5}{*}{Main Scenario} 	& 1. The CDU determines which sensor to collect data from. \\
+	& 2. The CDU contacts the sensor with the correct address and a command to send data back.\\
+	& 3. The sensor responds with the data.\\ 
+	& 4. The CDU validates if the data is within reasonable range. \\
+	& 5. Initiates use case "Store data".\\ \hline
+	\multirow{8}{*}{Exceptions} & 2a. The CDU cannot send data \\ 
+								& - The CDU indicates an error and stops operation.\\											& 3b. There is no response from sensor\\
+								& - The CDU indicates an error and continues operation. \\
+								& 4c. The data is out of reasonable range.\\
+								& - The CDU reinitiates the use case "Collect data from a sensor". \\ 
+								& 4d. The data is out of reasonable range 3 times in a row with the same sensor. \\
+								& - The CDU indicates an error and continues operation.\\ \hline
+	Priority					& 1\\\hline
+	\end{tabular}
+\end{table}
 
-\subsection{System Features}
-Below is listed all functional requirements.
+\subsubsection{Store data}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{10cm}|}
+	\hline
+	Goal 							& Save the data on memory \\ \hline
+	Initialisation 					& The CDU initiates this use case once "Get data from \#X" has been completed. \\ \hline
+	\multirow{1}{*}{Actors} 		& CDU \\ \hline
+	Reference 						& Get data from sensor \#X. \\ \hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& The use case "Get data from sensor \#X" must have been completed. \\ \hline
+	Post condition 					& Data has been stored on memory \\ \hline
+	\multirow{4}{*}{Main Scenario} 	& 1. The CDU initiates the save data sequence because new data has been acquired from a sensor. \\
+									& 2. The CDU gives the data a timestamp and the correct sensor number.\\
+									& 3. The CDU transfers the data to the memory.\\ 
+									& 4. The CDU reads the data again from the memory to ensure the data has been stored correctly. \\ \hline
+	\multirow{4}{*}{Exceptions} & 3a. The CDU cannot transfer data. \\ 
+								& - The CDU indicates an error and stops operation.\\											& 4a. The data was not stored correctly. \\
+								& - The CDU reinitiates the "Store data" use case.\\\hline
+	Priority					& 1\\\hline
+	\end{tabular}
+\end{table}
 
-\subsubsection{Use cases}
+\subsubsection{Extract data from CDU}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{10cm}|}
+	\hline
+	Goal 							& Extract the data from CDU.\\ \hline
+	Initialisation 					& The patient connects the CDU to a computer. \\ \hline
+	\multirow{3}{*}{Actors} 		& Patient \\ 
+									& CDU \\
+									& Computer \\\hline
+	Reference 						& None \\ \hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& The system has been collecting data.\\ \hline
+	Post condition 					& The data has been transferred to a computer. \\ \hline
+	\multirow{4}{*}{Main Scenario} 	& 1. The patient disconnects the CDU from the sensors and connects it to the computer. \\
+									& 2. The patient opens the program to transfer data.\\
+									& 3. The patient sets up the program and sends the transfer command.\\ 
+									& 4. The CDU responds with the data. \\ \hline
+	\multirow{4}{*}{Exceptions} & 4a. The CDU does not respond. \\ 
+								& - The CDU and computer are not connected correctly.\\											& 4b. The CDU responds "There is no data". \\
+								& - There is not data on the CDU to respond with.\\\hline
+	Priority					& 3\\\hline
+	\end{tabular}
+\end{table}
+
 \section{Non functional requirements}
+Below is listed all non-functional requirements. \\
 
 \subsection{General requrements}
+\begin{itemize}
+\item The system should be simple and not be of any discomfort of the patient.
+\item The system should be small enough to have in a belt and a sock
+\end{itemize}
 
 \subsection{Temperature sensor requirements}
 
 \subsubsection{Functionality Requirements}
+\begin{itemize}
+\item \makebox[25ex][1]{Accuracy:}  <$0.5^o$
 
+\end{itemize}	
 \subsubsection{Hardware Requirements}
-Krav til hardware (if any)\\
+%Krav til hardware (if any)\\
+\begin{itemize}
+\item power consumption: \tab{<0.1W}
+\end{itemize}
 *Power consumption\\
 *Performance\\
 *Maintainability\\
 *Interfaces\\
 *Accuracy\\
 \subsubsection{Software Requirements}
-Krav til software (if any)\\
+%Krav til software (if any)\\
 *Performance\\
 *Maintainability\\
 *Interfaces\\
