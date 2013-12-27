@@ -44,6 +44,7 @@ Project description
 Term & Definition\\ \hline
 CDU & Abbreviation of "Central Data Unit", a key component in the system. \\ \hline
 Delta & The company which this project is made in collaboration with.\\ \hline
+BOM & Build Of Material abbreviation\\ \hline
 \end{tabular}
 \end{table}
 
@@ -251,61 +252,96 @@ Below is shown the use case diagram.
 Below is listed all non-functional requirements. \\
 
 \subsection{General requrements}
-\begin{itemize}
-\item The system should be simple and not be of any discomfort of the patient.
-\item The system should be small enough to have in a belt and a sock
-\end{itemize}
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ The system should be simple and not be of any discomfort of the patient. & \\
+$\bullet$ The system should be small enough to have on a belt or similar and in a sock or shoe. &\\
+$\bullet$ BOM Price & 40€\\
+\end{tabular}
+\end{table}
+
 
 \subsection{Temperature sensor requirements}
 
 \subsubsection{Functionality Requirements}
-\begin{itemize}
-\item \makebox[25ex][1]{Accuracy:}  <$0.5^o$
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ Accuracy: & <$0.5^o$C\\
+$\bullet$ Update rate: & 5 sec\\
+$\bullet$ Lifespan: & > 3 year\\
+\end{tabular}
+\end{table}
 
-\end{itemize}	
 \subsubsection{Hardware Requirements}
 %Krav til hardware (if any)\\
-\begin{itemize}
-\item power consumption: \tab{<0.1W}
-\end{itemize}
-*Power consumption\\
-*Performance\\
-*Maintainability\\
-*Interfaces\\
-*Accuracy\\
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ Power consumption: & <0.1W\\
+
+
+\end{tabular}
+\end{table}
+
+
 \subsubsection{Software Requirements}
 %Krav til software (if any)\\
-*Performance\\
-*Maintainability\\
-*Interfaces\\
-*Language??\\
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ Timer & Yes\\
+
+
+\end{tabular}
+\end{table}
+
 
 \subsubsection{External interfaces}
-N/A
-\subsection{Main data collection unit requirements}
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ 1 wire protocol & Yes\\
+$\bullet$ Wires in: & 1\\
+$\bullet$ Wires out: & 1\\
+\end{tabular}
+\end{table}
+
+\subsection{Central data unit requirements}
 
 \subsubsection{Functionality Requirements}
-
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ Cycle\footnotemark & 1 min\\
+\end{tabular}
+\end{table}
+\footnotetext{In a cycle the CDU will collect data once from all sensors}
 \subsubsection{Hardware Requirements}
-Krav til hardware (if any)\\
-*Power consumption\\
-*Performance\\
-*Maintainability\\
-*Interfaces\\
-*Accuracy\\
+%Krav til hardware (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ Power consumption: & <0.5W \footnotemark \\
+$\bullet$ Memory: & >1MB\footnotemark\\
+$\bullet$ Real time clock & Yes\\
+\end{tabular}
+\end{table}
+\footnotetext{Sensor supply excluded}
+\footnotetext{Or at least enough to store data for an entire day}
 
 \subsubsection{Software Requirements}
-Krav til software (if any)\\
-*Performance\\
-*Maintainability\\
-*Interfaces\\
-*Language??\\
+%Krav til software (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ None at the moment. & \\
+
+
+\end{tabular}
+\end{table}
+
 
 \subsubsection{External interfaces}
-*USB?\\
-*UART?\\
-*EEPROM?\\
-*Flash?\\
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ 1 wire protocol & Yes\\
+$\bullet$ CDU to computer interface & Yes\\
+\end{tabular}
+\end{table}
 
 \subsection{Project requirements}
 
@@ -329,77 +365,4 @@ Krav til software (if any)\\
 \item Report is written in LaTeX.
 \end{itemize}
 
-\section{Non functional requirements}
-(?) betyder at jeg ikke lige ved hvordan det skal specificeres eller om det overhovedet er et reelt krav.\\
-\subsection{system requirements }
-%%%%%%%%%%%%%%%%%%%%
-% Generelle krav %
-%%%%%%%%%%%%%%%%%%%%
-General Requirements:\\
-\begin{itemize}
-\item Systemet skal have en levetid på 1-3 år(specificitet)
-\item Der skal tænkes på fremstillingspris(?)
-\end{itemize}
-%%%%%%%%%%%%%%%%%%%%
-% Sensor krav %
-%%%%%%%%%%%%%%%%%%%%
-Sensor requirements:\\
-\begin{itemize}
-\item Målesensoren skal have en nøjagtighed på $\pm0.5 ^{\circ}C$
-\item Accelerometer
-\item Kalibrering(?)
-\end{itemize}
-%%%%%%%%%%%%%%%%%%%%
-% Central dataopsamling%
-%%%%%%%%%%%%%%%%%%%%
-Central data collection unit:\\
-\begin{itemize}
-\item Clock speed
-\item GPIO amount
-\end{itemize}
-
-%Teksturdesign:\\
-%\begin{itemize}
-%\item Sokken skal være meget elastisk(?)
-%\item Sokken skal kunne anvendes hele dagen(?)
-%\item Sokken skal kunne avnendes med fodtøj(?)
-%\item Sokken skal kunne rengøres (?)
-%\end{itemize}
-
-\subsection{Communication requirements}
-\begin{itemize}
-\item 0 - 12 VDC $\pm$0.5VDC
-\item 500 mA $\pm$25mA
-\end{itemize}
-
-\subsection{Interfaces Requirements}
-prototyper af PC og/eller smartphone\\
-Datastik så data kan tages ud af enheden for debugging purpose.\\
-
-\subsection{Development and technology requirements }
-V-model:\\
-\begin{itemize}
-\item Modificeret Scrum til styringsprocessen for sprint mellem hver projektmilestone
-\item Henvisning til tidsplan og milestones
-\end{itemize}
-
-Documentation:\\
-\begin{itemize}
-\item Engelsk
-\item SysML
-\end{itemize}
-
-Technologies and tools:\\
-\begin{itemize}
-\item Matlab
-\item Maple/Mathcad
-\item Microsoft Visio 2010/2013
-\item TortoiseSVN
-\item TeXmaker
-\end{itemize}
-
-Misc:\\
-\begin{itemize}
-\item Report is written in LaTeX.
-\end{itemize}
 \section{List of figures}
