@@ -53,12 +53,19 @@ BOM & Build Of Material abbreviation\\ \hline
 \subsection{General System}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{billeder/GeneralSystem}
+	\includegraphics[width=1\textwidth]{billeder/GeneralSystem}
 	\caption{General System}
 \end{figure}
 
 \subsection{System description}
 Et device der skal påmonteres foden på en person der er disponeret til at udvikle Charcotfod. Devicet skal ud fra temperatur og aktivitetsniveau finde ud af om der er en fare for overbelastning. Hvis dette er tilfældet skal brugeren advares.
+
+\subsubsection{Central data unit description}
+The central data unit communicates with the sensor nodes to collect data from each node. This data is stored on the CDU's memory with a time stamp and sensor node identifier.\\
+The CDU can transfer the data to a computer. This communication can be wired or wireless but this may be implemented solely as a feature for this project and not the final product, which is an excluded feature for this project.
+
+\subsubsection{Sensor node description}
+The sensor node is in general a generic sensor which contains two functionalities. It contains the custom 1-wire protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. one wire in and is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
 
 \subsection{Constraints}
 \textit{Currently none.}
@@ -265,9 +272,9 @@ $\bullet$ BOM Price & 40€\\
 
 \subsubsection{Functionality Requirements}
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
+\begin{tabular}{p{8cm} p{5cm}}
 $\bullet$ Accuracy: & <$0.5^o$C\\
-$\bullet$ Update rate: & 5 sec\\
+$\bullet$ Update rate: & min. once per CDU cycle\\
 $\bullet$ Lifespan: & > 3 year\\
 \end{tabular}
 \end{table}
@@ -275,8 +282,8 @@ $\bullet$ Lifespan: & > 3 year\\
 \subsubsection{Hardware Requirements}
 %Krav til hardware (if any)\\
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ Power consumption: & <0.1W\\
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Power consumption: & <0.05W\\
 
 
 \end{tabular}
@@ -286,8 +293,8 @@ $\bullet$ Power consumption: & <0.1W\\
 \subsubsection{Software Requirements}
 %Krav til software (if any)\\
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ Timer & Yes\\
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Timer: & Yes\\
 
 
 \end{tabular}
@@ -296,8 +303,8 @@ $\bullet$ Timer & Yes\\
 
 \subsubsection{External interfaces}
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ 1 wire protocol & Yes\\
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ 1 wire protocol: & Yes\\
 $\bullet$ Wires in: & 1\\
 $\bullet$ Wires out: & 1\\
 \end{tabular}
@@ -307,18 +314,18 @@ $\bullet$ Wires out: & 1\\
 
 \subsubsection{Functionality Requirements}
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ Cycle\footnotemark & 1 min\\
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Cycle\footnotemark: & 1 min\\
 \end{tabular}
 \end{table}
 \footnotetext{In a cycle the CDU will collect data once from all sensors}
 \subsubsection{Hardware Requirements}
 %Krav til hardware (if any)\\
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
+\begin{tabular}{p{8cm} p{2cm}}
 $\bullet$ Power consumption: & <0.5W \footnotemark \\
 $\bullet$ Memory: & >1MB\footnotemark\\
-$\bullet$ Real time clock & Yes\\
+$\bullet$ Real time clock: & Yes\\
 \end{tabular}
 \end{table}
 \footnotetext{Sensor supply excluded}
@@ -327,7 +334,7 @@ $\bullet$ Real time clock & Yes\\
 \subsubsection{Software Requirements}
 %Krav til software (if any)\\
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
+\begin{tabular}{p{8cm} p{2cm}}
 $\bullet$ Save entries must contain: &Sensor nr. \\
 ~ 									&Temperature. \\
 ~									&Timestamp. \\
@@ -339,9 +346,9 @@ $\bullet$ Save entries must contain: &Sensor nr. \\
 
 \subsubsection{External interfaces}
 \begin{table}[H]
-\begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ 1 wire protocol & Yes\\
-$\bullet$ CDU to computer interface & Yes\\
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ 1 wire protocol: & Yes\\
+$\bullet$ CDU to computer interface: & Yes\\
 \end{tabular}
 \end{table}
 
@@ -367,4 +374,3 @@ $\bullet$ CDU to computer interface & Yes\\
 \item Report is written in LaTeX.
 \end{itemize}
 
-\section{List of figures}

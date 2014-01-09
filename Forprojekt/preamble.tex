@@ -70,7 +70,7 @@
 % ¤¤ Indholdsfortegnelse ¤¤ %
 \setsecnumdepth{subsection}		 			% Dybden af nummerede overkrifter (part/chapter/section/subsection)
 \maxsecnumdepth{subsection}					% Dokumentklassens graense for nummereringsdybde
-\settocdepth{subsection} 					% Dybden af indholdsfortegnelsen
+\settocdepth{section} 					% Dybden af indholdsfortegnelsen
 
 % ¤¤ Lister ¤¤ %
 \setlist{
@@ -150,10 +150,10 @@
 
 \makeevenhead{IHA}{}{}{\leftmark}				% Definerer lige siders sidehoved (\makeevenhead{Navn}{Venstre}{Center}{Hoejre})
 \makeoddhead{IHA}{\rightmark}{}{Ingeniørhøjskolen i Aarhus}		% Definerer ulige siders sidehoved (\makeoddhead{Navn}{Venstre}{Center}{Hoejre})
-\makeevenfoot{IHA}{\thepage}{}{}							% Definerer lige siders sidefod (\makeevenfoot{Navn}{Venstre}{Center}{Hoejre})
-\makeoddfoot{IHA}{}{}{\thepage}								% Definerer ulige siders sidefod (\makeoddfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeevenfoot{IHA}{}{\thepage}{}							% Definerer lige siders sidefod (\makeevenfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeoddfoot{IHA}{}{\thepage}{}								% Definerer ulige siders sidefod (\makeoddfoot{Navn}{Venstre}{Center}{Hoejre})
 \makeheadrule{IHA}{\textwidth}{0.5pt}						% Tilfoejer en streg under sidehovedets indhold
-\makefootrule{IHA}{\textwidth}{0.5pt}{1mm}					% Tilfoejer en streg under sidefodens indhold
+%\makefootrule{IHA}{\textwidth}{0.5pt}{1mm}					% Tilfoejer en streg under sidefodens indhold
 
 \copypagestyle{IHAchap}{IHA}								% Sidehoved for kapitelsider defineres som standardsider, men med blank sidehoved
 \makeoddhead{IHAchap}{}{}{}
