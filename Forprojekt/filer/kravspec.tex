@@ -46,7 +46,7 @@ $\bullet$ Project description
 \begin{tabular}{|p{4cm}|p{7cm}|}
 \hline
 Term & Definition\\ \hline
-CDU & Abbreviation of "Central Data Unit", a key component in the system. \\ \hline
+CDU & Abbreviation of "Central data unit", a key component in the system. \\ \hline
 Delta & The company which this project is made in collaboration with.\\ \hline
 BOM & Build Of Material abbreviation\\ \hline
 \end{tabular}
@@ -62,14 +62,14 @@ BOM & Build Of Material abbreviation\\ \hline
 \end{figure}
 
 \subsection{General system description}
-The system will be mounted on and around the foot of a person who is likely to develop Charcot foot. The system will process data from temperature- and activity sensors to determine whether there is a danger of overloading of the foot and joint. If overloading is imminent the user will be warned.
+The system will be mounted on and around the foot of a person who is likely to develop Charcot foot. The system will process data from temperature- and accelerometer sensors to determine whether there is a danger of overloading of the foot and joint. If overloading is imminent the user will be warned.
 
 \subsubsection{Central data unit description}
-The central data unit communicates with the sensor nodes to collect data from each node. This data is stored in the CDU's memory with a time stamp and sensor node identifier.\\
+The Central data unit communicates with the sensor nodes to collect data from each node. This data is stored on the CDU's memory with a time stamp and sensor node identifier.\\
 The CDU can transfer the data to a computer. This communication can be wired or wireless but this may be implemented solely as a feature for this project and not the final product, which is an excluded feature for this project.
 
 \subsubsection{Sensor node description}
-The sensor node is in general a generic sensor which contains two functionalities. It contains the custom 1-wire protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. one wire in and is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
+The sensor node is in general a generic sensor which contains two functionalities. It contains the custom 1-wire protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. the one wire and it is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
 
 \subsection{Constraints}
 \textit{Currently none.}
@@ -91,6 +91,14 @@ The following definitions are intended as a guideline to prioritize requirements
 \item Priority 4 - This requirement is purely "Nice-to-have" and will not be considered unless there is time to spare.
 \end{itemize}
 
+\subsection{Use Case diagram}
+Below is shown the use case diagram.
+\begin{figure}[H]
+\centering
+\includegraphics*[width=.7\textwidth]{billeder/UseCase_vector}
+\label{usecase_fig}
+\caption{Use case diagram}
+\end{figure}
 
 \subsection{Actors of the system}
 
@@ -124,7 +132,7 @@ The following definitions are intended as a guideline to prioritize requirements
 	\hline
 	Actor name & Sensor \\ \hline
 	Type & Secondary \\ \hline
-	Description & The sensor actor consists of a sensor, a microcontroller and a powercontrol unit. It responds to messages initiated by the central data unit.\\ \hline
+	Description & This actor consists of a sensor, a microcontroller and a powercontrol unit. It responds to messages initiated by the Central data unit.\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -134,21 +142,14 @@ The following definitions are intended as a guideline to prioritize requirements
 	\hline
 	Actor name & Computer \\ \hline
 	Type & Secondary \\ \hline
-	Description & The computer can extract data from the central data unit. It is not intended as a control unit but mostly just for demonstration purposes. \\ \hline
+	Description & The computer can extract data from the Central data unit. It is not intended as a control unit but mostly just for demonstration and debug purposes. \\ \hline
 	\end{tabular}
 \end{table}
 
 
 
 
-\subsection{Use Case diagram}
-Below is shown the use case diagram.
-\begin{figure}[H]
-\centering
-\includegraphics*[width=.7\textwidth]{billeder/UseCase_vector}
-\label{usecase_fig}
-\caption{Use case diagram}
-\end{figure}
+
 
 \subsection{Use Cases}
 
@@ -168,7 +169,7 @@ Below is shown the use case diagram.
 	Post condition 					& The system is set to normal operation. \\ \hline
 	\multirow{5}{*}{Main Scenario} 	& 1. The patient clicks the  "ON"-button. \\
 	& 2. The CDU checks if the sensors are connected.\\
-	& 3. The CDU scans for sensors within address range and stores the addresses along with a sensor numbers.\\ 
+	& 3. The CDU scans for sensors within address range and  stores the addresses along with a sensor identifier.\\ 
 	& 4. The CDU checks if the memory is responding.\\
 	& 5. The CDU reads which memory space is being used from the memory.\\ \hline
 	\multirow{6}{*}{Exceptions} & 2a. The sensors are not connected \\ 
@@ -187,7 +188,7 @@ Below is shown the use case diagram.
 	\begin{tabular}{|l|p{10cm}|}
 	\hline
 	Goal 							& Collect data from a sensor. \\ \hline
-	Initialisation 					& The CDU runs a cycle and each cycle collects data from each sensor. The CDU then initiates the get data from sensor when it is time. \\ \hline
+	Initialisation 					& The CDU runs a cycle and each cycle collects data once from each sensor. The CDU then initiates the get data from sensor when it is time. \\ \hline
 	\multirow{2}{*}{Actors} 		& CDU \\ 
 									& Sensor \\ \hline
 	\multirow{2}{*}{Reference}		& Set system to normal operation \\ 
@@ -196,7 +197,7 @@ Below is shown the use case diagram.
 	Prerequisite  					& The usecase "Set system to normal operation" must have been completed. \\ \hline
 	Post condition 					& Data has been acquired from sensor \#X \\ \hline
 	\multirow{5}{*}{Main Scenario} 	& 1. The CDU determines which sensor to collect data from. \\
-	& 2. The CDU contacts the sensor with the correct address and a command to send data back.\\
+	& 2. The CDU contacts the sensor with the correct address  and a command to send data back.\\
 	& 3. The sensor responds with the data.\\ 
 	& 4. The CDU validates if the data is within reasonable range. \\
 	& 5. Initiates use case "Store data".\\ \hline
@@ -204,7 +205,7 @@ Below is shown the use case diagram.
 								& - The CDU indicates an error and stops operation.\\											& 3b. There is no response from sensor\\
 								& - The CDU indicates an error and continues operation. \\
 								& 4c. The data is out of reasonable range.\\
-								& - The CDU reinitiates the use case "Collect data from a sensor". \\ 
+								& - The CDU reinitiates the use case "Get data from sensor \#X ". \\ 
 								& 4d. The data is out of reasonable range 3 times in a row with the same sensor. \\
 								& - The CDU indicates an error and continues operation.\\ \hline
 	Priority					& 1\\\hline
@@ -216,7 +217,7 @@ Below is shown the use case diagram.
 	\centering
 	\begin{tabular}{|l|p{10cm}|}
 	\hline
-	Goal 							& Save the data on memory \\ \hline
+	Goal 							& Save the data in memory \\ \hline
 	Initialisation 					& The CDU initiates this use case once "Get data from \#X" has been completed. \\ \hline
 	\multirow{1}{*}{Actors} 		& CDU \\ \hline
 	Reference 						& Get data from sensor \#X. \\ \hline
@@ -246,7 +247,7 @@ Below is shown the use case diagram.
 									& Computer \\\hline
 	Reference 						& None \\ \hline
 	\# of concurrent events 		& 1 \\ \hline
-	Prerequisite  					& The system has been collecting data.\\ \hline
+	Prerequisite  					& None \\ \hline
 	Post condition 					& The data has been transferred to a computer. \\ \hline
 	\multirow{4}{*}{Main Scenario} 	& 1. The patient disconnects the CDU from the sensors and connects it to the computer. \\
 									& 2. The patient opens the program to transfer data.\\
@@ -266,20 +267,20 @@ Below is listed all non-functional requirements. \\
 \begin{table}[H]
 \begin{tabular}{p{10cm} p{2cm}}
 $\bullet$ The system should be simple and not be of any discomfort of the patient. & \\
-$\bullet$ The system should be small enough to have on a belt or similar and in a sock or shoe. &\\
+$\bullet$ The system should be small enough to have on a belt or similar and in a sock or insole. &\\
 $\bullet$ BOM Price & 40€\\
 \end{tabular}
 \end{table}
 
 
-\subsection{Temperature sensor requirements}
+\subsection{Sensor requirements}
 
 \subsubsection{Functionality Requirements}
 \begin{table}[H]
 \begin{tabular}{p{8cm} p{5cm}}
-$\bullet$ Accuracy: & <$0.5^o$C\\
+$\bullet$ Temperature accuracy: & <$0.5^o$C\\
 $\bullet$ Update rate: & min. once per CDU cycle\\
-$\bullet$ Lifespan: & > 3 year\\
+$\bullet$ Lifespan: & > 3 years\\
 \end{tabular}
 \end{table}
 
@@ -298,7 +299,7 @@ $\bullet$ Power consumption: & <0.05W\\
 %Krav til software (if any)\\
 \begin{table}[H]
 \begin{tabular}{p{8cm} p{2cm}}
-$\bullet$ Timer: & Yes\\
+$\bullet$ & None\\
 
 
 \end{tabular}
@@ -339,7 +340,7 @@ $\bullet$ Real time clock: & Yes\\
 %Krav til software (if any)\\
 \begin{table}[H]
 \begin{tabular}{p{8cm} p{2cm}}
-$\bullet$ Save entries must contain: &Sensor nr. \\
+$\bullet$ Save entries must contain: &Sensor identifier. \\
 ~ 									&Temperature. \\
 ~									&Timestamp. \\
 
@@ -360,7 +361,7 @@ $\bullet$ CDU to computer interface: & Yes\\
 
 \subsubsection{Documentation}
 \begin{itemize}
-\item Engelsk
+\item English
 \item SysML
 \end{itemize}
 
