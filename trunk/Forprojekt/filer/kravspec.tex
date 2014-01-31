@@ -175,7 +175,7 @@ Below is shown the use case diagram.
 	\multirow{6}{*}{Exceptions} & 2a. The sensors are not connected \\ 
 								& - The CDU indicates an error and stops operation.\\											& 2b. There is no response from any sensor\\
 								& - The CDU indicates an error and stops operation. \\
-								& 4c. The memory is not responding\\
+								& 4a. The memory is not responding\\
 								& - The CDU indicates an error and stops operation. \\ 
 								\hline
 	Priority					& 1\\\hline
@@ -202,11 +202,11 @@ Below is shown the use case diagram.
 	& 4. The CDU validates if the data is within reasonable range. \\
 	& 5. Initiates use case "Store data".\\ \hline
 	\multirow{8}{*}{Exceptions} & 2a. The CDU cannot send data \\ 
-								& - The CDU indicates an error and stops operation.\\											& 3b. There is no response from sensor\\
+								& - The CDU indicates an error and stops operation.\\											& 3a. There is no response from sensor\\
 								& - The CDU indicates an error and continues operation. \\
-								& 4c. The data is out of reasonable range.\\
+								& 4a. The data is out of reasonable range.\\
 								& - The CDU reinitiates the use case "Get data from sensor \#X ". \\ 
-								& 4d. The data is out of reasonable range 3 times in a row with the same sensor. \\
+								& 4b. The data is out of reasonable range 3 times in a row with the same sensor. \\
 								& - The CDU indicates an error and continues operation.\\ \hline
 	Priority					& 1\\\hline
 	\end{tabular}
