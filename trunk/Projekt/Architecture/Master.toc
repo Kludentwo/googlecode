@@ -6,8 +6,14 @@
 \contentsline {section}{\numberline {1.2}Purpose}{3}{section.1.2}
 \contentsline {section}{\numberline {1.3}Scope}{3}{section.1.3}
 \contentsline {section}{\numberline {1.4}References}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Glossary}{3}{section.1.5}
-\contentsline {chapter}{\chapternumberline {2}Structural architecture}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introduction}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}System breakdown}{4}{section.2.2}
-\contentsline {chapter}{\chapternumberline {3}Behavorial architecture}{5}{chapter.3}
+\contentsline {section}{\numberline {1.5}Glossary \& abbreviations}{3}{section.1.5}
+\contentsline {chapter}{\chapternumberline {2}Architecture background}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Solution summary}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Architectural goals}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Constraints}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}Considerations}{4}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}Structural view}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}System overview}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Responsibility}{5}{subsection.3.2.1}
+\contentsline {chapter}{\chapternumberline {4}Behavorial architecture}{6}{chapter.4}
