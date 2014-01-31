@@ -1,7 +1,25 @@
-\chapter{Structural architecture}
+\chapter{Structural view}
 
 \section{Introduction}
 This chapter describes the structural architecture of the system in a top down approach.\\
+The blocks are derived from previous documentation.
 
-\section{System breakdown}
+
+\section{System overview}
+The system consist of a central data unit and n number of sensors.
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/systembdd}
+\caption{System block definition diagram}
+\label{systembdd}
+\end{figure}
+
+\subsection{Block responsibility}
+\subsubsection{CDU}
+The CDU contact each sensor to collect the data values. This is the stored for later extraction.
+
+\subsubsection{Sensor n}
+The sensor measures a physical or biometric parameter such as temperature, movement, humidity etc.
+
+
 

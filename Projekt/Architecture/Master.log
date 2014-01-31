@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  31 JAN 2014 08:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  31 JAN 2014 10:14
 entering extended mode
 **Master.tex
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\Master.tex"
@@ -1651,6 +1651,8 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 87.
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/forside.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/introduction.a
 ux")
+("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/architectureba
+ckground.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/structuralArch
 itecture.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/behavorialArch
@@ -1758,13 +1760,23 @@ Overfull \hbox (3.82867pt too wide) in paragraph at lines 4--11
 [][] 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
 ) [3
 
 
 ]
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/structuralArch
-itecture.tex"
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
+("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/architectureba
+ckground.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
@@ -1773,60 +1785,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
 
 ]
+("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/structuralArch
+itecture.tex" <billeder/systembdd.pdf, id=112, 300.3722pt x 181.42781pt>
+File: billeder/systembdd.pdf Graphic file (type pdf)
+
+<use billeder/systembdd.pdf>
+Package pdftex.def Info: billeder/systembdd.pdf used on input line 12.
+(pdftex.def)             Requested size: 383.3974pt x 231.59561pt.
+) [5
+
+
+
+ <C:/Users/Johnny Kristensen/Bachelor/Projekt/Architecture/billeder/systembdd.p
+df>]
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/behavorialArch
-itecture.tex") [5
+itecture.tex") [6
 
 
 
 ]
 \tf@toc=\write5
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 16.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 16.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 17.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 17.
 
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\Master.aux"
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/forside.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/introduction.a
 ux")
+("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/architectureba
+ckground.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/structuralArch
 itecture.aux")
 ("C:\Users\Johnny Kristensen\Bachelor\Projekt\Architecture\filer/behavorialArch
 itecture.aux"))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 16.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 16.
-
-
-Package rerunfilecheck Warning: File `Master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Master.out':
-(rerunfilecheck)             Before: 23760591ED35D1D2585B949C85795EF9;551
-(rerunfilecheck)             After:  00E482DA5AC9F87D2838F0BDBF6D33DE;615.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 16.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 17.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 17.
+Package rerunfilecheck Info: File `Master.out' has not changed.
+(rerunfilecheck)             Checksum: 5A62E4363C048C4D3286FD1D2FEE8DD0;937.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 17.
  ) 
 Here is how much of TeX's memory you used:
- 22814 strings out of 493921
- 405683 string characters out of 3147246
- 692905 words of memory out of 3000000
- 25691 multiletter control sequences out of 15000+200000
- 23092 words of font info for 59 fonts, out of 3000000 for 9000
+ 22867 strings out of 493921
+ 406897 string characters out of 3147246
+ 695185 words of memory out of 3000000
+ 25722 multiletter control sequences out of 15000+200000
+ 26108 words of font info for 63 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
  44i,12n,78p,10496b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Pro
 gram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/cm-super/sfbx1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/cm-super/sfcc1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-s
-uper/sfcc1728.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm
-1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1200.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1095.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfxc1440.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/cm-super/sfxc2074.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/bookman/ubkd8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
-rw/bookman/ubkl8a.pfb>
-Output written on Master.pdf (5 pages, 157568 bytes).
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/cm-super/sfbi1000.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-
+super/sfbx1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfb
+x1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1200.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc1728.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/cm-super/sfti1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/cm-super/sfxc1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-su
+per/sfxc2074.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/bookman/ubkd8a.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/bookman/ubkl8a.pfb>
+Output written on Master.pdf (6 pages, 303669 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 
