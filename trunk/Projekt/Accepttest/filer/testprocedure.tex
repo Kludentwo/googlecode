@@ -11,67 +11,105 @@ The results are reported in the following way:
 
 \subsection{Test case 1: Set system to normal operation}
 \begin{table}[H]
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|l|p{7cm}|}
     \hline
     Use case in testing & Set system to normal operation \\ \hline
-    Prerequisite: & ~ \\ \hline
+    Prerequisite: & Sensors are connected to the CDU. \\ \hline
     \end{tabular}
 \end{table}
 
 \subsubsection{Main scenario}
 \begin{table}[H]
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
     \hline
     Step & Action & Expected observation/result & Result \\ \hline
-    1 & ~ & ~ & ~ \\ \hline
-    2 & ~ & ~ & ~ \\ \hline
-    n & ~ & ~ & ~ \\ \hline
+    1 & The patient clicks the "ON"-button & CDU begins to power up & ~ \\ \hline
+    2 & The CDU check if the sensors are connected & Action is indicated & ~ \\ \hline
+    3 & The CDU scans for sensors within address range and stores the addresses along with a sensor identifier & Action is indicated & ~ \\ \hline
+    4 & The CDU checks if the memory is responding & Action is indicated & ~ \\ \hline
+    5 & The CDU reads which memory space is being used from memory & Action is indicated & ~ \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Exceptions}
+\begin{table}[H]
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
+    \hline
+    Step & Action & Expected observation/result & Result \\ \hline
+    2a & The CDU check if the sensors are connected and the sensors are not connected & Error is indicated and operation halted & ~ \\ \hline
+    2b & The CDU check if the sensors are connected and no sensor responds & Error is indicated and operation halted & ~ \\ \hline
+    4a & The CDU checks if the memory is responding and the memory is not responding & Error is indicated and operation halted & ~ \\ \hline
     \end{tabular}
 \end{table}
 
 \subsection{Test case 2: Get data from sensor \#X}
 \begin{table}[H]
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|l|p{7cm}|}
     \hline
     Use case in testing & Set system to normal operation \\ \hline
-    Prerequisite: & ~ \\ \hline
+    Prerequisite: & Use case "Set system to normal operation" must have been completed \\ \hline
     \end{tabular}
 \end{table}
 
 \subsubsection{Main scenario}
 \begin{table}[H]
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
     \hline
     Step & Action & Expected observation/result & Result \\ \hline
-    1 & ~ & ~ & ~ \\ \hline
-    2 & ~ & ~ & ~ \\ \hline
-    n & ~ & ~ & ~ \\ \hline
+    1 & The CDU determines which sensor to collect data from & A sensor is chosen & ~ \\ \hline
+    2 & The CDU contacts the sensor with the correct address and a command to send data back & The addressed sensor is ready to send data back & ~ \\ \hline
+    3 & The sensor responds with the data & data is recieved by the CDU & ~ \\ \hline
+    4 & The CDU validates if the data is within reasonable range & data is within reasonable range & ~ \\ \hline
+    5 & the CDU initiates use case "Store data" & The use case is initiated & ~ \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Exceptions}
+\begin{table}[H]
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
+    \hline
+    Step & Action & Expected observation/result & Result \\ \hline
+    2a & The CDU contacts the sensor with the correct address and a command to send data back and the CDU cannot send data & Error is indicated and operation halted & ~ \\ \hline
+    3a & The sensor does not respond with the data & Error is indicated and operation continues & ~ \\ \hline
+    4a & The CDU validates if the data is within reasonable range and data is out of reasonable range & The CDU reinitiates the use case "Get data from sensor \#X " & ~ \\ \hline
+    4b & The CDU validates if the data is within reasonable range and data is out of reasonable range 3 times in a row & Error is indicated and operation continues & ~ \\ \hline
     \end{tabular}
 \end{table}
 
 \subsection{Test case 3: Store data}
 \begin{table}[H]
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|l|p{7cm}|}
     \hline
     Use case in testing & Set system to normal operation \\ \hline
-    Prerequisite: & ~ \\ \hline
+    Prerequisite: & The use case "Get data from sensor \#X" must have been completed. \\ \hline
     \end{tabular}
 \end{table}
 
 \subsubsection{Main scenario}
 \begin{table}[H]
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
     \hline
     Step & Action & Expected observation/result & Result \\ \hline
-    1 & ~ & ~ & ~ \\ \hline
-    2 & ~ & ~ & ~ \\ \hline
-    n & ~ & ~ & ~ \\ \hline
+    1 & The CDU initiates the save data sequence because new data have been acquired from a sensor & The sequency has been initiated & ~ \\ \hline
+    2 & The CDU gives the data a timestamp and the correct sensor number & A timestamp and the correct sensor number was added to the data. & ~ \\ \hline
+    3 & The CDU transfers the data to the memory & data has been transferred to the memory & ~ \\ \hline
+    4 & The CDU reads the data again from the memory to ensure the data has been stored correctly. & Data was stored correctly. & ~ \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Exceptions}
+\begin{table}[H]
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
+    \hline
+    Step & Action & Expected observation/result & Result \\ \hline
+    3a & The CDU transfers the data to the memory and the CDU cannot transfer data & Error is indicated and operation halted & ~ \\ \hline
+    4a & The CDU reads the data again from the memory to ensure the data has been stored correctly and the data was not stored correctly & The CDU reinitiated the "Store data" use case & ~ \\ \hline
     \end{tabular}
 \end{table}
 
 \subsection{Test case 4: Extract data from CDU}
 \begin{table}[H]
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|l|p{7cm}|}
     \hline
     Use case in testing & Set system to normal operation \\ \hline
     Prerequisite: & ~ \\ \hline
@@ -80,11 +118,22 @@ The results are reported in the following way:
 
 \subsubsection{Main scenario}
 \begin{table}[H]
-    \begin{tabular}{|l|l|l|l|}
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
     \hline
     Step & Action & Expected observation/result & Result \\ \hline
-    1 & ~ & ~ & ~ \\ \hline
-    2 & ~ & ~ & ~ \\ \hline
-    n & ~ & ~ & ~ \\ \hline
+    1 & The patient disconnects the CDU from the sensors and connects it to the computer & The CDU has been connected to the computer & ~ \\ \hline
+    2 & the patient opens the program to transfer data & The program is open on the computer & ~ \\ \hline
+    3 & The patient sets up the program and sends the transfer command. & The program has been set up and the transfer command has been sent. & ~ \\ \hline
+    4 & The CDU responds with the data. & Data has been sent by the CDU. & ~ \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Exceptions}
+\begin{table}[H]
+    \begin{tabular}{|l|p{7cm}|p{5cm}|l|}
+    \hline
+    Step & Action & Expected observation/result & Result \\ \hline
+    4a & The CDU responds with the data and the CDU does not respond & An error is displayed that the CDU and computer are not connected correctly & ~ \\ \hline
+    4b & The CDU responds with the data and the CDU responds "There is no data". & An error is displayed that the CDU has no data to respond with. & ~ \\ \hline
     \end{tabular}
 \end{table}
