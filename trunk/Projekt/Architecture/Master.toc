@@ -15,5 +15,7 @@
 \contentsline {chapter}{\chapternumberline {3}Structural view}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introduction}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}System overview}{5}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Responsibility}{5}{subsection.3.2.1}
-\contentsline {chapter}{\chapternumberline {4}Behavorial architecture}{6}{chapter.4}
+\contentsline {subsection}{\numberline {3.2.1}Block responsibility}{5}{subsection.3.2.1}
+\contentsline {subsubsection}{CDU}{5}{section*.2}
+\contentsline {subsubsection}{Sensor n}{5}{section*.3}
+\contentsline {chapter}{\chapternumberline {4}Behavorial view}{6}{chapter.4}
