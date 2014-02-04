@@ -18,4 +18,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Block responsibility}{5}{subsection.3.2.1}
 \contentsline {subsubsection}{CDU}{5}{section*.2}
 \contentsline {subsubsection}{Sensor n}{5}{section*.3}
-\contentsline {chapter}{\chapternumberline {4}Behavorial view}{6}{chapter.4}
+\contentsline {section}{\numberline {3.3}Detailed block overview}{6}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}CDU}{6}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Sensor n}{6}{subsection.3.3.2}
+\contentsline {chapter}{\chapternumberline {4}Behavorial view}{8}{chapter.4}
