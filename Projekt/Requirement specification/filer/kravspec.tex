@@ -1,0 +1,266 @@
+%A good requirement is:
+%*Correct
+%*Unambiguous (all statements have exactly one interpretation)
+%*Complete (where TBDs are absolutely necessary, document why the information is unknown, who is responsible for resolution, and the deadline)
+%*Consistent
+%*Ranked for importance and/or stability
+%*Verifiable (avoid soft descriptions like “works well”, “is #user frndly”; use concrete terms and specify measurable #quantities)
+%*Modifiable (evolve the Requirements Specification only via a #formal change process, preserving a complete audit trail of #changes)
+%*Does not specify any particular design
+%*Traceable (cross-reference with source documents and spawned documents).
+
+
+
+
+\chapter{Requirement specification}
+\section{General description}
+
+\subsection{General System}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/GeneralSystem}
+	\caption{General System}
+\end{figure}
+
+\subsection{General system description}
+The system will be mounted on and around the foot of a person who is likely to develop Charcot foot. The system will process data from temperature- and accelerometer sensors to determine whether there is a danger of overloading of the foot and joint. If overloading is imminent the user will be warned.
+
+\subsubsection{Central data unit description}
+The Central data unit communicates with the sensor nodes to collect data from each node. This data is stored on the CDU's memory with a time stamp and sensor node identifier.\\
+The CDU can transfer the data to a computer. This communication can be wired or wireless but this may be implemented solely as a feature for this project and not the final product, which is an excluded feature for this project.
+
+\subsubsection{Sensor node description}
+The sensor node is in general a generic sensor which contains two functionalities. It contains the custom 1-wire protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. the one wire and it is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
+
+\subsection{Constraints}
+\textit{Currently none.}
+\subsection{Dependencies}
+\textit{Currently none.}
+
+%\subsection{Prototype af UI eller GUI}
+
+%\subsection{Beskrivelse af UI eller GUI}
+
+\section{Functional requirements}
+Below is listed all functional requirements to the system.\\
+\textbf{\large{Priority definitions}}\\
+The following definitions are intended as a guideline to prioritize requirements.
+\begin{itemize}[noitemsep,nolistsep]
+\item Priority 1 - This is a "Need to Have" either defined by law or of most importance of the project.
+\item Priority 2 - This requirement is if high importance and will be of great benefit for the system
+\item Priority 3 - This requirement will be great to have but not important
+\item Priority 4 - This requirement is purely "Nice-to-have" and will not be considered unless there is time to spare.
+\end{itemize}
+
+\subsection{Use Case diagram}
+Below is shown the use case diagram.\\
+\centering\fbox{
+	\begin{minipage}{5cm}
+		\hfill\vspace{5cm}
+	\end{minipage}
+	}
+%\begin{figure}[H]
+%\centering
+%\includegraphics*[width=.7\textwidth]{billeder/UseCase_vector}
+%\label{usecase_fig}
+%\caption{Use case diagram}
+%\end{figure}
+
+\subsection{Actors of the system}
+
+\subsubsection{Primary actors}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{7cm}|}
+	\hline
+	Actor name & Patient \\ \hline
+	Type & Primary \\ \hline
+	Description &  The patient set the system to run and initiates data extraction from the CDU.\\ \hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Secondary actors}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{7cm}|}
+	\hline
+	Actor name & Computer \\ \hline
+	Type & Secondary \\ \hline
+	Description & The computer can extract data from the Central data unit. It is not intended as a control unit but mostly just for demonstration and debug purposes. \\ \hline
+	\end{tabular}
+\end{table}
+
+
+
+
+
+
+\subsection{Use Cases}
+
+\subsubsection{Set system to normal operation}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{10cm}|}
+	\hline
+	Goal 							& To set the system to normal operation. \\ \hline
+	Initialisation 					& The Patient initiates the use case. \\ \hline
+	\multirow{1}{*}{Actors} 		& Patient \\ 
+ \hline
+	Reference 						& Get data from sensor \#X \\ \hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& The patient connect the sensors to the port on the CDU. \\ \hline
+	Post condition 					& The system is set to normal operation. \\ \hline
+	\multirow{2}{*}{Main Scenario} 	& 1. The patient clicks the  "ON"-button. \\
+	& 2. The system indicates successful start up.\\ \hline
+	\multirow{2}{*}{Exceptions} & 2a. The system does not indicate sucessful start up. \\
+	& - The patient contacts technical support. \\ \hline
+	Priority					& 1\\\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Extract data from CDU}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{10cm}|}
+	\hline
+	Goal 							& Extract the data from CDU.\\ \hline
+	Initialisation 					& The patient connects the CDU to a computer. \\ \hline
+	\multirow{2}{*}{Actors} 		& Patient \\ 
+									& Computer \\\hline
+	Reference 						& None \\ \hline
+	\# of concurrent events 		& 1 \\ \hline
+	Prerequisite  					& None \\ \hline
+	Post condition 					& The data has been transferred to a computer. \\ \hline
+	\multirow{4}{*}{Main Scenario} 	& 1. The patient disconnects the CDU from the sensors and connects it to the computer. \\
+									& 2. The patient opens the program to transfer data.\\
+									& 3. The patient sets up the program and sends the transfer command.\\ 
+									& 4. The CDU responds with the data. \\ \hline
+	\multirow{4}{*}{Exceptions} & 4a. The CDU does not respond. \\ 
+								& - The CDU and computer are not connected correctly.\\											& 4b. The CDU responds "There is no data". \\
+								& - There is not data on the CDU to respond with.\\\hline
+	Priority					& 3\\\hline
+	\end{tabular}
+\end{table}
+
+\section{Non functional requirements}
+Below is listed all non-functional requirements. \\
+
+\subsection{General requirements}
+\begin{table}[H]
+\begin{tabular}{p{10cm} p{2cm}}
+$\bullet$ The system should be simple and not be of any discomfort of the patient. & \\
+$\bullet$ The system should be small enough to have on a belt or similar and in a sock or insole. &\\
+$\bullet$ BOM Price & 40€\\
+\end{tabular}
+\end{table}
+
+
+\subsection{Sensor requirements}
+
+\subsubsection{Functionality Requirements}
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{5cm}}
+$\bullet$ Temperature accuracy: & <$0.5^o$C\\
+$\bullet$ Update rate: & min. once per CDU cycle\\
+$\bullet$ Lifespan: & > 3 years\\
+\end{tabular}
+\end{table}
+
+\subsubsection{Hardware Requirements}
+%Krav til hardware (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Power consumption: & <0.05W\\
+
+
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Software Requirements}
+%Krav til software (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ & None\\
+
+
+\end{tabular}
+\end{table}
+
+
+\subsubsection{External interfaces}
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ 1 wire protocol: & Yes\\
+$\bullet$ Wires in: & 1\\
+$\bullet$ Wires out: & 1\\
+\end{tabular}
+\end{table}
+
+\subsection{Central data unit requirements}
+
+\subsubsection{Functionality Requirements}
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Cycle\footnotemark: & 1 min\\
+\end{tabular}
+\end{table}
+\footnotetext{In a cycle the CDU will collect data once from all sensors}
+\subsubsection{Hardware Requirements}
+%Krav til hardware (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ Power consumption: & <0.5W \footnotemark \\
+$\bullet$ Memory: & >1MB\footnotemark\\
+$\bullet$ Real time clock: & Yes\\
+\end{tabular}
+\end{table}
+\footnotetext{Sensor supply excluded}
+\footnotetext{Or at least enough to store data for an entire day}
+
+\subsubsection{Software Requirements}
+%Krav til software (if any)\\
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{5cm}}
+$\bullet$ Save entries must contain: &Sensor identifier. \\
+~ 									&Temperature. \\
+~									&Timestamp. \\
+
+
+\end{tabular}
+\end{table}
+
+
+\subsubsection{External interfaces}
+\begin{table}[H]
+\begin{tabular}{p{8cm} p{2cm}}
+$\bullet$ 1 wire protocol: & Yes\\
+$\bullet$ CDU to computer interface: & Yes\\
+\end{tabular}
+\end{table}
+
+\subsection{Project requirements}
+
+\subsubsection{Documentation}
+\begin{itemize}
+\item English
+\item SysML
+\end{itemize}
+
+\subsubsection{Technologies and tools}
+\begin{itemize}
+\item Matlab
+\item Maple/Mathcad
+\item Microsoft Visio 2010/2013
+\item TortoiseSVN
+\item TeXmaker
+\end{itemize}
+
+\subsubsection{Misc}
+\begin{itemize}
+\item Documentation and final assignment is written in LaTeX.
+\end{itemize}
+
