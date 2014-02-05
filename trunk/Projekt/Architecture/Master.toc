@@ -22,3 +22,5 @@
 \contentsline {subsection}{\numberline {3.3.1}CDU}{6}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Sensor n}{6}{subsection.3.3.2}
 \contentsline {chapter}{\chapternumberline {4}Behavorial view}{8}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Physical view}{9}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Application view}{10}{chapter.6}
