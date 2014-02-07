@@ -41,16 +41,17 @@ The sensor node is in general a generic sensor which contains two functionalitie
 
 %\subsection{Beskrivelse af UI eller GUI}
 
+\section{General system functionality}
+The systems function that does not include user input will be explained here in a non technical way and then later on be described technically in the architecture and design documents.\\
+\textbf{CDU}\\
+The CDU is the central part of this system. It handles the communication protocol as well as the data transmitted. The data is saved in internal memory. When the system starts up the CDU starts out by contacting every address in a defined range on the communication line. As sensors respond with their type, their type and address are saved in memory. When the whole range has been contacted the system starts normal operation mode. In normal mode the system contacts every system at least one time every minute. The data is saved in the CDUs memory. \\
+\textbf{Sensor}\\
+The sensor nodes have an address and a type. The type is either an activity sensor or a temperature sensor. The addresses are hard-coded into the sensor. The sensors have data ready when the CDU asks for data. The sensors are powered from the communication line.\\
+\textbf{Communication and protocol}\\
+The protocol consist of a wire connected to all the sensors in a daisy chain. The CDU controls the line and maintains the connection. The CDU initiates communication and retrieves data from the line.\\
+
 \section{Functional requirements}
 Below is listed all functional requirements to the system.\\
-\textbf{\large{Priority definitions}}\\
-The following definitions are intended as a guideline to prioritize requirements.
-\begin{itemize}[noitemsep,nolistsep]
-\item Priority 1 - This is a "Need to Have" either defined by law or of most importance of the project.
-\item Priority 2 - This requirement is if high importance and will be of great benefit for the system
-\item Priority 3 - This requirement will be great to have but not important
-\item Priority 4 - This requirement is purely "Nice-to-have" and will not be considered unless there is time to spare.
-\end{itemize}
 
 \subsection{Use Case diagram}
 Below is shown the use case diagram.\\
@@ -92,11 +93,6 @@ Below is shown the use case diagram.\\
 	\end{tabular}
 \end{table}
 
-
-
-
-
-
 \subsection{Use Cases}
 
 \subsubsection{Set system to normal operation}
@@ -117,7 +113,7 @@ Below is shown the use case diagram.\\
 	& 2. The system indicates successful start up.\\ \hline
 	\multirow{2}{*}{Exceptions} & 2a. The system does not indicate sucessful start up. \\
 	& - The patient contacts technical support. \\ \hline
-	Priority					& 1\\\hline
+	Priority					& 1 - Very Important\\\hline
 	\end{tabular}
 \end{table}
 
@@ -141,17 +137,18 @@ Below is shown the use case diagram.\\
 	\multirow{4}{*}{Exceptions} & 4a. The CDU does not respond. \\ 
 								& - The CDU and computer are not connected correctly.\\											& 4b. The CDU responds "There is no data". \\
 								& - There is not data on the CDU to respond with.\\\hline
-	Priority					& 3\\\hline
+	Priority					& 3 - \\\hline
 	\end{tabular}
 \end{table}
 
-\section{Non functional requirements}
-Below is listed all non-functional requirements. \\
+
+%\section{Non functional requirements}
+%Below is listed all non-functional requirements. \\
 
 \subsection{General requirements}
 \begin{table}[H]
 \begin{tabular}{p{10cm} p{2cm}}
-$\bullet$ The system should be simple and not be of any discomfort of the patient. & \\
+$\bullet$ The system should be simple and as comfortable as possible for the patient. & \\
 $\bullet$ The system should be small enough to have on a belt or similar and in a sock or insole. &\\
 $\bullet$ BOM Price & 40€\\
 \end{tabular}
