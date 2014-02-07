@@ -17,10 +17,14 @@
 \contentsline {section}{\numberline {3.2}System overview}{5}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Block responsibility}{5}{subsection.3.2.1}
 \contentsline {subsubsection}{CDU}{5}{section*.2}
-\contentsline {subsubsection}{Sensor n}{5}{section*.3}
+\contentsline {subsubsection}{Sensor node n}{5}{section*.3}
 \contentsline {section}{\numberline {3.3}Detailed block overview}{6}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}CDU}{6}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Sensor n}{6}{subsection.3.3.2}
-\contentsline {chapter}{\chapternumberline {4}Behavorial view}{8}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Physical view}{9}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}Application view}{10}{chapter.6}
+\contentsline {subsubsection}{Block description}{6}{section*.4}
+\contentsline {subsection}{\numberline {3.3.2}Sensor node n}{7}{subsection.3.3.2}
+\contentsline {subsubsection}{Block description}{7}{section*.5}
+\contentsline {chapter}{\chapternumberline {4}Behavioural view}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Behavioural overview}{9}{section.4.2}
+\contentsline {chapter}{\chapternumberline {5}Behavorial architecture}{10}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Behavorial architecture}{11}{chapter.6}
