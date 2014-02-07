@@ -26,5 +26,6 @@
 \contentsline {chapter}{\chapternumberline {4}Behavioural view}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{9}{section.4.1}
 \contentsline {section}{\numberline {4.2}Behavioural overview}{9}{section.4.2}
-\contentsline {chapter}{\chapternumberline {5}Behavorial architecture}{10}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}Behavorial architecture}{11}{chapter.6}
+\contentsline {chapter}{\chapternumberline {5}physical view}{10}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}application view}{11}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Protocols}{12}{chapter.7}

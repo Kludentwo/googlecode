@@ -1,0 +1,21 @@
+\chapter{Protocols}
+This chapter serves to describe the communication protocol.
+
+
+\begin{table}[H]
+    \begin{tabular}{|l|l|p{10cm}|}
+    \hline
+    Name & Bit Pattern & Description \\
+    \hline
+    Req\_Sensor & 0b1010XXXX & XXXX is the address of the sensor.\\ 
+	\hline
+    Get\_Data & 0b1101XXXX & XXXX is the address of the sensor that the data is requested from.\\
+    \hline
+    Temp\_Sensor\_Back & 0b0100XXXX & Temperature sensor basic response. \\
+    \hline
+    Temp\_Sensor\_Data & 0b01001XXX & Temperature sensor data ready response. \\
+    \hline
+    ... & ... & ... \\
+    \hline
+    \end{tabular}
+\end{table}
