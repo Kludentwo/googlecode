@@ -26,6 +26,10 @@
 \contentsline {chapter}{\chapternumberline {4}Behavioural view}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{9}{section.4.1}
 \contentsline {section}{\numberline {4.2}Behavioural overview}{9}{section.4.2}
-\contentsline {chapter}{\chapternumberline {5}physical view}{10}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}application view}{11}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Protocols}{12}{chapter.7}
+\contentsline {section}{\numberline {4.3}Detailed behavioural overview}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Startup sequence}{10}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Normal Operation}{10}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Data extraction}{11}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Detailed block behaviour}{11}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}CDU}{11}{subsection.4.4.1}
+\contentsline {chapter}{\chapternumberline {5}Protocols}{12}{chapter.5}
