@@ -1,0 +1,73 @@
+\chapter{CDU µ Requirements}
+Requirements:
+\begin{table}[H]
+\begin{tabular}{|l|l|}
+ Power Consumption 			& <0.5W \\
+ Voltage 					& 1.8 - 3.3 \\
+ ~							& ~ \\
+ Real Time Clock			& Yes vs Price \\
+ SPI						& Yes \\
+ ADC						& (1) \\
+ DAC						& 1 \\
+ GPIOs						& 6 \\
+
+\end{tabular}
+\caption{Microcontroller requirements}
+\label{tab:MicroReq}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|l|l|p{10cm}|}
+\hline
+Name & Price & Link \\
+\hline
+PIC24F04KA201 		& 12.38 kr 		& \url{http://dk.rs-online.com/web/p/mikrokontrollere/6878339/} \\
+\hline
+PIC12LF1840			& 9.48 kr		& \url{http://dk.farnell.com/microchip/pic12lf1840-i-sn/mcu-8bit-7k-flash-8soic/dp/1971863} \\
+\hline
+ATtiny45			& 13.27 kr		& \url{http://www.atmel.com/devices/attiny45.aspx} \\ 
+\hline
+LPC1111FHN33/101,5	& 14.40 kr		& \url{http://dk.rs-online.com/web/p/mikrokontrollere/7257705/} \\
+\hline
+CY7C60123-PVXC 		& 12.81 kr		& \url{http://dk.farnell.com/cypress-semiconductor/cy7c60123-pvxc/psoc-8bit-m8c-8k-flash-48ssop/dp/2063336} \\
+\hline
+\end{tabular}
+\caption{Possible choices}
+\label{tab:MicroReq}
+\end{table}
+
+\textbf{PIC24F04KA201:}\\
+RTC\\
+8+ GPIOs
+16 Bit CPU\\
+32 MHz\\
+4 kB program memory\\
+
+\textbf{ATtiny45:}\\
+STK500\\
+6 GPIOs\\
+8 bit CPU\\
+20 MHz\\
+4 Kbytes program memory\\
+
+\textbf{PIC12LF1840:}\\
+6 GPIOs\\
+8 bit CPU\\
+32 MHz\\
+7 KB program memory\\
+DAC\\
+
+\textbf{CY7C60123-PVXC:}\\
+PSOC\\
+36 GPIOs\\
+8 bit CPU\\
+12 MHz\\
+8 KB program memory\\
+3.3V only \\
+
+\textbf{LPC1111:}\\
+ISP\\
+42 GPIOs\\
+32 bit CPU\\
+up to 50 MHz\\
+8 kB program memory\\
