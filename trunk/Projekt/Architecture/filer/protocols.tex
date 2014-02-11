@@ -1,21 +1,72 @@
 \chapter{Protocols}
 This chapter serves to describe the communication protocol.
 
+Reading and writing takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsg}. Once the CDU has written to the sensor node, the sensor node responds using the same format. \\
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Address & Function Code & Data \\ \hline
+	1 nibble & 1 nibble	& 2 bytes \\
+	\hline
+\end{tabular}
+\caption{Message format}
+\label{table:stdmsg}
+\end{table}
+The data coincides with the function code. The function codes and the corresponding data can be found in table ~\ref{table:functioncodes}.
 
 \begin{table}[H]
-    \begin{tabular}{|l|l|p{10cm}|}
-    \hline
-    Name & Bit Pattern & Description \\
-    \hline
-    Req\_Sensor & 0b1010XXXX & XXXX is the address of the sensor.\\ 
+\centering
+\begin{tabular}{|l|l|l|}
 	\hline
-    Get\_Data & 0b1101XXXX & XXXX is the address of the sensor that the data is requested from.\\
-    \hline
-    Temp\_Sensor\_Back & 0b0100XXXX & Temperature sensor basic response. \\
-    \hline
-    Temp\_Sensor\_Data & 0b01001XXX & Temperature sensor data ready response. \\
-    \hline
-    ... & ... & ... \\
-    \hline
-    \end{tabular}
+	Function code & Name & Data \\ 
+	\hline
+	0001 	& GetInfo & Type and Status (See table ~\ref{table:typetable} and ~\ref{table:statustable}) \\
+	\hline
+	0010	& GetData & 2 bytes of data from sensor \\
+	\hline
+\end{tabular}
+\caption{Function code table with names and data explaination}
+\label{table:functioncodes}
 \end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Type & Bitpattern & Description \\ 
+	\hline
+	No type 	& 0000 & Invalid sensor type \\
+	\hline
+	Temperature sensor & 0001 & Temperature sensor node \\
+	\hline
+	Activity sensor & 0010 & Activity sensor node \\
+	\hline
+	Not in use & 0011 & Not in use \\
+	\hline
+\end{tabular}
+\caption{Type table with bitpattern and description}
+\label{table:typetable}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Status & Bitpattern & Description \\ 
+	\hline
+	Offline 	& 0000 00000000 & Sensor node is offline \\
+	\hline
+	Online		& 0000 00000001 & Sensor node is online \\
+	\hline
+	Online w/ data & 0001 00000001 & Sensor node is online and data is ready \\
+	\hline
+	Online w/ error & 0000 10000001 & Sensor node is online but with error(s) \\
+	\hline
+\end{tabular}
+\caption{Status table with bitpattern and description}
+\label{table:statustable}
+\end{table}
+
+
