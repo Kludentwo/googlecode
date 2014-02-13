@@ -30,6 +30,7 @@
 \contentsline {subsection}{\numberline {4.3.1}Startup sequence}{10}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Normal Operation}{10}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Data extraction}{11}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Detailed block behaviour}{11}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}CDU}{11}{subsection.4.4.1}
-\contentsline {chapter}{\chapternumberline {5}Protocols}{12}{chapter.5}
+\contentsline {section}{\numberline {4.4}Detailed block behaviour}{12}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}CDU}{12}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Sensor node}{12}{subsection.4.4.2}
+\contentsline {chapter}{\chapternumberline {5}Protocols}{13}{chapter.5}
