@@ -49,7 +49,11 @@ The goal of data extraction is to store all collected data on a PC so that it ca
 \caption{Data extraction}
 \end{figure}
 
+\newpage
+
 \section{Detailed block behaviour}
+This section describes the overall behaviour of the two blocks in the system.\\
+These statemachines are based upon the earlier behavioural architecture, but are more detailed.
 
 \subsection{CDU}
 
@@ -57,4 +61,13 @@ The goal of data extraction is to store all collected data on a PC so that it ca
 \centering
 \includegraphics[width=.8\textwidth]{billeder/CDU_STM}
 \caption{CDU statemaschine}
+\end{figure}
+All errors must be logged in memory aswell.
+
+\subsection{Sensor node}
+
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/sensor_node_STM}
+\caption{Sensor node statemachine}
 \end{figure}
