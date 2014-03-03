@@ -38,7 +38,7 @@ CY7C60123-PVXC 		& 12.81 kr		& \url{http://dk.farnell.com/cypress-semiconductor/
 
 \textbf{PIC24F04KA201:}\\
 RTC\\
-8+ GPIOs
+8+ GPIOs\\
 16 Bit CPU\\
 32 MHz\\
 4 kB program memory\\
@@ -106,3 +106,21 @@ Microstick II supports all 3.3V PIC24FJ, PIC24E, PIC24H, dsPIC33, and PIC32 28-p
 \textbf{STK 500 board for ATtiny45:}\\
 \url{http://www.tekniskboglade.dk/40?sw=STK}\\
 409 kr DKK\\
+
+\chapter{Communication Technology}
+\section{Levels vs FSK}
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l|}
+~ 				& Levels 			& FSK \\\hline
+Noise robust 	& no*				& Yes \\\hline
+Implementation complexity & Low		& High \\\hline
+Prototyping		& Easy				& Difficult \\\hline
+Experience		& Yes				& Yes \\\hline
+Layers			& few(3+)			& more(4+) \\\hline
+\end{tabular}
+\caption{Level communication versus FSK communication}
+\label{tab:levelsvsfsk}
+\end{table}
+* By implementing with a current driven circuit the system is naturally noise robust.\\
+
