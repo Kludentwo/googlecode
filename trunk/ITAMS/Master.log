@@ -1,7 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  26 FEB 2014 13:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.1.27)  28 JAN 2014 10:03
 entering extended mode
 **Master.tex
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.tex"
+
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,8 +15,9 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\preamble.tex"
-("C:\Program Files\MiKTeX 2.9\tex\latex\memoir\memoir.cls"
+
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\preamb
+le.tex" ("C:\Program Files\MiKTeX 2.9\tex\latex\memoir\memoir.cls"
 Document Class: memoir 2013/05/30 v3.7b configurable book, report, article docu
 ment class
 \onelineskip=\skip41
@@ -1647,13 +1650,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 87.
 )
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.aux"
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/forside.aux")
-
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/introduction.
-aux")
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/communication
-.aux"))
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.aux"
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+forside.aux")
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+introduction.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -1717,14 +1719,16 @@ LaTeX Info: Redefining \nameref on input line 3.
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
 LaTeX Info: Redefining \nameref on input line 3.
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.out")
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.out")
+
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.out")
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.out")
 \@outlinefile=\write4
 LaTeX Info: Redefining \Ref on input line 3.
 \c__siunitx_mathsf_int=\count326
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 3.
@@ -1737,7 +1741,8 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 3.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\stmaryrd\ustmry.fd")
 \c__siunitx_mathtt_int=\count327
 
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/forside.tex"
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+forside.tex"
 Underfull \hbox (badness 4954) in paragraph at lines 38--38
 []|\T1/cmr/m/n/10.95 Second name: Kris-
  []
@@ -1747,18 +1752,12 @@ Underfull \hbox (badness 4954) in paragraph at lines 38--38
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pbk.fd")
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.toc")
-[2
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.toc") [2
 
 ]
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/introduction.
-tex") [3
-
-
-]
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/communication
-.tex") [4
-
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+introduction.tex") [3
 
 
 ]
@@ -1766,59 +1765,40 @@ tex") [3
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 14.
 
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\Master.aux"
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/forside.aux")
-
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/introduction.
-aux")
-("C:\Users\Johnny Kristensen\Bachelor\Projekt\SN technology\filer/communication
-.aux"))
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\Master
+.aux"
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+forside.aux")
+("C:\Users\Johnny Kristensen\Dropbox\Bachelor\Templates\Generic document\filer/
+introduction.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14.
-
-
-Package rerunfilecheck Warning: File `Master.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Master.out':
-(rerunfilecheck)             Before: 66F4D185C4123EE775B38CFE0C609EA4;743
-(rerunfilecheck)             After:  9907D9680859B068E4B2B4C529591186;574.
+Package rerunfilecheck Info: File `Master.out' has not changed.
+(rerunfilecheck)             Checksum: B241D3AF481A707CE80AE6DAC7B46851;373.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 14.
  ) 
 Here is how much of TeX's memory you used:
- 22812 strings out of 493921
- 405076 string characters out of 3147246
- 691719 words of memory out of 3000000
- 25693 multiletter control sequences out of 15000+200000
- 23868 words of font info for 60 fonts, out of 3000000 for 9000
+ 22781 strings out of 493921
+ 404611 string characters out of 3147246
+ 690533 words of memory out of 3000000
+ 25680 multiletter control sequences out of 15000+200000
+ 21711 words of font info for 57 fonts, out of 3000000 for 9000
  843 hyphenation exceptions out of 8191
  44i,12n,78p,10496b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section.2.5} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.3} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Progr
-am Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/cm-super/sfbx1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-sup
-er/sfcc1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc17
-28.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1095.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/cm-super/sfxc1440.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/cm-super/sfxc2074.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/bookman/ubkd8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/bookman/
-ubkl8a.pfb>
-Output written on Master.pdf (4 pages, 155658 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/cm-super/cm-super-t1.enc}{C:/Pro
+gram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/cm-super/sfbx1440.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/cm-super/sfbx2074.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-s
+uper/sfcc1200.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfcc
+1728.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1095.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/cm-super/sfti1095.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/bookman/ubkd8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/bookman/ubkl8a.pfb>
+Output written on Master.pdf (3 pages, 137994 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 PDF objects out of 1000 (max. 8388607)
+ 11 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
