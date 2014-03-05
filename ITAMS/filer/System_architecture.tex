@@ -1,9 +1,66 @@
 \chapter{System architecture}
+The system architecture is explained in the following chapter.
 
 \section{System description}
-Beskrivelse af systemet og hvad det kan.
+%%Beskrivelse af systemet og hvad det kan.
+The system can be split up to 4 subsystem: The magnetometer, the screen, the GPS module and the CPU. Together they form a system with a screen that reports your geographical location and the way you are heading. 
 
 \section{System boundary}
-Hvor grænserne i systemet er pt
+%%Hvor grænserne i systemet er pt
+The systems boundaries can be split up for each unit:\\
+Logic levels are written as 0 - 5 V.\\
+
+\textbf{The magnetometer:}\\
+\begin{table}[H]
+\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    PIN & Description    & Levels  \\ \hline
+    SCL & I2C Clock line & 0 - 5 V \\ \hline
+    SDA & I2C Data line  & 0 - 5 V \\ \hline
+    VCC & Supply         & 5 V     \\ \hline
+    GND & Ground         & Ground  \\ \hline
+    \end{tabular}
+\end{table}
+
+\textbf{The screen:}\\
+\begin{table}[H]
+\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    PIN & Description    & Levels  \\ \hline
+    CLK & SPI Clock line & 0 - 5 V \\ \hline
+    DIN & Data in (or MOSI)  & 0 - 5 V \\ \hline
+    VCC & Supply         & 3 V     \\ \hline
+    GND & Ground         & Ground  \\ \hline
+    D/C & Data or Command & 0 - 5 V \\ \hline
+    CS  & Chip Select    & 0 - 5 V \\ \hline
+    RST & Reset			 & 0 - 5 V \\ \hline
+    LED & Background light on display & 3 V \\ \hline
+    \end{tabular}
+\end{table}
+
+\textbf{The gps:}\\
+\begin{table}[H]
+\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    PIN & Description    & Levels  \\ \hline
+    TX & UART transfer data  & 0 - 5 V \\ \hline
+    VCC & Supply         & 5 V     \\ \hline
+    GND & Ground         & Ground  \\ \hline
+    \end{tabular}
+\end{table}
+
+With the units boundaries define we can assign them to the CPU.\\
 
 \section{System block diagram}
+The General system can be by the following block definition diagram:\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/SystemBDD}
+	\caption{Internal Block Diagram of the system}
+	\label{bdd:system}
+\end{figure}
+
+
