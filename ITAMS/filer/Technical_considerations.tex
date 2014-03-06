@@ -2,17 +2,10 @@
 The following chapter contains our technical considerations and choices along with advantages and disadvantages for the possible alternative solutions. \\
 
 \section{Technical considerations and choices}
-One of the first technical considerations we made was to add the magnetometer to the project. We decided that while it is nice to know where you are by GPS location, it is useless without knowing which direction you are going.\\
+We started out with a screen and a GPS module as peripherals. The first technical considerations we made was to add the magnetometer to the project. We decided that while it is nice to know where you are by GPS location, it is useless without knowing which direction you are going.\\
 
-The system was supposed to have some sort of input where you could write the location where you wanted to go and then the system would point you to the location. This feature would also measure your speed towards the location and a possible time of arrival. This feature was scrapped because of the inability to bring a keyboard or likewise into the field (It would be unhandy).\\
+We wanted to make sure that we updated the position from the GPS module at least every second. This would be done with scheduling in a RTOS and in return this would ensure that every task would be run with the proper priority. This feature was on our nice to have list.\\
 
+We chose to implement a battery powered power supply for our system so that we could venture outside to test the system while also getting closer to an actual hand-held device. \\
 
-\section{Possible alternative solutions}
-
-
-
-\section{Extension}
-A possible extension could be the ability to extract data from your walk or run that has been recorded by the system. This could be done by connecting the system to a computer with USB or RS232. \\
-
-Another possible extension could be to enter a route on your computer and then upload it to the system.\\
 
