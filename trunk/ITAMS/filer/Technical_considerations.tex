@@ -2,10 +2,15 @@
 The following chapter contains our technical considerations and choices along with advantages and disadvantages for the possible alternative solutions. \\
 
 \section{Technical considerations and choices}
-We started out with a screen and a GPS module as peripherals. The first technical considerations we made was to add the magnetometer to the project. We decided that while it is nice to know where you are by GPS location, it is useless without knowing which direction you are going.\\
+We started out with a screen and a GPS module as peripherals. The first technical considerations we made was to add the magnetometer to the project. The magnetometer would give us an easy way to shown which way the user is heading. \\
 
 We wanted to make sure that we updated the position from the GPS module at least every second. This would be done with scheduling in a RTOS and in return this would ensure that every task would be run with the proper priority. This feature was on our nice to have list.\\
 
 We chose to implement a battery powered power supply for our system so that we could venture outside to test the system while also getting closer to an actual hand-held device. \\
+
+\section{Alternative solutions}
+We could have excluded the magnetometer. We would then have to calculate the heading with old and new gps data based on old and new position. This would save us 2 pins on the microcontroller and some money on the peripheral but would then take up a lot more clocks in the math behind calculating the heading. The old position, or positions, would have to be saved somewhere in the memory. The GPS module would also have to be very precise to pinpoint user movement down to half a meter.\\
+
+A colour screen could have been used instead of the black and white screen that we choose. It would give us no advantages and only increase the price of the final product. \\
 
 
