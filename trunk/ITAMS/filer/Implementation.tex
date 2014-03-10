@@ -68,12 +68,6 @@ static const unsigned char Font[] PROGMEM =
 	0x00, 0x07, 0x00, 0x07, 0x00,   // "  
 	0x14, 0x7f, 0x14, 0x7f, 0x14,   // #  
 	0x24, 0x2a, 0x7f, 0x2a, 0x12,   // $  
-	0xc4, 0xc8, 0x10, 0x26, 0x46,   // %  
-	0x36, 0x49, 0x55, 0x22, 0x50,   // &  
-	0x00, 0x05, 0x03, 0x00, 0x00,   // '  
-	0x00, 0x1c, 0x22, 0x41, 0x00,   // (  
-	0x00, 0x41, 0x22, 0x1c, 0x00,   // )  
-	0x00, 0x04, 0x0A, 0x04, 0x00,   // *
 	....  
 };
 \end{lstlisting}
@@ -81,7 +75,19 @@ static const unsigned char Font[] PROGMEM =
 The first spot in the array is the 32nd place in the ascii table, therefore we substract 32 from the ch input in the LCD\_WriteChar function when accessing the array. We also multiply by 5 since each char is 5 pixels wide. We found the Font array via google search.
 
 \section{Magnetometer}
-The magnetometer is a HMC6352 and is interfaced using i$^2$c.
+The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register were the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we set it to make sure we know how and what it is set to.\\
+In the datasheet a table is shown were all responses are described.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/HMC6352_responses}
+\end{figure}
+This table was used to identify a transmit/receive sequence. Below is shown an example from the datasheet illustrating a read from a RAM register.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/HMC6352_example}
+\end{figure}
+A transfer/receive sequence is, as usual in i$^2$c, initated by a "start" from the master by first pulling SDA low and then the SCL. Hereafter the master sends the address indicating a write and then the commands to the slave. When the commands have been sent the transmission is stopped, and then started again shortly after with the read address and the slave responds with the data.\\
+There are no pull-up resistors on the HMC6352, these are added externally (see Demo Board).
 
 \section{Software structure}
 The software implemented in this project is described by the UML diagram in the figure below.\\
