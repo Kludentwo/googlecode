@@ -1,5 +1,5 @@
 \chapter{Implementation}
-This chapter describes the implementation of GeoDude and some of the considerations aswell as the functionality.
+This chapter describes the implementation of GeoDude and some of the considerations as well as the functionality.
 
 \section{GPS module}
 The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\ 
@@ -18,7 +18,23 @@ To understand the format output from the GPS module, NMEA-0183, we consulted the
 \begin{verbatim}
 $GPGGA,092750.000,5321.6802,N,00630.3372,W,1,8,1.03,61.7,M,55.2,M,,*76
 \end{verbatim}
-To display this data in an understandable way, we have to cut the string up and "send" it. 
+To display this data in an understandable way, we have to cut the string up and "send" it. This is done in a smart way in C code:\\
+\begin{lstlisting}{language=C}
+while((GPSD->gpsstring[j]) != COMMA) // Read lateral string until Comma
+{
+	GPSD->latString[k] = (GPSD ->gpsstring[j]);
+	if(k == 3)
+	{
+		k++;
+		GPSD->latString[k] = '*';   
+		// the degree symbol doesnt exist in ascii. 
+		// Asterisk is a placeholder
+	}
+	j++;
+	k++;
+}
+\end{lstlisting}
+By running through the GPS string until a comma is found, we can catch every snippet. The snippets are put into string found in the GPSDATA struct. The struct can be found in gps.h (in appendix gps.h.pdf). T
 
 \section{Screen}
 The screen is a nokia 3310 display controlled by a PCD8544. The PCD8544 has an SPI interface along with three control pins. These pins are: Chip enable, reset and data/command pin.\\
