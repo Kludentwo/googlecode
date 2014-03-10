@@ -1,5 +1,5 @@
 \chapter{Implementation}
-This chapter describes the implementation of GeoDude and some of the considerations as well as the functionality.
+This chapter describes the implementation of GeoDude and some of the considerations aswell as the functionality.
 
 \section{GPS module}
 The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\ 
@@ -18,23 +18,7 @@ To understand the format output from the GPS module, NMEA-0183, we consulted the
 \begin{verbatim}
 $GPGGA,092750.000,5321.6802,N,00630.3372,W,1,8,1.03,61.7,M,55.2,M,,*76
 \end{verbatim}
-To display this data in an understandable way, we have to cut the string up and "send" it. This is done in a smart way in C code:\\
-\begin{lstlisting}{language=C}
-while((GPSD->gpsstring[j]) != COMMA) // Read lateral string until Comma
-{
-	GPSD->latString[k] = (GPSD ->gpsstring[j]);
-	if(k == 3)
-	{
-		k++;
-		GPSD->latString[k] = '*';   
-		// the degree symbol doesnt exist in ascii. 
-		// Asterisk is a placeholder
-	}
-	j++;
-	k++;
-}
-\end{lstlisting}
-By running through the GPS string until a comma is found, we can catch every snippet. The snippets are put into string found in the GPSDATA struct. The struct can be found in gps.h (in appendix gps.h.pdf). T
+To display this data in an understandable way, we have to cut the string up and "send" it. 
 
 \section{Screen}
 The screen is a nokia 3310 display controlled by a PCD8544. The PCD8544 has an SPI interface along with three control pins. These pins are: Chip enable, reset and data/command pin.\\
@@ -77,21 +61,27 @@ The first spot in the array is the 32nd place in the ascii table, therefore we s
 \section{Magnetometer}
 The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register were the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we set it to make sure we know how and what it is set to.\\
 In the datasheet a table is shown were all responses are described.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/HMC6352_responses}
 \end{figure}
+
 This table was used to identify a transmit/receive sequence. Below is shown an example from the datasheet illustrating a read from a RAM register.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/HMC6352_example}
 \end{figure}
+
 A transfer/receive sequence is, as usual in i$^2$c, initated by a "start" from the master by first pulling SDA low and then the SCL. Hereafter the master sends the address indicating a write and then the commands to the slave. When the commands have been sent the transmission is stopped, and then started again shortly after with the read address and the slave responds with the data.\\
-There are no pull-up resistors on the HMC6352, these are added externally (see Demo Board).
+The heading value from the magnetometer is returned in 10th of degrees, therefore ranging from 0 to 3599. This value is then
+There are no pull-up resistors on the HMC6352, these are added externally (see Demo Board).\\
 
 \section{Software structure}
 The software implemented in this project is described by the UML diagram in the figure below.\\
 The system is described via. UML even though it is made in C it offers a nice overview of all headers, variables and function calls.
+
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=1\textwidth]{billeder/geodude_UML}
@@ -99,9 +89,12 @@ The system is described via. UML even though it is made in C it offers a nice ov
 \end{figure}
 
 \section{Demo board}
-This section briefly describes the demo board developed to make the application portable.
+This section briefly describes the demo board developed to make the application portable.\\
+Below is shown the connections made on the breadboard for the project. This was made to make the application portable so we were able to go outside and test the satellite connect etc.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/GeodudeDemoBoard}
 \end{figure}
+
+The circuit is powered by a 9V battery which i regulated to 5V to supply the ATmega32, the GPS module and the magnetometer and 3V to supply the screen.
