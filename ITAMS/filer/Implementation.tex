@@ -2,8 +2,8 @@
 This chapter describes the implementation of GeoDude and some of the considerations behind the choices aswell as the functionality.
 
 \section{GPS module}
-The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\ 
-The communication settings were found in the User Manual (RGM-2000\_user\_manual.pdf which can be found in appendix):\\
+The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\
+The communication settings were found in the User Manual (RGM-2000\_user\_manual.pdf which can be found in appendix):
 \begin{table}[H]
     \begin{tabular}{|ll|}
     \hline
@@ -14,11 +14,11 @@ The communication settings were found in the User Manual (RGM-2000\_user\_manual
     Flow control & : None \\ \hline
     \end{tabular}
 \end{table}
-To understand the format output from the GPS module, NMEA-0183, we consulted the wikipedia site as well as observing on Tx in RealTerm (terminal software). The raw NMEA-0183 string looks like this:\\
+To understand the format output from the GPS module, NMEA-0183, we consulted the wikipedia site as well as observing on Tx in RealTerm (terminal software). The raw NMEA-0183 string looks like this:
 \begin{verbatim}
 $GPGGA,092750.000,5321.6802,N,00630.3372,W,1,8,1.03,61.7,M,55.2,M,,*76
 \end{verbatim}
-To display this data in an understandable way, we have to cut the string up and "send" it. This is done in a smart way in C code:\\
+To display this data in an understandable way, we have to cut the string up and "send" it. This is done in a smart way in C code:
 \begin{lstlisting}{language=C}
 while((GPSD->gpsstring[j]) != COMMA) // Read lateral string until Comma
 {
@@ -141,7 +141,7 @@ void vBootLoad( void *pvParameters )
 	// Enters Bootloader section if button is pressed
 }
 \end{lstlisting}
-We use the vTaskDelayUntil function to tell when to enter the different tasks. The time setup is defined like this:\\
+We use the vTaskDelayUntil function to tell when to enter the different tasks. The time setup is defined like this:
 \begin{lstlisting}{language=C}
 #define UPDATEGPSTIME 150
 #define UPDATESCREENTIME 300
@@ -157,7 +157,7 @@ We use the vTaskDelayUntil function to tell when to enter the different tasks. T
 %noget med at bootloader fordi vi laver et demoboard?
 %Hvorfor (Noget med demoboard og portation til virkeligheden.
 To program the system we started out by using the STK500 programmer. When we moved the ATmega32 to our demoboard, described in section\ref{sec:demob}, we needed a better way to program the chip. We chose to implement a bootloader onto our system for easy programming and updating of the firmware. The bootloader was provided by the ITAMS course.\\
-The internal clock in our system is 8 MHz so we have to select a proper baud rate for communication for the programming software on the PC to work. From uart.c in the bootloader:\\
+The internal clock in our system is 8 MHz so we have to select a proper baud rate for communication for the programming software on the PC to work. From uart.c in the bootloader:
 \begin{lstlisting}{language=C}
 #define XTAL 8000000  
 
@@ -170,7 +170,7 @@ void InitUART()
   UBRRL = ((XTAL/16)/38400 - 1);
 }
 \end{lstlisting}
-We found that 38400 was the highest baud rate achievable with 8 MHz internal clock.\\
+We found that 38400 baud worked really well with our 8 MHz internal clock.\\
 The software used for programming is AvrOspII\footnote{AvrOspII has been acquired through code.google.com because the original website is not functional}. AvrOspII was chosen because of the ability to easily change baud rate and com port.\\
 When programming, we compile in AVR studio 6 and enter the hex file in AvrOspII.\\
 The bootloader can also be used in the final product to update the firmware making it a solid choice to implement it in our project.\\

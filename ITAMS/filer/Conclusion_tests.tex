@@ -29,9 +29,26 @@ In this test we had a precision of approx $\leq1$ meter.
 
 \chapter{Improvements}
 %Få RTOS optimeret
-%Andet gps modul evt med bedre baudrate etc.
+If we were to add hardware modules or features to our project we would have to look at the delay times in our RTOS tasks. Substantial work would go into optimising every task delay time to achieve the smoothest, most optimised system. This is something that can be done in the future. Adding RTOS elements like "suspend" and "resume" can further improve the system as there is no need to update the display if there is no new data as an example. \\
 
 \chapter{Obtained experience}
+\textbf{Screen:}\\
+:)
+
+\textbf{Magnetometer:}\\
+hest
+
+\textbf{GPS:}\\
+By working with the GPS module we have acquired a working knowledge of the NMEA-0183 standard and how modules that utilise this standard work. 
+
+\textbf{Boot Loader:}\\
+When we first worked with bootloading it seemed simple enough, but after working with bootloading we have found out just how useful it is, as it saved us a lot of time and hassle.
+
+\textbf{FreeRTOS:}\\
+We have already worked with FreeRTOS in the exercise but implementing it in our own system has given us an understanding of the advantages of using a real time operating system. 
+
+
+
 
 
 %%%%%%%%%%%%%%%%
