@@ -1,5 +1,5 @@
 \chapter{Implementation}
-This chapter describes the implementation of GeoDude and some of the considerations aswell as the functionality.
+This chapter describes the implementation of GeoDude and some of the considerations behind the choices aswell as the functionality.
 
 \section{GPS module}
 The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\ 
@@ -104,8 +104,21 @@ The system is described via. UML even though it is made in C it offers a nice ov
 \caption{Geodude UML diagram}
 \end{figure}
 
+\begin{wrapfigure}{r}{5cm}
+\vspace{-30pt}
+\begin{center}
+\includegraphics[width=4cm]{billeder/folder_structure}
+\end{center}
+\vspace{-20pt}
+\caption{Geodude software folder structure}
+\vspace{-20pt}
+\label{fig:fold_structure}
+\end{wrapfigure}
 The system is implemented by making API's specific to our application by using generic drivers. This makes the system easy to port to another platform if this is insufficient at some point in the implementation.\\
-We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.
+We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.\\
+The two drivers i2c and uart are not written by the group, but we knew they would be reliable, and our focus was not on implementing i2c nor uart, it was to interface with the new devices.\\
+The project folder structure, as seen on figure \ref{fig:fold_structure}, is divided into "Drivers", "API's" and "Source". This makes for an easy overview when working on the project.\\
+
 \subsection{FreeRTOS}
 %Noget med de settings der er valgt med opsætning af heap, ticks til tasks, og hvilke tasks der er lavet og hvorfor
 \subsection{Bootloader}
