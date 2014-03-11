@@ -24,12 +24,12 @@ To display this data in an understandable way, we have to cut the string up and 
 The screen is a nokia 3310 display controlled by a PCD8544. The PCD8544 has an SPI interface along with three control pins. These pins are: Chip enable, reset and data/command pin.\\
 The data/command pin is used to tell the display whether a command or data has been transmitted. Below a figure from the datasheet is displayed, showing how a transmission should be done.
 
-\begin{figure}[hbpt]
+\begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/Display_protocol}
 \end{figure}
 
-Commands to the display is used for setup purposes such as contrast, cursor position, ram addressing etc. Data to the display is used to set the pixels to either on or off. The display is divided into "banks" where a bank consists of 8 pixels. It has 6 banks in height and 84 banks in width.\\
+Commands to the display is used for setup purposes such as contrast, cursor position, ram addressing etc. Data to the display is used to set the pixels to either on or off. The display is divided into "banks" where a bank consists of 8 pixels(horizontal). It has 6 banks in height and 84 banks in width.\\
 Using horizontal addressing of these RAM banks allows for easy writing of chars. Making this neet little trick we can use chars as input to this function and thereby using the function in a similar fasion as "printf".
 \begin{lstlisting}{language=C}
 void LCD_WriteChar(unsigned char ch)
@@ -80,17 +80,26 @@ There are no pull-up resistors on the HMC6352, these are added externally (see D
 
 \section{Software structure}
 The software implemented in this project is described by the UML diagram in the figure below.\\
-The system is described via. UML even though it is made in C it offers a nice overview of all headers, variables and function calls.
+The system is described via. UML even though it is made in C it offers a nice overview of all headers, variables and function calls.\\
 
-\begin{figure}[hbpt]
+\begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/geodude_UML}
 \caption{Geodude UML diagram}
 \end{figure}
 
+The system is implemented by making API's specific to our application by using generic drivers. This makes the system easy to port to another platform if this is insufficient at some point in the implementation.\\
+We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.
+\subsection{FreeRTOS}
+%Noget med de settings der er valgt med opsætning af heap, ticks til tasks, og hvilke tasks der er lavet og hvorfor
+\subsection{Bootloader}
+%Noget med at vi er opmærksomme på størrelsen af programmet og hvor bootloaderen ligger
+%også noget med internal oscilator og uart? eller er det ligegyldigt?
+%noget med at bootloader fordi vi laver et demoboard?
+
 \section{Demo board}
 This section briefly describes the demo board developed to make the application portable.\\
-Below is shown the connections made on the breadboard for the project. This was made to make the application portable so we were able to go outside and test the satellite connect etc.
+Below is shown the connections\footnote{None of the values are noted since they are not relevant with regards to the course.} made on the breadboard for the project. This was made to make the application portable so we were able to go outside and test the satellite connection etc.\\
 
 \begin{figure}[H]
 \centering
