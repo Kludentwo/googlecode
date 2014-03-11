@@ -1,16 +1,35 @@
-\chapter{System test and optimization}
-In this chapter we present the most important test results.\\
+\chapter{System test}
+This chapter presents the tests made through the project and optimization made to the product.
+
 \section{Unit tests}
-Hehe
+Each module was developed separately and then tested before adding more to the system. This made the process of combining all the blocks relatively smooth.\\
+In this process we used uart a lot to debug. It is easy to use and provides a lot of insight when debugging. You can write specific messages on where in your code you are, or what values are in which registers etc.\\
+When combining the blocks it is important to make sure everything is set up to use the same clock speeds and no pins overlap etc.
 
-\section{Full system test}
-To test the full system, everything has been laid out on a breadboard. The fully assembled base system was taken outside for a walk and pictures was taken of the screen during. 
+\section{Complete system test}
+The Demoboard developed was a central part of the complete system test. The complete system test comprised of taking the demoboard outside, wait until it had good satellite connection and then note the GPS coordinates. We also compared the heading on the display compass with a compass on the mobile phone. Below is a picture of the test setup:
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/test_setup}
+\caption{Picture of the test setup}
+\end{figure}
+On the picture the demobard is shown, and there is a clear read of the coordinates provided by the GPS module, which is seen as the black thing on the bicycle parking rack in the background.\\
+The coordinates are:\\
+$N:56^{\circ}10.3428$\\
+$E:010^{\circ}11.5031$\\
+Entering these coordinates in google maps we can get the location captured by the GPS module.
 
-\chapter{Results}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/coordinate_map}
+\caption{Test setup result plottet with google maps}
+\end{figure}
 
+In this test we had a precision of approx $\leq1$ meter.
 
 \chapter{Improvements}
-
+%Få RTOS optimeret
+%Andet gps modul evt med bedre baudrate etc.
 
 \chapter{Obtained experience}
 
