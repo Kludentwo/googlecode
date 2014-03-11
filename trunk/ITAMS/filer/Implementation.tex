@@ -121,12 +121,62 @@ The project folder structure, as seen on figure \ref{fig:fold_structure}, is div
 
 \subsection{FreeRTOS}
 %Noget med de settings der er valgt med opsætning af heap, ticks til tasks, og hvilke tasks der er lavet og hvorfor
+We started out with the FreeRTOS project provided by the ITAMS course. We corrected the settings according to our system by setting the clock to 8 MHz.  We made 4 tasks for the scheduler:
+\begin{lstlisting}{language=C}
+void vUpdateScreen( void *pvParameters )
+{
+	//Updates screen with GPS data if is has been updated.
+	//Updates heading
+}
+void vUpdateGPS( void *pvParameters )
+{
+	//Updates GPSdata
+}
+void vUpdateHeading( void *pvParameters )
+{
+	//Updates Heading
+}
+void vBootLoad( void *pvParameters )
+{
+	// Enters Bootloader section if button is pressed
+}
+\end{lstlisting}
+We use the vTaskDelayUntil function to tell when to enter the different tasks. The time setup is defined like this:\\
+\begin{lstlisting}{language=C}
+#define UPDATEGPSTIME 150
+#define UPDATESCREENTIME 300
+#define BOOTLOADTIME 500
+#define UPDATEHEADINGTIME 200
+\end{lstlisting}
+
+
+
 \subsection{Bootloader}
 %Noget med at vi er opmærksomme på størrelsen af programmet og hvor bootloaderen ligger
 %også noget med internal oscilator og uart? eller er det ligegyldigt?
 %noget med at bootloader fordi vi laver et demoboard?
+%Hvorfor (Noget med demoboard og portation til virkeligheden.
+To program the system we started out by using the STK500 programmer. When we moved the ATmega32 to our demoboard, described in section\ref{sec:demob}, we needed a better way to program the chip. We chose to implement a bootloader onto our system for easy programming and updating of the firmware. The bootloader was provided by the ITAMS course.\\
+The internal clock in our system is 8 MHz so we have to select a proper baud rate for communication for the programming software on the PC to work. From uart.c in the bootloader:\\
+\begin{lstlisting}{language=C}
+#define XTAL 8000000  
+
+__attribute__ ((section (".bootloader"))) // bootloader section
+void InitUART()
+{...
+	// Write upper part of UBRR
+  UBRRH = ((XTAL/16)/38400 - 1) >> 8;
+  // Write lower part of UBRR
+  UBRRL = ((XTAL/16)/38400 - 1);
+}
+\end{lstlisting}
+We found that 38400 was the highest baud rate achievable with 8 MHz internal clock.\\
+The software used for programming is AvrOspII\footnote{AvrOspII has been acquired through code.google.com because the original website is not functional}. AvrOspII was chosen because of the ability to easily change baud rate and com port.\\
+When programming, we compile in AVR studio 6 and enter the hex file in AvrOspII.\\
+The bootloader can also be used in the final product to update the firmware making it a solid choice to implement it in our project.\\
 
 \section{Demo board}
+\label{sec:demob}
 This section briefly describes the demo board developed to make the application portable.\\
 Below is shown the connections\footnote{None of the values are noted since they are not relevant with regards to the course.} made on the breadboard for the project. This was made to make the application portable so we were able to go outside and test the satellite connection etc.\\
 
@@ -135,4 +185,4 @@ Below is shown the connections\footnote{None of the values are noted since they 
 \includegraphics[width=1\textwidth]{billeder/GeodudeDemoBoard}
 \end{figure}
 
-The circuit is powered by a 9V battery which i regulated to 5V to supply the ATmega32, the GPS module and the magnetometer and 3V to supply the screen.
+The circuit is powered by a 9V battery which is regulated to 5V to supply the ATmega32, the GPS module and the magnetometer and 3V to supply the screen.
