@@ -22,20 +22,20 @@ Entering these coordinates in google maps we can get the location captured by th
 \begin{figure}[H]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/coordinate_map}
-\caption{Test setup result plottet with google maps}
+\caption{Test setup result plotted with google maps}
 \end{figure}
 
-In this test we had a precision of approx $\leq1$ meter.
-Below is shown a testpicture of the compass heading.
+In this test we had a precision of approximately $\leq1$ meter.
+Below is shown a test picture of the compass heading.
 \begin{figure}[H]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/compas}
 \caption{Comparison of mobile compass heading and GeoDude compass heading}
 \end{figure}
-\chapter{Improvements}
+\section{Improvements}
 %Få RTOS optimeret
 If we were to add hardware modules or features to our project we would have to look at the delay times in our RTOS tasks. Substantial work would go into optimising every task delay time to achieve the smoothest, most optimised system. This is something that can be done in the future. Adding RTOS elements like "suspend" and "resume" can further improve the system as there is no need to update the display if there is no new data as an example. \\
-Another improvement we though of, but didn't implement, was to power down all peripherals before entering the boot loader and light an LED. This would be a good practise because it isn't being used, and the RGM-2000 would interfere on the UART connection used for the boot loader.
+Another improvement we though of, but didn't implement, was to power down all peripherals before entering the boot loader and light an LED. This would be a good practice because it is not being used, and the GPS module would interfere on the UART connection used for the boot loader.
 
 \chapter{Obtained experience}
 \textbf{Screen:}\\
@@ -49,10 +49,10 @@ The magnetometer was quite simple to work with, since it had few settings and a 
 By working with the GPS module we have acquired a working knowledge of the NMEA-0183 standard and how modules that utilise this standard interface and operate. 
 
 \textbf{Boot Loader:}\\
-When we first worked with bootloading it seemed simple enough, but after working with bootloading we have understood just how useful it is, as it saved us a lot of time and hassle. We also learned how the boot loader works with regards to the functionality of the code and the structure of the boot loader.
+When we first worked with boot loading it seemed simple enough, but after working with boot loading we have understood just how useful it is, as it saved us a lot of time and hassle. We also learned how the boot loader works with regards to the functionality of the code and the structure of the boot loader.
 
 \textbf{FreeRTOS:}\\
-We have already worked with FreeRTOS in the exercise but implementing it in our own system has given us an understanding of the advantages of using a real time operating system. 
+We have already worked with FreeRTOS in the exercise but implementing it in our own system has given us an understanding of the advantages of using a real time operating system. FreeRTOS also uses up some space in memory so we learned how to allocate memory better for it run optimally.
 
 
 %%%%%%%%%%%%%%%%

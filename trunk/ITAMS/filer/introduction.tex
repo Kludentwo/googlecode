@@ -20,7 +20,7 @@ The following cite is from www.geocaching.com:\\
 
 The full featured system is meant to be a dedicated geocaching device. We imagine features like being able to plot the route you were just on, via your PC at home or you could upload several cache locations into the system so it automatically points you to the nearest cache.\\
 The system will have several different screens or modes that you can cycle through. One which displays the location and distance to the nearest cache, one that displays just your heading (like a compass), one that displays your current location and heading and lastly one that shows your route. More screens can be added of course.\\
-A keypad lets you change settings while using the system out in the field. This could be to change the route, timezone or even which cache you are going for.\\
+A keypad lets you change settings while using the system out in the field. This could be to change the route, time zone or even which cache you are going for.\\
 
 \section{Project boundaries}
 %% Her har vi næsten gennemgået nogle af de technical considerations som han gerne vil have ?? %%%%%%%%%%%%%
@@ -34,8 +34,17 @@ To handle the data and communication we have chosen the Atmel ATMega32 microcont
 The datasheets for the modules, internet links and code can be found in appendix.
 
 \section{Glossary \& abbreviations}
-
-
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{7cm}|}
+\hline
+Term/abbreviation & Definition\\ \hline
+GPS module 			& RoyalTek RGM-2000 module \\ \hline
+Magnetometer		& HMC6352 SparkFun Compass module \\ \hline  
+Screen				& Nokia 3310 screen with PCD8544 48 × 84 pixels matrix LCD controller/driver\\ \hline
+API					& Application programming interface. GeoDude specific functions. \\ \hline
+\end{tabular}
+\end{table}
 
 
 
