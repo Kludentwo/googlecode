@@ -3,7 +3,7 @@ This chapter describes the implementation of GeoDude and some of the considerati
 
 \section{GPS module}
 The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\
-The communication settings were found in the User Manual (RGM-2000\_user\_manual.pdf which can be found in appendix):
+The communication settings were found in the User Manual (RGM-2000\_user\_manual.pdf which can be found in appendix). This is the same for all GPS modules using that standard. The settings are as follows:
 \begin{table}[H]
     \begin{tabular}{|ll|}
     \hline
@@ -13,6 +13,7 @@ The communication settings were found in the User Manual (RGM-2000\_user\_manual
     Stop bit     & : 1    \\ \hline
     Flow control & : None \\ \hline
     \end{tabular}
+    \caption{UART setup in NMEA-0183 standard}
 \end{table}
 To understand the format output from the GPS module, NMEA-0183, we consulted the wikipedia site as well as observing on Tx in RealTerm (terminal software). The raw NMEA-0183 string looks like this:
 \begin{verbatim}
@@ -94,7 +95,7 @@ This table was used to identify a transmit/receive sequence. Below is shown an e
 \end{figure}
 
 A transfer/receive sequence is, as usual in i$^2$c, initiated by a "start" from the master by first pulling SDA low and then the SCL. Hereafter the master sends the address indicating a write and then the commands to the slave. When the commands have been sent the transmission is stopped, and then started again shortly after with the read address and the slave responds with the data.\\
-The heading value from the magnetometer is returned in 10th of degrees, therefore ranging from 0 to 3599. This value is then converted into eights of a circle for the heading for the screen to use.\\
+The heading value from the magnetometer is returned in 10th of degrees, therefore ranging from 0 to 3599. This value is then converted into eights of a circle for the screen API to use.\\
 There are no pull-up resistors on the HMC6352, these are added externally (see Demo Board).\\
 
 \section{Software structure}

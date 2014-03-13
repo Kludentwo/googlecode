@@ -21,7 +21,7 @@ Below is shown a statemachine describing the systems functionality.
 \includegraphics[width=.8\textwidth]{billeder/geodudeSTM}
 \caption{GeoDude statemachine}
 \end{figure}
-
+The scheduler is a part of FreeRTOS. The ticks inside the scheduler determines how often a task is called. When the boot loading task is called and the button is activated the jump down to the boot loading section and FreeRTOS stops. After boot loading, the system is reset and the state machine starts from the beginning.
 
 \section{Interfaces/pin assignments}
 GeoDude has 3 interfaces, SPI to the screen, I$^2$C to the magnetometer and UART to the GPS receiver.
@@ -40,10 +40,12 @@ The following pin assignments have been used:
     PB7 (08)	& SPI CLK		 & 0 - 3 V  & Screen \\ \hline
     PC0 (22) 	& I2C Clock line & 0 - 5 V 	& Magnetometer 	\\ \hline
     PC1 (23) 	& I2C Data line  & 0 - 5 V 	& Magnetometer		\\ \hline
-    PD0 (14)	& UART RXD		 & 0 - 5 V	& GPS module \\ \hline
+    PD0 (14)	& UART RXD		 & 0 - 5 V	& GPS module and Bootloading \\ \hline
+    PD1 (15)    & UART TXD		 & 0 - 5 V  & Bootloading \\ \hline
     \end{tabular}
     \caption{Geodude pin assignments}
 \end{table}
+When boot loading, the GPS module is powered down and disconnected.
 
 
 %\subsection{ATmega32 block diagram}
