@@ -1,13 +1,13 @@
 \chapter{System test}
-This chapter presents the tests made through the project and optimization made to the product.
+This chapter presents the tests made throughout the project. 
 
 \section{Unit tests}
-Each module was developed separately and then tested before adding more to the system. This made the process of combining all the blocks relatively smooth.\\
+Each module was developed separately and then tested before being added to the system. This made the process of combining all the blocks relatively smooth.\\
 In this process we used uart a lot to debug. It is easy to use and provides a lot of insight when debugging. You can write specific messages on where in your code you are, or what values are in which registers etc.\\
 When combining the blocks it is important to make sure everything is set up to use the same clock speeds and no pins overlap etc.
 
 \section{Complete system test}
-The Demoboard developed was a central part of the complete system test. The complete system test comprised of taking the demoboard outside, wait until it had good satellite connection and then note the GPS coordinates. We also compared the heading on the display compass with a compass on the mobile phone. Below is a picture of the test setup:
+The Demoboard, we developed, was a central part of the complete system test. The complete system test comprised of taking the demoboard outside, wait until it had good satellite connection and then note the GPS coordinates. We also compared the heading on the display compass with a compass on the mobile phone. Below is a picture of the test setup:
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/test_setup}
@@ -40,10 +40,10 @@ We also learned to make custom graphics to the screen used to display the compas
 The magnetometer was quite simple to work with, since it had few settings and a simple output we know very well (degrees).
 
 \textbf{GPS:}\\
-By working with the GPS module we have acquired a working knowledge of the NMEA-0183 standard and how modules that utilise this standard work. 
+By working with the GPS module we have acquired a working knowledge of the NMEA-0183 standard and how modules that utilise this standard interface and operate. 
 
 \textbf{Boot Loader:}\\
-When we first worked with bootloading it seemed simple enough, but after working with bootloading we have found out just how useful it is, as it saved us a lot of time and hassle. We also learned how the boot loader works with regards to the functionality of the code and the structure of the boot loader.
+When we first worked with bootloading it seemed simple enough, but after working with bootloading we have understood just how useful it is, as it saved us a lot of time and hassle. We also learned how the boot loader works with regards to the functionality of the code and the structure of the boot loader.
 
 \textbf{FreeRTOS:}\\
 We have already worked with FreeRTOS in the exercise but implementing it in our own system has given us an understanding of the advantages of using a real time operating system. 

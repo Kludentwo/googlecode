@@ -1,5 +1,5 @@
 \chapter{Implementation}
-This chapter describes the implementation of GeoDude and some of the considerations behind the choices aswell as the functionality.
+This chapter describes the implementation of GeoDude and some of the considerations behind the choices as well as the functionality.
 
 \section{GPS module}
 The knowledge about pin assignments for the GPS module, RGM-2000, comes from the website: \url{http://www.tobias-schlegel.de/?page_id=51&lang=en}.\\
@@ -37,7 +37,7 @@ while((GPSD->gpsstring[j]) != COMMA) // Read lateral string until Comma
 By running through the GPS string until a comma is found, we can catch every snippet. The snippets are put into string found in the GPSDATA struct. The struct can be found in gps.h (in appendix gps.h.pdf).
 
 \section{Screen}
-The screen is a nokia 3310 display controlled by a PCD8544. The PCD8544 has an SPI interface along with three control pins. These pins are: Chip enable, reset and data/command pin.\\
+The screen is a nokia 3310 display controlled by a PCD8544. The PCD8544 has a SPI interface along with three control pins. These pins are: Chip enable, reset and data/command pin.\\
 The data/command pin is used to tell the display whether a command or data has been transmitted. Below a figure from the datasheet is displayed, showing how a transmission should be done.
 
 \begin{figure}[H]
@@ -46,7 +46,7 @@ The data/command pin is used to tell the display whether a command or data has b
 \end{figure}
 
 Commands to the display is used for setup purposes such as contrast, cursor position, ram addressing etc. Data to the display is used to set the pixels to either on or off. The display is divided into "banks" where a bank consists of 8 pixels(horizontal). It has 6 banks in height and 84 banks in width.\\
-Using horizontal addressing of these RAM banks allows for easy writing of chars. Making this neet little trick we can use chars as input to this function and thereby using the function in a similar fasion as "printf".
+Using horizontal addressing of these RAM banks allows for easy writing of chars. Making this neat little trick we can use chars as input to this function and thereby using the function in a similar fashion as "write string".
 \begin{lstlisting}{language=C}
 void LCD_WriteChar(unsigned char ch)
 {
@@ -58,7 +58,7 @@ void LCD_WriteChar(unsigned char ch)
 	LCD_Write_data(0x00);			
 }
 \end{lstlisting}
-The "Font" array is a large array and are, along with the "Arrow" array (which holds data for the 8 direction arrows), placed in the PROGMEM area. At first it wasn't placed here but when we incorporated FreeRTOS to the project we ran out of space. Placing it in PROGMEM made enough space to support FreeRTOS.\\
+The "Font" array is a large array that, along with the "Arrow" array (which holds data for the 8 direction arrows), have been placed in the PROGMEM area. At first it wasn't placed here but when we incorporated FreeRTOS to the project we ran out of space. Placing it in PROGMEM made enough space to support FreeRTOS.\\
 Below is shown a little part of the Font array:
 \begin{lstlisting}{language=C}
 static const unsigned char Font[] PROGMEM =
@@ -75,7 +75,7 @@ static const unsigned char Font[] PROGMEM =
 The first spot in the array is the 32nd place in the ascii table, therefore we substract 32 from the ch input in the LCD\_WriteChar function when accessing the array. We also multiply by 5 since each char is 5 pixels wide. We found the Font array via google search.
 
 \section{Magnetometer}
-The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register were the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we set it to make sure we know how and what it is set to.\\
+The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register that  the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we wanted to make sure that we know how and what it is set to.\\
 In the datasheet a table is shown were all responses are described.
 
 \begin{figure}[H]
@@ -91,8 +91,8 @@ This table was used to identify a transmit/receive sequence. Below is shown an e
 \caption{HMC6352 write + read sequence}
 \end{figure}
 
-A transfer/receive sequence is, as usual in i$^2$c, initated by a "start" from the master by first pulling SDA low and then the SCL. Hereafter the master sends the address indicating a write and then the commands to the slave. When the commands have been sent the transmission is stopped, and then started again shortly after with the read address and the slave responds with the data.\\
-The heading value from the magnetometer is returned in 10th of degrees, therefore ranging from 0 to 3599. This value is then
+A transfer/receive sequence is, as usual in i$^2$c, initiated by a "start" from the master by first pulling SDA low and then the SCL. Hereafter the master sends the address indicating a write and then the commands to the slave. When the commands have been sent the transmission is stopped, and then started again shortly after with the read address and the slave responds with the data.\\
+The heading value from the magnetometer is returned in 10th of degrees, therefore ranging from 0 to 3599. This value is then converted into eights of a circle for the heading for the screen to use.\\
 There are no pull-up resistors on the HMC6352, these are added externally (see Demo Board).\\
 
 \section{Software structure}
@@ -116,13 +116,13 @@ The system is described via. UML even though it is made in C it offers a nice ov
 \label{fig:fold_structure}
 \end{wrapfigure}
 The system is implemented by making API's specific to our application by using generic drivers. This makes the system easy to port to another platform if this is insufficient at some point in the implementation.\\
-We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.\\
-The two drivers i2c and uart are not written by the group, but we knew they would be reliable, and our focus was not on implementing i2c nor uart (we already did that in class), it was to interface with the new devices.\\
+We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.\\%
+The two drivers i2c and uart have not been written by the group, but we knew they would be reliable, and our focus was not on implementing i2c nor uart (we already did that in class), it was to interface with the new devices.\\
 The project folder structure, as seen on figure \ref{fig:fold_structure}, is divided into "Drivers", "API's" and "Source". This makes for an easy overview when working on the project.\\
 
 \subsection{FreeRTOS}
 %Noget med de settings der er valgt med opsætning af heap, ticks til tasks, og hvilke tasks der er lavet og hvorfor
-We started out with the FreeRTOS project provided by the ITAMS course. We corrected the settings according to our system by setting the clock to 8 MHz.  We made 4 tasks for the scheduler:
+We started with the FreeRTOS project provided by the ITAMS course. We corrected the settings according to our system by setting the clock to 8 MHz.  We made 4 tasks for the scheduler:
 \begin{lstlisting}{language=C}
 void vUpdateScreen( void *pvParameters )
 {
@@ -157,7 +157,7 @@ We use the vTaskDelayUntil function to tell when to enter the different tasks. T
 %også noget med internal oscilator og uart? eller er det ligegyldigt?
 %noget med at bootloader fordi vi laver et demoboard?
 %Hvorfor (Noget med demoboard og portation til virkeligheden.
-To program the system we started out by using the STK500 programmer. When we moved the ATmega32 to our demoboard, described in section\ref{sec:demob}, we needed a better way to program the chip. We chose to implement a bootloader onto our system for easy programming and updating of the firmware. The bootloader was provided by the ITAMS course.\\
+To program the system we started out by using the STK500 programmer. When we moved the ATmega32 to our demoboard, described in section~ \ref{sec:demob}, we needed a better way to program the chip. We chose to implement a bootloader onto our system for easy programming and updating of the firmware. The bootloader was provided by the ITAMS course.\\
 The internal clock in our system is 8 MHz so we have to select a proper baud rate for communication for the programming software on the PC to work. From uart.c in the bootloader:
 \begin{lstlisting}{language=C}
 #define XTAL 8000000  
@@ -179,7 +179,7 @@ The bootloader can also be used in the final product to update the firmware maki
 \section{Demo board}
 \label{sec:demob}
 This section briefly describes the demo board developed to make the application portable.\\
-Below is shown the connections\footnote{None of the values are noted since they are not relevant with regards to the course.} made on the breadboard for the project. This was made to make the application portable so we were able to go outside and test the satellite connection etc.\\
+Below is shown the connections made on the breadboard\footnote{None of the values are noted since they are not relevant with regards to the course.} for the project. This was made to make the application portable so we were able to go outside and test the satellite connection etc.\\
 
 \begin{figure}[H]
 \centering
