@@ -10,7 +10,7 @@ When combining the blocks it is important to make sure everything is set up to u
 The Demoboard, we developed, was a central part of the complete system test. The complete system test comprised of taking the demoboard outside, wait until it had good satellite connection and then note the GPS coordinates. We also compared the heading on the display compass with a compass on the mobile phone. Below is a picture of the test setup:
 \begin{figure}[H]
 \centering
-\includegraphics[width=.8\textwidth]{billeder/test_setup}
+\includegraphics[width=.9\textwidth]{billeder/test_setup}
 \caption{Picture of the test setup}
 \end{figure}
 On the picture the demobard is shown, and there is a clear read of the coordinates provided by the GPS module, which is seen as the black thing on the bicycle parking rack in the background.\\
@@ -26,10 +26,16 @@ Entering these coordinates in google maps we can get the location captured by th
 \end{figure}
 
 In this test we had a precision of approx $\leq1$ meter.
-
+Below is shown a testpicture of the compass heading.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/compas}
+\caption{Comparison of mobile compass heading and GeoDude compass heading}
+\end{figure}
 \chapter{Improvements}
 %Få RTOS optimeret
 If we were to add hardware modules or features to our project we would have to look at the delay times in our RTOS tasks. Substantial work would go into optimising every task delay time to achieve the smoothest, most optimised system. This is something that can be done in the future. Adding RTOS elements like "suspend" and "resume" can further improve the system as there is no need to update the display if there is no new data as an example. \\
+Another improvement we though of, but didn't implement, was to power down all peripherals before entering the boot loader and light an LED. This would be a good practise because it isn't being used, and the RGM-2000 would interfere on the UART connection used for the boot loader.
 
 \chapter{Obtained experience}
 \textbf{Screen:}\\
@@ -53,11 +59,21 @@ We have already worked with FreeRTOS in the exercise but implementing it in our 
 %% konklusion %%
 %%%%%%%%%%%%%%%%
 \chapter{Conclusion}
-We conclude on a successful short time development project. Throughout the project we have developed in AVRStudio 6 and implemented on the ATmega32. 
+The project has given the group a working knowledge of several disciplines within microcontrollers and interfacing with various communication buses and modules.\\
+The group have implemented the system with an ATmega32 on a breadboard, successfully interfacing a screen, a magnetometer and a GPS-module, all previously unknown to the group members. The ATmega32 runs FreeRTOS and has working boot loader functionality.\\
+Although the time frame for the project has been very short the group feels a lot have been achieved during this time.\\
+It is nice to see a project through once in a while.
 
-We implemented the system with an ATmega32 on a breadboard with a screen, a magnetometer and a GPS module. The ATmega32 has FreeRTOS running. Programming the ATmega32 is done with a boot loader after a button is pressed.
 
-We can conclude on a project with an working expandable basis system as result. The screen displays the data we chose in the project boundary and updates atleast every second. 
 
-We are happy to conclude this project with a working product.
+
+
+
+%We conclude on a successful short time development project. Throughout the project we have developed in AVRStudio 6 and implemented on the ATmega32. 
+%
+%We implemented the system with an ATmega32 on a breadboard with a screen, a magnetometer and a GPS module. The ATmega32 has FreeRTOS running. Programming the ATmega32 is done with a boot loader after a button is pressed.
+%
+%We can conclude on a project with an working expandable basis system as result. The screen displays the data we chose in the project boundary and updates atleast every second. 
+%
+%We are happy to conclude this project with a working product.
 
