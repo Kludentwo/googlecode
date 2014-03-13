@@ -43,10 +43,11 @@ The data/command pin is used to tell the display whether a command or data has b
 \begin{figure}[H]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/Display_protocol}
+\caption{PCD8544 serial bus protocol one byte transmission}
 \end{figure}
 
 Commands to the display is used for setup purposes such as contrast, cursor position, ram addressing etc. Data to the display is used to set the pixels to either on or off. The display is divided into "banks" where a bank consists of 8 pixels(horizontal). It has 6 banks in height and 84 banks in width.\\
-Using horizontal addressing of these RAM banks allows for easy writing of chars. Making this neat little trick we can use chars as input to this function and thereby using the function in a similar fashion as "write string".
+Using horizontal addressing of these RAM banks allows for easy writing of chars. Making this neat little trick we can use chars as input to this function. This function is then used in our \texttt{LCD\_WriteString}  function to get a simple "printf"-like functionality.
 \begin{lstlisting}{language=C}
 void LCD_WriteChar(unsigned char ch)
 {
@@ -58,7 +59,7 @@ void LCD_WriteChar(unsigned char ch)
 	LCD_Write_data(0x00);			
 }
 \end{lstlisting}
-The "Font" array is a large array that, along with the "Arrow" array (which holds data for the 8 direction arrows), have been placed in the PROGMEM area. At first it wasn't placed here but when we incorporated FreeRTOS to the project we ran out of space. Placing it in PROGMEM made enough space to support FreeRTOS.\\
+The "Font" array is a large array that, along with the "Arrow" array (which holds data for the 8 direction arrows), have been placed in the \texttt{PROGMEM} area. At first it wasn't placed here but when we incorporated FreeRTOS to the project we ran out of space. Placing it in \texttt{PROGMEM} made enough space to support FreeRTOS.\\
 Below is shown a little part of the Font array:
 \begin{lstlisting}{language=C}
 static const unsigned char Font[] PROGMEM =
@@ -78,10 +79,11 @@ The first spot in the array is the 32nd place in the ascii table, therefore we s
 The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register that  the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we wanted to make sure that we know how and what it is set to.\\
 In the datasheet a table is shown were all responses are described.
 
-\begin{figure}[H]
+\begin{table}[H]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/HMC6352_responses}
-\end{figure}
+\caption{HMC6362 Request and response table}
+\end{table}
 
 This table was used to identify a transmit/receive sequence. Below is shown an example from the datasheet illustrating a read from a RAM register.
 
