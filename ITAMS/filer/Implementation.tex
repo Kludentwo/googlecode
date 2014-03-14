@@ -120,7 +120,7 @@ The system is described via. UML even though it is made in C it offers a nice ov
 \end{wrapfigure}
 The system is implemented by making API's specific to our application by using generic drivers. This makes the system easy to port to another platform if this is insufficient at some point in the implementation.\\
 We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.\\%
-The two drivers i2c and uart have not been written by the group, but we knew they would be reliable, and our focus was not on implementing i2c nor uart (we already did that in class), it was to interface with the new devices.\\
+The two drivers i2c and uart have been acquired from the course ITAMS.\\
 The project folder structure, as seen on figure \ref{fig:fold_structure}, is divided into "Drivers", "API's" and "Source". This makes for an easy overview when working on the project.\\
 
 \subsection{FreeRTOS}
