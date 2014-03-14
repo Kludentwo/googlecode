@@ -78,7 +78,7 @@ The first spot in the array is the 32nd place in the ascii table, therefore we s
 
 \section{Magnetometer}
 The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register that  the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we wanted to make sure that we know how and what it is set to.\\
-The Magnetometer runs at 100kbps. To get the ATmega32 i$^2$c to run at this rate we setup TWSR and TWBR register.\\
+The Magnetometer runs at 100kbps. To get the ATmega32 i$^2$c to run at this rate we setup the TWSR and TWBR register.\\
 $\frac{8MHz}{16+2*TWBR}=100kbps, TWBR = 32$ which is exactly 100kHz\\
 In the datasheet a table is shown were all responses are described.
 
@@ -122,7 +122,7 @@ The system is described via. UML even though it is made in C it offers a nice ov
 \end{wrapfigure}
 The system is implemented by making API's specific to our application by using generic drivers. This makes the system easy to port to another platform if this is insufficient at some point in the implementation.\\
 We also chose to implement FreeRTOS onto our system. Our thoughts behind this choice was to make it easy to scale the project and implement more tasks. As mentioned in the introduction the stage of the project in this course is not the intended end project. Therefore it is important to keep in mind that several other tasks might be added. If this is not possible because it was implemented using one big superloop in main the initial work would not be worth that much.\\%
-The two drivers i2c and uart have been acquired from the course ITAMS.\\
+The two drivers i2c and uart have not been written by the group, but we knew they would be reliable, and our focus was not on implementing i2c nor uart (we already did that in class), it was to interface with the new devices.\\
 The project folder structure, as seen on figure \ref{fig:fold_structure}, is divided into "Drivers", "API's" and "Source". This makes for an easy overview when working on the project.\\
 
 \subsection{FreeRTOS}
