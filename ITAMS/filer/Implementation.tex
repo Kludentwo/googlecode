@@ -78,6 +78,8 @@ The first spot in the array is the 32nd place in the ascii table, therefore we s
 
 \section{Magnetometer}
 The magnetometer is a HMC6352 and is interfaced using i$^2$c. It is a fully implemented compass with everything handled. It has a register that  the setup is written to. We set the magnetometer to 10Hz measurement rate, periodic set/reset on, which is factory default, but we wanted to make sure that we know how and what it is set to.\\
+The Magnetometer runs at 100kbps. To get the ATmega32 i$^2$c to run at this rate we setup TWSR and TWBR register.\\
+$\frac{8MHz}{16+2*TWBR}=100kbps, TWBR = 32$ which is exactly 100kHz\\
 In the datasheet a table is shown were all responses are described.
 
 \begin{table}[H]
