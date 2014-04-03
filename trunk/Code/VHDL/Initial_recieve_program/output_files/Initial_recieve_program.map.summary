@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Apr 02 15:14:56 2014
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
+Revision Name : Initial_recieve_program
+Top-level Entity Name : initial_recieve_program
+Family : Cyclone II
+Total logic elements : 38
+    Total combinational functions : 37
+    Dedicated logic registers : 26
+Total registers : 26
+Total pins : 23
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

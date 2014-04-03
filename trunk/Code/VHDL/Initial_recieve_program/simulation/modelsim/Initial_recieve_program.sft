@@ -1,0 +1,5 @@
+set tool_name "ModelSim-Altera (VHDL)"
+set corner_file_list {
+	{{"Slow Model"} {Initial_recieve_program.vho Initial_recieve_program_vhd.sdo}}
+	{{"Fast Model"} {Initial_recieve_program_fast.vho Initial_recieve_program_vhd_fast.sdo}}
+}
