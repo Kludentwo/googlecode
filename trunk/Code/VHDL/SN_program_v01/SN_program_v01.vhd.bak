@@ -1,0 +1,53 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+
+
+entity SN_program_v01 is
+  port (
+------------Debugging---------
+		START_o   		: out std_logic_vector(7 downto 0);
+		ADDR_o    		: out std_logic_vector(3 downto 0);
+		current_state 	: out std_logic_vector(3 downto 0);
+------------inputs------------
+		RESPOND			: in 	std_logic_vector(7 downto 0);
+		CLK	    		: in 	std_logic;
+		RESET	  			: in 	std_logic;
+		DATA	   		: in 	std_logic;
+------------Outputs-----------
+		LEDS	   		: out std_logic_vector(3 downto 0)
+    );
+end entity SN_program_v01;
+
+
+architecture rtl of SN_program_v01 is
+------------Signals-----------
+  type 	state_type is (idle);
+  signal state 						: state_type;
+  
+begin
+
+	
+	 process(CLK,RESET)
+------------Variables-----------
+		begin
+			
+			if rising_edge(CLK) then
+			
+			end if;
+			
+			if falling_edge(CLK) then 			-- sample data
+				if RESET = '0' then
+				end if;
+				
+				case state is
+					when idle => 					-- wait for start sequence
+	
+				end case;
+			
+			end if;
+	 end process;
+end architecture;
+
+-- END OF FILE --

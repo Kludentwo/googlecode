@@ -1,0 +1,6 @@
+
+State Machine - |initial_recieve_program|state
+Name state.get_data state.address_check state.idle 
+state.idle 0 0 0 
+state.address_check 0 1 1 
+state.get_data 1 0 1 
