@@ -29,15 +29,21 @@ _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 #define     MESSAGELENGTH   12
 #define     STARTCODE       0b0110
 #define     RESPONSELENGTH   24
+#define     NUMBEROFSENSORS 15
 // Function Codes:
 #define     GETINFO         0b0001
 #define     GETDATA         0b0010
 
 
+// Sensor array
+Sensor sensorarray[NUMBEROFSENSORS];
+
 // String arrays
 unsigned char message[(2 * MESSAGELENGTH)] = {0};
-
 unsigned char response[RESPONSELENGTH] = {0};
+
+// alive array
+unsigned char alive[NUMBEROFSENSORS] = {0};
 
 // Flags
 unsigned char comflag = 0;
@@ -59,10 +65,11 @@ void TimerInit(void);
 void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* outputbuffer);
 void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer);
 void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, unsigned char* msgflag);
-void CDUStartUpRoutine(void);
+void InitSensorArray(struct Sensor* sensorarray);
+void CDUStartUpRoutine(struct Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, unsigned char* msgflag, unsigned char* comflag, unsigned char* receiveflag);
 void CDUSendStartUp(unsigned char Address, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag);
 void CDUSendRunning(struct Sensor* Sens, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag);
-void CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer);
+unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer);
 void CDUPCCom(void);
 
 /*========================================================================
@@ -88,17 +95,14 @@ int main(int argc, char** argv) {
     InitMemory();
     UARTInit();
 
-    Sensor Sensor1;
-    InitSensorMem(&Sensor1);
-
-
-
+    InitSensorArray(sensorarray);
+    CDUStartUpRoutine(sensorarray, alive, message, response, &msgflag, &comflag, &recvflag);
+    alive[2];
+    alive[3];
+    
     //Main Program Loop, Loop forever
     while (1) {
-        if (recvflag == 1) {
-
-            recvflag = 0;
-        }
+        _RA7 = ~(_RA7);
     }
     return (EXIT_SUCCESS);
 }
@@ -181,6 +185,24 @@ void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, unsig
     (*msgflag) = 1;
 }
 
+void InitSensorArray(struct Sensor* sensorarray) {
+    unsigned char addresscounter = 0;
+
+    for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
+        InitSensorMem(&(sensorarray[addresscounter]));
+        sensorarray[addresscounter].Address = (addresscounter + 1);
+    }
+}
+
+void CDUStartUpRoutine(struct Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, unsigned char* msgflag, unsigned char* comflag, unsigned char* receiveflag) {
+    unsigned char addresscounter = 0;
+    for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
+        CDUSendStartUp(addresscounter, Messagebuffer, msgflag, comflag);
+        while ((*receiveflag) == 0);
+        alive[addresscounter] = CDUReceive(&(sensorarray[addresscounter]), receivebuffer);
+    }
+}
+
 void CDUSendStartUp(unsigned char Address, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag) {
     unsigned char string[MESSAGELENGTH] = {0};
     PatMessage(Address, GETINFO, string);
@@ -195,7 +217,7 @@ void CDUSendRunning(struct Sensor* Sens, unsigned char* Messagebuffer, unsigned 
     (*comflag) = 1;
 }
 
-void CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
+unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
     unsigned char datacnt = 0;
     unsigned char FunctioncodeHolder = 0;
     unsigned char AddressHolder = 0;
@@ -208,10 +230,7 @@ void CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
         if (datacnt > 15 && datacnt < 20) {
             FunctioncodeHolder |= receivebuffer[datacnt] << (19 - datacnt);
         }
-        if (FunctioncodeHolder == GETINFO) {
-            if (Sens->Address != AddressHolder) {
-                Sens->Address = AddressHolder;
-            }
+        if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
             if (datacnt > 11 && datacnt < 16) {
                 Sens->Errors |= receivebuffer[datacnt] << (15 - datacnt);
             }
@@ -230,7 +249,11 @@ void CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
                 Sens->Data |= receivebuffer[datacnt] << (11 - datacnt);
             }
         }
+        if (FunctioncodeHolder == 0) {
+            return 0;
+        }
     }
+    return 1;
 }
 
 /*========================================================================
