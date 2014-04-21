@@ -34,3 +34,10 @@
 \contentsline {subsection}{\numberline {4.4.1}CDU}{12}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Sensor node}{12}{subsection.4.4.2}
 \contentsline {chapter}{\chapternumberline {5}Protocols}{13}{chapter.5}
+\contentsline {section}{\numberline {5.1}Function codes}{13}{section.5.1}
+\contentsline {section}{\numberline {5.2}Writing}{13}{section.5.2}
+\contentsline {section}{\numberline {5.3}Reading}{13}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}GETINFO function code}{14}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}GETDATA function code}{14}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Type}{14}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Errors}{14}{subsection.5.3.4}
