@@ -1,7 +1,52 @@
 \chapter{Protocols}
-This chapter serves to describe the communication protocol.
+This chapter serves to describe the communication protocol. Each sensor has an unique address. The sensors responds to function codes shown in table ~\ref{table:functioncodes}.
 
-Reading and writing takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsg}. Once the CDU has written to the sensor node, the sensor node responds using the same format. \\
+\section{Function codes}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Function code & Name & Data \\ 
+	\hline
+	0001 	& GetInfo & Error codes and Type \\
+	\hline
+	0010	& GetData & Error codes and 12 bit of data from sensor \\
+	\hline
+\end{tabular}
+\caption{Function code table with names and data explaination}
+\label{table:functioncodes}
+\end{table}
+
+\section{Writing}
+Writing to a sensor node takes 3 nibbles that are comprised of a start sequence, an address and a function code. This is shown in table ~\ref{table:stdmsgtosensor}. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Start Sequence & Address & Function Code \\ \hline
+	1 nibble & 1 nibble	& 1 nibble \\
+	\hline
+\end{tabular}
+\caption{Message format for writing to sensors}
+\label{table:stdmsgtosensor}
+\end{table}
+The start sequence is always "0110".\\
+
+An example of a write sequence is found in table ~\ref{table:writingexample}.\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Start Sequence & Address & Function Code \\ \hline
+	0110 & 0001	& 0001 \\
+	\hline
+\end{tabular}
+\caption{Example of writing to sensor with address 1}
+\label{table:writingexample}
+\end{table}
+
+\section{Reading}
+Reading takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsgfromsensor}. Once the CDU has written to the sensor node, the sensor node responds using the this format. \\
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -10,27 +55,40 @@ Reading and writing takes 3 bytes that are comprised of an address, a function c
 	1 nibble & 1 nibble	& 2 bytes \\
 	\hline
 \end{tabular}
-\caption{Message format}
-\label{table:stdmsg}
+\caption{Message format for reading from sensors }
+\label{table:stdmsgfromsensor}
 \end{table}
-The data coincides with the function code. The function codes and the corresponding data can be found in table ~\ref{table:functioncodes}.
+The data coincides with the function code. This is further explained below.
 
+\subsection{GETINFO function code}
+Data is read as in table ~\ref{table:Datagetinfo}.
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
 	\hline
-	Function code & Name & Data \\ 
-	\hline
-	0001 	& GetInfo & Type and Status (See table ~\ref{table:typetable} and ~\ref{table:statustable}) \\
-	\hline
-	0010	& GetData & 2 bytes of data from sensor \\
+	Errors & Type & dummy \\ \hline
+	1 nibble & 1 nibble	& 1 bytes \\
 	\hline
 \end{tabular}
-\caption{Function code table with names and data explaination}
-\label{table:functioncodes}
+\caption{Data format for function code GETINFO }
+\label{table:Datagetinfo}
 \end{table}
+\subsection{GETDATA function code}
+Data is read as in table ~\ref{table:Datagetdata}.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+	\hline
+	Errors & Data \\ \hline
+	1 nibble & 12 bit \\
+	\hline
+\end{tabular}
+\caption{Data format for function code GETDATA }
+\label{table:Datagetdata}
+\end{table}
+An example of 12 bit data from a sensor of the type temperature sensor is "432" or "000110110000" which corresponds to 43.2 degrees Celsius.
 
-
+\subsection{Type}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -50,23 +108,22 @@ The data coincides with the function code. The function codes and the correspond
 \label{table:typetable}
 \end{table}
 
+\subsection{Errors}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
 	\hline
 	Status & Bitpattern & Description \\ 
 	\hline
-	Offline 	& 0000 00000000 & Sensor node is offline \\
+	Error1 	& 0001  & Dummy error \\
 	\hline
-	Online		& 0000 00000001 & Sensor node is online \\
-	\hline
-	Online w/ data & 0001 00000001 & Sensor node is online and data is ready \\
-	\hline
-	Online w/ error & 0000 10000001 & Sensor node is online but with error(s) \\
+	Error2  & 0010  & Dummy error \\
 	\hline
 \end{tabular}
-\caption{Status table with bitpattern and description}
-\label{table:statustable}
+\caption{Error table with bitpattern and description}
+\label{table:errortable}
 \end{table}
+
+
 
 
