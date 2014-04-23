@@ -1,0 +1,79 @@
+m255
+K3
+13
+cModel Technology
+dC:\Bachelor\Code\VHDL\SN_program_v01
+Eadc_testing
+Z0 w1397390404
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Bachelor\Code\VHDL\ADC_TESTING
+Z5 8C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING.vhd
+Z6 FC:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING.vhd
+l0
+L7
+VkR4KlY`0]GTjSMX1DV>Vj0
+Z7 OV;C;10.1b;51
+32
+Z8 !s108 1397390537.830000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING.vhd|
+Z10 !s107 C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING.vhd|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 ]^SfIRPPbg?i5jM5QU@;X0
+!i10b 1
+Artl
+R1
+R2
+R3
+DEx4 work 11 adc_testing 0 22 kR4KlY`0]GTjSMX1DV>Vj0
+l24
+L19
+VS7fMkUNI>OE=]cN1Ia5L40
+!s100 Z_aDHbRf1La6KC>`JLBAV0
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!i10b 1
+Eadc_testing_tb
+Z13 w1397390538
+R1
+R2
+R3
+R4
+Z14 8C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING_TB.vhd
+Z15 FC:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING_TB.vhd
+l0
+L5
+VPAQ@iPUJ>7g`=>>;bN5WC3
+!s100 NTX_P8kPh:b]gW`9kcOf70
+R7
+32
+!i10b 1
+Z16 !s108 1397390538.916000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING_TB.vhd|
+Z18 !s107 C:/Bachelor/Code/VHDL/ADC_TESTING/ADC_TESTING_TB.vhd|
+R11
+R12
+Abench
+R1
+R2
+R3
+Z19 DEx4 work 14 adc_testing_tb 0 22 PAQ@iPUJ>7g`=>>;bN5WC3
+l30
+L8
+Vnf^NM];=FD5[gZJY6Hzz13
+!s100 ?`WA6W5dZ5AJ=7<WP]4P`3
+R7
+32
+!i10b 1
+R16
+R17
+R18
+R11
+R12

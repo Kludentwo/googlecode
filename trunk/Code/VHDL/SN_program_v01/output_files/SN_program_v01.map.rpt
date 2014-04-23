@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SN_program_v01
-Mon Apr 07 13:38:31 2014
+Wed Apr 16 08:52:07 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -17,10 +17,9 @@ Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
   9. State Machine - |SN_program_v01|r_state
  10. Registers Removed During Synthesis
  11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -46,16 +45,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 07 13:38:31 2014     ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 16 08:52:07 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_program_v01                            ;
 ; Top-level Entity Name              ; SN_program_v01                            ;
 ; Family                             ; Cyclone II                                ;
-; Total logic elements               ; 100                                       ;
-;     Total combinational functions  ; 91                                        ;
+; Total logic elements               ; 106                                       ;
+;     Total combinational functions  ; 90                                        ;
 ;     Dedicated logic registers      ; 57                                        ;
 ; Total registers                    ; 57                                        ;
-; Total pins                         ; 31                                        ;
+; Total pins                         ; 34                                        ;
 ; Total virtual pins                 ; 0                                         ;
 ; Total memory bits                  ; 0                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                         ;
@@ -179,27 +178,27 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 100   ;
+; Estimated Total logic elements              ; 106   ;
 ;                                             ;       ;
-; Total combinational functions               ; 91    ;
+; Total combinational functions               ; 90    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 44    ;
-;     -- 3 input functions                    ; 6     ;
-;     -- <=2 input functions                  ; 41    ;
+;     -- 4 input functions                    ; 72    ;
+;     -- 3 input functions                    ; 10    ;
+;     -- <=2 input functions                  ; 8     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 60    ;
-;     -- arithmetic mode                      ; 31    ;
+;     -- normal mode                          ; 90    ;
+;     -- arithmetic mode                      ; 0     ;
 ;                                             ;       ;
 ; Total registers                             ; 57    ;
 ;     -- Dedicated logic registers            ; 57    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 31    ;
+; I/O pins                                    ; 34    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out                             ; 57    ;
-; Total fan-out                               ; 435   ;
-; Average fan-out                             ; 2.43  ;
+; Total fan-out                               ; 473   ;
+; Average fan-out                             ; 2.61  ;
 +---------------------------------------------+-------+
 
 
@@ -208,7 +207,7 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |SN_program_v01            ; 91 (91)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |SN_program_v01     ;              ;
+; |SN_program_v01            ; 90 (90)           ; 57 (57)      ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |SN_program_v01     ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -243,9 +242,11 @@ Encoding Type:  One-Hot
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; current_state[2]~reg0                 ; Stuck at GND due to stuck port data_in ;
-; current_state[3]~reg0                 ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
+; Respond_Data[19,21..23]               ; Merged with Respond_Data[18]           ;
+; Respond_Data[18]                      ; Stuck at GND due to stuck port data_in ;
+; Respond_Data[20]                      ; Stuck at VCC due to stuck port data_in ;
+; Respond_Data[16]                      ; Merged with Respond_Data[17]           ;
+; Total Number of Removed Registers = 7 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
 
@@ -259,31 +260,24 @@ Encoding Type:  One-Hot
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 47    ;
+; Number of registers using Clock Enable       ; 25    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; address_counter[0]                     ; 2       ;
-; address_counter[31]                    ; 2       ;
-; Total number of inverted registers = 2 ;         ;
-+----------------------------------------+---------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SN_program_v01|m_bit3     ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |SN_program_v01|Selector5  ;
-; 22:1               ; 3 bits    ; 42 LEs        ; 9 LEs                ; 33 LEs                 ; No         ; |SN_program_v01|Selector1  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SN_program_v01|Respond_Data[17]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |SN_program_v01|Respond_Data[9]      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SN_program_v01|respond_counter[1]   ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_program_v01|m_a_bit1             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_program_v01|functioncode_counter ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |SN_program_v01|Selector2            ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |SN_program_v01|Selector6            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 
 
 +-------------------------------+
@@ -301,56 +295,50 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Mon Apr 07 13:38:29 2014
+    Info: Processing started: Wed Apr 16 08:52:05 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SN_program_v01 -c SN_program_v01
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file sn_program_v01.vhd
     Info (12022): Found design unit 1: SN_program_v01-rtl
     Info (12023): Found entity 1: SN_program_v01
+Info (12021): Found 2 design units, including 1 entities, in source file sensor_interfacing.vhd
+    Info (12022): Found design unit 1: Sensor_interfacing-rtl
+    Info (12023): Found entity 1: Sensor_interfacing
+Info (12021): Found 1 design units, including 1 entities, in source file schematic.bdf
+    Info (12023): Found entity 1: Schematic
 Info (12127): Elaborating entity "SN_program_v01" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(10): used implicit default value for signal "START_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(11): used implicit default value for signal "ADDR_o" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(19): used implicit default value for signal "LEDS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(50): used initial value expression for variable "start_seq" because variable was never assigned a value
-Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(51): used initial value expression for variable "address" because variable was never assigned a value
+Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(16): used implicit default value for signal "R_DATA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at SN_program_v01.vhd(54): object "r_manchester_counter" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SN_program_v01.vhd(63): object "flopped_ADC_DATA" assigned a value but never read
+Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(72): used initial value expression for variable "start_seq" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(73): used initial value expression for variable "address" because variable was never assigned a value
+Warning (10492): VHDL Process Statement warning at SN_program_v01.vhd(88): signal "ADC_DATA_RDY" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SN_program_v01.vhd(89): signal "ADC_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "START_o[0]" is stuck at GND
-    Warning (13410): Pin "START_o[1]" is stuck at GND
-    Warning (13410): Pin "START_o[2]" is stuck at GND
-    Warning (13410): Pin "START_o[3]" is stuck at GND
-    Warning (13410): Pin "START_o[4]" is stuck at GND
-    Warning (13410): Pin "START_o[5]" is stuck at GND
-    Warning (13410): Pin "START_o[6]" is stuck at GND
-    Warning (13410): Pin "START_o[7]" is stuck at GND
-    Warning (13410): Pin "ADDR_o[0]" is stuck at GND
-    Warning (13410): Pin "ADDR_o[1]" is stuck at GND
-    Warning (13410): Pin "ADDR_o[2]" is stuck at GND
-    Warning (13410): Pin "ADDR_o[3]" is stuck at GND
-    Warning (13410): Pin "current_state[2]" is stuck at GND
-    Warning (13410): Pin "current_state[3]" is stuck at GND
-    Warning (13410): Pin "LEDS[0]" is stuck at GND
-    Warning (13410): Pin "LEDS[1]" is stuck at GND
-    Warning (13410): Pin "LEDS[2]" is stuck at GND
-    Warning (13410): Pin "LEDS[3]" is stuck at GND
+    Warning (13410): Pin "R_DATA" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "RESPOND[0]"
-    Warning (15610): No output dependent on input pin "RESPOND[1]"
-    Warning (15610): No output dependent on input pin "RESPOND[2]"
-    Warning (15610): No output dependent on input pin "RESPOND[3]"
-    Warning (15610): No output dependent on input pin "RESPOND[4]"
-    Warning (15610): No output dependent on input pin "RESPOND[5]"
-    Warning (15610): No output dependent on input pin "RESPOND[6]"
-    Warning (15610): No output dependent on input pin "RESPOND[7]"
-    Warning (15610): No output dependent on input pin "RESET"
-Info (21057): Implemented 161 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 130 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 34 warnings
-    Info: Peak virtual memory: 498 megabytes
-    Info: Processing ended: Mon Apr 07 13:38:31 2014
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_DATA[0]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[1]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[2]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[3]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[4]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[5]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[6]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[7]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[8]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[9]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[10]"
+    Warning (15610): No output dependent on input pin "ADC_DATA[11]"
+    Warning (15610): No output dependent on input pin "ADC_DATA_RDY"
+Info (21057): Implemented 141 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 32 input pins
+    Info (21059): Implemented 2 output pins
+    Info (21061): Implemented 107 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 510 megabytes
+    Info: Processing ended: Wed Apr 16 08:52:07 2014
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

@@ -1,6 +1,6 @@
 Flow report for Initial_recieve_program
-Wed Apr 02 15:15:11 2014
-Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
+Fri Apr 11 13:49:55 2014
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
 ---------------------
@@ -38,8 +38,8 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Flow Summary                                                                   ;
 +------------------------------------+-------------------------------------------+
-; Flow Status                        ; Successful - Wed Apr 02 15:15:11 2014     ;
-; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
+; Flow Status                        ; Successful - Fri Apr 11 13:49:55 2014     ;
+; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; Initial_recieve_program                   ;
 ; Top-level Entity Name              ; initial_recieve_program                   ;
 ; Family                             ; Cyclone II                                ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+-------------------------+
 ; Option            ; Setting                 ;
 +-------------------+-------------------------+
-; Start date & time ; 04/02/2014 15:14:54     ;
+; Start date & time ; 04/11/2014 13:49:36     ;
 ; Main task         ; Compilation             ;
 ; Revision Name     ; Initial_recieve_program ;
 +-------------------+-------------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 49273389870329.139644449406732 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 49273389870329.139721697601320 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -90,12 +90,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 515 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:06     ; 1.3                     ; 665 MB              ; 00:00:07                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 432 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 419 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 385 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:13     ; --                      ; --                  ; 00:00:13                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 381 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:07     ; 1.6                     ; 503 MB              ; 00:00:08                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 362 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 321 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 314 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:16     ; --                      ; --                  ; 00:00:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

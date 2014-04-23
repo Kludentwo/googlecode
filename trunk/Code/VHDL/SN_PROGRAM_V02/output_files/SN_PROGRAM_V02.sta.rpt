@@ -1,0 +1,1372 @@
+TimeQuest Timing Analyzer report for SN_PROGRAM_V02
+Wed Apr 23 11:51:04 2014
+Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'Buffer_in'
+ 12. Slow Model Hold: 'Buffer_in'
+ 13. Slow Model Minimum Pulse Width: 'Buffer_in'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Fast Model Setup Summary
+ 21. Fast Model Hold Summary
+ 22. Fast Model Recovery Summary
+ 23. Fast Model Removal Summary
+ 24. Fast Model Minimum Pulse Width Summary
+ 25. Fast Model Setup: 'Buffer_in'
+ 26. Fast Model Hold: 'Buffer_in'
+ 27. Fast Model Minimum Pulse Width: 'Buffer_in'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Propagation Delay
+ 33. Minimum Propagation Delay
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Progagation Delay
+ 40. Minimum Progagation Delay
+ 41. Setup Transfers
+ 42. Hold Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths
+ 46. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                      ;
++--------------------+---------------------------------------------------+
+; Quartus II Version ; Version 12.1 Build 177 11/07/2012 SJ Full Version ;
+; Revision Name      ; SN_PROGRAM_V02                                    ;
+; Device Family      ; Cyclone II                                        ;
+; Device Name        ; EP2C35F672C6                                      ;
+; Timing Models      ; Final                                             ;
+; Delay Model        ; Combined                                          ;
+; Rise/Fall Delays   ; Unavailable                                       ;
++--------------------+---------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
+;     3-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets       ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+; Buffer_in  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Buffer_in } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 179.28 MHz ; 179.28 MHz      ; Buffer_in  ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow Model Setup Summary           ;
++-----------+--------+---------------+
+; Clock     ; Slack  ; End Point TNS ;
++-----------+--------+---------------+
+; Buffer_in ; -2.691 ; -147.586      ;
++-----------+--------+---------------+
+
+
++-----------------------------------+
+; Slow Model Hold Summary           ;
++-----------+-------+---------------+
+; Clock     ; Slack ; End Point TNS ;
++-----------+-------+---------------+
+; Buffer_in ; 0.391 ; 0.000         ;
++-----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-----------+--------+-------------------+
+; Clock     ; Slack  ; End Point TNS     ;
++-----------+--------+-------------------+
+; Buffer_in ; -1.222 ; -88.222           ;
++-----------+--------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'Buffer_in'                                                                                                                                             ;
++--------+-------------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.691 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.727      ;
+; -2.691 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.727      ;
+; -2.691 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.727      ;
+; -2.690 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.726      ;
+; -2.688 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.724      ;
+; -2.688 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.724      ;
+; -2.687 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.723      ;
+; -2.647 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.692      ;
+; -2.647 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.692      ;
+; -2.647 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.692      ;
+; -2.646 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.691      ;
+; -2.644 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.689      ;
+; -2.644 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.689      ;
+; -2.643 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.688      ;
+; -2.632 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.668      ;
+; -2.632 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.668      ;
+; -2.632 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.668      ;
+; -2.631 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.667      ;
+; -2.629 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.665      ;
+; -2.629 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.665      ;
+; -2.628 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.664      ;
+; -2.588 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.633      ;
+; -2.588 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.633      ;
+; -2.588 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.633      ;
+; -2.587 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.632      ;
+; -2.585 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.630      ;
+; -2.585 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.630      ;
+; -2.584 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.629      ;
+; -2.560 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.596      ;
+; -2.560 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.596      ;
+; -2.560 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.596      ;
+; -2.559 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.595      ;
+; -2.557 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.593      ;
+; -2.557 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.593      ;
+; -2.556 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.592      ;
+; -2.501 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.528      ;
+; -2.500 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.527      ;
+; -2.472 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.508      ;
+; -2.472 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.508      ;
+; -2.472 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.508      ;
+; -2.471 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.507      ;
+; -2.469 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.505      ;
+; -2.469 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.505      ;
+; -2.468 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.504      ;
+; -2.467 ; SN_program_v01:inst7|r_state.check_address      ; SN_program_v01:inst7|f_state.idle        ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.503      ;
+; -2.457 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.493      ;
+; -2.456 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.492      ;
+; -2.442 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.469      ;
+; -2.441 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.468      ;
+; -2.421 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.457      ;
+; -2.421 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.457      ;
+; -2.421 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.457      ;
+; -2.420 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.456      ;
+; -2.418 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[6] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.454      ;
+; -2.418 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[8] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.454      ;
+; -2.417 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[5] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.453      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[12]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[8]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[4]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[6]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[0]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[2]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[5]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[7]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[1]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.410 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[3]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.035      ; 3.481      ;
+; -2.398 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.434      ;
+; -2.397 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.433      ;
+; -2.396 ; Sensor_interfacing:inst1|wait_counter[2]        ; Sensor_interfacing:inst1|wait_counter[4] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.432      ;
+; -2.370 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.397      ;
+; -2.369 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.396      ;
+; -2.369 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|f_state.respond     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.405      ;
+; -2.352 ; Sensor_interfacing:inst1|wait_counter[0]        ; Sensor_interfacing:inst1|wait_counter[4] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.397      ;
+; -2.337 ; Sensor_interfacing:inst1|wait_counter[3]        ; Sensor_interfacing:inst1|wait_counter[4] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.373      ;
+; -2.316 ; SN_program_v01:inst7|respond_counter[1]         ; SN_program_v01:inst7|output_data         ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.310      ; 3.662      ;
+; -2.293 ; Sensor_interfacing:inst1|wait_counter[1]        ; Sensor_interfacing:inst1|wait_counter[4] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.009      ; 3.338      ;
+; -2.289 ; SN_program_v01:inst7|address_counter[2]         ; SN_program_v01:inst7|f_state.idle        ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.280      ; 3.105      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[10]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[14]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[11]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[15]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[9]     ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[13]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.286 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|Respond_Data[17]    ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.003      ; 3.325      ;
+; -2.282 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.309      ;
+; -2.281 ; Sensor_interfacing:inst1|wait_counter[5]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.308      ;
+; -2.265 ; Sensor_interfacing:inst1|wait_counter[4]        ; Sensor_interfacing:inst1|wait_counter[4] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.301      ;
+; -2.244 ; SN_program_v01:inst7|m1                         ; SN_program_v01:inst7|manchester_bit      ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.280      ;
+; -2.244 ; SN_program_v01:inst7|respond_counter[4]         ; SN_program_v01:inst7|output_data         ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.112     ; 3.168      ;
+; -2.235 ; SN_program_v01:inst7|respond_counter[3]         ; SN_program_v01:inst7|respond_flag        ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.406     ; 2.865      ;
+; -2.233 ; SN_program_v01:inst7|m_a_bit1                   ; SN_program_v01:inst7|f_state.idle        ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.009      ; 2.778      ;
+; -2.231 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[0] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.258      ;
+; -2.230 ; Sensor_interfacing:inst1|wait_counter[6]        ; Sensor_interfacing:inst1|wait_counter[1] ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.009     ; 3.257      ;
+; -2.206 ; SN_program_v01:inst7|m_a_bit4                   ; SN_program_v01:inst7|f_state.idle        ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.009      ; 2.751      ;
+; -2.202 ; SN_program_v01:inst7|respond_counter[0]         ; SN_program_v01:inst7|respond_flag        ; Buffer_in    ; Buffer_in   ; 1.000        ; -0.406     ; 2.832      ;
+; -2.189 ; Sensor_interfacing:inst1|wait_counter[7]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.225      ;
+; -2.189 ; Sensor_interfacing:inst1|wait_counter[7]        ; Sensor_interfacing:inst1|wait_counter[7] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.225      ;
+; -2.189 ; Sensor_interfacing:inst1|wait_counter[7]        ; Sensor_interfacing:inst1|wait_flag       ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.225      ;
+; -2.188 ; Sensor_interfacing:inst1|wait_counter[7]        ; Sensor_interfacing:inst1|wait_counter[3] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.224      ;
+; -2.187 ; Sensor_interfacing:inst1|wait_counter[8]        ; Sensor_interfacing:inst1|wait_counter[2] ; Buffer_in    ; Buffer_in   ; 1.000        ; 0.000      ; 3.223      ;
++--------+-------------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'Buffer_in'                                                                                                                                                          ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                          ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[0]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|address_counter[1]            ; SN_program_v01:inst7|address_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|address_counter[2]            ; SN_program_v01:inst7|address_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit1                    ; SN_program_v01:inst7|start_bit1                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit2                    ; SN_program_v01:inst7|start_bit2                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit6                    ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit7                    ; SN_program_v01:inst7|start_bit7                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit8                    ; SN_program_v01:inst7|start_bit8                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|respond_counter[1]            ; SN_program_v01:inst7|respond_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|respond_counter[2]            ; SN_program_v01:inst7|respond_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|respond_flag                  ; SN_program_v01:inst7|respond_flag                  ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_f_bit1                      ; SN_program_v01:inst7|m_f_bit1                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_f_bit2                      ; SN_program_v01:inst7|m_f_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_f_bit3                      ; SN_program_v01:inst7|m_f_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_f_bit4                      ; SN_program_v01:inst7|m_f_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit3                    ; SN_program_v01:inst7|start_bit3                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit4                    ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|start_bit5                    ; SN_program_v01:inst7|start_bit5                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_a_bit1                      ; SN_program_v01:inst7|m_a_bit1                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_a_bit2                      ; SN_program_v01:inst7|m_a_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_a_bit3                      ; SN_program_v01:inst7|m_a_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|m_a_bit4                      ; SN_program_v01:inst7|m_a_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|functioncode_counter[1]       ; SN_program_v01:inst7|functioncode_counter[1]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|functioncode_counter[2]       ; SN_program_v01:inst7|functioncode_counter[2]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|fault                         ; SN_program_v01:inst7|fault                         ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|functioncode_counter[0]       ; SN_program_v01:inst7|functioncode_counter[0]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; SN_program_v01:inst7|output_data                   ; SN_program_v01:inst7|output_data                   ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|wait_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|data_counter[1]           ; Sensor_interfacing:inst1|data_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|data_counter[2]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.657      ;
+; 0.527 ; SN_program_v01:inst7|start_bit1                    ; SN_program_v01:inst7|start_bit2                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.793      ;
+; 0.802 ; SN_program_v01:inst7|start_bit7                    ; SN_program_v01:inst7|start_bit8                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.068      ;
+; 0.804 ; SN_program_v01:inst7|m_a_bit3                      ; SN_program_v01:inst7|m_a_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.070      ;
+; 0.806 ; SN_program_v01:inst7|start_bit4                    ; SN_program_v01:inst7|start_bit5                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.072      ;
+; 0.812 ; SN_program_v01:inst7|m_a_bit2                      ; SN_program_v01:inst7|m_a_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.078      ;
+; 0.818 ; SN_program_v01:inst7|m_a_bit1                      ; SN_program_v01:inst7|m_a_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.084      ;
+; 0.824 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.090      ;
+; 0.840 ; SN_program_v01:inst7|m_f_bit1                      ; SN_program_v01:inst7|m_f_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.106      ;
+; 0.842 ; SN_program_v01:inst7|start_bit3                    ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.108      ;
+; 0.843 ; SN_program_v01:inst7|start_bit5                    ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.109      ;
+; 0.847 ; SN_program_v01:inst7|m_f_bit3                      ; SN_program_v01:inst7|m_f_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.113      ;
+; 0.857 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.123      ;
+; 0.970 ; SN_program_v01:inst7|start_bit6                    ; SN_program_v01:inst7|start_bit7                    ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.001     ; 1.235      ;
+; 0.971 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.009      ; 1.246      ;
+; 0.980 ; SN_program_v01:inst7|start_bit2                    ; SN_program_v01:inst7|start_bit3                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.001      ; 1.247      ;
+; 0.985 ; SN_program_v01:inst7|m_f_bit2                      ; SN_program_v01:inst7|m_f_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.251      ;
+; 1.005 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|wait_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.009     ; 1.262      ;
+; 1.009 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.009     ; 1.266      ;
+; 1.027 ; SN_program_v01:inst7|respond_counter[1]            ; SN_program_v01:inst7|respond_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.293      ;
+; 1.029 ; SN_program_v01:inst7|functioncode_counter[0]       ; SN_program_v01:inst7|functioncode_counter[1]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.295      ;
+; 1.046 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.312      ;
+; 1.050 ; Sensor_interfacing:inst1|data_counter[3]           ; Sensor_interfacing:inst1|data_counter[3]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.316      ;
+; 1.062 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.328      ;
+; 1.069 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[5]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.029     ; 1.306      ;
+; 1.070 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 0.835      ;
+; 1.070 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit3                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 0.835      ;
+; 1.070 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[7]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.029     ; 1.307      ;
+; 1.072 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit5                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 0.837      ;
+; 1.073 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 0.838      ;
+; 1.073 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[4]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.029     ; 1.310      ;
+; 1.074 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[6]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.029     ; 1.311      ;
+; 1.077 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.343      ;
+; 1.216 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|r_state.check_functioncode    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.482      ;
+; 1.232 ; Sensor_interfacing:inst1|data_counter[1]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.498      ;
+; 1.236 ; Sensor_interfacing:inst1|data_counter[3]           ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.009      ; 1.511      ;
+; 1.251 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit1                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.002     ; 1.015      ;
+; 1.251 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit7                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.002     ; 1.015      ;
+; 1.251 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit8                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.002     ; 1.015      ;
+; 1.265 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[3]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.521      ;
+; 1.265 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[2]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.521      ;
+; 1.266 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[10]                      ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.522      ;
+; 1.266 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[8]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.522      ;
+; 1.267 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[11]                      ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.523      ;
+; 1.268 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[9]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.524      ;
+; 1.269 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[1]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.525      ;
+; 1.269 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[0]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 1.525      ;
+; 1.278 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|r_state.check_address         ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.544      ;
+; 1.289 ; SN_program_v01:inst7|f_state.manchester_converting ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.555      ;
+; 1.295 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.012     ; 1.549      ;
+; 1.336 ; Sensor_interfacing:inst1|first_clock               ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.602      ;
+; 1.343 ; SN_program_v01:inst7|f_state.respond               ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 1.108      ;
+; 1.345 ; SN_program_v01:inst7|f_state.respond               ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.001     ; 1.110      ;
+; 1.349 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|data_counter[3]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.615      ;
+; 1.350 ; Sensor_interfacing:inst1|wait_counter[1]           ; Sensor_interfacing:inst1|wait_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.616      ;
+; 1.360 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.009      ; 1.635      ;
+; 1.365 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|CS                        ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.009     ; 1.622      ;
+; 1.371 ; SN_program_v01:inst7|f_state.respond               ; SN_program_v01:inst7|f_state.respond               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.637      ;
+; 1.394 ; Sensor_interfacing:inst1|CS                        ; Sensor_interfacing:inst1|CS                        ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.660      ;
+; 1.468 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|s_wait_conv               ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.009     ; 1.725      ;
+; 1.478 ; Sensor_interfacing:inst1|wait_counter[0]           ; Sensor_interfacing:inst1|wait_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.744      ;
+; 1.486 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.752      ;
+; 1.500 ; SN_program_v01:inst7|f_state.manchester_converting ; SN_program_v01:inst7|m_a_bit1                      ; Buffer_in    ; Buffer_in   ; -0.500       ; 0.003      ; 1.269      ;
+; 1.501 ; SN_program_v01:inst7|fault                         ; SN_program_v01:inst7|r_state.check_address         ; Buffer_in    ; Buffer_in   ; -0.500       ; 0.280      ; 1.547      ;
+; 1.515 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|data_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.065      ; 1.846      ;
+; 1.524 ; Sensor_interfacing:inst1|first_clock               ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 1.790      ;
+; 1.525 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.009      ; 1.800      ;
+; 1.526 ; SN_program_v01:inst7|f_state.idle                  ; SN_program_v01:inst7|start_bit2                    ; Buffer_in    ; Buffer_in   ; -0.500       ; -0.002     ; 1.290      ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'Buffer_in'                                                                                             ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock     ; Clock Edge ; Target                                             ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; Buffer_in ; Rise       ; Buffer_in                                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[0]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[0]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[10]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[10]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[11]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[11]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[1]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[1]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[2]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[2]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[3]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[3]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[4]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[4]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[5]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[5]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[6]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[6]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[7]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[7]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[8]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[8]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[9]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[9]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[0]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[0]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[10]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[10]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[11]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[11]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[12]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[12]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[13]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[13]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[14]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[14]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[15]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[15]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[17]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[17]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[1]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[1]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[2]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[2]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[3]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[3]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[4]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[4]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[5]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[5]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[6]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[6]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[7]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[7]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[8]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[8]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[9]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[9]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[0]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[0]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[1]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[1]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[2]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[2]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.idle                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.idle                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.manchester_converting ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.manchester_converting ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.respond               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.respond               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|fault                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|fault                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m1                            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m1                            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_bit                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_bit                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_counter            ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; 5.612  ; 5.612  ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; 7.209  ; 7.209  ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 5.176  ; 5.176  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; -0.517 ; -0.517 ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; -0.468 ; -0.468 ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; -0.647 ; -0.647 ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; 0.503  ; 0.503  ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; 0.698  ; 0.698  ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; 0.604  ; 0.604  ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; 0.749  ; 0.749  ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; 0.630  ; 0.630  ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; 0.681  ; 0.681  ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; 0.859  ; 0.859  ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; 0.474  ; 0.474  ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; 0.518  ; 0.518  ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; 0.614  ; 0.614  ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; 5.117  ; 5.117  ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; 5.139  ; 5.139  ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; 5.176  ; 5.176  ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; 4.997  ; 4.997  ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Hold Times                                                                     ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; -3.409 ; -3.409 ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; -4.046 ; -4.046 ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 0.877  ; 0.877  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; 0.747  ; 0.747  ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; 0.698  ; 0.698  ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; 0.877  ; 0.877  ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; -0.273 ; -0.273 ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; -0.468 ; -0.468 ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; -0.374 ; -0.374 ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; -0.519 ; -0.519 ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; -0.400 ; -0.400 ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; -0.451 ; -0.451 ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; -0.629 ; -0.629 ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; -0.244 ; -0.244 ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; -0.288 ; -0.288 ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; -0.384 ; -0.384 ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; -4.887 ; -4.887 ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; -4.909 ; -4.909 ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; -4.946 ; -4.946 ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; -3.303 ; -3.303 ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 6.812 ; 6.812 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 6.235 ; 6.235 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 6.524 ; 6.524 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 9.929 ; 9.929 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 9.222 ; 9.222 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 9.281 ; 9.281 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 7.706 ; 7.706 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 7.698 ; 7.698 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 7.705 ; 7.705 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 7.690 ; 7.690 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 8.001 ; 8.001 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 7.971 ; 7.971 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 8.013 ; 8.013 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 7.618 ; 7.618 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 8.408 ; 8.408 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 9.281 ; 9.281 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 8.353 ; 8.353 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 8.364 ; 8.364 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 9.929 ; 9.929 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 9.222 ; 9.222 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 6.812 ; 6.812 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 6.235 ; 6.235 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 6.524 ; 6.524 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 7.307 ; 7.307 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 6.600 ; 6.600 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 7.618 ; 7.618 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 7.706 ; 7.706 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 7.698 ; 7.698 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 7.705 ; 7.705 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 7.690 ; 7.690 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 8.001 ; 8.001 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 7.971 ; 7.971 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 8.013 ; 8.013 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 7.618 ; 7.618 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 8.408 ; 8.408 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 9.281 ; 9.281 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 8.353 ; 8.353 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 8.364 ; 8.364 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 9.929 ; 9.929 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 9.222 ; 9.222 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 8.586 ;    ;    ; 8.586 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 8.586 ;    ;    ; 8.586 ;
++------------+-------------+-------+----+----+-------+
+
+
++------------------------------------+
+; Fast Model Setup Summary           ;
++-----------+--------+---------------+
+; Clock     ; Slack  ; End Point TNS ;
++-----------+--------+---------------+
+; Buffer_in ; -0.814 ; -38.175       ;
++-----------+--------+---------------+
+
+
++-----------------------------------+
+; Fast Model Hold Summary           ;
++-----------+-------+---------------+
+; Clock     ; Slack ; End Point TNS ;
++-----------+-------+---------------+
+; Buffer_in ; 0.215 ; 0.000         ;
++-----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-----------+--------+-------------------+
+; Clock     ; Slack  ; End Point TNS     ;
++-----------+--------+-------------------+
+; Buffer_in ; -1.222 ; -88.222           ;
++-----------+--------+-------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'Buffer_in'                                                                                                                                                       ;
++--------+-------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.814 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.506      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.801 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.493      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[10]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[14]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[11]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[15]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[9]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[13]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.754 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|Respond_Data[17]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.429      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[10]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[14]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[11]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[15]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[9]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[13]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.741 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|Respond_Data[17]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.416      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.736 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.428      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.730 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.422      ;
+; -0.723 ; SN_program_v01:inst7|m_f_bit3                   ; SN_program_v01:inst7|f_state.respond               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.129      ; 1.384      ;
+; -0.718 ; SN_program_v01:inst7|address_counter[2]         ; SN_program_v01:inst7|f_state.idle                  ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.129      ; 1.379      ;
+; -0.713 ; SN_program_v01:inst7|m_a_bit4                   ; SN_program_v01:inst7|f_state.idle                  ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.006      ; 1.251      ;
+; -0.713 ; SN_program_v01:inst7|m_a_bit1                   ; SN_program_v01:inst7|f_state.idle                  ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.006      ; 1.251      ;
+; -0.710 ; SN_program_v01:inst7|m_f_bit4                   ; SN_program_v01:inst7|f_state.respond               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.129      ; 1.371      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.692 ; SN_program_v01:inst7|functioncode_counter[2]    ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.384      ;
+; -0.691 ; SN_program_v01:inst7|m_a_bit4                   ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.000      ; 1.223      ;
+; -0.691 ; SN_program_v01:inst7|m_a_bit1                   ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.000      ; 1.223      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[12]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[8]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[4]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[6]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[0]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[2]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[5]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[7]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[1]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.686 ; SN_program_v01:inst7|m_f_bit1                   ; SN_program_v01:inst7|Respond_Data[3]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.160      ; 1.378      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[10]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[14]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[11]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[15]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[9]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[13]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.676 ; SN_program_v01:inst7|m_f_bit2                   ; SN_program_v01:inst7|Respond_Data[17]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.351      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[10]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[14]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[11]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[15]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[9]               ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[13]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.670 ; SN_program_v01:inst7|functioncode_counter[1]    ; SN_program_v01:inst7|Respond_Data[17]              ; Buffer_in    ; Buffer_in   ; 0.500        ; 0.143      ; 1.345      ;
+; -0.665 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|m_f_bit3                      ; Buffer_in    ; Buffer_in   ; 0.500        ; -0.129     ; 1.068      ;
+; -0.664 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|functioncode_counter[2]       ; Buffer_in    ; Buffer_in   ; 0.500        ; -0.129     ; 1.067      ;
+; -0.662 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|m_f_bit4                      ; Buffer_in    ; Buffer_in   ; 0.500        ; -0.129     ; 1.065      ;
+; -0.661 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|m_f_bit1                      ; Buffer_in    ; Buffer_in   ; 0.500        ; -0.129     ; 1.064      ;
+; -0.661 ; SN_program_v01:inst7|r_state.check_functioncode ; SN_program_v01:inst7|m_f_bit2                      ; Buffer_in    ; Buffer_in   ; 0.500        ; -0.129     ; 1.064      ;
++--------+-------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'Buffer_in'                                                                                                                                                          ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                          ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[0]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|address_counter[1]            ; SN_program_v01:inst7|address_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|address_counter[2]            ; SN_program_v01:inst7|address_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit1                    ; SN_program_v01:inst7|start_bit1                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit2                    ; SN_program_v01:inst7|start_bit2                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit6                    ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit7                    ; SN_program_v01:inst7|start_bit7                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit8                    ; SN_program_v01:inst7|start_bit8                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|respond_counter[1]            ; SN_program_v01:inst7|respond_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|respond_counter[2]            ; SN_program_v01:inst7|respond_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|respond_flag                  ; SN_program_v01:inst7|respond_flag                  ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_f_bit1                      ; SN_program_v01:inst7|m_f_bit1                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_f_bit2                      ; SN_program_v01:inst7|m_f_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_f_bit3                      ; SN_program_v01:inst7|m_f_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_f_bit4                      ; SN_program_v01:inst7|m_f_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit3                    ; SN_program_v01:inst7|start_bit3                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit4                    ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|start_bit5                    ; SN_program_v01:inst7|start_bit5                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_a_bit1                      ; SN_program_v01:inst7|m_a_bit1                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_a_bit2                      ; SN_program_v01:inst7|m_a_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_a_bit3                      ; SN_program_v01:inst7|m_a_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|m_a_bit4                      ; SN_program_v01:inst7|m_a_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|functioncode_counter[1]       ; SN_program_v01:inst7|functioncode_counter[1]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|functioncode_counter[2]       ; SN_program_v01:inst7|functioncode_counter[2]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|fault                         ; SN_program_v01:inst7|fault                         ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|functioncode_counter[0]       ; SN_program_v01:inst7|functioncode_counter[0]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; SN_program_v01:inst7|output_data                   ; SN_program_v01:inst7|output_data                   ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|wait_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|data_counter[1]           ; Sensor_interfacing:inst1|data_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|data_counter[2]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.367      ;
+; 0.243 ; SN_program_v01:inst7|start_bit1                    ; SN_program_v01:inst7|start_bit2                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.395      ;
+; 0.363 ; SN_program_v01:inst7|m_a_bit3                      ; SN_program_v01:inst7|m_a_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.515      ;
+; 0.364 ; SN_program_v01:inst7|start_bit7                    ; SN_program_v01:inst7|start_bit8                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.516      ;
+; 0.367 ; SN_program_v01:inst7|start_bit4                    ; SN_program_v01:inst7|start_bit5                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; SN_program_v01:inst7|m_a_bit2                      ; SN_program_v01:inst7|m_a_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.519      ;
+; 0.373 ; SN_program_v01:inst7|m_a_bit1                      ; SN_program_v01:inst7|m_a_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.525      ;
+; 0.374 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.526      ;
+; 0.375 ; SN_program_v01:inst7|m_f_bit1                      ; SN_program_v01:inst7|m_f_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.527      ;
+; 0.378 ; SN_program_v01:inst7|start_bit5                    ; SN_program_v01:inst7|start_bit6                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.530      ;
+; 0.379 ; SN_program_v01:inst7|start_bit3                    ; SN_program_v01:inst7|start_bit4                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.531      ;
+; 0.382 ; SN_program_v01:inst7|m_f_bit3                      ; SN_program_v01:inst7|m_f_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.534      ;
+; 0.387 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.539      ;
+; 0.443 ; SN_program_v01:inst7|start_bit2                    ; SN_program_v01:inst7|start_bit3                    ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.001     ; 0.594      ;
+; 0.445 ; SN_program_v01:inst7|m_f_bit2                      ; SN_program_v01:inst7|m_f_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.597      ;
+; 0.446 ; SN_program_v01:inst7|start_bit6                    ; SN_program_v01:inst7|start_bit7                    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.001      ; 0.599      ;
+; 0.450 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.602      ;
+; 0.451 ; Sensor_interfacing:inst1|data_counter[3]           ; Sensor_interfacing:inst1|data_counter[3]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.603      ;
+; 0.453 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.004      ; 0.609      ;
+; 0.458 ; SN_program_v01:inst7|respond_counter[1]            ; SN_program_v01:inst7|respond_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.610      ;
+; 0.458 ; SN_program_v01:inst7|functioncode_counter[0]       ; SN_program_v01:inst7|functioncode_counter[1]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.610      ;
+; 0.466 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.618      ;
+; 0.468 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|wait_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.004     ; 0.616      ;
+; 0.472 ; Sensor_interfacing:inst1|done_flag                 ; Sensor_interfacing:inst1|wait_conv                 ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.004     ; 0.620      ;
+; 0.473 ; Sensor_interfacing:inst1|data_counter[0]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.625      ;
+; 0.486 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[5]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.628      ;
+; 0.488 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[7]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.630      ;
+; 0.491 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[4]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.633      ;
+; 0.492 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|LEDS[6]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.634      ;
+; 0.535 ; Sensor_interfacing:inst1|data_counter[3]           ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.004      ; 0.691      ;
+; 0.552 ; Sensor_interfacing:inst1|data_counter[1]           ; Sensor_interfacing:inst1|data_counter[2]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.704      ;
+; 0.555 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|r_state.check_functioncode    ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.707      ;
+; 0.568 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|r_state.check_address         ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.720      ;
+; 0.570 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[11]                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.728      ;
+; 0.570 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[10]                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.728      ;
+; 0.571 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[9]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.729      ;
+; 0.572 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|LEDS[8]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.730      ;
+; 0.573 ; SN_program_v01:inst7|r_state.check_address         ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.006     ; 0.719      ;
+; 0.576 ; SN_program_v01:inst7|f_state.manchester_converting ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.728      ;
+; 0.581 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.004      ; 0.737      ;
+; 0.584 ; Sensor_interfacing:inst1|first_clock               ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.736      ;
+; 0.588 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|data_counter[3]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.740      ;
+; 0.593 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[3]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.751      ;
+; 0.594 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[2]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.752      ;
+; 0.597 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[1]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.755      ;
+; 0.597 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|LEDS[0]                       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.006      ; 0.755      ;
+; 0.601 ; SN_program_v01:inst7|f_state.respond               ; SN_program_v01:inst7|f_state.respond               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.753      ;
+; 0.618 ; Sensor_interfacing:inst1|wait_counter[1]           ; Sensor_interfacing:inst1|wait_counter[1]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.770      ;
+; 0.634 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|CS                        ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.776      ;
+; 0.648 ; SN_program_v01:inst7|address_counter[0]            ; SN_program_v01:inst7|address_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.800      ;
+; 0.649 ; Sensor_interfacing:inst1|CS                        ; Sensor_interfacing:inst1|CS                        ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.801      ;
+; 0.650 ; Sensor_interfacing:inst1|wait_counter[0]           ; Sensor_interfacing:inst1|wait_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.802      ;
+; 0.665 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|first_clock               ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.004      ; 0.821      ;
+; 0.674 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|s_wait_conv               ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.010     ; 0.816      ;
+; 0.676 ; Sensor_interfacing:inst1|first_clock               ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.828      ;
+; 0.691 ; SN_program_v01:inst7|r_state.idle                  ; SN_program_v01:inst7|r_state.idle                  ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.843      ;
+; 0.692 ; SN_program_v01:inst7|manchester_bit                ; SN_program_v01:inst7|m_a_bit1                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.142      ; 0.986      ;
+; 0.695 ; Sensor_interfacing:inst1|wait_flag                 ; Sensor_interfacing:inst1|data_counter[0]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.033      ; 0.880      ;
+; 0.695 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|done_flag                 ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.004      ; 0.851      ;
+; 0.697 ; SN_program_v01:inst7|r_state.check_functioncode    ; SN_program_v01:inst7|f_state.manchester_converting ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.006     ; 0.843      ;
+; 0.707 ; Sensor_interfacing:inst1|wait_conv                 ; Sensor_interfacing:inst1|data_counter[3]           ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.000      ; 0.859      ;
+; 0.709 ; SN_program_v01:inst7|respond_counter[0]            ; SN_program_v01:inst7|respond_counter[1]            ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.180     ; 0.681      ;
+; 0.709 ; SN_program_v01:inst7|manchester_counter            ; SN_program_v01:inst7|m_a_bit4                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.142      ; 1.003      ;
+; 0.711 ; SN_program_v01:inst7|manchester_counter            ; SN_program_v01:inst7|m_a_bit3                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.142      ; 1.005      ;
+; 0.712 ; SN_program_v01:inst7|respond_counter[0]            ; SN_program_v01:inst7|respond_counter[2]            ; Buffer_in    ; Buffer_in   ; 0.000        ; -0.180     ; 0.684      ;
+; 0.712 ; SN_program_v01:inst7|manchester_counter            ; SN_program_v01:inst7|m_a_bit2                      ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.142      ; 1.006      ;
+; 0.713 ; SN_program_v01:inst7|manchester_counter            ; SN_program_v01:inst7|functioncode_counter[0]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.019      ; 0.884      ;
+; 0.726 ; SN_program_v01:inst7|manchester_counter            ; SN_program_v01:inst7|functioncode_counter[1]       ; Buffer_in    ; Buffer_in   ; 0.000        ; 0.019      ; 0.897      ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'Buffer_in'                                                                                             ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock     ; Clock Edge ; Target                                             ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; Buffer_in ; Rise       ; Buffer_in                                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[0]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[0]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[10]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[10]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[11]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[11]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[1]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[1]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[2]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[2]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[3]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[3]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[4]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[4]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[5]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[5]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[6]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[6]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[7]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[7]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[8]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[8]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[9]                       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|LEDS[9]                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[0]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[0]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[10]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[10]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[11]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[11]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[12]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[12]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[13]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[13]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[14]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[14]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[15]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[15]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[17]              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[17]              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[1]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[1]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[2]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[2]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[3]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[3]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[4]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[4]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[5]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[5]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[6]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[6]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[7]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[7]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[8]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[8]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[9]               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|Respond_Data[9]               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[0]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[0]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[1]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[1]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[2]            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|address_counter[2]            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.idle                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.idle                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.manchester_converting ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.manchester_converting ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.respond               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Fall       ; SN_program_v01:inst7|f_state.respond               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|fault                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|fault                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|functioncode_counter[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m1                            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m1                            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_a_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit1                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit2                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit3                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|m_f_bit4                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_bit                ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_bit                ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; Buffer_in ; Rise       ; SN_program_v01:inst7|manchester_counter            ;
++--------+--------------+----------------+------------------+-----------+------------+----------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; 3.062  ; 3.062  ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; 3.810  ; 3.810  ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 3.025  ; 3.025  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; -0.355 ; -0.355 ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; -0.323 ; -0.323 ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; -0.434 ; -0.434 ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; 0.224  ; 0.224  ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; 0.299  ; 0.299  ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; 0.232  ; 0.232  ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; 0.322  ; 0.322  ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; 0.281  ; 0.281  ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; 0.278  ; 0.278  ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; 0.393  ; 0.393  ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; 0.193  ; 0.193  ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; 0.206  ; 0.206  ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; 0.266  ; 0.266  ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; 3.012  ; 3.012  ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; 3.025  ; 3.025  ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; 2.986  ; 2.986  ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; 2.759  ; 2.759  ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Hold Times                                                                     ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; -2.050 ; -2.050 ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; -2.415 ; -2.415 ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 0.554  ; 0.554  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; 0.475  ; 0.475  ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; 0.443  ; 0.443  ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; 0.554  ; 0.554  ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; -0.104 ; -0.104 ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; -0.179 ; -0.179 ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; -0.112 ; -0.112 ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; -0.202 ; -0.202 ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; -0.161 ; -0.161 ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; -0.158 ; -0.158 ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; -0.273 ; -0.273 ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; -0.073 ; -0.073 ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; -0.086 ; -0.086 ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; -0.146 ; -0.146 ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; -2.892 ; -2.892 ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; -2.905 ; -2.905 ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; -2.866 ; -2.866 ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; -2.008 ; -2.008 ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 3.582 ; 3.582 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 3.317 ; 3.317 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 3.445 ; 3.445 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 5.536 ; 5.536 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 5.171 ; 5.171 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 4.804 ; 4.804 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 4.102 ; 4.102 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 4.096 ; 4.096 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 4.082 ; 4.082 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 4.076 ; 4.076 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 4.231 ; 4.231 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 4.216 ; 4.216 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 4.226 ; 4.226 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 4.063 ; 4.063 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 4.471 ; 4.471 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 4.804 ; 4.804 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 4.441 ; 4.441 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 4.451 ; 4.451 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 5.536 ; 5.536 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 5.171 ; 5.171 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 3.582 ; 3.582 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 3.317 ; 3.317 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 3.445 ; 3.445 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 3.814 ; 3.814 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 3.449 ; 3.449 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 4.063 ; 4.063 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 4.102 ; 4.102 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 4.096 ; 4.096 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 4.082 ; 4.082 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 4.076 ; 4.076 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 4.231 ; 4.231 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 4.216 ; 4.216 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 4.226 ; 4.226 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 4.063 ; 4.063 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 4.471 ; 4.471 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 4.804 ; 4.804 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 4.441 ; 4.441 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 4.451 ; 4.451 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 5.536 ; 5.536 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 5.171 ; 5.171 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 4.924 ;    ;    ; 4.924 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 4.924 ;    ;    ; 4.924 ;
++------------+-------------+-------+----+----+-------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.691   ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+;  Buffer_in       ; -2.691   ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+; Design-wide TNS  ; -147.586 ; 0.0   ; 0.0      ; 0.0     ; -88.222             ;
+;  Buffer_in       ; -147.586 ; 0.000 ; N/A      ; N/A     ; -88.222             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------------+
+; Setup Times                                                                    ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; 5.612  ; 5.612  ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; 7.209  ; 7.209  ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 5.176  ; 5.176  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; -0.355 ; -0.355 ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; -0.323 ; -0.323 ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; -0.434 ; -0.434 ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; 0.503  ; 0.503  ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; 0.698  ; 0.698  ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; 0.604  ; 0.604  ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; 0.749  ; 0.749  ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; 0.630  ; 0.630  ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; 0.681  ; 0.681  ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; 0.859  ; 0.859  ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; 0.474  ; 0.474  ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; 0.518  ; 0.518  ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; 0.614  ; 0.614  ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; 5.117  ; 5.117  ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; 5.139  ; 5.139  ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; 5.176  ; 5.176  ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; 4.997  ; 4.997  ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Hold Times                                                                     ;
++------------------+------------+--------+--------+------------+-----------------+
+; Data Port        ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------------+------------+--------+--------+------------+-----------------+
+; DIN              ; Buffer_in  ; -2.050 ; -2.050 ; Rise       ; Buffer_in       ;
+; Reset_ADC_comm   ; Buffer_in  ; -2.415 ; -2.415 ; Rise       ; Buffer_in       ;
+; In_switches[*]   ; Buffer_in  ; 0.877  ; 0.877  ; Fall       ; Buffer_in       ;
+;  In_switches[0]  ; Buffer_in  ; 0.747  ; 0.747  ; Fall       ; Buffer_in       ;
+;  In_switches[1]  ; Buffer_in  ; 0.698  ; 0.698  ; Fall       ; Buffer_in       ;
+;  In_switches[2]  ; Buffer_in  ; 0.877  ; 0.877  ; Fall       ; Buffer_in       ;
+;  In_switches[3]  ; Buffer_in  ; -0.104 ; -0.104 ; Fall       ; Buffer_in       ;
+;  In_switches[4]  ; Buffer_in  ; -0.179 ; -0.179 ; Fall       ; Buffer_in       ;
+;  In_switches[5]  ; Buffer_in  ; -0.112 ; -0.112 ; Fall       ; Buffer_in       ;
+;  In_switches[6]  ; Buffer_in  ; -0.202 ; -0.202 ; Fall       ; Buffer_in       ;
+;  In_switches[7]  ; Buffer_in  ; -0.161 ; -0.161 ; Fall       ; Buffer_in       ;
+;  In_switches[8]  ; Buffer_in  ; -0.158 ; -0.158 ; Fall       ; Buffer_in       ;
+;  In_switches[9]  ; Buffer_in  ; -0.273 ; -0.273 ; Fall       ; Buffer_in       ;
+;  In_switches[10] ; Buffer_in  ; -0.073 ; -0.073 ; Fall       ; Buffer_in       ;
+;  In_switches[11] ; Buffer_in  ; -0.086 ; -0.086 ; Fall       ; Buffer_in       ;
+;  In_switches[12] ; Buffer_in  ; -0.146 ; -0.146 ; Fall       ; Buffer_in       ;
+;  In_switches[13] ; Buffer_in  ; -2.892 ; -2.892 ; Fall       ; Buffer_in       ;
+;  In_switches[14] ; Buffer_in  ; -2.905 ; -2.905 ; Fall       ; Buffer_in       ;
+;  In_switches[15] ; Buffer_in  ; -2.866 ; -2.866 ; Fall       ; Buffer_in       ;
+; Reset_comm       ; Buffer_in  ; -2.008 ; -2.008 ; Fall       ; Buffer_in       ;
++------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 6.812 ; 6.812 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 6.235 ; 6.235 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 6.524 ; 6.524 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 9.929 ; 9.929 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 9.222 ; 9.222 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 8.232 ; 8.232 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 9.281 ; 9.281 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 7.706 ; 7.706 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 7.698 ; 7.698 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 7.705 ; 7.705 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 7.690 ; 7.690 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 8.001 ; 8.001 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 7.971 ; 7.971 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 8.013 ; 8.013 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 7.618 ; 7.618 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 8.408 ; 8.408 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 9.281 ; 9.281 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 8.353 ; 8.353 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 8.364 ; 8.364 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 9.929 ; 9.929 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 9.222 ; 9.222 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Rise       ; Buffer_in       ;
+; CS          ; Buffer_in  ; 3.582 ; 3.582 ; Rise       ; Buffer_in       ;
+; CS_debug    ; Buffer_in  ; 3.317 ; 3.317 ; Rise       ; Buffer_in       ;
+; R_DATA      ; Buffer_in  ; 3.445 ; 3.445 ; Rise       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 3.814 ; 3.814 ; Rise       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 3.449 ; 3.449 ; Rise       ; Buffer_in       ;
+; Buffer_out  ; Buffer_in  ; 4.733 ; 4.733 ; Fall       ; Buffer_in       ;
+; LEDS[*]     ; Buffer_in  ; 4.063 ; 4.063 ; Fall       ; Buffer_in       ;
+;  LEDS[0]    ; Buffer_in  ; 4.102 ; 4.102 ; Fall       ; Buffer_in       ;
+;  LEDS[1]    ; Buffer_in  ; 4.096 ; 4.096 ; Fall       ; Buffer_in       ;
+;  LEDS[2]    ; Buffer_in  ; 4.082 ; 4.082 ; Fall       ; Buffer_in       ;
+;  LEDS[3]    ; Buffer_in  ; 4.076 ; 4.076 ; Fall       ; Buffer_in       ;
+;  LEDS[4]    ; Buffer_in  ; 4.231 ; 4.231 ; Fall       ; Buffer_in       ;
+;  LEDS[5]    ; Buffer_in  ; 4.216 ; 4.216 ; Fall       ; Buffer_in       ;
+;  LEDS[6]    ; Buffer_in  ; 4.226 ; 4.226 ; Fall       ; Buffer_in       ;
+;  LEDS[7]    ; Buffer_in  ; 4.063 ; 4.063 ; Fall       ; Buffer_in       ;
+;  LEDS[8]    ; Buffer_in  ; 4.471 ; 4.471 ; Fall       ; Buffer_in       ;
+;  LEDS[9]    ; Buffer_in  ; 4.804 ; 4.804 ; Fall       ; Buffer_in       ;
+;  LEDS[10]   ; Buffer_in  ; 4.441 ; 4.441 ; Fall       ; Buffer_in       ;
+;  LEDS[11]   ; Buffer_in  ; 4.451 ; 4.451 ; Fall       ; Buffer_in       ;
+; S_CLK       ; Buffer_in  ; 5.536 ; 5.536 ; Fall       ; Buffer_in       ;
+; S_CLK_debug ; Buffer_in  ; 5.171 ; 5.171 ; Fall       ; Buffer_in       ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Progagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 8.586 ;    ;    ; 8.586 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Progagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; DOUT       ; DOUT_debug  ; 4.924 ;    ;    ; 4.924 ;
++------------+-------------+-------+----+----+-------+
+
+
++--------------------------------------------------------------------+
+; Setup Transfers                                                    ;
++------------+-----------+----------+----------+----------+----------+
+; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-----------+----------+----------+----------+----------+
+; Buffer_in  ; Buffer_in ; 871      ; 115      ; 245      ; 53       ;
++------------+-----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------+
+; Hold Transfers                                                     ;
++------------+-----------+----------+----------+----------+----------+
+; From Clock ; To Clock  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+-----------+----------+----------+----------+----------+
+; Buffer_in  ; Buffer_in ; 871      ; 115      ; 245      ; 53       ;
++------------+-----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 21    ; 21   ;
+; Unconstrained Input Port Paths  ; 51    ; 51   ;
+; Unconstrained Output Ports      ; 19    ; 19   ;
+; Unconstrained Output Port Paths ; 21    ; 21   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
+    Info: Processing started: Wed Apr 23 11:51:02 2014
+Info: Command: quartus_sta SN_PROGRAM_V02 -c SN_PROGRAM_V02
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'SN_PROGRAM_V02.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Buffer_in Buffer_in
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.691
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.691      -147.586 Buffer_in 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 Buffer_in 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.222
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.222       -88.222 Buffer_in 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.814
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.814       -38.175 Buffer_in 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 Buffer_in 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.222
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.222       -88.222 Buffer_in 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 414 megabytes
+    Info: Processing ended: Wed Apr 23 11:51:04 2014
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

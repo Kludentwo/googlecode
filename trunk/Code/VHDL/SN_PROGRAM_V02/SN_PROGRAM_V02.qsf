@@ -1,0 +1,126 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 12.1 Build 177 11/07/2012 SJ Full Version
+# Date created = 09:06:50  April 16, 2014
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		SN_PROGRAM_V02_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY SN_PROGRAM_V02
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:06:50  APRIL 16, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION 12.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VHDL_FILE SN_program_v01.vhd
+set_global_assignment -name VHDL_FILE Sensor_interfacing.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE SN_PROGRAM_V02.bdf
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_K25 -to CLK_20kHz
+set_location_assignment PIN_K26 -to DIN
+set_location_assignment PIN_M22 -to R_DATA
+set_location_assignment PIN_G26 -to Reset_comm
+set_location_assignment PIN_N25 -to In_switches[0]
+set_location_assignment PIN_N26 -to In_switches[1]
+set_location_assignment PIN_P25 -to In_switches[2]
+set_location_assignment PIN_AE14 -to In_switches[3]
+set_location_assignment PIN_AF14 -to In_switches[4]
+set_location_assignment PIN_AD13 -to In_switches[5]
+set_location_assignment PIN_AC13 -to In_switches[6]
+set_location_assignment PIN_C13 -to In_switches[7]
+set_location_assignment PIN_B13 -to In_switches[8]
+set_location_assignment PIN_A13 -to In_switches[9]
+set_location_assignment PIN_N1 -to In_switches[10]
+set_location_assignment PIN_P1 -to In_switches[11]
+set_location_assignment PIN_P2 -to In_switches[12]
+set_location_assignment PIN_T7 -to In_switches[13]
+set_location_assignment PIN_U3 -to In_switches[14]
+set_location_assignment PIN_U4 -to In_switches[15]
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_location_assignment PIN_J26 -to Buffer_in
+set_location_assignment PIN_L23 -to Buffer_out
+set_global_assignment -name CDF_FILE Chain5.cdf
+set_location_assignment PIN_D25 -to S_CLK
+set_location_assignment PIN_J22 -to CS
+set_location_assignment PIN_E26 -to SHDN
+set_location_assignment PIN_E25 -to DOUT
+set_location_assignment PIN_AE23 -to LEDS[0]
+set_location_assignment PIN_AF23 -to LEDS[1]
+set_location_assignment PIN_AB21 -to LEDS[2]
+set_location_assignment PIN_AC22 -to LEDS[3]
+set_location_assignment PIN_AD22 -to LEDS[4]
+set_location_assignment PIN_AD23 -to LEDS[5]
+set_location_assignment PIN_AD21 -to LEDS[6]
+set_location_assignment PIN_AC21 -to LEDS[7]
+set_location_assignment PIN_AA14 -to LEDS[8]
+set_location_assignment PIN_Y13 -to LEDS[9]
+set_location_assignment PIN_AA13 -to LEDS[10]
+set_location_assignment PIN_AC14 -to LEDS[11]
+set_location_assignment PIN_W26 -to Reset_ADC_comm
+set_global_assignment -name VHDL_FILE debug.vhd
+set_location_assignment PIN_L24 -to CS_debug
+set_location_assignment PIN_L25 -to DOUT_debug
+set_location_assignment PIN_L19 -to S_CLK_debug
+set_global_assignment -name VHDL_FILE BCDtosevenseg.vhd
+set_global_assignment -name VHDL_FILE temptobcd.vhd
+set_location_assignment PIN_V20 -to BCD1s[0]
+set_location_assignment PIN_V21 -to BCD1s[1]
+set_location_assignment PIN_W21 -to BCD1s[2]
+set_location_assignment PIN_Y22 -to BCD1s[3]
+set_location_assignment PIN_AA24 -to BCD1s[4]
+set_location_assignment PIN_AA23 -to BCD1s[5]
+set_location_assignment PIN_AB24 -to BCD1s[6]
+set_location_assignment PIN_AB23 -to BCD10s[0]
+set_location_assignment PIN_V22 -to BCD10s[1]
+set_location_assignment PIN_AC25 -to BCD10s[2]
+set_location_assignment PIN_AC26 -to BCD10s[3]
+set_location_assignment PIN_AB26 -to BCD10s[4]
+set_location_assignment PIN_AB25 -to BCD10s[5]
+set_location_assignment PIN_Y24 -to BCD10s[6]
+set_location_assignment PIN_AF10 -to BCD01s[0]
+set_location_assignment PIN_AB12 -to BCD01s[1]
+set_location_assignment PIN_AC12 -to BCD01s[2]
+set_location_assignment PIN_AD11 -to BCD01s[3]
+set_location_assignment PIN_AE11 -to BCD01s[4]
+set_location_assignment PIN_V14 -to BCD01s[5]
+set_location_assignment PIN_V13 -to BCD01s[6]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

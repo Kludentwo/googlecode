@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Apr 14 09:07:52 2014
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
+Revision Name : ADC_TESTING
+Top-level Entity Name : ADC_TESTING
+Family : Cyclone II
+Total logic elements : 102
+    Total combinational functions : 101
+    Dedicated logic registers : 47
+Total registers : 47
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

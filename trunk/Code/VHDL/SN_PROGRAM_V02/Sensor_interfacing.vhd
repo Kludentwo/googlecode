@@ -1,0 +1,102 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+
+
+entity Sensor_interfacing is
+  port (
+		CLK	    		: in 	std_logic;
+		S_CLK    		: out std_logic;
+		DATA	   		: in 	std_logic;
+		CS					: out std_logic;
+		SHDN				: out std_logic;
+		DATA_OUT			: out std_logic_vector(11 downto 0);
+		DATA_READY		: out std_logic;
+		LEDS	   		: out std_logic_vector(11 downto 0);
+		reset				: in std_logic
+    );
+end entity Sensor_interfacing;
+
+
+architecture rtl of Sensor_interfacing is
+signal s_wait_conv		: std_logic;
+signal done_flag			: std_logic := '0';
+signal ADC_DATA			: std_logic_vector(11 downto 0);
+signal wait_flag			: std_logic := '0';
+signal first_clock		: std_logic := '1';
+begin
+
+SHDN <= '1';
+
+S_CLK <= CLK when s_wait_conv = '1' ELSE
+			'0';
+			
+
+process(CLK, reset)
+	variable wait_counter 	: integer range 0 to 1000000 := 0;
+
+	
+	variable wait_conv		: std_logic := '0';
+	
+	variable data_counter	: integer range 0 to 12 := 0;
+	begin
+		
+		if CLK'event and CLK = '1' then
+			if reset = '0' then
+				wait_flag <= '0';
+				done_flag <= '0';
+				CS <= '1';
+				data_counter := 0;
+				first_clock <= '1';
+				wait_conv := '0';
+				wait_counter := 0;
+				LEDS <= "000000000000";
+			end if;
+			
+			
+			
+			wait_counter := wait_counter + 1;
+			s_wait_conv <= wait_conv;
+			
+			if wait_counter > 300 then -- set flag to 1 when a second has passed
+				wait_counter := 0;
+				wait_flag <= '1';
+			end if;
+		
+			if wait_flag = '1' then -- take a sample each second
+				CS <= '0';
+				
+				if wait_conv = '0' then
+					--if DATA = '1' then
+						wait_conv := '1';
+						DATA_READY <= '0';
+					--end if;
+				else
+					if first_clock = '1' then
+						first_clock <= '0';
+					else
+						LEDS(11 - data_counter) <= DATA;
+						DATA_OUT(11 - data_counter) <= DATA;
+						data_counter := data_counter + 1;
+						if data_counter = 12 then
+							done_flag <= '1';							DATA_READY <= '1';
+						end if;
+					end if;
+				end if;
+				if done_flag = '1' then
+					wait_flag <= '0';
+					done_flag <= '0';
+					CS <= '1';
+					data_counter := 0;
+					first_clock <= '1';
+					wait_conv := '0';
+				end if;
+				
+			end if;
+		end if;
+
+		end process;
+end architecture;
+
+-- END OF FILE --

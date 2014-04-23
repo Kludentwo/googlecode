@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for Initial_recieve_program
-Wed Apr 02 15:15:09 2014
-Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
+Fri Apr 11 13:49:53 2014
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
 ---------------------
@@ -113,7 +113,7 @@ applicable agreement for further details.
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 226.14 MHz ; 226.14 MHz      ; CLK        ;      ;
+; 215.15 MHz ; 215.15 MHz      ; CLK        ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -123,7 +123,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+---------------+
 ; Clock ; Slack  ; End Point TNS ;
 +-------+--------+---------------+
-; CLK   ; -1.711 ; -30.347       ;
+; CLK   ; -1.824 ; -31.109       ;
 +-------+--------+---------------+
 
 
@@ -162,106 +162,106 @@ No paths to report.
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node           ; To Node               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
-; -1.711 ; s1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.247      ;
-; -1.673 ; s4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.209      ;
-; -1.550 ; r2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.022     ; 2.064      ;
-; -1.548 ; r3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.022     ; 2.062      ;
-; -1.540 ; s6                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.076      ;
-; -1.539 ; s6                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.075      ;
-; -1.516 ; s6                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.052      ;
-; -1.507 ; s3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.043      ;
-; -1.499 ; r3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.022     ; 2.013      ;
-; -1.486 ; s8                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.022      ;
-; -1.485 ; s8                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.021      ;
-; -1.473 ; r3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.987      ;
-; -1.462 ; s8                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.998      ;
-; -1.460 ; r2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.974      ;
-; -1.434 ; r2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.948      ;
-; -1.412 ; r4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.926      ;
-; -1.407 ; s1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.943      ;
-; -1.406 ; s1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.942      ;
-; -1.399 ; s2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.935      ;
-; -1.393 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.237      ; 2.166      ;
-; -1.369 ; s4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.905      ;
-; -1.368 ; s4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.904      ;
-; -1.358 ; s7                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.894      ;
-; -1.357 ; s7                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.893      ;
-; -1.356 ; state.address_check ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.914      ;
-; -1.356 ; state.address_check ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.914      ;
-; -1.356 ; state.address_check ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.914      ;
-; -1.356 ; state.address_check ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.914      ;
-; -1.345 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.644      ;
-; -1.334 ; s7                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.870      ;
-; -1.287 ; r1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.801      ;
-; -1.287 ; r4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.801      ;
-; -1.286 ; r4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.800      ;
-; -1.269 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.305      ;
-; -1.258 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.237      ; 2.031      ;
-; -1.258 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.002     ; 1.792      ;
-; -1.258 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.002     ; 1.792      ;
-; -1.258 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.002     ; 1.792      ;
-; -1.258 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.002     ; 1.792      ;
-; -1.255 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.237      ; 2.028      ;
-; -1.236 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.535      ;
-; -1.226 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.999      ;
-; -1.224 ; state.idle          ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.782      ;
-; -1.224 ; state.idle          ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.782      ;
-; -1.224 ; state.idle          ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.782      ;
-; -1.224 ; state.idle          ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.782      ;
-; -1.212 ; s5                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.748      ;
-; -1.211 ; s5                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.747      ;
-; -1.203 ; s3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.739      ;
-; -1.202 ; s3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.738      ;
-; -1.202 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.501      ;
-; -1.201 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.500      ;
-; -1.191 ; r1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.705      ;
-; -1.188 ; s5                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.724      ;
-; -1.165 ; r1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.022     ; 1.679      ;
-; -1.134 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.170      ;
-; -1.131 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.167      ;
-; -1.095 ; s2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.631      ;
-; -1.094 ; s2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.630      ;
-; -1.091 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.864      ;
-; -1.088 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.861      ;
-; -1.077 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.850      ;
-; -1.030 ; state.address_check ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.566      ;
-; -1.029 ; state.address_check ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.565      ;
-; -1.027 ; state.address_check ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.563      ;
-; -0.989 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.288      ;
-; -0.971 ; bit_count           ; r2                    ; CLK          ; CLK         ; 1.000        ; 0.259      ; 2.266      ;
-; -0.971 ; bit_count           ; r3                    ; CLK          ; CLK         ; 1.000        ; 0.259      ; 2.266      ;
-; -0.971 ; bit_count           ; r4                    ; CLK          ; CLK         ; 1.000        ; 0.259      ; 2.266      ;
-; -0.971 ; bit_count           ; r1                    ; CLK          ; CLK         ; 1.000        ; 0.259      ; 2.266      ;
-; -0.945 ; state.address_check ; b1                    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.244      ;
-; -0.943 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.242      ;
-; -0.942 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.715      ;
-; -0.942 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.241      ;
-; -0.939 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.237      ; 1.712      ;
-; -0.938 ; state.address_check ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.237      ;
-; -0.937 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.236      ;
-; -0.922 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.958      ;
-; -0.912 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.237     ; 1.211      ;
-; -0.858 ; state.address_check ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.394      ;
-; -0.856 ; state.address_check ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.392      ;
-; -0.853 ; state.get_data      ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.411      ;
-; -0.848 ; state.address_check ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.384      ;
-; -0.847 ; state.address_check ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.383      ;
-; -0.846 ; state.address_check ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.382      ;
-; -0.825 ; state.get_data      ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.825 ; state.get_data      ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.361      ;
-; -0.786 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.822      ;
-; -0.745 ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.781      ;
-; -0.601 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.637      ;
-; -0.534 ; state.get_data      ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.092      ;
-; -0.531 ; state.get_data      ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.089      ;
-; -0.529 ; state.get_data      ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.022      ; 1.087      ;
-; -0.474 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.510      ;
+; -1.824 ; s6                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.360      ;
+; -1.796 ; s8                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.332      ;
+; -1.770 ; s6                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.306      ;
+; -1.742 ; s8                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.278      ;
+; -1.719 ; s3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.255      ;
+; -1.694 ; s3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.230      ;
+; -1.691 ; s3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.227      ;
+; -1.664 ; s2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.200      ;
+; -1.656 ; s7                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.192      ;
+; -1.639 ; s2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.175      ;
+; -1.636 ; s2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.172      ;
+; -1.602 ; s7                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.138      ;
+; -1.535 ; r2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.004      ; 2.075      ;
+; -1.527 ; s6                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.063      ;
+; -1.527 ; r4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.004      ; 2.067      ;
+; -1.524 ; s4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.060      ;
+; -1.511 ; s5                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.047      ;
+; -1.499 ; s4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.035      ;
+; -1.499 ; s8                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.035      ;
+; -1.496 ; s4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 2.032      ;
+; -1.490 ; r1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.004      ; 2.030      ;
+; -1.457 ; s5                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.993      ;
+; -1.453 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.489      ;
+; -1.451 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.487      ;
+; -1.407 ; r2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.947      ;
+; -1.399 ; r4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.939      ;
+; -1.393 ; r3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.933      ;
+; -1.389 ; s1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.925      ;
+; -1.384 ; state.address_check ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.916      ;
+; -1.384 ; state.address_check ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.916      ;
+; -1.384 ; state.address_check ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.916      ;
+; -1.384 ; state.address_check ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.916      ;
+; -1.364 ; s1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.900      ;
+; -1.361 ; s1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.897      ;
+; -1.359 ; s7                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.895      ;
+; -1.324 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 1.857      ;
+; -1.324 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 1.857      ;
+; -1.324 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 1.857      ;
+; -1.324 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 1.857      ;
+; -1.323 ; r1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.863      ;
+; -1.279 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 1.000        ; 0.000      ; 2.315      ;
+; -1.265 ; r3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.805      ;
+; -1.249 ; state.idle          ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.781      ;
+; -1.249 ; state.idle          ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.781      ;
+; -1.249 ; state.idle          ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.781      ;
+; -1.249 ; state.idle          ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.781      ;
+; -1.233 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.242      ; 2.011      ;
+; -1.231 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.242      ; 2.009      ;
+; -1.214 ; s5                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.750      ;
+; -1.206 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.984      ;
+; -1.204 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.982      ;
+; -1.159 ; r1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.699      ;
+; -1.140 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.434      ;
+; -1.129 ; r2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.669      ;
+; -1.111 ; state.get_data      ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.643      ;
+; -1.077 ; state.get_data      ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.077 ; state.get_data      ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 1.613      ;
+; -1.065 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.359      ;
+; -1.062 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.356      ;
+; -1.059 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.837      ;
+; -1.032 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.810      ;
+; -1.010 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.304      ;
+; -1.010 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.304      ;
+; -0.987 ; bit_count           ; r2                    ; CLK          ; CLK         ; 1.000        ; 0.238      ; 2.261      ;
+; -0.987 ; bit_count           ; r3                    ; CLK          ; CLK         ; 1.000        ; 0.238      ; 2.261      ;
+; -0.987 ; bit_count           ; r4                    ; CLK          ; CLK         ; 1.000        ; 0.238      ; 2.261      ;
+; -0.987 ; bit_count           ; r1                    ; CLK          ; CLK         ; 1.000        ; 0.238      ; 2.261      ;
+; -0.949 ; r3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.489      ;
+; -0.918 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.696      ;
+; -0.916 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.694      ;
+; -0.848 ; r4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.004      ; 1.388      ;
+; -0.804 ; state.get_data      ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.336      ;
+; -0.800 ; state.get_data      ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.332      ;
+; -0.800 ; state.get_data      ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.004     ; 1.332      ;
+; -0.793 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.829      ;
+; -0.775 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.811      ;
+; -0.760 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.054      ;
+; -0.760 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.054      ;
+; -0.744 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.242      ; 1.522      ;
+; -0.743 ; state.address_check ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.037      ;
+; -0.742 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.036      ;
+; -0.736 ; state.address_check ; b1                    ; CLK          ; CLK         ; 0.500        ; -0.242     ; 1.030      ;
+; -0.736 ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.772      ;
+; -0.676 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.242     ; 0.970      ;
+; -0.534 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.570      ;
+; -0.488 ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.524      ;
+; -0.470 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.506      ;
+; -0.444 ; address_counter[0]  ; address_counter[1]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.480      ;
+; -0.441 ; state.address_check ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.977      ;
+; -0.438 ; state.address_check ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.974      ;
+; -0.438 ; state.address_check ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.974      ;
+; -0.438 ; state.address_check ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.974      ;
+; -0.438 ; state.address_check ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.974      ;
+; -0.429 ; state.address_check ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.000      ; 0.965      ;
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -276,100 +276,100 @@ No paths to report.
 ; 0.391 ; address_counter[1]  ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.657      ;
 ; 0.391 ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.657      ;
 ; 0.391 ; b1                  ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.657      ;
-; 0.529 ; s5                  ; s6                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.795      ;
-; 0.538 ; r1                  ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.804      ;
-; 0.538 ; s2                  ; s3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.804      ;
-; 0.544 ; s4                  ; s5                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.810      ;
-; 0.552 ; s1                  ; s2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.818      ;
-; 0.553 ; s6                  ; s7                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.819      ;
-; 0.651 ; s3                  ; s4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.917      ;
-; 0.654 ; s7                  ; s8                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.920      ;
-; 0.667 ; b1                  ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.259      ; 1.192      ;
-; 0.853 ; bit_count           ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.119      ;
-; 0.993 ; r2                  ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.259      ;
-; 1.066 ; address_counter[0]  ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.332      ;
-; 1.081 ; r1                  ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.024     ; 1.323      ;
-; 1.086 ; r4                  ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.024     ; 1.328      ;
-; 1.090 ; r3                  ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.024     ; 1.332      ;
-; 1.132 ; r2                  ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.024     ; 1.374      ;
-; 1.212 ; bit_count           ; address_counter[0]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.478      ;
-; 1.217 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.981      ;
-; 1.217 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.981      ;
-; 1.217 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.981      ;
-; 1.219 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.983      ;
-; 1.228 ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.494      ;
-; 1.242 ; r3                  ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.508      ;
-; 1.244 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.510      ;
-; 1.299 ; state.get_data      ; r2                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.087      ;
-; 1.301 ; state.get_data      ; r4                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.089      ;
-; 1.304 ; state.get_data      ; r3                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.092      ;
-; 1.371 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.637      ;
-; 1.556 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.822      ;
-; 1.595 ; state.get_data      ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.595 ; state.get_data      ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.361      ;
-; 1.616 ; state.address_check ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.382      ;
-; 1.617 ; state.address_check ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.383      ;
-; 1.618 ; state.address_check ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.384      ;
-; 1.623 ; state.get_data      ; r1                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.411      ;
-; 1.626 ; state.address_check ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.392      ;
-; 1.628 ; state.address_check ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.394      ;
-; 1.682 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.211      ;
-; 1.692 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.958      ;
-; 1.707 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.236      ;
-; 1.708 ; state.address_check ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.237      ;
-; 1.709 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.712      ;
-; 1.712 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.715      ;
-; 1.712 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.241      ;
-; 1.713 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.242      ;
-; 1.715 ; state.address_check ; b1                    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.244      ;
-; 1.741 ; bit_count           ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.259      ; 2.266      ;
-; 1.741 ; bit_count           ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.259      ; 2.266      ;
-; 1.741 ; bit_count           ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.259      ; 2.266      ;
-; 1.741 ; bit_count           ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.259      ; 2.266      ;
-; 1.759 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.288      ;
-; 1.797 ; state.address_check ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.563      ;
-; 1.799 ; state.address_check ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.565      ;
-; 1.800 ; state.address_check ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.566      ;
-; 1.847 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.850      ;
-; 1.858 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.861      ;
-; 1.861 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.864      ;
-; 1.864 ; s2                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.630      ;
-; 1.865 ; s2                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.631      ;
-; 1.901 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.167      ;
-; 1.904 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.170      ;
-; 1.910 ; r1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.654      ;
-; 1.931 ; r1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.675      ;
-; 1.958 ; s5                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.724      ;
-; 1.961 ; r1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.705      ;
-; 1.971 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.500      ;
-; 1.972 ; s3                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.738      ;
-; 1.972 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.501      ;
-; 1.973 ; s3                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.739      ;
-; 1.981 ; s5                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.747      ;
-; 1.982 ; s5                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.748      ;
-; 1.994 ; state.idle          ; r2                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.782      ;
-; 1.994 ; state.idle          ; r3                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.782      ;
-; 1.994 ; state.idle          ; r4                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.782      ;
-; 1.994 ; state.idle          ; r1                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.782      ;
-; 1.996 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.237      ; 1.999      ;
-; 2.006 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.535      ;
-; 2.025 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.237      ; 2.028      ;
-; 2.028 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.237      ; 2.031      ;
-; 2.031 ; r4                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.775      ;
-; 2.033 ; r4                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.777      ;
-; 2.039 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.305      ;
-; 2.057 ; r4                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.022     ; 1.801      ;
-; 2.104 ; s7                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.870      ;
-; 2.115 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.237     ; 1.644      ;
-; 2.126 ; state.address_check ; r2                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.914      ;
-; 2.126 ; state.address_check ; r3                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.914      ;
-; 2.126 ; state.address_check ; r4                    ; CLK          ; CLK         ; -0.500       ; 0.022      ; 1.914      ;
+; 0.528 ; s5                  ; s6                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.794      ;
+; 0.532 ; s6                  ; s7                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.798      ;
+; 0.539 ; r2                  ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.805      ;
+; 0.540 ; s1                  ; s2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.806      ;
+; 0.542 ; s2                  ; s3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.808      ;
+; 0.677 ; s4                  ; s5                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.943      ;
+; 0.685 ; b1                  ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.238      ; 1.189      ;
+; 0.710 ; r3                  ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.976      ;
+; 0.722 ; r1                  ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.988      ;
+; 0.820 ; s7                  ; s8                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.086      ;
+; 0.843 ; bit_count           ; address_counter[0]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.109      ;
+; 0.846 ; bit_count           ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.112      ;
+; 0.876 ; s3                  ; s4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.142      ;
+; 1.058 ; r4                  ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.325      ;
+; 1.060 ; r1                  ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.327      ;
+; 1.065 ; r3                  ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.332      ;
+; 1.066 ; r2                  ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.000        ; 0.001      ; 1.333      ;
+; 1.193 ; state.address_check ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.959      ;
+; 1.199 ; state.address_check ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.965      ;
+; 1.199 ; state.address_check ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.965      ;
+; 1.208 ; state.address_check ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.974      ;
+; 1.208 ; state.address_check ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.974      ;
+; 1.208 ; state.address_check ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.974      ;
+; 1.208 ; state.address_check ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.974      ;
+; 1.211 ; state.address_check ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 0.977      ;
+; 1.214 ; address_counter[0]  ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.480      ;
+; 1.240 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.506      ;
+; 1.258 ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.524      ;
+; 1.287 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 1.050      ;
+; 1.288 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 1.051      ;
+; 1.291 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 1.054      ;
+; 1.292 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 1.055      ;
+; 1.304 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.570      ;
+; 1.446 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.242     ; 0.970      ;
+; 1.506 ; state.address_check ; b1                    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.030      ;
+; 1.512 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.036      ;
+; 1.513 ; state.address_check ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.037      ;
+; 1.514 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.522      ;
+; 1.530 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.054      ;
+; 1.530 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.054      ;
+; 1.545 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.811      ;
+; 1.563 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.829      ;
+; 1.570 ; state.get_data      ; r3                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.332      ;
+; 1.570 ; state.get_data      ; r4                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.332      ;
+; 1.574 ; state.get_data      ; r2                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.336      ;
+; 1.618 ; r4                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.388      ;
+; 1.620 ; r4                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.390      ;
+; 1.686 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.694      ;
+; 1.688 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.696      ;
+; 1.719 ; r3                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.489      ;
+; 1.721 ; r3                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.491      ;
+; 1.757 ; bit_count           ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.238      ; 2.261      ;
+; 1.757 ; bit_count           ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.238      ; 2.261      ;
+; 1.757 ; bit_count           ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.238      ; 2.261      ;
+; 1.757 ; bit_count           ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.238      ; 2.261      ;
+; 1.780 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.304      ;
+; 1.780 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.304      ;
+; 1.802 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.810      ;
+; 1.829 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.837      ;
+; 1.832 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.356      ;
+; 1.835 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.359      ;
+; 1.847 ; state.get_data      ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.847 ; state.get_data      ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.613      ;
+; 1.881 ; state.get_data      ; r1                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.643      ;
+; 1.899 ; r2                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.669      ;
+; 1.901 ; r2                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.671      ;
+; 1.910 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.242     ; 1.434      ;
+; 1.929 ; r1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.699      ;
+; 1.931 ; r1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.701      ;
+; 1.949 ; r4                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.719      ;
+; 1.974 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.982      ;
+; 1.976 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.242      ; 1.984      ;
+; 1.984 ; s5                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.750      ;
+; 2.001 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.242      ; 2.009      ;
+; 2.003 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.242      ; 2.011      ;
+; 2.006 ; r3                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.776      ;
+; 2.019 ; state.idle          ; r2                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.781      ;
+; 2.019 ; state.idle          ; r3                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.781      ;
+; 2.019 ; state.idle          ; r4                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.781      ;
+; 2.019 ; state.idle          ; r1                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.781      ;
+; 2.049 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 2.315      ;
+; 2.064 ; r1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.834      ;
+; 2.129 ; s7                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.895      ;
+; 2.131 ; s1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.897      ;
+; 2.134 ; s1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.000      ; 1.900      ;
+; 2.148 ; r2                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.004      ; 1.918      ;
+; 2.154 ; state.address_check ; r2                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.916      ;
+; 2.154 ; state.address_check ; r3                    ; CLK          ; CLK         ; -0.500       ; -0.004     ; 1.916      ;
 +-------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -486,9 +486,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; RESET     ; CLK        ; 5.281 ; 5.281 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; 3.731 ; 3.731 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; 4.770 ; 4.770 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 5.385 ; 5.385 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; 3.738 ; 3.738 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 4.756 ; 4.756 ; Fall       ; CLK             ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -497,9 +497,9 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; RESET     ; CLK        ; -4.913 ; -4.913 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; -3.215 ; -3.215 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; -4.540 ; -4.540 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -4.981 ; -4.981 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; -3.212 ; -3.212 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -4.526 ; -4.526 ; Fall       ; CLK             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -508,28 +508,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 6.248 ; 6.248 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 5.907 ; 5.907 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 6.248 ; 6.248 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 5.913 ; 5.913 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 5.904 ; 5.904 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 7.616 ; 7.616 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 6.939 ; 6.939 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 7.616 ; 7.616 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 7.572 ; 7.572 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 6.927 ; 6.927 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 6.217 ; 6.217 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 6.170 ; 6.170 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 6.217 ; 6.217 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 6.187 ; 6.187 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 6.210 ; 6.210 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 6.169 ; 6.169 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 6.171 ; 6.171 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 6.204 ; 6.204 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 6.172 ; 6.172 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 5.752 ; 5.752 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 5.752 ; 5.752 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 5.691 ; 5.691 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 6.175 ; 6.175 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 5.880 ; 5.880 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 5.886 ; 5.886 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 6.175 ; 6.175 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 6.151 ; 6.151 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 7.617 ; 7.617 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 7.606 ; 7.606 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 7.617 ; 7.617 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 7.613 ; 7.613 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 6.941 ; 6.941 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 6.230 ; 6.230 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 6.134 ; 6.134 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 6.182 ; 6.182 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 6.144 ; 6.144 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 6.230 ; 6.230 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 5.868 ; 5.868 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 6.222 ; 6.222 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 6.177 ; 6.177 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 6.223 ; 6.223 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 5.775 ; 5.775 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 5.775 ; 5.775 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 5.739 ; 5.739 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -538,28 +538,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 5.904 ; 5.904 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 5.907 ; 5.907 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 6.248 ; 6.248 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 5.913 ; 5.913 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 5.904 ; 5.904 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 6.927 ; 6.927 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 6.939 ; 6.939 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 7.616 ; 7.616 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 7.572 ; 7.572 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 6.927 ; 6.927 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 6.169 ; 6.169 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 6.170 ; 6.170 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 6.217 ; 6.217 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 6.187 ; 6.187 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 6.210 ; 6.210 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 6.169 ; 6.169 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 6.171 ; 6.171 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 6.204 ; 6.204 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 6.172 ; 6.172 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 5.691 ; 5.691 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 5.752 ; 5.752 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 5.691 ; 5.691 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 5.880 ; 5.880 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 5.880 ; 5.880 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 5.886 ; 5.886 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 6.175 ; 6.175 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 6.151 ; 6.151 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 6.941 ; 6.941 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 7.606 ; 7.606 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 7.617 ; 7.617 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 7.613 ; 7.613 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 6.941 ; 6.941 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 5.868 ; 5.868 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 6.134 ; 6.134 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 6.182 ; 6.182 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 6.144 ; 6.144 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 6.230 ; 6.230 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 5.868 ; 5.868 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 6.222 ; 6.222 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 6.177 ; 6.177 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 6.223 ; 6.223 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 5.739 ; 5.739 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 5.775 ; 5.775 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 5.739 ; 5.739 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -568,7 +568,7 @@ No paths to report.
 +-------+--------+---------------+
 ; Clock ; Slack  ; End Point TNS ;
 +-------+--------+---------------+
-; CLK   ; -0.479 ; -7.984        ;
+; CLK   ; -0.526 ; -8.540        ;
 +-------+--------+---------------+
 
 
@@ -607,106 +607,106 @@ No paths to report.
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node           ; To Node               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
-; -0.479 ; s1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.010      ;
-; -0.467 ; s4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.998      ;
-; -0.426 ; r3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.945      ;
-; -0.416 ; state.address_check ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.961      ;
-; -0.416 ; state.address_check ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.961      ;
-; -0.416 ; state.address_check ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.961      ;
-; -0.416 ; state.address_check ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.961      ;
-; -0.414 ; r2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.933      ;
-; -0.412 ; s6                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.943      ;
-; -0.407 ; s6                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.938      ;
-; -0.406 ; s3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.937      ;
-; -0.405 ; s6                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.936      ;
-; -0.401 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.930      ;
-; -0.401 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.930      ;
-; -0.401 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.930      ;
-; -0.401 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.930      ;
-; -0.393 ; r3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.912      ;
-; -0.391 ; r3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.910      ;
-; -0.386 ; s8                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.917      ;
-; -0.381 ; s8                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.912      ;
-; -0.379 ; s8                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.910      ;
-; -0.377 ; r2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.896      ;
-; -0.375 ; r2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.894      ;
-; -0.370 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.106      ; 1.008      ;
-; -0.366 ; state.idle          ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.911      ;
-; -0.366 ; state.idle          ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.911      ;
-; -0.366 ; state.idle          ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.911      ;
-; -0.366 ; state.idle          ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.911      ;
-; -0.351 ; s1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.882      ;
-; -0.350 ; s2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.881      ;
-; -0.350 ; s1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.881      ;
-; -0.348 ; r4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.867      ;
-; -0.344 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.770      ;
-; -0.339 ; s4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.870      ;
-; -0.338 ; s4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.869      ;
-; -0.331 ; s7                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.862      ;
-; -0.327 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.965      ;
-; -0.326 ; s7                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.857      ;
-; -0.325 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.963      ;
-; -0.324 ; s7                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.855      ;
-; -0.309 ; r4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.828      ;
-; -0.307 ; r4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.826      ;
-; -0.304 ; r1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.823      ;
-; -0.295 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.933      ;
-; -0.292 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.718      ;
-; -0.283 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.709      ;
-; -0.280 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.706      ;
-; -0.278 ; s3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.809      ;
-; -0.277 ; s3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.808      ;
-; -0.272 ; s5                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.803      ;
-; -0.267 ; s5                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.798      ;
-; -0.265 ; s5                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.796      ;
-; -0.263 ; r1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.782      ;
-; -0.261 ; r1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.013     ; 0.780      ;
-; -0.252 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.890      ;
-; -0.250 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.888      ;
-; -0.222 ; s2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.753      ;
-; -0.221 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.859      ;
-; -0.221 ; s2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.752      ;
-; -0.218 ; state.address_check ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.751      ;
-; -0.217 ; state.address_check ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.750      ;
-; -0.217 ; state.address_check ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.750      ;
-; -0.207 ; state.get_data      ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.207 ; state.get_data      ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.740      ;
-; -0.197 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.623      ;
-; -0.196 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.622      ;
-; -0.188 ; state.get_data      ; r1                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.733      ;
-; -0.178 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.816      ;
-; -0.178 ; state.address_check ; b1                    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.604      ;
-; -0.176 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.106      ; 0.814      ;
-; -0.175 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.601      ;
-; -0.173 ; state.address_check ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.599      ;
-; -0.172 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.598      ;
-; -0.157 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.106     ; 0.583      ;
-; -0.150 ; state.address_check ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.683      ;
-; -0.150 ; state.address_check ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.683      ;
-; -0.143 ; state.address_check ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.676      ;
-; -0.142 ; state.address_check ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.675      ;
-; -0.141 ; state.address_check ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.674      ;
-; -0.039 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.071      ;
-; -0.003 ; state.get_data      ; r3                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.548      ;
-; -0.002 ; state.get_data      ; r2                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.547      ;
-; 0.000  ; state.get_data      ; r4                    ; CLK          ; CLK         ; 0.500        ; 0.013      ; 0.545      ;
-; 0.004  ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.028      ;
-; 0.006  ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.026      ;
-; 0.016  ; bit_count           ; r2                    ; CLK          ; CLK         ; 1.000        ; 0.119      ; 1.135      ;
-; 0.016  ; bit_count           ; r3                    ; CLK          ; CLK         ; 1.000        ; 0.119      ; 1.135      ;
-; 0.016  ; bit_count           ; r4                    ; CLK          ; CLK         ; 1.000        ; 0.119      ; 1.135      ;
-; 0.016  ; bit_count           ; r1                    ; CLK          ; CLK         ; 1.000        ; 0.119      ; 1.135      ;
-; 0.113  ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.919      ;
-; 0.205  ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.827      ;
-; 0.218  ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.814      ;
-; 0.287  ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.745      ;
-; 0.331  ; r3                  ; r4                    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.701      ;
+; -0.526 ; s6                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.057      ;
+; -0.518 ; s8                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.049      ;
+; -0.516 ; s6                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.047      ;
+; -0.508 ; s8                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.039      ;
+; -0.490 ; s3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.021      ;
+; -0.480 ; s3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.011      ;
+; -0.476 ; s3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 1.007      ;
+; -0.466 ; s2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.997      ;
+; -0.456 ; s2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.987      ;
+; -0.454 ; s7                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.985      ;
+; -0.452 ; s2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.983      ;
+; -0.444 ; s7                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.975      ;
+; -0.430 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.959      ;
+; -0.430 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.959      ;
+; -0.430 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.959      ;
+; -0.430 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.500        ; -0.003     ; 0.959      ;
+; -0.427 ; state.address_check ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.957      ;
+; -0.427 ; state.address_check ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.957      ;
+; -0.427 ; state.address_check ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.957      ;
+; -0.427 ; state.address_check ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.957      ;
+; -0.415 ; r4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.949      ;
+; -0.405 ; r2                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.939      ;
+; -0.400 ; s4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.931      ;
+; -0.395 ; s5                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.926      ;
+; -0.395 ; s6                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.926      ;
+; -0.390 ; s4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.921      ;
+; -0.387 ; s8                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.918      ;
+; -0.386 ; s4                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.917      ;
+; -0.385 ; s5                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.916      ;
+; -0.377 ; state.idle          ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.907      ;
+; -0.377 ; state.idle          ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.907      ;
+; -0.377 ; state.idle          ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.907      ;
+; -0.377 ; state.idle          ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.907      ;
+; -0.375 ; r1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.909      ;
+; -0.372 ; r4                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.906      ;
+; -0.368 ; s1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.899      ;
+; -0.362 ; r2                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.896      ;
+; -0.358 ; s1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.889      ;
+; -0.354 ; s1                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.885      ;
+; -0.337 ; r3                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.871      ;
+; -0.327 ; r1                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.861      ;
+; -0.323 ; s7                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.854      ;
+; -0.311 ; state.get_data      ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.311 ; state.get_data      ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.844      ;
+; -0.304 ; state.get_data      ; r1                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.834      ;
+; -0.294 ; r3                  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.828      ;
+; -0.277 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.918      ;
+; -0.276 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.917      ;
+; -0.273 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.914      ;
+; -0.272 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.913      ;
+; -0.264 ; s5                  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; -0.001     ; 0.795      ;
+; -0.250 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.673      ;
+; -0.242 ; r1                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.776      ;
+; -0.234 ; r2                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.768      ;
+; -0.230 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.653      ;
+; -0.226 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.649      ;
+; -0.219 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.860      ;
+; -0.215 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.856      ;
+; -0.198 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.621      ;
+; -0.198 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.621      ;
+; -0.165 ; r3                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.699      ;
+; -0.143 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.784      ;
+; -0.142 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.783      ;
+; -0.120 ; state.get_data      ; r2                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.650      ;
+; -0.118 ; state.get_data      ; r3                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.648      ;
+; -0.118 ; state.get_data      ; r4                    ; CLK          ; CLK         ; 0.500        ; -0.002     ; 0.648      ;
+; -0.115 ; r4                  ; state.idle            ; CLK          ; CLK         ; 0.500        ; 0.002      ; 0.649      ;
+; -0.105 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.528      ;
+; -0.103 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.135      ;
+; -0.103 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.526      ;
+; -0.103 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.526      ;
+; -0.102 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.134      ;
+; -0.086 ; state.address_check ; bit_count             ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.509      ;
+; -0.085 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; 0.500        ; 0.109      ; 0.726      ;
+; -0.079 ; state.address_check ; b1                    ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.502      ;
+; -0.050 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; 0.500        ; -0.109     ; 0.473      ;
+; -0.045 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 1.000        ; 0.000      ; 1.077      ;
+; 0.007  ; bit_count           ; r2                    ; CLK          ; CLK         ; 1.000        ; 0.107      ; 1.132      ;
+; 0.007  ; bit_count           ; r3                    ; CLK          ; CLK         ; 1.000        ; 0.107      ; 1.132      ;
+; 0.007  ; bit_count           ; r4                    ; CLK          ; CLK         ; 1.000        ; 0.107      ; 1.132      ;
+; 0.007  ; bit_count           ; r1                    ; CLK          ; CLK         ; 1.000        ; 0.107      ; 1.132      ;
+; 0.037  ; state.address_check ; s5                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.496      ;
+; 0.037  ; state.address_check ; s8                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.496      ;
+; 0.038  ; state.address_check ; s6                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.495      ;
+; 0.038  ; state.address_check ; s7                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.495      ;
+; 0.041  ; state.address_check ; s4                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.492      ;
+; 0.046  ; state.address_check ; s1                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.487      ;
+; 0.046  ; state.address_check ; s2                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.487      ;
+; 0.051  ; state.address_check ; s3                    ; CLK          ; CLK         ; 0.500        ; 0.001      ; 0.482      ;
+; 0.202  ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.830      ;
+; 0.209  ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.823      ;
+; 0.221  ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.811      ;
+; 0.295  ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.737      ;
+; 0.327  ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 1.000        ; 0.000      ; 0.705      ;
 +--------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -722,99 +722,99 @@ No paths to report.
 ; 0.215 ; address_counter[2]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; b1                  ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.243 ; s5                  ; s6                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.395      ;
-; 0.247 ; s2                  ; s3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.399      ;
-; 0.249 ; r1                  ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.401      ;
-; 0.254 ; s4                  ; s5                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.406      ;
-; 0.257 ; s1                  ; s2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.409      ;
-; 0.259 ; s6                  ; s7                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.411      ;
-; 0.302 ; b1                  ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.119      ; 0.573      ;
-; 0.305 ; s3                  ; s4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.457      ;
-; 0.308 ; s7                  ; s8                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.460      ;
-; 0.382 ; bit_count           ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.534      ;
-; 0.449 ; r2                  ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.601      ;
-; 0.466 ; address_counter[0]  ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.618      ;
-; 0.511 ; r1                  ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.016     ; 0.647      ;
-; 0.515 ; r4                  ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.016     ; 0.651      ;
-; 0.517 ; r3                  ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.016     ; 0.653      ;
-; 0.539 ; r2                  ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.016     ; 0.675      ;
-; 0.543 ; bit_count           ; address_counter[0]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.695      ;
-; 0.546 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.698      ;
-; 0.549 ; r3                  ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.701      ;
-; 0.549 ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.701      ;
-; 0.593 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.745      ;
-; 0.675 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.827      ;
-; 0.767 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.919      ;
-; 0.843 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.492      ;
-; 0.843 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.492      ;
-; 0.843 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.492      ;
-; 0.845 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.494      ;
-; 0.864 ; bit_count           ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.119      ; 1.135      ;
-; 0.864 ; bit_count           ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.119      ; 1.135      ;
-; 0.864 ; bit_count           ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.119      ; 1.135      ;
-; 0.864 ; bit_count           ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.119      ; 1.135      ;
-; 0.874 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.026      ;
-; 0.876 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.028      ;
-; 0.880 ; state.get_data      ; r4                    ; CLK          ; CLK         ; -0.500       ; 0.013      ; 0.545      ;
-; 0.882 ; state.get_data      ; r2                    ; CLK          ; CLK         ; -0.500       ; 0.013      ; 0.547      ;
-; 0.883 ; state.get_data      ; r3                    ; CLK          ; CLK         ; -0.500       ; 0.013      ; 0.548      ;
-; 0.919 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.071      ;
-; 1.021 ; state.address_check ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.674      ;
-; 1.022 ; state.address_check ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.675      ;
-; 1.023 ; state.address_check ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.676      ;
-; 1.030 ; state.address_check ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.683      ;
-; 1.030 ; state.address_check ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.683      ;
-; 1.037 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.583      ;
-; 1.052 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.598      ;
-; 1.053 ; state.address_check ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.599      ;
-; 1.055 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.601      ;
-; 1.056 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.814      ;
-; 1.058 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.816      ;
-; 1.058 ; state.address_check ; b1                    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.604      ;
-; 1.068 ; state.get_data      ; r1                    ; CLK          ; CLK         ; -0.500       ; 0.013      ; 0.733      ;
-; 1.076 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.622      ;
-; 1.077 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.623      ;
-; 1.087 ; state.get_data      ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.087 ; state.get_data      ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.740      ;
-; 1.097 ; state.address_check ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.750      ;
-; 1.097 ; state.address_check ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.750      ;
-; 1.098 ; state.address_check ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.751      ;
-; 1.101 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.859      ;
-; 1.101 ; s2                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.752      ;
-; 1.102 ; s2                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.753      ;
-; 1.130 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.888      ;
-; 1.132 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.890      ;
-; 1.138 ; r1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.777      ;
-; 1.141 ; r1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.780      ;
-; 1.142 ; r1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.781      ;
-; 1.145 ; s5                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.796      ;
-; 1.147 ; s5                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.798      ;
-; 1.152 ; s5                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.803      ;
-; 1.157 ; s3                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.808      ;
-; 1.158 ; s3                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.809      ;
-; 1.160 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.706      ;
-; 1.163 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.709      ;
-; 1.172 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.718      ;
-; 1.175 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.933      ;
-; 1.182 ; r4                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.821      ;
-; 1.186 ; r4                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.825      ;
-; 1.187 ; r4                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.013     ; 0.826      ;
-; 1.204 ; s7                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.855      ;
-; 1.205 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.963      ;
-; 1.206 ; s7                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.857      ;
-; 1.207 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.106      ; 0.965      ;
-; 1.211 ; s7                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.862      ;
-; 1.218 ; s4                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.869      ;
-; 1.219 ; s4                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.870      ;
-; 1.224 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.106     ; 0.770      ;
-; 1.230 ; s1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.881      ;
-; 1.230 ; s2                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.881      ;
-; 1.231 ; s1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.882      ;
+; 0.245 ; s6                  ; s7                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.397      ;
+; 0.249 ; r2                  ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.401      ;
+; 0.250 ; s1                  ; s2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.402      ;
+; 0.251 ; s2                  ; s3                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.403      ;
+; 0.311 ; b1                  ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.107      ; 0.570      ;
+; 0.316 ; s4                  ; s5                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.468      ;
+; 0.324 ; r3                  ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.476      ;
+; 0.328 ; r1                  ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.480      ;
+; 0.370 ; s7                  ; s8                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.522      ;
+; 0.378 ; bit_count           ; address_counter[0]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.530      ;
+; 0.378 ; bit_count           ; b1                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.530      ;
+; 0.397 ; s3                  ; s4                    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.549      ;
+; 0.497 ; r4                  ; LEDS[3]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.001     ; 0.648      ;
+; 0.498 ; r1                  ; LEDS[0]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.001     ; 0.649      ;
+; 0.501 ; r3                  ; LEDS[2]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.001     ; 0.652      ;
+; 0.502 ; r2                  ; LEDS[1]~reg0          ; CLK          ; CLK         ; 0.000        ; -0.001     ; 0.653      ;
+; 0.542 ; address_counter[0]  ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.694      ;
+; 0.543 ; address_counter[1]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.695      ;
+; 0.553 ; bit_count           ; address_counter[1]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.705      ;
+; 0.585 ; state.address_check ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.737      ;
+; 0.671 ; address_counter[0]  ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.823      ;
+; 0.678 ; bit_count           ; address_counter[2]    ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.830      ;
+; 0.829 ; state.address_check ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.482      ;
+; 0.834 ; state.address_check ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.487      ;
+; 0.834 ; state.address_check ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.487      ;
+; 0.839 ; state.address_check ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.492      ;
+; 0.842 ; state.address_check ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.495      ;
+; 0.842 ; state.address_check ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.495      ;
+; 0.843 ; state.address_check ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.496      ;
+; 0.843 ; state.address_check ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.496      ;
+; 0.873 ; bit_count           ; r2                    ; CLK          ; CLK         ; 0.000        ; 0.107      ; 1.132      ;
+; 0.873 ; bit_count           ; r3                    ; CLK          ; CLK         ; 0.000        ; 0.107      ; 1.132      ;
+; 0.873 ; bit_count           ; r4                    ; CLK          ; CLK         ; 0.000        ; 0.107      ; 1.132      ;
+; 0.873 ; bit_count           ; r1                    ; CLK          ; CLK         ; 0.000        ; 0.107      ; 1.132      ;
+; 0.874 ; state.get_data      ; LEDS[0]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.523      ;
+; 0.874 ; state.get_data      ; LEDS[1]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.523      ;
+; 0.876 ; state.get_data      ; LEDS[2]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.525      ;
+; 0.878 ; state.get_data      ; LEDS[3]~reg0          ; CLK          ; CLK         ; -0.500       ; -0.003     ; 0.527      ;
+; 0.925 ; state.get_data      ; state.get_data        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.077      ;
+; 0.930 ; state.idle          ; current_state[1]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.473      ;
+; 0.959 ; state.address_check ; b1                    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.502      ;
+; 0.965 ; address_counter[2]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.726      ;
+; 0.966 ; state.address_check ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.509      ;
+; 0.982 ; state.get_data      ; state.address_check   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.134      ;
+; 0.983 ; state.get_data      ; state.idle            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 1.135      ;
+; 0.983 ; state.get_data      ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.526      ;
+; 0.983 ; state.get_data      ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.526      ;
+; 0.985 ; state.address_check ; current_state[0]~reg0 ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.528      ;
+; 0.995 ; r4                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.649      ;
+; 0.997 ; r4                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.651      ;
+; 0.998 ; state.get_data      ; r3                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.648      ;
+; 0.998 ; state.get_data      ; r4                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.648      ;
+; 1.000 ; state.get_data      ; r2                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.650      ;
+; 1.022 ; address_counter[2]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.783      ;
+; 1.023 ; address_counter[2]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.784      ;
+; 1.045 ; r3                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.699      ;
+; 1.047 ; r3                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.701      ;
+; 1.078 ; state.address_check ; address_counter[0]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.621      ;
+; 1.078 ; state.address_check ; address_counter[2]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.621      ;
+; 1.095 ; address_counter[1]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.856      ;
+; 1.099 ; address_counter[0]  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.860      ;
+; 1.106 ; state.get_data      ; bit_count             ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.649      ;
+; 1.110 ; state.get_data      ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.653      ;
+; 1.114 ; r2                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.768      ;
+; 1.116 ; r2                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.770      ;
+; 1.122 ; r1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.776      ;
+; 1.124 ; r1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.778      ;
+; 1.128 ; r4                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.782      ;
+; 1.130 ; state.address_check ; address_counter[1]    ; CLK          ; CLK         ; -0.500       ; -0.109     ; 0.673      ;
+; 1.144 ; s5                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.795      ;
+; 1.152 ; address_counter[1]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.913      ;
+; 1.153 ; address_counter[1]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.914      ;
+; 1.156 ; address_counter[0]  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.917      ;
+; 1.157 ; address_counter[0]  ; state.idle            ; CLK          ; CLK         ; -0.500       ; 0.109      ; 0.918      ;
+; 1.168 ; r3                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.822      ;
+; 1.184 ; state.get_data      ; r1                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.834      ;
+; 1.191 ; state.get_data      ; s1                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s2                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s3                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s4                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s5                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s6                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s7                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.191 ; state.get_data      ; s8                    ; CLK          ; CLK         ; -0.500       ; 0.001      ; 0.844      ;
+; 1.201 ; r1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.855      ;
+; 1.203 ; s7                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.854      ;
+; 1.234 ; s1                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.885      ;
+; 1.236 ; r2                  ; state.address_check   ; CLK          ; CLK         ; -0.500       ; 0.002      ; 0.890      ;
+; 1.238 ; s1                  ; state.idle            ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.889      ;
+; 1.248 ; s1                  ; state.get_data        ; CLK          ; CLK         ; -0.500       ; -0.001     ; 0.899      ;
+; 1.257 ; state.idle          ; r2                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.907      ;
+; 1.257 ; state.idle          ; r3                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.907      ;
+; 1.257 ; state.idle          ; r4                    ; CLK          ; CLK         ; -0.500       ; -0.002     ; 0.907      ;
 +-------+---------------------+-----------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -931,9 +931,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; RESET     ; CLK        ; 2.912 ; 2.912 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; 2.224 ; 2.224 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; 2.774 ; 2.774 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 2.941 ; 2.941 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; 2.232 ; 2.232 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 2.768 ; 2.768 ; Fall       ; CLK             ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -942,9 +942,9 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; RESET     ; CLK        ; -2.747 ; -2.747 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; -1.976 ; -1.976 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; -2.654 ; -2.654 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -2.763 ; -2.763 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; -1.977 ; -1.977 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -2.648 ; -2.648 ; Fall       ; CLK             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -953,28 +953,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 3.161 ; 3.161 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 3.160 ; 3.160 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 3.155 ; 3.155 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 4.038 ; 4.038 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 3.750 ; 3.750 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 4.038 ; 4.038 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 4.005 ; 4.005 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 3.702 ; 3.702 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 3.269 ; 3.269 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 3.288 ; 3.288 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 3.278 ; 3.278 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 3.277 ; 3.277 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 3.302 ; 3.302 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 3.282 ; 3.282 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 3.095 ; 3.095 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 3.095 ; 3.095 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 3.051 ; 3.051 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 3.274 ; 3.274 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 3.137 ; 3.137 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 3.141 ; 3.141 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 3.274 ; 3.274 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 3.254 ; 3.254 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 4.037 ; 4.037 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 4.033 ; 4.033 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 4.037 ; 4.037 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 4.025 ; 4.025 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 3.708 ; 3.708 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 3.241 ; 3.241 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 3.284 ; 3.284 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 3.249 ; 3.249 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 3.135 ; 3.135 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 3.280 ; 3.280 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 3.106 ; 3.106 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 3.106 ; 3.106 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 3.097 ; 3.097 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -983,28 +983,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 3.155 ; 3.155 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 3.161 ; 3.161 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 3.160 ; 3.160 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 3.155 ; 3.155 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 3.702 ; 3.702 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 3.750 ; 3.750 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 4.038 ; 4.038 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 4.005 ; 4.005 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 3.702 ; 3.702 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 3.269 ; 3.269 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 3.269 ; 3.269 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 3.288 ; 3.288 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 3.278 ; 3.278 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 3.277 ; 3.277 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 3.302 ; 3.302 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 3.282 ; 3.282 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 3.051 ; 3.051 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 3.095 ; 3.095 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 3.051 ; 3.051 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 3.137 ; 3.137 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 3.137 ; 3.137 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 3.141 ; 3.141 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 3.274 ; 3.274 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 3.254 ; 3.254 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 3.708 ; 3.708 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 4.033 ; 4.033 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 4.037 ; 4.037 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 4.025 ; 4.025 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 3.708 ; 3.708 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 3.135 ; 3.135 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 3.241 ; 3.241 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 3.284 ; 3.284 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 3.249 ; 3.249 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 3.135 ; 3.135 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 3.280 ; 3.280 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 3.097 ; 3.097 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 3.106 ; 3.106 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 3.097 ; 3.097 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -1013,10 +1013,10 @@ No paths to report.
 +------------------+---------+-------+----------+---------+---------------------+
 ; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -1.711  ; 0.215 ; N/A      ; N/A     ; -1.222              ;
-;  CLK             ; -1.711  ; 0.215 ; N/A      ; N/A     ; -1.222              ;
-; Design-wide TNS  ; -30.347 ; 0.0   ; 0.0      ; 0.0     ; -27.222             ;
-;  CLK             ; -30.347 ; 0.000 ; N/A      ; N/A     ; -27.222             ;
+; Worst-case Slack ; -1.824  ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+;  CLK             ; -1.824  ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+; Design-wide TNS  ; -31.109 ; 0.0   ; 0.0      ; 0.0     ; -27.222             ;
+;  CLK             ; -31.109 ; 0.000 ; N/A      ; N/A     ; -27.222             ;
 +------------------+---------+-------+----------+---------+---------------------+
 
 
@@ -1025,9 +1025,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; RESET     ; CLK        ; 5.281 ; 5.281 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; 3.731 ; 3.731 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; 4.770 ; 4.770 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 5.385 ; 5.385 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; 3.738 ; 3.738 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; 4.756 ; 4.756 ; Fall       ; CLK             ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -1036,9 +1036,9 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; RESET     ; CLK        ; -2.747 ; -2.747 ; Rise       ; CLK             ;
-; DATA      ; CLK        ; -1.976 ; -1.976 ; Fall       ; CLK             ;
-; RESET     ; CLK        ; -2.654 ; -2.654 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -2.763 ; -2.763 ; Rise       ; CLK             ;
+; DATA      ; CLK        ; -1.977 ; -1.977 ; Fall       ; CLK             ;
+; RESET     ; CLK        ; -2.648 ; -2.648 ; Fall       ; CLK             ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -1047,28 +1047,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 6.248 ; 6.248 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 5.907 ; 5.907 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 6.248 ; 6.248 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 5.913 ; 5.913 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 5.904 ; 5.904 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 7.616 ; 7.616 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 6.939 ; 6.939 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 7.616 ; 7.616 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 7.572 ; 7.572 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 6.927 ; 6.927 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 6.217 ; 6.217 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 6.170 ; 6.170 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 6.217 ; 6.217 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 6.187 ; 6.187 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 6.210 ; 6.210 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 6.169 ; 6.169 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 6.171 ; 6.171 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 6.204 ; 6.204 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 6.172 ; 6.172 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 5.752 ; 5.752 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 5.752 ; 5.752 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 5.691 ; 5.691 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 6.175 ; 6.175 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 5.880 ; 5.880 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 5.886 ; 5.886 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 6.175 ; 6.175 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 6.151 ; 6.151 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 7.617 ; 7.617 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 7.606 ; 7.606 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 7.617 ; 7.617 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 7.613 ; 7.613 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 6.941 ; 6.941 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 6.230 ; 6.230 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 6.134 ; 6.134 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 6.182 ; 6.182 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 6.144 ; 6.144 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 6.230 ; 6.230 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 5.868 ; 5.868 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 6.222 ; 6.222 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 6.177 ; 6.177 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 6.223 ; 6.223 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 5.775 ; 5.775 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 5.775 ; 5.775 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 5.739 ; 5.739 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -1077,28 +1077,28 @@ No paths to report.
 +-------------------+------------+-------+-------+------------+-----------------+
 ; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------------+------------+-------+-------+------------+-----------------+
-; ADDR_o[*]         ; CLK        ; 3.155 ; 3.155 ; Fall       ; CLK             ;
-;  ADDR_o[0]        ; CLK        ; 3.161 ; 3.161 ; Fall       ; CLK             ;
-;  ADDR_o[1]        ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
-;  ADDR_o[2]        ; CLK        ; 3.160 ; 3.160 ; Fall       ; CLK             ;
-;  ADDR_o[3]        ; CLK        ; 3.155 ; 3.155 ; Fall       ; CLK             ;
-; LEDS[*]           ; CLK        ; 3.702 ; 3.702 ; Fall       ; CLK             ;
-;  LEDS[0]          ; CLK        ; 3.750 ; 3.750 ; Fall       ; CLK             ;
-;  LEDS[1]          ; CLK        ; 4.038 ; 4.038 ; Fall       ; CLK             ;
-;  LEDS[2]          ; CLK        ; 4.005 ; 4.005 ; Fall       ; CLK             ;
-;  LEDS[3]          ; CLK        ; 3.702 ; 3.702 ; Fall       ; CLK             ;
-; START_o[*]        ; CLK        ; 3.269 ; 3.269 ; Fall       ; CLK             ;
-;  START_o[0]       ; CLK        ; 3.269 ; 3.269 ; Fall       ; CLK             ;
-;  START_o[1]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[2]       ; CLK        ; 3.288 ; 3.288 ; Fall       ; CLK             ;
-;  START_o[3]       ; CLK        ; 3.309 ; 3.309 ; Fall       ; CLK             ;
-;  START_o[4]       ; CLK        ; 3.278 ; 3.278 ; Fall       ; CLK             ;
-;  START_o[5]       ; CLK        ; 3.277 ; 3.277 ; Fall       ; CLK             ;
-;  START_o[6]       ; CLK        ; 3.302 ; 3.302 ; Fall       ; CLK             ;
-;  START_o[7]       ; CLK        ; 3.282 ; 3.282 ; Fall       ; CLK             ;
-; current_state[*]  ; CLK        ; 3.051 ; 3.051 ; Fall       ; CLK             ;
-;  current_state[0] ; CLK        ; 3.095 ; 3.095 ; Fall       ; CLK             ;
-;  current_state[1] ; CLK        ; 3.051 ; 3.051 ; Fall       ; CLK             ;
+; ADDR_o[*]         ; CLK        ; 3.137 ; 3.137 ; Fall       ; CLK             ;
+;  ADDR_o[0]        ; CLK        ; 3.137 ; 3.137 ; Fall       ; CLK             ;
+;  ADDR_o[1]        ; CLK        ; 3.141 ; 3.141 ; Fall       ; CLK             ;
+;  ADDR_o[2]        ; CLK        ; 3.274 ; 3.274 ; Fall       ; CLK             ;
+;  ADDR_o[3]        ; CLK        ; 3.254 ; 3.254 ; Fall       ; CLK             ;
+; LEDS[*]           ; CLK        ; 3.708 ; 3.708 ; Fall       ; CLK             ;
+;  LEDS[0]          ; CLK        ; 4.033 ; 4.033 ; Fall       ; CLK             ;
+;  LEDS[1]          ; CLK        ; 4.037 ; 4.037 ; Fall       ; CLK             ;
+;  LEDS[2]          ; CLK        ; 4.025 ; 4.025 ; Fall       ; CLK             ;
+;  LEDS[3]          ; CLK        ; 3.708 ; 3.708 ; Fall       ; CLK             ;
+; START_o[*]        ; CLK        ; 3.135 ; 3.135 ; Fall       ; CLK             ;
+;  START_o[0]       ; CLK        ; 3.241 ; 3.241 ; Fall       ; CLK             ;
+;  START_o[1]       ; CLK        ; 3.284 ; 3.284 ; Fall       ; CLK             ;
+;  START_o[2]       ; CLK        ; 3.249 ; 3.249 ; Fall       ; CLK             ;
+;  START_o[3]       ; CLK        ; 3.310 ; 3.310 ; Fall       ; CLK             ;
+;  START_o[4]       ; CLK        ; 3.135 ; 3.135 ; Fall       ; CLK             ;
+;  START_o[5]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+;  START_o[6]       ; CLK        ; 3.280 ; 3.280 ; Fall       ; CLK             ;
+;  START_o[7]       ; CLK        ; 3.314 ; 3.314 ; Fall       ; CLK             ;
+; current_state[*]  ; CLK        ; 3.097 ; 3.097 ; Fall       ; CLK             ;
+;  current_state[0] ; CLK        ; 3.106 ; 3.106 ; Fall       ; CLK             ;
+;  current_state[1] ; CLK        ; 3.097 ; 3.097 ; Fall       ; CLK             ;
 +-------------------+------------+-------+-------+------------+-----------------+
 
 
@@ -1152,9 +1152,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; TimeQuest Timing Analyzer Messages ;
 +------------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Wed Apr 02 15:15:08 2014
+    Info: Processing started: Fri Apr 11 13:49:52 2014
 Info: Command: quartus_sta Initial_recieve_program -c Initial_recieve_program
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
@@ -1167,10 +1167,10 @@ Info (332105): Deriving Clocks
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.711
+Info (332146): Worst-case setup slack is -1.824
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.711       -30.347 CLK 
+    Info (332119):    -1.824       -31.109 CLK 
 Info (332146): Worst-case hold slack is 0.391
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1184,10 +1184,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.222
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.479
+Info (332146): Worst-case setup slack is -0.526
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -0.479        -7.984 CLK 
+    Info (332119):    -0.526        -8.540 CLK 
 Info (332146): Worst-case hold slack is 0.215
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1201,9 +1201,9 @@ Info (332146): Worst-case minimum pulse width slack is -1.222
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 419 megabytes
-    Info: Processing ended: Wed Apr 02 15:15:09 2014
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 321 megabytes
+    Info: Processing ended: Fri Apr 11 13:49:53 2014
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
