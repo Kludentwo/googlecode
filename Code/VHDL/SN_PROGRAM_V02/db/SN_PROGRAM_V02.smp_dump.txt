@@ -1,0 +1,12 @@
+
+State Machine - |SN_PROGRAM_V02|SN_program_v01:inst7|f_state
+Name f_state.respond f_state.manchester_converting f_state.idle 
+f_state.idle 0 0 0 
+f_state.manchester_converting 0 1 1 
+f_state.respond 1 0 1 
+
+State Machine - |SN_PROGRAM_V02|SN_program_v01:inst7|r_state
+Name r_state.check_functioncode r_state.check_address r_state.idle 
+r_state.idle 0 0 0 
+r_state.check_address 0 1 1 
+r_state.check_functioncode 1 0 1 

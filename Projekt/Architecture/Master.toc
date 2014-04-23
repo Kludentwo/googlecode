@@ -15,9 +15,10 @@
 \contentsline {chapter}{\chapternumberline {3}Structural view}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introduction}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}System overview}{5}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Block responsibility}{5}{subsection.3.2.1}
-\contentsline {subsubsection}{CDU}{5}{section*.2}
-\contentsline {subsubsection}{Sensor node n}{5}{section*.3}
+\contentsline {subsection}{\numberline {3.2.1}General interfaces}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Block responsibility}{6}{subsection.3.2.2}
+\contentsline {subsubsection}{CDU}{6}{section*.2}
+\contentsline {subsubsection}{Sensor node n}{6}{section*.3}
 \contentsline {section}{\numberline {3.3}Detailed block overview}{6}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}CDU}{6}{subsection.3.3.1}
 \contentsline {subsubsection}{Block description}{6}{section*.4}

@@ -6,13 +6,29 @@ The blocks are derived from previous documentation.
 
 
 \section{System overview}
-The system consist of a central data unit and n number of sensors.
+The system consist of a central data unit(CDU) and n number of sensor nodes (SN).\\
+Through the 1-wire bus on which all sensor nodes are serially connected both power and communication to all sensors are carried. Below is shown a figure of the system overall blocks and interfaces.
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/systembdd}
 \caption{System block definition diagram}
 \label{systembdd}
 \end{figure}
+
+\subsection{General interfaces}
+From the CDU power needs to be transmitted to all sensors. As per design, the CDU needs to output $5V*n+0.7V$ for the total system. Each sensor has a 5V voltage-drop to power the sensor, and in addition to this the voltage drop caused by communication is added.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ p{2.5cm} p{2cm} p{2cm} p{7cm} }
+\hline
+\textbf{Block} & \textbf{IO} & \textbf{Levels} & \textbf{Description} \\\hline
+\multirow{2}{2.5cm}[-3.5em]{CDU} & Sensors\_pos & Min. 10V & The possitive voltage out from the CDU is supplied to the first sensor. The level must be sufficient to supply the number of sensors connected(n).\\ \cline{2-4}
+ & Sensors\_neg & NA & The negative port on the CDU is connected to the last sensors in the system and thereby ends the sensor loop. \\ \hline
+\multirow{2}{2.5cm}[-3em]{Sensor node} & In\_pos & In\_neg+5V &The In\_pos is where the high potential voltage is supplied to the sensor node. \\ \cline{2-4}
+& In\_neg & NA & The negative port at the sensor node is looped to the possitive port on the next sensor or on the "Sensors\_neg" at the CDU. \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \subsection{Block responsibility}
 \subsubsection{CDU}

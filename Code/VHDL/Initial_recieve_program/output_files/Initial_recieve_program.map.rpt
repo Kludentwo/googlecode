@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Initial_recieve_program
-Wed Apr 02 15:14:56 2014
-Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
+Fri Apr 11 13:49:38 2014
+Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
 ---------------------
@@ -44,8 +44,8 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 02 15:14:56 2014     ;
-; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 11 13:49:38 2014     ;
+; Quartus II 32-bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; Initial_recieve_program                   ;
 ; Top-level Entity Name              ; initial_recieve_program                   ;
 ; Family                             ; Cyclone II                                ;
@@ -274,9 +274,9 @@ Encoding Type:  One-Hot
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
+Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Wed Apr 02 15:14:54 2014
+    Info: Processing started: Fri Apr 11 13:49:35 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Initial_recieve_program -c Initial_recieve_program
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file initial_recieve_program.vhd
@@ -295,10 +295,10 @@ Info (21057): Implemented 61 device resources after synthesis - the final resour
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 20 output pins
     Info (21061): Implemented 38 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 515 megabytes
-    Info: Processing ended: Wed Apr 02 15:14:56 2014
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 381 megabytes
+    Info: Processing ended: Fri Apr 11 13:49:38 2014
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

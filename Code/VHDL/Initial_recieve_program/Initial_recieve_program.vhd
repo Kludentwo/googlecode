@@ -90,8 +90,10 @@ begin
 						s1 <= DATA;
 						bit_count <= '0';
 						address_counter <= "000";
-					
+						--LEDS <= "0001";
+						
 					when address_check => 			-- Sample manchester
+						--LEDS <= "0010";
 						s8 <= '1';
 						s7 <= '1';
 						s6 <= '1';
@@ -123,6 +125,7 @@ begin
 				
 				
 					when get_data =>
+						--LEDS <= "0100";
 						r4 <= '1';
 						r3 <= '1';
 						r2 <= '1'; 

@@ -1,0 +1,60 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity ADC_TESTING_TB is
+end;
+
+architecture bench of ADC_TESTING_TB is
+
+  component ADC_TESTING
+    port (
+      CLK_27   		: in 	std_logic;
+		  S_CLK    		: out std_logic;
+		  DATA	   	 	: in 	std_logic;
+		  CS					   : out std_logic;
+		  SHDN	   			: out std_logic;
+		  LEDS	     	: out std_logic_vector(11 downto 0)
+    );
+
+  end component;
+    signal CLK_27    		: std_logic := '0';
+		signal S_CLK       : std_logic := '1';
+		signal DATA	   		  : std_logic := 'U';
+		signal CS					     : std_logic := 'U';
+		signal SHDN	    			: std_logic := '1';
+		signal LEDS	    	 	: std_logic_vector(11 downto 0) := "000000000000";
+    signal DOUT        : std_logic_vector(11 downto 0) := "101010101010";
+
+  
+begin
+
+  ADC_TESTING_inst : ADC_TESTING
+    port map (
+       CLK_27        => CLK_27,
+       S_CLK         => S_CLK,
+	     DATA          => DATA,
+	     CS	           => CS,
+       SHDN          => SHDN,
+       LEDS          => LEDS);
+
+  -- clock generation
+  CLK_27 <= not CLK_27 after 37ns/2;
+
+  stimulus : process
+  begin
+    wait until CS = '0';
+    wait for 7.5 us;
+    DATA <= '1';
+    for I in 0 to 11 loop
+      wait until S_CLK = '1';
+      wait until S_CLK = '0';
+      DATA <= DOUT(11-I);
+    end loop;
+    wait;
+  end process;
+
+end;  -- Architecture
+
+
+-- END OF FILE --
