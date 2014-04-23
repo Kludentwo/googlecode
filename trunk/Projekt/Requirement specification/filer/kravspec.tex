@@ -13,6 +13,7 @@
 
 
 \chapter{Requirement specification}
+This chapter describes both functional aswell as general system requirements.
 \section{General description}
 
 \subsection{General System}
@@ -23,14 +24,14 @@
 \end{figure}
 
 \subsection{General system description}
-The system will be mounted on and around the foot of a person who is likely to develop Charcot foot. The system will process data from temperature- and accelerometer sensors to determine whether there is a danger of overloading of the foot and joint. If overloading is imminent the user will be warned.
+The system will be mounted on and around the foot of a person who is likely to develop Charcot foot. The system will capture data from temperature sensors which can be used to determine whether there is a danger of overloading the foot and/or joint.
 
 \subsubsection{Central data unit description}
 The Central data unit communicates with the sensor nodes to collect data from each node. This data is stored on the CDU's memory with a time stamp and sensor node identifier.\\
-The CDU can transfer the data to a computer. This communication can be wired or wireless but this may be implemented solely as a feature for this project and not the final product, which is an excluded feature for this project.
+The CDU can transfer the data to a computer. This communication can be wired or wireless but this may be implemented solely as a feature for this project and not the final product.
 
 \subsubsection{Sensor node description}
-The sensor node is in general a generic sensor which contains two functionalities. It contains the custom 1-wire protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. the one wire and it is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
+The sensor node is in general a generic sensor which contains two functionalities. It contains the custom power line communication protocol and it can measure data. This measurement can be temperature, accelerometer value etc. The nodes gets both power and communication via. the one wire and it is then daisy chained to the next sensor and so forth until the wire ends in the CDU again. This helps minimize wires in the insole/sock and simplifies the system. 
 
 \subsection{Constraints}
 \textit{Currently none.}
@@ -113,7 +114,6 @@ Below is shown the use case diagram.\\
 	& 2. The system indicates successful start up.\\ \hline
 	\multirow{2}{*}{Exceptions} & 2a. The system does not indicate sucessful start up. \\
 	& - The patient contacts technical support. \\ \hline
-	Priority					& 1 - Very Important\\\hline
 	\end{tabular}
 \end{table}
 
@@ -137,7 +137,6 @@ Below is shown the use case diagram.\\
 	\multirow{4}{*}{Exceptions} & 4a. The CDU does not respond. \\ 
 								& - The CDU and computer are not connected correctly.\\											& 4b. The CDU responds "There is no data". \\
 								& - There is not data on the CDU to respond with.\\\hline
-	Priority					& 3 - \\\hline
 	\end{tabular}
 \end{table}
 
@@ -161,7 +160,7 @@ $\bullet$ BOM Price & 40€\\
 \begin{table}[H]
 \begin{tabular}{p{8cm} p{5cm}}
 $\bullet$ Temperature accuracy: & <$0.5^o$C\\
-$\bullet$ Update rate: & min. once per CDU cycle\\
+$\bullet$ Measurement rate: & min. once per CDU cycle\\
 $\bullet$ Lifespan: & > 3 years\\
 \end{tabular}
 \end{table}
@@ -225,7 +224,9 @@ $\bullet$ Real time clock: & Yes\\
 $\bullet$ Save entries must contain: &Sensor identifier. \\
 ~ 									&Temperature. \\
 ~									&Timestamp. \\
-
+~									&Type. \\
+~									&Erros. \\
+\textit{The order doesn't need to follow the above order.}
 
 \end{tabular}
 \end{table}
@@ -254,6 +255,9 @@ $\bullet$ CDU to computer interface: & Yes\\
 \item Microsoft Visio 2010/2013
 \item TortoiseSVN
 \item TeXmaker
+\item Modelsim
+\item Quartus 12.1
+\item MPLAB X
 \end{itemize}
 
 \subsubsection{Misc}
