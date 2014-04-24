@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SN_PROGRAM_V02
-Wed Apr 23 11:50:46 2014
+Thu Apr 24 16:41:33 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 23 11:50:46 2014     ;
+; Analysis & Synthesis Status        ; Successful - Thu Apr 24 16:41:33 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
@@ -320,7 +320,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -330,7 +330,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Wed Apr 23 11:50:43 2014
+    Info: Processing started: Thu Apr 24 16:41:29 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file sn_program_v01.vhd
@@ -362,7 +362,7 @@ Info (12128): Elaborating entity "debug" for hierarchy "debug:inst4"
 Info (12128): Elaborating entity "bcdto7seg" for hierarchy "bcdto7seg:inst14"
 Info (12128): Elaborating entity "convert_to_BCD" for hierarchy "convert_to_BCD:inst8"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "SHDN" is stuck at VCC
+    Warning (13410): Pin "SHDN" is stuck at GND
     Warning (13410): Pin "BCD01s[6]" is stuck at VCC
     Warning (13410): Pin "BCD01s[5]" is stuck at GND
     Warning (13410): Pin "BCD01s[4]" is stuck at GND
@@ -391,9 +391,9 @@ Info (21057): Implemented 224 device resources after synthesis - the final resou
     Info (21059): Implemented 41 output pins
     Info (21061): Implemented 162 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 28 warnings
-    Info: Peak virtual memory: 510 megabytes
-    Info: Processing ended: Wed Apr 23 11:50:46 2014
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 502 megabytes
+    Info: Processing ended: Thu Apr 24 16:41:33 2014
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

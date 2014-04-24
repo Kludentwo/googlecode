@@ -42,31 +42,28 @@ The sensor node is in general a generic sensor which contains two functionalitie
 
 %\subsection{Beskrivelse af UI eller GUI}
 
-\section{General system functionality}
-The systems function that does not include user input will be explained here in a non technical way and then later on be described technically in the architecture and design documents.\\
-\textbf{CDU}\\
-The CDU is the central part of this system. It handles the communication protocol as well as the data transmitted. The data is saved in internal memory. When the system starts up the CDU starts out by contacting every address in a defined range on the communication line. As sensors respond with their type, their type and address are saved in memory. When the whole range has been contacted the system starts normal operation mode. In normal mode the system contacts every system at least one time every minute. The data is saved in the CDUs memory. \\
-\textbf{Sensor}\\
-The sensor nodes have an address and a type. The type is either an activity sensor or a temperature sensor. The addresses are hard-coded into the sensor. The sensors have data ready when the CDU asks for data. The sensors are powered from the communication line.\\
-\textbf{Communication and protocol}\\
-The protocol consist of a wire connected to all the sensors in a daisy chain. The CDU controls the line and maintains the connection. The CDU initiates communication and retrieves data from the line.\\
+%\section{General system functionality}
+%The systems function that does not include user input will be explained here in a non technical way and then later on be described technically in the architecture and design documents.\\
+%This section serves to describe the system functionality
+%\textbf{CDU}\\
+%The CDU is the central part of this system. It handles the communication protocol as well as the data transmitted. The data is saved in internal memory. When the system starts the CDU initiates by contacting every address in a defined range on the communication line. As sensors respond with their type, their type and address are saved in memory. When the whole range has been contacted the system starts normal operation mode. In normal mode the system contacts every system at least one time every minute. The data is saved in the CDUs memory. \\
+%\textbf{Sensor}\\
+%The sensor nodes have an address and a type. The type is either an activity sensor or a temperature sensor. The addresses are hard-coded into the sensor. The sensors have data ready when the CDU asks for data. The sensors are powered from the communication line.\\
+%\textbf{Communication and protocol}\\
+%The protocol consist of a wire connected to all the sensors in a daisy chain. The CDU controls the line and maintains the connection. The CDU initiates communication and retrieves data from the line.\\
 
 \section{Functional requirements}
 Below is listed all functional requirements to the system.\\
 
 \subsection{Use Case diagram}
 Below is shown the use case diagram.\\
-\centering\fbox{
-	\begin{minipage}{5cm}
-		\hfill\vspace{5cm}
-	\end{minipage}
-	}
-%\begin{figure}[H]
-%\centering
-%\includegraphics*[width=.7\textwidth]{billeder/UseCase_vector}
-%\label{usecase_fig}
-%\caption{Use case diagram}
-%\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics*[width=.7\textwidth]{billeder/UseCase_vector}
+\label{usecase_fig}
+\caption{Use case diagram}
+\end{figure}
 
 \subsection{Actors of the system}
 
