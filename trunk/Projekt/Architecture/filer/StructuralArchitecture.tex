@@ -16,7 +16,9 @@ Through the 1-wire bus on which all sensor nodes are serially connected both pow
 \end{figure}
 
 \subsection{General interfaces}
-From the CDU power needs to be transmitted to all sensors. As per design, the CDU needs to output $5V*n+0.7V$ for the total system. Each sensor has a 5V voltage-drop to power the sensor, and in addition to this the voltage drop caused by communication is added.
+From the CDU power needs to be transmitted to all sensors. As per design, the CDU needs to output 5 volts for every sensor along with 0.7 volts for sensors to be able to respond.\\
+Each sensor has a 5V voltage-drop to power the sensor. The response is max 0.7 volts. A formula explains the power needed to power the bus $5V * n + 0.7V$.
+
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{ p{2.5cm} p{2cm} p{2cm} p{7cm} }
@@ -35,12 +37,12 @@ From the CDU power needs to be transmitted to all sensors. As per design, the CD
 The CDU contacts each sensor to collect the data values. This is then stored for later extraction.
 
 \subsubsection{Sensor node n}
-The sensor node measures a physical or biometric parameter such as temperature, movement, humidity etc.
+The sensor node measures temperature.
 
 \section{Detailed block overview}
 Below are detailed figures for each block in the system.\\
-The blocks in the figures are conceptual blocks and most of the consist of both software and hardware.\\
-All blocks are essential to fulfil the functionality and requirements of the system.
+The blocks in the figures are conceptual blocks and most of them consist of both software and hardware.\\
+All the blocks are needed to fulfil the current functionality and requirements of the system. Supporting blocks might be added if the functionality does not fit into the current blocks.
 
 \subsection{CDU}
 
@@ -55,17 +57,16 @@ All blocks are essential to fulfil the functionality and requirements of the sys
 
 \textbf{Power supply:}\\
 The power supply feeds the necessary power to the modules on which it is connected.\\
-The voltage and current levels will be specified in the physical view.\\
 
 \textbf{Sensor power supply:}\\
 The Sensor power supply feeds the power needed to operate all sensors connected to the system.\\
-The voltage and/or current levels will be specified in the physical view.\\
 
 \textbf{µ-Controller:}\\
 The µ-Controller runs the main application. Main objectives:\\
 $\bullet$ Keep track of sensors\\
 $\bullet$ Collect data\\
 $\bullet$ Store data\\
+$\bullet$ Manage communication protocol\\
 
 \textbf{Sensor communication:}\\
 The Sensor communication interfaces with the sensor power supply to modulate the power line to the sensor nodes.\\
@@ -75,7 +76,7 @@ The sensor communication block has no intelligence and the protocol is handled b
 The memory stores all data collected by the µ-Controller. The memory can be detachable or some kind of eeprom/flash.\\
 
 \textbf{PC communication:}\\
-The PC communication is an interface to a PC. This can be USB, serial or any third option.\\
+The PC communication is an interface to a PC.\\
 
 
 \subsection{Sensor node n}
@@ -97,10 +98,10 @@ The communication block demodulates the communcation on the input line and feeds
 
 \textbf{Logic handler;}\\
 The logic handler interprets the incomming communication and responds accordingly.\\
-It also handles sensor measurements.\\
+It also handles communication with the Sensor block.\\
 
 \textbf{Sensor:}\\
-The sensor block is mostly a physical element in the sensor node. It feeds a voltage or similar to the logic handler.\\
+The sensor block is a complete measurement system with a digital interface.\\
 
 
 

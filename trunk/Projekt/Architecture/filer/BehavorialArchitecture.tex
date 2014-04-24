@@ -20,14 +20,14 @@ Below is shown the overall behaviour of the system. The operations will be descr
 \section{Detailed behavioural overview}
 
 \subsection{Startup sequence}
-The goal with the startup sequence is to "discover" all sensors installed in the device. It must also acquire the necessary sensor data to determine their ID and placement etc.\\
+The goal with the startup sequence is to "discover" all sensors installed in the device. It must also acquire the necessary sensor data to determine their ID and type\\
 
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/Startup_Sequence_SD}
 \caption{Startup sequence}
 \end{figure}
-If there is no response from an address the CDU assumes there is no sensor on this address.
+If there is no response from an address after being contacted twice the CDU assumes there is no sensor on this address.
 
 %Statemaskine for hver blok (nødvendig?)\\
 
