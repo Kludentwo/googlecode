@@ -17,8 +17,11 @@ This chapter serves to describe the communication protocol. Each sensor has an u
 \label{table:functioncodes}
 \end{table}
 
-\section{Writing}
-Writing to a sensor node takes 3 nibbles that are comprised of a start sequence, an address and a function code. This is shown in table ~\ref{table:stdmsgtosensor}. 
+\section{Communication sequence}
+The communication consist of a write sequence followed by a read sequence.\\
+Writing to a sensor node takes 3 nibbles that are comprised of a start sequence, an address and a function code. This is shown in table ~\ref{table:stdmsgtosensor}.\\ 
+Reading takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsgfromsensor}. Once the CDU has written to the sensor node, the sensor node responds using the this format. \\
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -32,21 +35,6 @@ Writing to a sensor node takes 3 nibbles that are comprised of a start sequence,
 \end{table}
 The start sequence is always "0110".\\
 
-An example of a write sequence is found in table ~\ref{table:writingexample}.\\
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|}
-	\hline
-	Start Sequence & Address & Function Code \\ \hline
-	0110 & 0001	& 0001 \\
-	\hline
-\end{tabular}
-\caption{Example of writing to sensor with address 1}
-\label{table:writingexample}
-\end{table}
-
-\section{Reading}
-Reading takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsgfromsensor}. Once the CDU has written to the sensor node, the sensor node responds using the this format. \\
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -99,9 +87,13 @@ An example of 12 bit data from a sensor of the type temperature sensor is "432" 
 	\hline
 	Temperature sensor & 0001 & Temperature sensor node \\
 	\hline
-	Activity sensor & 0010 & Activity sensor node \\
+	Free Space for future sensors & 0010 & Not in use \\
 	\hline
-	Not in use & 0011 & Not in use \\
+	- || - & 0011 & Not in use \\
+	\hline
+	- || - & ... & Not in use \\
+	\hline
+	- || - & 1111 & Not in use \\
 	\hline
 \end{tabular}
 \caption{Type table with bitpattern and description}
@@ -115,7 +107,7 @@ An example of 12 bit data from a sensor of the type temperature sensor is "432" 
 	\hline
 	Status & Bitpattern & Description \\ 
 	\hline
-	Error1 	& 0001  & Dummy error \\
+	Communcation error 	& 0001  & The correct address was received but no function code. \\
 	\hline
 	Error2  & 0010  & Dummy error \\
 	\hline
