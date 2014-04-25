@@ -41,7 +41,8 @@ Sensor sensorarray[NUMBEROFSENSORS];
 // String arrays
 unsigned char message[(2 * MESSAGELENGTH)] = {0};
 unsigned char response[RESPONSELENGTH] = {0};
-
+unsigned char testresponse[RESPONSELENGTH] = {1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0};
+unsigned char dispray[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
 
@@ -57,6 +58,9 @@ unsigned int outcounter = 0;
 unsigned int recvcounter = 0;
 unsigned char waitclock = 0;
 unsigned int addresscounter = 0;
+unsigned int maincounter = 0;
+unsigned int maincounter2 = 0;
+unsigned int maincounter3 = 0;
 
 /*========================================================================
                         FUNCTION DEFINITIONS
@@ -80,7 +84,7 @@ int main(int argc, char** argv) {
     OSCCON = 0x22C0; //select Primary Oscillator, External XL
     CLKDIV = 0x0000; //do not divide 
 
-    RCONbits.SWDTEN = 0; // Disable watchdog 
+    RCONbits.SWDTEN = 0; // Disable watchdog
 
     TRISA = 0x0010; //configure (RA4 = Inputs, Rest = output)
     TRISB = 0x0000; //configure all PortB as output
@@ -96,13 +100,38 @@ int main(int argc, char** argv) {
     UARTInit();
 
     InitSensorArray(sensorarray);
-    CDUStartUpRoutine(sensorarray, alive, message, response, &msgflag, &comflag, &recvflag);
-    alive[2];
-    alive[3];
-    
+    //CDUStartUpRoutine(sensorarray, alive, message, response, &msgflag, &comflag, &recvflag);
+    writeString("STARTUP DONE");
+    writeString("\r\n");
+
     //Main Program Loop, Loop forever
     while (1) {
-        _RA7 = ~(_RA7);
+        maincounter++;
+        if (maincounter == 50000) {
+            maincounter = 0;
+            maincounter2++;
+            if (maincounter2 == 3) {
+                maincounter2 = 0;
+                /*
+                for(maincounter = 0; maincounter < NUMBEROFSENSORS; maincounter++)
+                {
+                    if(alive[maincounter] > 0)
+                    {
+                        CDUSendRunning(&(sensorarray[maincounter]),message, &msgflag, &comflag);
+                        while(!(recvflag));
+                        CDUReceive(&(sensorarray[maincounter]),response);
+                        putLCD((maincounter + 0x30));
+                        writeString("\r\n");
+                    }
+                }*/
+                CDUSendRunning(&(sensorarray[0]), message, &msgflag, &comflag);
+                while (!(recvflag));
+                CDUReceive(&(sensorarray[0]), testresponse);
+                IntegerToBinary(sensorarray[0].Data,12,dispray);
+                writeString(dispray);
+                writeString("\r\n");
+            }
+        }
     }
     return (EXIT_SUCCESS);
 }
@@ -223,35 +252,35 @@ unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
     unsigned char AddressHolder = 0;
     unsigned char dummy = 0;
 
-    for (datacnt = 23; datacnt >= 0; datacnt--) {
+    for (datacnt = 23; datacnt >= 0 && datacnt < 24; datacnt--) {
         if (datacnt > 19 && datacnt < 24) {
-            AddressHolder |= receivebuffer[datacnt] << (23 - datacnt);
+            AddressHolder |= (receivebuffer[datacnt] << (datacnt - 20));
         }
         if (datacnt > 15 && datacnt < 20) {
-            FunctioncodeHolder |= receivebuffer[datacnt] << (19 - datacnt);
+            FunctioncodeHolder |= (receivebuffer[datacnt] << (datacnt - 16));
         }
         if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
             if (datacnt > 11 && datacnt < 16) {
-                Sens->Errors |= receivebuffer[datacnt] << (15 - datacnt);
+                Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
             }
             if (datacnt > 7 && datacnt < 12) {
-                Sens->Type |= receivebuffer[datacnt] << (11 - datacnt);
+                Sens->Type |= (receivebuffer[datacnt] << (datacnt - 8));
             }
             if (datacnt < 8) {
-                dummy |= receivebuffer[datacnt] << (7 - datacnt);
+                dummy |= (receivebuffer[datacnt] << (datacnt));
             }
         }
         if (AddressHolder == Sens->Address && FunctioncodeHolder == GETDATA) {
             if (datacnt > 11 && datacnt < 16) {
-                Sens->Errors |= receivebuffer[datacnt] << (15 - datacnt);
+                Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
             }
             if (datacnt < 12) {
-                Sens->Data |= receivebuffer[datacnt] << (11 - datacnt);
+                Sens->Data |= (receivebuffer[datacnt] << (datacnt));
             }
         }
-        if (FunctioncodeHolder == 0) {
-            return 0;
-        }
+    }
+    if (FunctioncodeHolder == 0) {
+        return 0;
     }
     return 1;
 }
@@ -267,9 +296,9 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
      * Receive part
      */
     if (recvcounter > 0 && waitclock == 0) {
-        response[recvcounter - 1] = PORTAbits.RA4; // Recieve from BUS
         recvcounter--;
-        if (recvcounter == 1) {
+        response[recvcounter] = PORTAbits.RA4; // Recieve from BUS
+        if (recvcounter == 0) {
             recvflag = 1; // Recieve Complete
         }
     }
@@ -279,13 +308,15 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
     /*
      * 10 kHz Clock Part
      */
-    if (comflag == 0) {
-        if (clk_flag == 0) {
-            clk_flag = 1;
-            LATBbits.LATB7 = clk_flag;
-        } else {
-            clk_flag = 0;
-            LATBbits.LATB7 = clk_flag;
+    if (clk_flag == 0) {
+        clk_flag = 1;
+        if (comflag == 0) {
+            LATAbits.LATA5 = clk_flag;
+        }
+    } else {
+        clk_flag = 0;
+        if (comflag == 0) {
+            LATAbits.LATA5 = clk_flag;
         }
     }
     /*
@@ -293,9 +324,9 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
      */
     if (comflag == 1 && msgflag == 1) {
         if (message[loopcounter] == 0x01)
-            LATBbits.LATB7 = 1;
+            LATAbits.LATA5 = 0;
         else
-            LATBbits.LATB7 = 0;
+            LATAbits.LATA5 = 1;
 
         loopcounter++;
     }
@@ -303,7 +334,7 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
         loopcounter = 0;
         comflag = 0;
         recvcounter = 24;
-        waitclock = 1;
+        waitclock = 2;
     }
 
 
