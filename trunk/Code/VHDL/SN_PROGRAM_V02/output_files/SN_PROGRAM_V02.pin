@@ -453,7 +453,7 @@ CS                           : J22       : output : 3.3-V LVTTL       :         
 GND*                         : J23       :        :                   :         : 5         :                
 GND*                         : J24       :        :                   :         : 5         :                
 GND*                         : J25       :        :                   :         : 5         :                
-Buffer_in                    : J26       : input  : 3.3-V LVTTL       :         : 5         : Y              
+Buffer_out                   : J26       : output : 3.3-V LVTTL       :         : 5         : Y              
 GND*                         : K1        :        :                   :         : 2         :                
 GND*                         : K2        :        :                   :         : 2         :                
 GND*                         : K3        :        :                   :         : 2         :                
@@ -478,7 +478,7 @@ GND*                         : K21       :        :                   :         
 GND*                         : K22       :        :                   :         : 5         :                
 GND*                         : K23       :        :                   :         : 5         :                
 GND*                         : K24       :        :                   :         : 5         :                
-GND*                         : K25       :        :                   :         : 5         :                
+Buffer_in                    : K25       : input  : 3.3-V LVTTL       :         : 5         : Y              
 DIN                          : K26       : input  : 3.3-V LVTTL       :         : 5         : Y              
 VCCIO2                       : L1        : power  :                   : 3.3V    : 2         :                
 GND*                         : L2        :        :                   :         : 2         :                
@@ -502,7 +502,7 @@ S_CLK_debug                  : L19       : output : 3.3-V LVTTL       :         
 GND*                         : L20       :        :                   :         : 5         :                
 GND*                         : L21       :        :                   :         : 5         :                
 GND                          : L22       : gnd    :                   :         :           :                
-Buffer_out                   : L23       : output : 3.3-V LVTTL       :         : 5         : Y              
+SHDN_debug                   : L23       : output : 3.3-V LVTTL       :         : 5         : Y              
 CS_debug                     : L24       : output : 3.3-V LVTTL       :         : 5         : Y              
 DOUT_debug                   : L25       : output : 3.3-V LVTTL       :         : 5         : Y              
 VCCIO5                       : L26       : power  :                   : 3.3V    : 5         :                

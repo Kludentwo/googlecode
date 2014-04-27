@@ -21,13 +21,13 @@ Each sensor has a 5V voltage-drop to power the sensor. The response is max 0.7 v
 
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{ p{2.5cm} p{2cm} p{2cm} p{7cm} }
+\begin{tabular}{|p{2.5cm}|p{1cm}| p{9cm}| }
 \hline
-\textbf{Block} & \textbf{IO} & \textbf{Levels} & \textbf{Description} \\\hline
-\multirow{2}{2.5cm}[-3.5em]{CDU} & Sensors\_pos & Min. 10V & The possitive voltage out from the CDU is supplied to the first sensor. The level must be sufficient to supply the number of sensors connected(n).\\ \cline{2-4}
- & Sensors\_neg & NA & The negative port on the CDU is connected to the last sensors in the system and thereby ends the sensor loop. \\ \hline
-\multirow{2}{2.5cm}[-3em]{Sensor node} & In\_pos & In\_neg+5V &The In\_pos is where the high potential voltage is supplied to the sensor node. \\ \cline{2-4}
-& In\_neg & NA & The negative port at the sensor node is looped to the possitive port on the next sensor or on the "Sensors\_neg" at the CDU. \\ \hline
+\textbf{Block} & \textbf{IO} & \textbf{Description} \\\hline
+\multirow{2}{2.5cm}[-2em]{CDU} & B+& The possitive voltage out from the CDU is supplied to the first sensor. The level must be sufficient to supply the number of sensors connected(n).\\ \cline{2-3}
+ & B-  & The negative port on the CDU is connected to the last sensors in the system and thereby ends the sensor loop. \\ \hline
+\multirow{2}{2.5cm}[-2em]{Sensor node} & S+ &The In\_pos is where the high potential voltage is supplied to the sensor node. \\ \cline{2-3}
+& S- & The negative port at the sensor node is looped to the possitive port on the next sensor or on the "B-" port at the CDU. \\ \hline
 \end{tabular}
 \end{center}
 \end{table}

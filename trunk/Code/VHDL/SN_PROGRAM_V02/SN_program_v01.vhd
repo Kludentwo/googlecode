@@ -70,10 +70,24 @@ begin
 R_DATA <= output_data;
 --LEDS <= flopped_ADC_DATA;	
 temperature_out <= temperature;
-	 process(CLK,RESET)
+
+------------------------------------------------------------
+-- Routine type:		Process
+-- name: 				communication
+-- Sensitivity list:	CLK, RESET
+-- Desription:			The process communication handles the
+--							the communication done.
+--							It has a statemachine controller which 
+--							is handled on falling edge, and  
+--							datasampling, handled on rising edge.
+------------------------------------------------------------
+	 communication: process(CLK,RESET)
 ------------Variables-----------
 		variable start_seq 					: std_logic_vector(7 downto 0) := "01101001";
 		variable address 						: std_logic_vector(3 downto 0) := "0001";
+		variable errors						: std_logic_vector(3 downto 0) := X"0";
+		variable get_info						: std_logic_vector(3 downto 0) := "0001";
+		variable get_data						: std_logic_vector(3 downto 0) := "0010";
 		variable manchester_seq				: std_logic_vector(1 downto 0);
 		variable manchester_bit				: std_logic;
 		variable m1,m2							: std_logic;
@@ -91,29 +105,28 @@ temperature_out <= temperature;
 		variable averaged_ADC_DATA			: std_logic_vector(23 downto 0);
 		variable averaged_ADC_DATA_OLD	: std_logic_vector(23 downto 0):= X"000000";
 		variable temp_temp					: std_logic_vector(11 downto 0);
+
 		begin
-			
-			
-			if falling_edge(CLK) then  			-- state controller
+				
+		if falling_edge(CLK) then  			-- state controller
 			if RESET = '0' then
-				--LEDS_R <= "0000";
 				r_state <= idle;
 				f_state <= idle;
 			end if;
 			
---			if ADC_DATA_RDY = '1' then
---				if new_sample = '1' then
---					new_sample <= '0';
+			if ADC_DATA_RDY = '1' then
+				if new_sample = '1' then
+					new_sample <= '0';
 --					--averaged_ADC_DATA := std_logic_vector(unsigned(flopped_ADC_DATA) * 11 + unsigned(ADC_DATA) * 4);-- average filter where alpha values are timed 16.
 --					--flopped_ADC_DATA <= averaged_ADC_DATA(15 downto 4); -- divide by 16 (bitshift 4 down)
---					--flopped_ADC_DATA <= ADC_DATA;
+					flopped_ADC_DATA <= ADC_DATA;
 --					new_value := '1';
---				end if;
---			end if;
+				end if;
+			end if;
 --			
---			if ADC_DATA_RDY = '0' then
---				new_sample <= '1';
---			end if;
+			if ADC_DATA_RDY = '0' then
+				new_sample <= '1';
+			end if;
 --			
 --			if new_value = '1' then
 --				new_value := '0';
@@ -125,12 +138,20 @@ temperature_out <= temperature;
 			if fault = '1' then
 				r_state <= idle;
 				f_state <= idle;
+				errors := "0001";
 			end if;
-			
-				case r_state is
+			------------------------------------------------------------
+			-- Routine type:		Case
+			-- name: 				statemachine_controller
+			-- Sensitivity list:	r_state
+			-- Desription:			The case handles all statemachine related
+			--							When the right start, address and a
+			--							functioncode is recieved it changes r_state
+			--							and f_state accordingly.
+			------------------------------------------------------------
+				statemachine_controller: case r_state is
 					when idle =>
-						--LEDS_R <= "0001";
-						LEDS <= "000000001111";
+						LEDS	<= X"00F";
 						if (start_bit8 & start_bit7 & start_bit6 & start_bit5 & start_bit4 & start_bit3 & start_bit2 & start_bit1) = start_seq then
 							r_state <= check_address;
 							f_state <= manchester_converting;
@@ -140,8 +161,7 @@ temperature_out <= temperature;
 						end if;
 
 					when check_address =>
-						--LEDS_R(1) <= '1';
-						LEDS <= "000011110000";
+						LEDS	<= X"0F0";
 						r_address := m_a_bit4 & m_a_bit3 & m_a_bit2 & m_a_bit1;
 						if address_counter = 4 then
 							if r_address = address then
@@ -153,20 +173,20 @@ temperature_out <= temperature;
 						end if;
 						
 					when check_functioncode =>
-						LEDS <= "111100000000";
-						--LEDS_R(2) <= '1';
+						LEDS	<= X"F00";
 						functioncode := m_f_bit4 & m_f_bit3 & m_f_bit2 & m_f_bit1;
-						
 						if functioncode_counter = 4 then
-							if functioncode = "0001" then
+							if functioncode = get_info then
 								f_state <= respond;
 								r_state <= idle;
-								Respond_Data := address & "0001" & in_switches;
+								Respond_Data := address & get_info & errors & in_switches(11 downto 0);
+								errors := x"0";
 								
-							elsif functioncode = "0010" then
+							elsif functioncode = get_data then
 								f_state <= respond;
 								r_state <= idle;
-								Respond_Data := address & "0010" & in_switches;
+								Respond_Data := address & get_data & errors & flopped_ADC_DATA;
+								errors := x"0";
 								
 							else
 								r_state <= idle;
@@ -174,16 +194,23 @@ temperature_out <= temperature;
 							end if;
 						end if;
 						
-				end case;
+				end case statemachine_controller;
 			end if;
+
 			
-			if rising_edge(CLK) then 			-- sample data
+			if rising_edge(CLK) then 			
 			if RESET = '0' then
-				--LEDS <= "0000";
+
 			end if;
-				case f_state is 
-					when idle => 					-- wait for start sequence
-						--LEDS <= "0001";
+			------------------------------------------------------------
+			-- Routine type:		Case
+			-- name: 				Linecoding
+			-- Sensitivity list:	f_state
+			-- Desription:			The case handles all linecoding in the
+			--							system.
+			------------------------------------------------------------
+				Linecoding: case f_state is 
+					when idle => 					
 						start_bit8 <= start_bit7;
 						start_bit7 <= start_bit6;
 						start_bit6 <= start_bit5;
@@ -204,13 +231,9 @@ temperature_out <= temperature;
 						m_f_bit3 <= '0';
 						m_f_bit2 <= '0';
 						m_f_bit1 <= '0';
-						--r_DATA_debigging <= '0';
-						--responding <= '0';
-						--output_data <= '0';
 						output_data <= '0';
 						
-					when manchester_converting =>  -- convert incomming manchester line code to bits
-						--LEDS(1) <= '1';
+					when manchester_converting =>
 						start_bit8 <= '0';
 						start_bit7 <= '0';
 						start_bit6 <= '0';
@@ -259,30 +282,11 @@ temperature_out <= temperature;
 						if respond_counter = 24 then
 							respond_flag := '1';
 							respond_counter := 0;
-							
-							--r_DATA_debigging <= '0';
 						end if;
-
-						
---					when get_data =>  
---						--LEDS(3) <= '1';
---						--Respond_Data := "111000111000111000111000";
---						--r_DATA_debigging <= respond_Data(23 - respond_counter);
---						--output_data <= flopped_ADC_DATA(23 - respond_counter);
---						output_data <= Respond_Data(23 - respond_counter);
---						respond_counter := respond_counter + 1;
---						if respond_counter = 24 then
---							respond_flag := '1';
---							respond_counter := 0;
---							output_data <= '0';
---							--r_DATA_debigging <= '0';
---						end if;
-						
-						
-				end case;
+				end case Linecoding;
 			
 			end if;
-	 end process;
+	 end process communication;
 end architecture;
 
 -- END OF FILE --
