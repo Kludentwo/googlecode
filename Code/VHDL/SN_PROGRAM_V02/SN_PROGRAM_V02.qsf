@@ -76,8 +76,8 @@ set_location_assignment PIN_T7 -to In_switches[13]
 set_location_assignment PIN_U3 -to In_switches[14]
 set_location_assignment PIN_U4 -to In_switches[15]
 set_global_assignment -name CDF_FILE output_files/Chain1.cdf
-set_location_assignment PIN_J26 -to Buffer_in
-set_location_assignment PIN_L23 -to Buffer_out
+set_location_assignment PIN_K25 -to Buffer_in
+set_location_assignment PIN_J26 -to Buffer_out
 set_global_assignment -name CDF_FILE Chain5.cdf
 set_location_assignment PIN_D25 -to S_CLK
 set_location_assignment PIN_J22 -to CS
@@ -123,4 +123,5 @@ set_location_assignment PIN_AD11 -to BCD01s[3]
 set_location_assignment PIN_AE11 -to BCD01s[4]
 set_location_assignment PIN_V14 -to BCD01s[5]
 set_location_assignment PIN_V13 -to BCD01s[6]
+set_location_assignment PIN_L23 -to SHDN_debug
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
