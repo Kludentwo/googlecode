@@ -1,5 +1,5 @@
 Flow report for SN_PROGRAM_V02
-Fri Apr 25 15:18:37 2014
+Mon Apr 28 12:39:18 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -38,15 +38,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Flow Summary                                                                   ;
 +------------------------------------+-------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 25 15:18:37 2014     ;
+; Flow Status                        ; Successful - Mon Apr 28 12:39:18 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
 ; Family                             ; Cyclone II                                ;
 ; Device                             ; EP2C35F672C6                              ;
 ; Timing Models                      ; Final                                     ;
-; Total logic elements               ; 197 / 33,216 ( < 1 % )                    ;
-;     Total combinational functions  ; 177 / 33,216 ( < 1 % )                    ;
+; Total logic elements               ; 196 / 33,216 ( < 1 % )                    ;
+;     Total combinational functions  ; 184 / 33,216 ( < 1 % )                    ;
 ;     Dedicated logic registers      ; 111 / 33,216 ( < 1 % )                    ;
 ; Total registers                    ; 111                                       ;
 ; Total pins                         ; 63 / 475 ( 13 % )                         ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/25/2014 15:18:18 ;
+; Start date & time ; 04/28/2014 12:39:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SN_PROGRAM_V02      ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 49273389870329.139843189804060 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 49273389870329.139868154003488 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -90,12 +90,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 510 MB              ; 00:00:03                           ;
-; Fitter                    ; 00:00:08     ; 1.4                     ; 667 MB              ; 00:00:09                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 436 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 414 MB              ; 00:00:01                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 502 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:08     ; 1.4                     ; 667 MB              ; 00:00:08                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 432 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 430 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 385 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:16     ; --                      ; --                  ; 00:00:16                           ;
+; Total                     ; 00:00:15     ; --                      ; --                  ; 00:00:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

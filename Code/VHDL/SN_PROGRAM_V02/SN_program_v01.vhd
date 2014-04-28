@@ -64,13 +64,14 @@ architecture rtl of SN_program_v01 is
   signal output_data					: std_logic;
   signal new_sample					: std_logic;
   signal temperature					: std_logic_vector(11 downto 0);
+  signal error_counter				: std_logic_vector(11 downto 0);
 begin
 	--CLK_debugging <= CLK;
 	--DATA_debugging <= DATA;
 R_DATA <= output_data;
 --LEDS <= flopped_ADC_DATA;	
 temperature_out <= temperature;
-
+LEDS <= error_counter;
 ------------------------------------------------------------
 -- Routine type:		Process
 -- name: 				communication
@@ -108,17 +109,16 @@ temperature_out <= temperature;
 
 		begin
 				
-		if falling_edge(CLK) then  			-- state controller
+		if falling_edge(CLK) then 
 			if RESET = '0' then
 				r_state <= idle;
 				f_state <= idle;
+				error_counter <= X"000";
 			end if;
 			
 			if ADC_DATA_RDY = '1' then
 				if new_sample = '1' then
 					new_sample <= '0';
---					--averaged_ADC_DATA := std_logic_vector(unsigned(flopped_ADC_DATA) * 11 + unsigned(ADC_DATA) * 4);-- average filter where alpha values are timed 16.
---					--flopped_ADC_DATA <= averaged_ADC_DATA(15 downto 4); -- divide by 16 (bitshift 4 down)
 					flopped_ADC_DATA <= ADC_DATA;
 --					new_value := '1';
 				end if;
@@ -139,6 +139,7 @@ temperature_out <= temperature;
 				r_state <= idle;
 				f_state <= idle;
 				errors := "0001";
+				error_counter <= std_logic_vector(unsigned(error_counter) + 1);
 			end if;
 			------------------------------------------------------------
 			-- Routine type:		Case
@@ -151,7 +152,7 @@ temperature_out <= temperature;
 			------------------------------------------------------------
 				statemachine_controller: case r_state is
 					when idle =>
-						LEDS	<= X"00F";
+						--LEDS	<= X"00F";
 						if (start_bit8 & start_bit7 & start_bit6 & start_bit5 & start_bit4 & start_bit3 & start_bit2 & start_bit1) = start_seq then
 							r_state <= check_address;
 							f_state <= manchester_converting;
@@ -161,7 +162,7 @@ temperature_out <= temperature;
 						end if;
 
 					when check_address =>
-						LEDS	<= X"0F0";
+						--LEDS	<= X"0F0";
 						r_address := m_a_bit4 & m_a_bit3 & m_a_bit2 & m_a_bit1;
 						if address_counter = 4 then
 							if r_address = address then
@@ -173,7 +174,7 @@ temperature_out <= temperature;
 						end if;
 						
 					when check_functioncode =>
-						LEDS	<= X"F00";
+						--LEDS	<= X"F00";
 						functioncode := m_f_bit4 & m_f_bit3 & m_f_bit2 & m_f_bit1;
 						if functioncode_counter = 4 then
 							if functioncode = get_info then
@@ -191,6 +192,8 @@ temperature_out <= temperature;
 							else
 								r_state <= idle;
 								f_state <= idle;
+								errors := "0001";
+								--error_counter <= std_logic_vector(unsigned(error_counter) + 1);
 							end if;
 						end if;
 						
