@@ -1,5 +1,5 @@
 Fitter report for SN_PROGRAM_V02
-Fri Apr 25 15:18:29 2014
+Mon Apr 28 12:39:11 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -62,15 +62,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Fitter Summary                                                                 ;
 +------------------------------------+-------------------------------------------+
-; Fitter Status                      ; Successful - Fri Apr 25 15:18:29 2014     ;
+; Fitter Status                      ; Successful - Mon Apr 28 12:39:11 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
 ; Family                             ; Cyclone II                                ;
 ; Device                             ; EP2C35F672C6                              ;
 ; Timing Models                      ; Final                                     ;
-; Total logic elements               ; 197 / 33,216 ( < 1 % )                    ;
-;     Total combinational functions  ; 177 / 33,216 ( < 1 % )                    ;
+; Total logic elements               ; 196 / 33,216 ( < 1 % )                    ;
+;     Total combinational functions  ; 184 / 33,216 ( < 1 % )                    ;
 ;     Dedicated logic registers      ; 111 / 33,216 ( < 1 % )                    ;
 ; Total registers                    ; 111                                       ;
 ; Total pins                         ; 63 / 475 ( 13 % )                         ;
@@ -165,8 +165,8 @@ applicable agreement for further details.
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 355 ( 0.00 % )     ;
-;     -- Achieved     ; 0 / 355 ( 0.00 % )     ;
+;     -- Requested    ; 0 / 362 ( 0.00 % )     ;
+;     -- Achieved     ; 0 / 362 ( 0.00 % )     ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -189,7 +189,7 @@ applicable agreement for further details.
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 352     ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 359     ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -205,26 +205,26 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 197 / 33,216 ( < 1 % ) ;
-;     -- Combinational with no register       ; 86                     ;
-;     -- Register only                        ; 20                     ;
-;     -- Combinational with a register        ; 91                     ;
+; Total logic elements                        ; 196 / 33,216 ( < 1 % ) ;
+;     -- Combinational with no register       ; 85                     ;
+;     -- Register only                        ; 12                     ;
+;     -- Combinational with a register        ; 99                     ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 102                    ;
-;     -- 3 input functions                    ; 43                     ;
-;     -- <=2 input functions                  ; 32                     ;
-;     -- Register only                        ; 20                     ;
+;     -- 4 input functions                    ; 101                    ;
+;     -- 3 input functions                    ; 52                     ;
+;     -- <=2 input functions                  ; 31                     ;
+;     -- Register only                        ; 12                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 168                    ;
-;     -- arithmetic mode                      ; 9                      ;
+;     -- normal mode                          ; 164                    ;
+;     -- arithmetic mode                      ; 20                     ;
 ;                                             ;                        ;
 ; Total registers*                            ; 111 / 34,593 ( < 1 % ) ;
 ;     -- Dedicated logic registers            ; 111 / 33,216 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,377 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 16 / 2,076 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 14 / 2,076 ( < 1 % )   ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 63 / 475 ( 13 % )      ;
 ;     -- Clock pins                           ; 8 / 8 ( 100 % )        ;
@@ -240,11 +240,11 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )          ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%           ;
-; Peak interconnect usage (total/H/V)         ; 1% / 1% / 2%           ;
-; Maximum fan-out                             ; 113                    ;
-; Highest non-global fan-out                  ; 113                    ;
-; Total fan-out                               ; 880                    ;
-; Average fan-out                             ; 2.39                   ;
+; Peak interconnect usage (total/H/V)         ; 2% / 1% / 3%           ;
+; Maximum fan-out                             ; 114                    ;
+; Highest non-global fan-out                  ; 114                    ;
+; Total fan-out                               ; 923                    ;
+; Average fan-out                             ; 2.51                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -257,25 +257,25 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 197 / 33216 ( < 1 % ) ; 0 / 33216 ( 0 % )              ;
-;     -- Combinational with no register       ; 86                    ; 0                              ;
-;     -- Register only                        ; 20                    ; 0                              ;
-;     -- Combinational with a register        ; 91                    ; 0                              ;
+; Total logic elements                        ; 196 / 33216 ( < 1 % ) ; 0 / 33216 ( 0 % )              ;
+;     -- Combinational with no register       ; 85                    ; 0                              ;
+;     -- Register only                        ; 12                    ; 0                              ;
+;     -- Combinational with a register        ; 99                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 102                   ; 0                              ;
-;     -- 3 input functions                    ; 43                    ; 0                              ;
-;     -- <=2 input functions                  ; 32                    ; 0                              ;
-;     -- Register only                        ; 20                    ; 0                              ;
+;     -- 4 input functions                    ; 101                   ; 0                              ;
+;     -- 3 input functions                    ; 52                    ; 0                              ;
+;     -- <=2 input functions                  ; 31                    ; 0                              ;
+;     -- Register only                        ; 12                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 168                   ; 0                              ;
-;     -- arithmetic mode                      ; 9                     ; 0                              ;
+;     -- normal mode                          ; 164                   ; 0                              ;
+;     -- arithmetic mode                      ; 20                    ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Total registers                             ; 111                   ; 0                              ;
 ;     -- Dedicated logic registers            ; 111 / 33216 ( < 1 % ) ; 0 / 33216 ( 0 % )              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 16 / 2076 ( < 1 % )   ; 0 / 2076 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 14 / 2076 ( < 1 % )   ; 0 / 2076 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 63                    ; 0                              ;
@@ -290,8 +290,8 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 880                   ; 0                              ;
-;     -- Registered Connections               ; 357                   ; 0                              ;
+;     -- Total Connections                    ; 923                   ; 0                              ;
+;     -- Registered Connections               ; 371                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 0                     ; 0                              ;
@@ -323,9 +323,9 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name            ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; Buffer_in       ; K25   ; 5        ; 65           ; 22           ; 0           ; 113                   ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; DIN             ; K26   ; 5        ; 65           ; 22           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; DOUT            ; E25   ; 5        ; 65           ; 31           ; 4           ; 13                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; Buffer_in       ; K25   ; 5        ; 65           ; 22           ; 0           ; 114                   ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; DIN             ; K26   ; 5        ; 65           ; 22           ; 1           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; DOUT            ; E25   ; 5        ; 65           ; 31           ; 4           ; 12                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; In_switches[0]  ; N25   ; 5        ; 65           ; 19           ; 0           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; In_switches[10] ; N1    ; 2        ; 0            ; 18           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; In_switches[11] ; P1    ; 1        ; 0            ; 18           ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
@@ -343,7 +343,7 @@ The pin-out file can be found in C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_fil
 ; In_switches[8]  ; B13   ; 4        ; 31           ; 36           ; 0           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; In_switches[9]  ; A13   ; 4        ; 31           ; 36           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; Reset_ADC_comm  ; W26   ; 6        ; 65           ; 10           ; 2           ; 33                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; Reset_comm      ; G26   ; 5        ; 65           ; 27           ; 1           ; 5                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; Reset_comm      ; G26   ; 5        ; 65           ; 27           ; 1           ; 4                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -1136,9 +1136,9 @@ Note: User assignments will override these defaults. The user specified values a
 +-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------+--------------+
 ; Compilation Hierarchy Node    ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                      ; Library Name ;
 +-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------+--------------+
-; |SN_PROGRAM_V02               ; 197 (0)     ; 111 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 63   ; 0            ; 86 (0)       ; 20 (0)            ; 91 (0)           ; |SN_PROGRAM_V02                          ;              ;
-;    |SN_program_v01:inst7|     ; 127 (127)   ; 79 (79)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 48 (48)      ; 19 (19)           ; 60 (60)          ; |SN_PROGRAM_V02|SN_program_v01:inst7     ;              ;
-;    |Sensor_interfacing:inst1| ; 71 (71)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 38 (38)      ; 1 (1)             ; 32 (32)          ; |SN_PROGRAM_V02|Sensor_interfacing:inst1 ;              ;
+; |SN_PROGRAM_V02               ; 196 (0)     ; 111 (0)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 63   ; 0            ; 85 (0)       ; 12 (0)            ; 99 (0)           ; |SN_PROGRAM_V02                          ;              ;
+;    |SN_program_v01:inst7|     ; 125 (125)   ; 79 (79)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 46 (46)      ; 11 (11)           ; 68 (68)          ; |SN_PROGRAM_V02|SN_program_v01:inst7     ;              ;
+;    |Sensor_interfacing:inst1| ; 71 (71)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 39 (39)      ; 1 (1)             ; 31 (31)          ; |SN_PROGRAM_V02|Sensor_interfacing:inst1 ;              ;
 +-------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1149,7 +1149,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name            ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+
 ; R_DATA          ; Output   ; --            ; --            ; --                    ; --  ;
-; Buffer_in       ; Input    ; (6) 2523 ps   ; (0) 171 ps    ; --                    ; --  ;
+; Buffer_in       ; Input    ; (0) 171 ps    ; (6) 2523 ps   ; --                    ; --  ;
 ; In_switches[15] ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; In_switches[14] ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; In_switches[13] ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
@@ -1195,7 +1195,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDS[2]         ; Output   ; --            ; --            ; --                    ; --  ;
 ; LEDS[1]         ; Output   ; --            ; --            ; --                    ; --  ;
 ; LEDS[0]         ; Output   ; --            ; --            ; --                    ; --  ;
-; DOUT            ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
+; DIN             ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; Reset_ADC_comm  ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; Reset_comm      ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 ; In_switches[5]  ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
@@ -1210,7 +1210,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; In_switches[10] ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; In_switches[11] ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 ; In_switches[8]  ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; DIN             ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
+; DOUT            ; Input    ; (6) 2523 ps   ; (6) 2523 ps   ; --                    ; --  ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -1220,177 +1220,169 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout                                                ; Pad To Core Index ; Setting ;
 +--------------------------------------------------------------------+-------------------+---------+
 ; inst3                                                              ;                   ;         ;
-;      - Sensor_interfacing:inst1|done_flag                          ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|s_wait_conv                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|S_CLK~0                            ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|CS                                 ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[11]                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[10]                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[9]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[8]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[7]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[6]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[5]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[4]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[3]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[2]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[1]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|LEDS[0]                                ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|output_data                            ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_conv                          ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_flag                          ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|r_state.check_functioncode             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|r_state.check_address                  ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|r_state.idle                           ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|f_state.respond                        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_counter[3]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_counter[4]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_counter[1]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_counter[0]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_counter[2]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[17]        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[5]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[6]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[7]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[4]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[1]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[2]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[3]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[0]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[9]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[10]        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[11]        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[8]         ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:Respond_Data[12]        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|f_state.manchester_converting          ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|data_counter[3]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|data_counter[1]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|data_counter[0]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|data_counter[2]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|first_clock                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[8]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[7]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[6]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[5]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[4]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[3]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[2]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[1]                    ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|wait_counter[0]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_a_bit1                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_a_bit4                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_a_bit3                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_a_bit2                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:fault                   ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:address_counter[2]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:address_counter[0]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:address_counter[1]      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:functioncode_counter[2] ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:functioncode_counter[0] ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:functioncode_counter[1] ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit5                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit3                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit2                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit4                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit8                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit1                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit6                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|start_bit7                             ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_f_bit2                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_f_bit1                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_f_bit4                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|m_f_bit3                               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:respond_flag            ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[5]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[6]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[7]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[4]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[1]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[2]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[3]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[0]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[9]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[10]                   ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[11]                   ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|flopped_ADC_DATA[8]                    ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:errors[0]               ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|manchester_counter                     ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:m1                      ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|\communication:manchester_bit          ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|f_state.idle                           ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[5]                        ; 1                 ; 0       ;
-;      - SN_program_v01:inst7|new_sample                             ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_READY                         ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[6]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[7]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[4]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[1]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[2]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[3]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[0]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[9]                        ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[10]                       ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[11]                       ; 1                 ; 0       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[8]                        ; 1                 ; 0       ;
-;      - Buffer_out                                                  ; 0                 ; 6       ;
+;      - SN_program_v01:inst7|error_counter[11]                      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[10]                      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[9]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[8]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[7]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[6]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[5]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[4]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[3]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[2]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[1]                       ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|error_counter[0]                       ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|done_flag                          ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|s_wait_conv                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|S_CLK~0                            ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|CS                                 ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|output_data                            ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_conv                          ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_flag                          ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|f_state.respond                        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_counter[3]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_counter[4]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_counter[1]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_counter[0]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_counter[2]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[17]        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[5]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[6]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[7]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[4]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[1]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[2]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[3]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[0]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[9]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[10]        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[11]        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[8]         ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:Respond_Data[12]        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|f_state.manchester_converting          ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:fault                   ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|data_counter[3]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|data_counter[1]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|data_counter[0]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|data_counter[2]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|first_clock                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[5]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[4]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[3]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[2]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[1]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[0]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[8]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[7]                    ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|wait_counter[6]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_f_bit2                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_f_bit1                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_f_bit4                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_f_bit3                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|r_state.check_functioncode             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:functioncode_counter[2] ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:functioncode_counter[0] ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:functioncode_counter[1] ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|r_state.check_address                  ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit3                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit2                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit1                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit4                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit5                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit8                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit6                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|start_bit7                             ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:respond_flag            ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:address_counter[0]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:address_counter[1]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_a_bit1                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_a_bit4                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_a_bit3                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|m_a_bit2                               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:address_counter[2]      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[5]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[6]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[7]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[4]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[1]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[2]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[3]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[0]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[9]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[10]                   ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[11]                   ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|flopped_ADC_DATA[8]                    ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:errors[0]               ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|manchester_counter                     ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:m1                      ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|\communication:manchester_bit          ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|r_state.idle                           ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|f_state.idle                           ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[5]                        ; 0                 ; 0       ;
+;      - SN_program_v01:inst7|new_sample                             ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_READY                         ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[6]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[7]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[4]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[1]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[2]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[3]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[0]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[9]                        ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[10]                       ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[11]                       ; 0                 ; 0       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[8]                        ; 0                 ; 0       ;
+;      - Buffer_out                                                  ; 1                 ; 6       ;
+;      - S_CLK_debug                                                 ; 1                 ; 6       ;
 ; In_switches[15]                                                    ;                   ;         ;
 ; In_switches[14]                                                    ;                   ;         ;
 ; In_switches[13]                                                    ;                   ;         ;
 ; In_switches[12]                                                    ;                   ;         ;
-; DOUT                                                               ;                   ;         ;
-;      - Sensor_interfacing:inst1|DATA_OUT[5]~0                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[6]~1                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[7]~2                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[4]~3                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[1]~4                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[2]~5                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[3]~6                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[0]~7                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[9]~8                      ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[10]~9                     ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[11]~10                    ; 1                 ; 6       ;
-;      - Sensor_interfacing:inst1|DATA_OUT[8]~11                     ; 1                 ; 6       ;
+; DIN                                                                ;                   ;         ;
+;      - SN_program_v01:inst7|Selector14~0                           ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|manchester_bit~0                       ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|Selector13~0                           ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|\communication:m1~0                    ; 1                 ; 6       ;
 ;      - DOUT_debug                                                  ; 1                 ; 6       ;
 ; Reset_ADC_comm                                                     ;                   ;         ;
-;      - Sensor_interfacing:inst1|done_flag                          ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~0                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~2                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~4                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~6                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~8                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~10                            ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~12                            ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~14                            ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add0~16                            ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|wait_conv~0                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|CS~0                               ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|wait_conv~1                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|data_counter~2                     ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add2~8                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|data_counter~3                     ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|done_flag~2                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|wait_flag~0                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|data_counter~7                     ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|data_counter~8                     ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|first_clock~1                      ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~38                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~39                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|data_counter~11                    ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~40                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~41                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~42                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~43                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~44                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Add2~9                             ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~45                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~46                        ; 0                 ; 6       ;
-;      - Sensor_interfacing:inst1|Decoder0~47                        ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|done_flag                          ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~0                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~2                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~4                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~6                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~8                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~10                            ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~12                            ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~14                            ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add0~16                            ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|wait_conv~0                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|CS~0                               ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|wait_conv~1                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|data_counter~2                     ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add2~8                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|data_counter~3                     ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|done_flag~2                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|wait_flag~0                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|data_counter~7                     ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|data_counter~8                     ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|first_clock~1                      ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~38                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~39                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|data_counter~11                    ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~40                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~41                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~42                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~43                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~44                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Add2~9                             ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~45                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~46                        ; 1                 ; 6       ;
+;      - Sensor_interfacing:inst1|Decoder0~47                        ; 1                 ; 6       ;
 ; Reset_comm                                                         ;                   ;         ;
-;      - SN_program_v01:inst7|Selector2~0                            ; 0                 ; 6       ;
-;      - SN_program_v01:inst7|Selector1~3                            ; 0                 ; 6       ;
-;      - SN_program_v01:inst7|Selector3~3                            ; 0                 ; 6       ;
-;      - SN_program_v01:inst7|Selector1~5                            ; 0                 ; 6       ;
-;      - SN_program_v01:inst7|Selector4~7                            ; 0                 ; 6       ;
+;      - SN_program_v01:inst7|Selector1~0                            ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|Selector4~4                            ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|Selector2~0                            ; 1                 ; 6       ;
+;      - SN_program_v01:inst7|Selector3~2                            ; 1                 ; 6       ;
 ; In_switches[5]                                                     ;                   ;         ;
 ; In_switches[6]                                                     ;                   ;         ;
 ; In_switches[7]                                                     ;                   ;         ;
@@ -1403,25 +1395,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; In_switches[10]                                                    ;                   ;         ;
 ; In_switches[11]                                                    ;                   ;         ;
 ; In_switches[8]                                                     ;                   ;         ;
-; DIN                                                                ;                   ;         ;
-;      - SN_program_v01:inst7|manchester_bit~0                       ; 1                 ; 6       ;
-;      - SN_program_v01:inst7|Selector14~0                           ; 1                 ; 6       ;
-;      - SN_program_v01:inst7|Selector13~0                           ; 1                 ; 6       ;
-;      - SN_program_v01:inst7|\communication:m1~0                    ; 1                 ; 6       ;
+; DOUT                                                               ;                   ;         ;
+;      - Sensor_interfacing:inst1|DATA_OUT[5]~0                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[6]~1                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[7]~2                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[4]~3                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[1]~4                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[2]~5                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[3]~6                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[0]~7                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[9]~8                      ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[10]~9                     ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[11]~10                    ; 0                 ; 6       ;
+;      - Sensor_interfacing:inst1|DATA_OUT[8]~11                     ; 0                 ; 6       ;
 +--------------------------------------------------------------------+-------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                     ;
-+--------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                                   ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Buffer_in                                              ; PIN_K25            ; 113     ; Clock        ; no     ; --                   ; --               ; --                        ;
-; Reset_ADC_comm                                         ; PIN_W26            ; 33      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; SN_program_v01:inst7|\communication:Respond_Data[17]~1 ; LCCOMB_X63_Y23_N2  ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; SN_program_v01:inst7|f_state.respond                   ; LCFF_X63_Y20_N11   ; 21      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; SN_program_v01:inst7|flopped_ADC_DATA[7]~0             ; LCCOMB_X64_Y22_N20 ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+--------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                         ;
++--------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                       ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Buffer_in                                  ; PIN_K25            ; 114     ; Clock        ; no     ; --                   ; --               ; --                        ;
+; Reset_ADC_comm                             ; PIN_W26            ; 33      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|Selector1~0           ; LCCOMB_X64_Y23_N16 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|Selector4~4           ; LCCOMB_X63_Y22_N30 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|Selector5~0           ; LCCOMB_X63_Y22_N0  ; 15      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|\communication:fault  ; LCFF_X64_Y23_N23   ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|f_state.respond       ; LCFF_X63_Y22_N1    ; 20      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; SN_program_v01:inst7|flopped_ADC_DATA[7]~0 ; LCCOMB_X64_Y19_N20 ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++--------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -1429,83 +1432,83 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------+---------+
 ; Name                                                        ; Fan-Out ;
 +-------------------------------------------------------------+---------+
-; Buffer_in                                                   ; 113     ;
+; Buffer_in                                                   ; 114     ;
 ; Reset_ADC_comm                                              ; 33      ;
-; SN_program_v01:inst7|f_state.respond                        ; 21      ;
-; SN_program_v01:inst7|\communication:Respond_Data[17]~1      ; 15      ;
-; SN_program_v01:inst7|f_state.manchester_converting          ; 14      ;
-; DOUT                                                        ; 13      ;
+; SN_program_v01:inst7|f_state.respond                        ; 20      ;
+; SN_program_v01:inst7|\communication:fault                   ; 19      ;
+; SN_program_v01:inst7|Selector1~0                            ; 17      ;
+; SN_program_v01:inst7|Selector5~0                            ; 15      ;
 ; SN_program_v01:inst7|Equal4~0                               ; 13      ;
+; SN_program_v01:inst7|f_state.manchester_converting          ; 13      ;
+; DOUT                                                        ; 12      ;
 ; SN_program_v01:inst7|flopped_ADC_DATA[7]~0                  ; 12      ;
 ; SN_program_v01:inst7|\communication:respond_counter[1]      ; 12      ;
-; SN_program_v01:inst7|r_state.check_address                  ; 12      ;
-; SN_program_v01:inst7|r_state.check_functioncode             ; 12      ;
+; SN_program_v01:inst7|f_state.idle                           ; 11      ;
 ; SN_program_v01:inst7|manchester_counter                     ; 10      ;
+; SN_program_v01:inst7|r_state.check_address                  ; 10      ;
+; Sensor_interfacing:inst1|LessThan0~2                        ; 10      ;
+; Sensor_interfacing:inst1|LessThan0~1                        ; 10      ;
 ; SN_program_v01:inst7|\communication:respond_counter[0]      ; 10      ;
 ; Sensor_interfacing:inst1|wait_flag                          ; 10      ;
-; SN_program_v01:inst7|f_state.idle                           ; 9       ;
-; Sensor_interfacing:inst1|LessThan0~3                        ; 9       ;
-; SN_program_v01:inst7|\communication:fault                   ; 8       ;
+; SN_program_v01:inst7|r_state.check_functioncode             ; 9       ;
 ; Sensor_interfacing:inst1|data_counter[1]                    ; 8       ;
 ; Sensor_interfacing:inst1|data_counter[3]                    ; 8       ;
+; Sensor_interfacing:inst1|done_flag                          ; 8       ;
 ; Sensor_interfacing:inst1|data_counter~8                     ; 7       ;
 ; SN_program_v01:inst7|\communication:address_counter[0]      ; 7       ;
-; SN_program_v01:inst7|r_state.idle                           ; 7       ;
-; Sensor_interfacing:inst1|done_flag                          ; 7       ;
 ; Sensor_interfacing:inst1|Decoder0~45                        ; 6       ;
+; SN_program_v01:inst7|Selector20~0                           ; 6       ;
+; SN_program_v01:inst7|Selector19~0                           ; 6       ;
 ; SN_program_v01:inst7|Selector16~0                           ; 6       ;
-; SN_program_v01:inst7|Selector17~0                           ; 6       ;
-; SN_program_v01:inst7|Selector23~0                           ; 6       ;
-; SN_program_v01:inst7|Selector22~0                           ; 6       ;
-; SN_program_v01:inst7|Selector3~2                            ; 6       ;
+; SN_program_v01:inst7|Selector26~0                           ; 6       ;
 ; SN_program_v01:inst7|\communication:functioncode_counter[0] ; 6       ;
 ; Sensor_interfacing:inst1|data_counter[0]                    ; 6       ;
 ; SN_program_v01:inst7|\communication:respond_counter[2]      ; 6       ;
 ; SN_program_v01:inst7|\communication:respond_counter[3]      ; 6       ;
-; Reset_comm                                                  ; 5       ;
-; SN_program_v01:inst7|\communication:address_counter[1]      ; 5       ;
+; DIN                                                         ; 5       ;
 ; SN_program_v01:inst7|\communication:address_counter[2]      ; 5       ;
-; SN_program_v01:inst7|Equal2~0                               ; 5       ;
+; SN_program_v01:inst7|\communication:address_counter[1]      ; 5       ;
 ; Sensor_interfacing:inst1|first_clock                        ; 5       ;
 ; SN_program_v01:inst7|\communication:respond_counter[4]      ; 5       ;
 ; Sensor_interfacing:inst1|wait_conv~0                        ; 5       ;
 ; Sensor_interfacing:inst1|wait_conv                          ; 5       ;
-; DIN                                                         ; 4       ;
-; Sensor_interfacing:inst1|data_counter[3]~5                  ; 4       ;
+; Reset_comm                                                  ; 4       ;
+; Sensor_interfacing:inst1|data_counter[1]~5                  ; 4       ;
 ; Sensor_interfacing:inst1|data_counter~4                     ; 4       ;
 ; SN_program_v01:inst7|\communication:respond_flag            ; 4       ;
+; SN_program_v01:inst7|Selector4~0                            ; 4       ;
+; SN_program_v01:inst7|\communication:functioncode_counter[1] ; 4       ;
+; SN_program_v01:inst7|\communication:functioncode_counter[2] ; 4       ;
 ; SN_program_v01:inst7|m_f_bit3                               ; 4       ;
 ; SN_program_v01:inst7|m_f_bit1                               ; 4       ;
 ; SN_program_v01:inst7|m_f_bit2                               ; 4       ;
-; SN_program_v01:inst7|Equal0~1                               ; 4       ;
-; SN_program_v01:inst7|Equal0~0                               ; 4       ;
-; SN_program_v01:inst7|\communication:functioncode_counter[1] ; 4       ;
-; SN_program_v01:inst7|\communication:functioncode_counter[2] ; 4       ;
-; SN_program_v01:inst7|Selector2~1                            ; 4       ;
 ; Sensor_interfacing:inst1|data_counter[2]                    ; 4       ;
-; Sensor_interfacing:inst1|Add0~16                            ; 4       ;
 ; Sensor_interfacing:inst1|Decoder0~39                        ; 3       ;
 ; Sensor_interfacing:inst1|Decoder0~38                        ; 3       ;
 ; Sensor_interfacing:inst1|Decoder0~37                        ; 3       ;
 ; Sensor_interfacing:inst1|DATA_READY                         ; 3       ;
 ; SN_program_v01:inst7|manchester_bit~0                       ; 3       ;
 ; SN_program_v01:inst7|\communication:m1                      ; 3       ;
+; SN_program_v01:inst7|Equal0~2                               ; 3       ;
 ; SN_program_v01:inst7|Equal8~0                               ; 3       ;
-; SN_program_v01:inst7|Add3~0                                 ; 3       ;
-; SN_program_v01:inst7|\communication:Respond_Data[17]~0      ; 3       ;
-; SN_program_v01:inst7|m_f_bit4                               ; 3       ;
-; SN_program_v01:inst7|start_bit7                             ; 3       ;
-; SN_program_v01:inst7|start_bit6                             ; 3       ;
-; SN_program_v01:inst7|start_bit1                             ; 3       ;
-; SN_program_v01:inst7|start_bit4                             ; 3       ;
-; SN_program_v01:inst7|start_bit2                             ; 3       ;
-; SN_program_v01:inst7|start_bit3                             ; 3       ;
-; SN_program_v01:inst7|start_bit5                             ; 3       ;
+; SN_program_v01:inst7|Add4~0                                 ; 3       ;
+; SN_program_v01:inst7|Equal2~0                               ; 3       ;
 ; SN_program_v01:inst7|m_a_bit2                               ; 3       ;
 ; SN_program_v01:inst7|m_a_bit3                               ; 3       ;
 ; SN_program_v01:inst7|m_a_bit1                               ; 3       ;
-; Sensor_interfacing:inst1|CS                                 ; 3       ;
-; Sensor_interfacing:inst1|Add0~10                            ; 3       ;
+; SN_program_v01:inst7|Equal0~1                               ; 3       ;
+; SN_program_v01:inst7|start_bit7                             ; 3       ;
+; SN_program_v01:inst7|start_bit6                             ; 3       ;
+; SN_program_v01:inst7|start_bit5                             ; 3       ;
+; SN_program_v01:inst7|Equal0~0                               ; 3       ;
+; SN_program_v01:inst7|start_bit4                             ; 3       ;
+; SN_program_v01:inst7|start_bit1                             ; 3       ;
+; SN_program_v01:inst7|start_bit2                             ; 3       ;
+; SN_program_v01:inst7|start_bit3                             ; 3       ;
+; SN_program_v01:inst7|f_state~8                              ; 3       ;
+; SN_program_v01:inst7|m_f_bit4                               ; 3       ;
+; SN_program_v01:inst7|output_data                            ; 3       ;
+; Sensor_interfacing:inst1|Add0~16                            ; 3       ;
 ; Sensor_interfacing:inst1|Decoder0~47                        ; 2       ;
 ; Sensor_interfacing:inst1|Decoder0~46                        ; 2       ;
 ; Sensor_interfacing:inst1|Add2~9                             ; 2       ;
@@ -1523,26 +1526,41 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Sensor_interfacing:inst1|DATA_OUT[7]                        ; 2       ;
 ; Sensor_interfacing:inst1|DATA_OUT[6]                        ; 2       ;
 ; Sensor_interfacing:inst1|DATA_OUT[5]                        ; 2       ;
+; SN_program_v01:inst7|r_state.idle                           ; 2       ;
+; SN_program_v01:inst7|Selector2~1                            ; 2       ;
 ; SN_program_v01:inst7|\communication:manchester_bit          ; 2       ;
 ; SN_program_v01:inst7|\communication:errors[0]               ; 2       ;
-; SN_program_v01:inst7|Selector3~4                            ; 2       ;
-; SN_program_v01:inst7|Selector3~3                            ; 2       ;
-; SN_program_v01:inst7|start_bit8                             ; 2       ;
+; SN_program_v01:inst7|Selector4~4                            ; 2       ;
+; SN_program_v01:inst7|f_state~9                              ; 2       ;
 ; SN_program_v01:inst7|m_a_bit4                               ; 2       ;
-; Sensor_interfacing:inst1|LessThan0~0                        ; 2       ;
+; SN_program_v01:inst7|Selector4~2                            ; 2       ;
+; SN_program_v01:inst7|start_bit8                             ; 2       ;
+; SN_program_v01:inst7|Equal3~0                               ; 2       ;
 ; Sensor_interfacing:inst1|Decoder0~36                        ; 2       ;
 ; Sensor_interfacing:inst1|data_counter~3                     ; 2       ;
 ; Sensor_interfacing:inst1|Add2~8                             ; 2       ;
 ; Sensor_interfacing:inst1|data_counter~2                     ; 2       ;
-; SN_program_v01:inst7|output_data                            ; 2       ;
-; Sensor_interfacing:inst1|S_CLK~0                            ; 2       ;
+; Sensor_interfacing:inst1|CS                                 ; 2       ;
 ; Sensor_interfacing:inst1|Add0~14                            ; 2       ;
 ; Sensor_interfacing:inst1|Add0~12                            ; 2       ;
+; Sensor_interfacing:inst1|Add0~10                            ; 2       ;
 ; Sensor_interfacing:inst1|Add0~8                             ; 2       ;
 ; Sensor_interfacing:inst1|Add0~6                             ; 2       ;
 ; Sensor_interfacing:inst1|Add0~4                             ; 2       ;
 ; Sensor_interfacing:inst1|Add0~2                             ; 2       ;
 ; Sensor_interfacing:inst1|Add0~0                             ; 2       ;
+; SN_program_v01:inst7|error_counter[0]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[1]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[2]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[3]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[4]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[5]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[6]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[7]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[8]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[9]                       ; 2       ;
+; SN_program_v01:inst7|error_counter[10]                      ; 2       ;
+; SN_program_v01:inst7|error_counter[11]                      ; 2       ;
 ; In_switches[8]                                              ; 1       ;
 ; In_switches[11]                                             ; 1       ;
 ; In_switches[10]                                             ; 1       ;
@@ -1557,19 +1575,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; In_switches[5]                                              ; 1       ;
 ; SN_program_v01:inst7|new_sample~0                           ; 1       ;
 ; SN_program_v01:inst7|\communication:respond_counter[0]~0    ; 1       ;
-; SN_program_v01:inst7|LEDS[0]~3                              ; 1       ;
-; SN_program_v01:inst7|LEDS[1]~2                              ; 1       ;
-; SN_program_v01:inst7|LEDS[2]~1                              ; 1       ;
-; SN_program_v01:inst7|LEDS[3]~0                              ; 1       ;
 ; Sensor_interfacing:inst1|Decoder0~44                        ; 1       ;
 ; Sensor_interfacing:inst1|Decoder0~43                        ; 1       ;
 ; Sensor_interfacing:inst1|Decoder0~42                        ; 1       ;
 ; Sensor_interfacing:inst1|Decoder0~41                        ; 1       ;
-; SN_program_v01:inst7|Selector3~7                            ; 1       ;
-; Sensor_interfacing:inst1|wait_counter~10                    ; 1       ;
 ; Sensor_interfacing:inst1|data_counter~11                    ; 1       ;
-; SN_program_v01:inst7|Selector4~7                            ; 1       ;
-; SN_program_v01:inst7|Selector1~5                            ; 1       ;
 ; Sensor_interfacing:inst1|DATA_OUT[8]~11                     ; 1       ;
 ; Sensor_interfacing:inst1|DATA_OUT[11]~10                    ; 1       ;
 ; Sensor_interfacing:inst1|DATA_OUT[10]~9                     ; 1       ;
@@ -1583,44 +1593,50 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Sensor_interfacing:inst1|DATA_OUT[6]~1                      ; 1       ;
 ; Sensor_interfacing:inst1|DATA_READY~0                       ; 1       ;
 ; Sensor_interfacing:inst1|DATA_OUT[5]~0                      ; 1       ;
-; SN_program_v01:inst7|Selector3~6                            ; 1       ;
-; SN_program_v01:inst7|Selector3~5                            ; 1       ;
+; SN_program_v01:inst7|Selector3~4                            ; 1       ;
+; SN_program_v01:inst7|Selector3~3                            ; 1       ;
+; SN_program_v01:inst7|Selector3~2                            ; 1       ;
+; SN_program_v01:inst7|Selector3~1                            ; 1       ;
+; SN_program_v01:inst7|Selector3~0                            ; 1       ;
+; SN_program_v01:inst7|Selector0~1                            ; 1       ;
+; SN_program_v01:inst7|Selector0~0                            ; 1       ;
 ; SN_program_v01:inst7|\communication:manchester_bit~0        ; 1       ;
 ; SN_program_v01:inst7|\communication:m1~0                    ; 1       ;
 ; SN_program_v01:inst7|manchester_counter~0                   ; 1       ;
 ; SN_program_v01:inst7|errors~1                               ; 1       ;
 ; SN_program_v01:inst7|new_sample                             ; 1       ;
+; SN_program_v01:inst7|Selector19~1                           ; 1       ;
+; SN_program_v01:inst7|Add1~0                                 ; 1       ;
+; SN_program_v01:inst7|Selector24~0                           ; 1       ;
+; SN_program_v01:inst7|Selector23~0                           ; 1       ;
+; SN_program_v01:inst7|Selector22~0                           ; 1       ;
+; SN_program_v01:inst7|Selector25~0                           ; 1       ;
+; SN_program_v01:inst7|Selector20~1                           ; 1       ;
+; SN_program_v01:inst7|Selector21~1                           ; 1       ;
+; SN_program_v01:inst7|Selector21~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector15~0                           ; 1       ;
 ; SN_program_v01:inst7|Equal8~1                               ; 1       ;
-; SN_program_v01:inst7|Selector27~0                           ; 1       ;
-; SN_program_v01:inst7|Selector26~0                           ; 1       ;
-; SN_program_v01:inst7|Selector29~0                           ; 1       ;
-; SN_program_v01:inst7|Selector28~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector7~0                            ; 1       ;
 ; SN_program_v01:inst7|Selector8~0                            ; 1       ;
-; SN_program_v01:inst7|Selector13~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector6~0                            ; 1       ;
+; SN_program_v01:inst7|Selector9~0                            ; 1       ;
 ; SN_program_v01:inst7|Selector10~0                           ; 1       ;
+; SN_program_v01:inst7|Selector13~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector12~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector11~0                           ; 1       ;
-; SN_program_v01:inst7|Selector9~0                            ; 1       ;
-; SN_program_v01:inst7|Selector17~1                           ; 1       ;
+; SN_program_v01:inst7|Selector1~2                            ; 1       ;
+; SN_program_v01:inst7|Selector1~1                            ; 1       ;
+; SN_program_v01:inst7|Selector17~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector18~1                           ; 1       ;
 ; SN_program_v01:inst7|Selector18~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector16~1                           ; 1       ;
-; SN_program_v01:inst7|Add1~0                                 ; 1       ;
-; SN_program_v01:inst7|Selector20~0                           ; 1       ;
-; SN_program_v01:inst7|Selector21~1                           ; 1       ;
-; SN_program_v01:inst7|Selector21~0                           ; 1       ;
-; SN_program_v01:inst7|Selector19~0                           ; 1       ;
-; SN_program_v01:inst7|Add0~0                                 ; 1       ;
-; SN_program_v01:inst7|Selector14~1                           ; 1       ;
-; SN_program_v01:inst7|Selector14~0                           ; 1       ;
-; SN_program_v01:inst7|Selector24~0                           ; 1       ;
-; SN_program_v01:inst7|Selector23~1                           ; 1       ;
-; SN_program_v01:inst7|Selector22~1                           ; 1       ;
-; SN_program_v01:inst7|Selector25~0                           ; 1       ;
-; Sensor_interfacing:inst1|wait_counter~9                     ; 1       ;
+; SN_program_v01:inst7|Add2~0                                 ; 1       ;
+; SN_program_v01:inst7|Selector2~2                            ; 1       ;
+; SN_program_v01:inst7|Selector2~0                            ; 1       ;
+; SN_program_v01:inst7|Selector27~0                           ; 1       ;
+; SN_program_v01:inst7|Selector26~1                           ; 1       ;
+; SN_program_v01:inst7|Selector29~0                           ; 1       ;
+; SN_program_v01:inst7|Selector28~0                           ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter~8                     ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter~7                     ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter~6                     ; 1       ;
@@ -1628,17 +1644,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Sensor_interfacing:inst1|wait_counter~4                     ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter~3                     ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter~2                     ; 1       ;
+; Sensor_interfacing:inst1|wait_counter~1                     ; 1       ;
+; Sensor_interfacing:inst1|wait_counter~0                     ; 1       ;
 ; Sensor_interfacing:inst1|first_clock~1                      ; 1       ;
 ; Sensor_interfacing:inst1|first_clock~0                      ; 1       ;
 ; Sensor_interfacing:inst1|data_counter~10                    ; 1       ;
 ; Sensor_interfacing:inst1|data_counter~9                     ; 1       ;
 ; Sensor_interfacing:inst1|data_counter~7                     ; 1       ;
 ; Sensor_interfacing:inst1|data_counter~6                     ; 1       ;
-; SN_program_v01:inst7|Selector4~6                            ; 1       ;
+; SN_program_v01:inst7|Selector14~1                           ; 1       ;
+; SN_program_v01:inst7|Selector14~0                           ; 1       ;
 ; SN_program_v01:inst7|Selector4~5                            ; 1       ;
-; SN_program_v01:inst7|Selector4~4                            ; 1       ;
-; SN_program_v01:inst7|Selector4~3                            ; 1       ;
-; SN_program_v01:inst7|Selector4~2                            ; 1       ;
 ; SN_program_v01:inst7|errors~0                               ; 1       ;
 ; SN_program_v01:inst7|Respond_Data~11                        ; 1       ;
 ; SN_program_v01:inst7|flopped_ADC_DATA[8]                    ; 1       ;
@@ -1664,31 +1680,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SN_program_v01:inst7|flopped_ADC_DATA[6]                    ; 1       ;
 ; SN_program_v01:inst7|Respond_Data~0                         ; 1       ;
 ; SN_program_v01:inst7|flopped_ADC_DATA[5]                    ; 1       ;
-; SN_program_v01:inst7|Add3~2                                 ; 1       ;
-; SN_program_v01:inst7|Add3~1                                 ; 1       ;
+; SN_program_v01:inst7|Add4~2                                 ; 1       ;
+; SN_program_v01:inst7|Add4~1                                 ; 1       ;
 ; SN_program_v01:inst7|respond_counter~1                      ; 1       ;
 ; SN_program_v01:inst7|respond_counter~0                      ; 1       ;
-; SN_program_v01:inst7|Selector5~1                            ; 1       ;
-; SN_program_v01:inst7|Selector5~0                            ; 1       ;
-; SN_program_v01:inst7|Selector0~1                            ; 1       ;
-; SN_program_v01:inst7|Selector0~0                            ; 1       ;
-; SN_program_v01:inst7|Selector1~4                            ; 1       ;
-; SN_program_v01:inst7|Selector1~3                            ; 1       ;
-; SN_program_v01:inst7|Selector1~2                            ; 1       ;
-; SN_program_v01:inst7|Selector2~2                            ; 1       ;
-; SN_program_v01:inst7|Selector2~0                            ; 1       ;
+; SN_program_v01:inst7|Selector4~3                            ; 1       ;
+; SN_program_v01:inst7|Selector4~1                            ; 1       ;
+; Sensor_interfacing:inst1|wait_flag~1                        ; 1       ;
 ; Sensor_interfacing:inst1|wait_flag~0                        ; 1       ;
-; Sensor_interfacing:inst1|LessThan0~2                        ; 1       ;
-; Sensor_interfacing:inst1|LessThan0~1                        ; 1       ;
+; Sensor_interfacing:inst1|LessThan0~0                        ; 1       ;
+; Sensor_interfacing:inst1|wait_counter[6]                    ; 1       ;
+; Sensor_interfacing:inst1|wait_counter[7]                    ; 1       ;
+; Sensor_interfacing:inst1|wait_counter[8]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[0]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[1]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[2]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[3]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[4]                    ; 1       ;
 ; Sensor_interfacing:inst1|wait_counter[5]                    ; 1       ;
-; Sensor_interfacing:inst1|wait_counter[6]                    ; 1       ;
-; Sensor_interfacing:inst1|wait_counter[7]                    ; 1       ;
-; Sensor_interfacing:inst1|wait_counter[8]                    ; 1       ;
 ; Sensor_interfacing:inst1|done_flag~3                        ; 1       ;
 ; Sensor_interfacing:inst1|done_flag~2                        ; 1       ;
 ; Sensor_interfacing:inst1|wait_conv~1                        ; 1       ;
@@ -1720,18 +1729,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SN_program_v01:inst7|Selector30~0                           ; 1       ;
 ; SN_program_v01:inst7|\communication:Respond_Data[17]        ; 1       ;
 ; Sensor_interfacing:inst1|CS~0                               ; 1       ;
-; SN_program_v01:inst7|LEDS[0]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[1]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[2]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[3]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[4]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[5]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[6]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[7]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[8]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[9]                                ; 1       ;
-; SN_program_v01:inst7|LEDS[10]                               ; 1       ;
-; SN_program_v01:inst7|LEDS[11]                               ; 1       ;
+; Sensor_interfacing:inst1|S_CLK~0                            ; 1       ;
 ; Sensor_interfacing:inst1|s_wait_conv                        ; 1       ;
 ; Sensor_interfacing:inst1|Add0~18                            ; 1       ;
 ; Sensor_interfacing:inst1|Add0~17                            ; 1       ;
@@ -1743,6 +1741,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Sensor_interfacing:inst1|Add0~5                             ; 1       ;
 ; Sensor_interfacing:inst1|Add0~3                             ; 1       ;
 ; Sensor_interfacing:inst1|Add0~1                             ; 1       ;
+; SN_program_v01:inst7|error_counter[11]~34                   ; 1       ;
+; SN_program_v01:inst7|error_counter[10]~33                   ; 1       ;
+; SN_program_v01:inst7|error_counter[10]~32                   ; 1       ;
+; SN_program_v01:inst7|error_counter[9]~31                    ; 1       ;
+; SN_program_v01:inst7|error_counter[9]~30                    ; 1       ;
+; SN_program_v01:inst7|error_counter[8]~29                    ; 1       ;
+; SN_program_v01:inst7|error_counter[8]~28                    ; 1       ;
+; SN_program_v01:inst7|error_counter[7]~27                    ; 1       ;
+; SN_program_v01:inst7|error_counter[7]~26                    ; 1       ;
+; SN_program_v01:inst7|error_counter[6]~25                    ; 1       ;
+; SN_program_v01:inst7|error_counter[6]~24                    ; 1       ;
+; SN_program_v01:inst7|error_counter[5]~23                    ; 1       ;
+; SN_program_v01:inst7|error_counter[5]~22                    ; 1       ;
+; SN_program_v01:inst7|error_counter[4]~21                    ; 1       ;
+; SN_program_v01:inst7|error_counter[4]~20                    ; 1       ;
+; SN_program_v01:inst7|error_counter[3]~19                    ; 1       ;
+; SN_program_v01:inst7|error_counter[3]~18                    ; 1       ;
+; SN_program_v01:inst7|error_counter[2]~17                    ; 1       ;
+; SN_program_v01:inst7|error_counter[2]~16                    ; 1       ;
+; SN_program_v01:inst7|error_counter[1]~15                    ; 1       ;
+; SN_program_v01:inst7|error_counter[1]~14                    ; 1       ;
+; SN_program_v01:inst7|error_counter[0]~13                    ; 1       ;
+; SN_program_v01:inst7|error_counter[0]~12                    ; 1       ;
 +-------------------------------------------------------------+---------+
 
 
@@ -1751,142 +1772,146 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+------------------------+
 ; Other Routing Resource Type ; Usage                  ;
 +-----------------------------+------------------------+
-; Block interconnects         ; 225 / 94,460 ( < 1 % ) ;
-; C16 interconnects           ; 15 / 3,315 ( < 1 % )   ;
-; C4 interconnects            ; 137 / 60,840 ( < 1 % ) ;
-; Direct links                ; 75 / 94,460 ( < 1 % )  ;
+; Block interconnects         ; 252 / 94,460 ( < 1 % ) ;
+; C16 interconnects           ; 17 / 3,315 ( < 1 % )   ;
+; C4 interconnects            ; 155 / 60,840 ( < 1 % ) ;
+; Direct links                ; 82 / 94,460 ( < 1 % )  ;
 ; Global clocks               ; 0 / 16 ( 0 % )         ;
-; Local interconnects         ; 119 / 33,216 ( < 1 % ) ;
+; Local interconnects         ; 104 / 33,216 ( < 1 % ) ;
 ; R24 interconnects           ; 20 / 3,091 ( < 1 % )   ;
-; R4 interconnects            ; 74 / 81,294 ( < 1 % )  ;
+; R4 interconnects            ; 95 / 81,294 ( < 1 % )  ;
 +-----------------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 12.31) ; Number of LABs  (Total = 16) ;
+; Number of Logic Elements  (Average = 14.00) ; Number of LABs  (Total = 14) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 1                            ;
+; 1                                           ; 0                            ;
 ; 2                                           ; 1                            ;
-; 3                                           ; 1                            ;
-; 4                                           ; 0                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 1                            ;
 ; 5                                           ; 0                            ;
 ; 6                                           ; 0                            ;
-; 7                                           ; 1                            ;
+; 7                                           ; 0                            ;
 ; 8                                           ; 0                            ;
 ; 9                                           ; 0                            ;
 ; 10                                          ; 0                            ;
-; 11                                          ; 1                            ;
+; 11                                          ; 0                            ;
 ; 12                                          ; 0                            ;
 ; 13                                          ; 0                            ;
 ; 14                                          ; 1                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 9                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 11                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.19) ; Number of LABs  (Total = 16) ;
+; LAB-wide Signals  (Average = 1.36) ; Number of LABs  (Total = 14) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 15                           ;
-; 1 Clock enable                     ; 3                            ;
-; 2 Clock enables                    ; 1                            ;
+; 1 Clock                            ; 11                           ;
+; 1 Clock enable                     ; 8                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 18.88) ; Number of LABs  (Total = 16) ;
+; Number of Signals Sourced  (Average = 21.57) ; Number of LABs  (Total = 14) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 0                            ;
-; 4                                            ; 1                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 1                            ;
+; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
-; 14                                           ; 2                            ;
+; 14                                           ; 1                            ;
 ; 15                                           ; 0                            ;
-; 16                                           ; 0                            ;
-; 17                                           ; 0                            ;
-; 18                                           ; 1                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 1                            ;
+; 18                                           ; 0                            ;
 ; 19                                           ; 0                            ;
-; 20                                           ; 1                            ;
-; 21                                           ; 1                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 0                            ;
 ; 22                                           ; 0                            ;
-; 23                                           ; 3                            ;
+; 23                                           ; 2                            ;
 ; 24                                           ; 0                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 2                            ;
-; 27                                           ; 1                            ;
-; 28                                           ; 0                            ;
-; 29                                           ; 0                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 2                            ;
+; 28                                           ; 1                            ;
+; 29                                           ; 1                            ;
 ; 30                                           ; 1                            ;
+; 31                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
-+--------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                        ;
-+-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 7.63) ; Number of LABs  (Total = 16) ;
-+-------------------------------------------------+------------------------------+
-; 0                                               ; 0                            ;
-; 1                                               ; 1                            ;
-; 2                                               ; 2                            ;
-; 3                                               ; 1                            ;
-; 4                                               ; 0                            ;
-; 5                                               ; 1                            ;
-; 6                                               ; 1                            ;
-; 7                                               ; 1                            ;
-; 8                                               ; 1                            ;
-; 9                                               ; 1                            ;
-; 10                                              ; 1                            ;
-; 11                                              ; 3                            ;
-; 12                                              ; 3                            ;
-+-------------------------------------------------+------------------------------+
++---------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                         ;
++--------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 10.07) ; Number of LABs  (Total = 14) ;
++--------------------------------------------------+------------------------------+
+; 0                                                ; 0                            ;
+; 1                                                ; 2                            ;
+; 2                                                ; 0                            ;
+; 3                                                ; 0                            ;
+; 4                                                ; 0                            ;
+; 5                                                ; 2                            ;
+; 6                                                ; 0                            ;
+; 7                                                ; 0                            ;
+; 8                                                ; 1                            ;
+; 9                                                ; 0                            ;
+; 10                                               ; 2                            ;
+; 11                                               ; 0                            ;
+; 12                                               ; 1                            ;
+; 13                                               ; 1                            ;
+; 14                                               ; 1                            ;
+; 15                                               ; 2                            ;
+; 16                                               ; 2                            ;
++--------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 11.19) ; Number of LABs  (Total = 16) ;
+; Number of Distinct Inputs  (Average = 14.64) ; Number of LABs  (Total = 14) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
 ; 3                                            ; 0                            ;
-; 4                                            ; 2                            ;
+; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 1                            ;
-; 7                                            ; 2                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 1                            ;
 ; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
-; 10                                           ; 2                            ;
-; 11                                           ; 0                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 1                            ;
 ; 12                                           ; 1                            ;
-; 13                                           ; 1                            ;
-; 14                                           ; 0                            ;
-; 15                                           ; 2                            ;
+; 13                                           ; 0                            ;
+; 14                                           ; 2                            ;
+; 15                                           ; 1                            ;
 ; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 1                            ;
-; 19                                           ; 0                            ;
-; 20                                           ; 1                            ;
+; 19                                           ; 1                            ;
+; 20                                           ; 0                            ;
 ; 21                                           ; 0                            ;
 ; 22                                           ; 0                            ;
-; 23                                           ; 0                            ;
-; 24                                           ; 0                            ;
+; 23                                           ; 1                            ;
+; 24                                           ; 1                            ;
 ; 25                                           ; 0                            ;
 ; 26                                           ; 0                            ;
 ; 27                                           ; 0                            ;
@@ -1929,7 +1954,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Fitter
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Fri Apr 25 15:18:21 2014
+    Info: Processing started: Mon Apr 28 12:39:03 2014
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (119006): Selected device EP2C35F672C6 for design "SN_PROGRAM_V02"
@@ -2010,13 +2035,13 @@ Warning (306006): Found 42 output pins without output pin load capacitance assig
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/output_files/SN_PROGRAM_V02.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 667 megabytes
-    Info: Processing ended: Fri Apr 25 15:18:29 2014
+    Info: Processing ended: Mon Apr 28 12:39:11 2014
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:09
 
