@@ -25,7 +25,7 @@
  */
 
 
-typedef struct Sensor {
+typedef struct sensor {
     unsigned char Address;
     unsigned int Data;
     unsigned char Year;
@@ -38,8 +38,8 @@ typedef struct Sensor {
 } Sensor;
 
 void InitMemory( void );
-void InitSensorMem( struct Sensor* Sens );
-void Save( unsigned int* address, struct Sensor* Sens );
-unsigned char Load( unsigned int address, struct Sensor* Sens );
+void InitSensorMem( Sensor* Sens );
+void Save( unsigned int* address, Sensor* Sens );
+unsigned char Load( unsigned int address, Sensor* Sens );
 #endif	/* MEMCTL_H */
 

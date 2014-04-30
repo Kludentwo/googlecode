@@ -5,7 +5,7 @@ void InitMemory( void )
     MemoryInit();
 }
 
-void InitSensorMem( struct Sensor* Sens )
+void InitSensorMem( Sensor* Sens )
 {
     Sens->Address = 0;
     Sens->Data = 0;
@@ -18,7 +18,7 @@ void InitSensorMem( struct Sensor* Sens )
     Sens->Errors = 0;
 }
 
-void Save( unsigned int* address, struct Sensor* Sens )
+void Save( unsigned int* address, Sensor* Sens )
 {
     unsigned char counter = 0;
     unsigned char bytes[SIZE] = {0};
@@ -43,7 +43,7 @@ void Save( unsigned int* address, struct Sensor* Sens )
     }
 }
 
-unsigned char Load( unsigned int address, struct Sensor* Sens )
+unsigned char Load( unsigned int address, Sensor* Sens )
 {
     unsigned char counter = 0;
     unsigned char bytes[SIZE] = {0};
