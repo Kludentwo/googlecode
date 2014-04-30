@@ -71,7 +71,7 @@ begin
 R_DATA <= output_data;
 --LEDS <= flopped_ADC_DATA;	
 temperature_out <= temperature;
-LEDS <= error_counter;
+--LEDS <= error_counter;
 ------------------------------------------------------------
 -- Routine type:		Process
 -- name: 				communication
@@ -82,32 +82,32 @@ LEDS <= error_counter;
 --							is handled on falling edge, and  
 --							datasampling, handled on rising edge.
 ------------------------------------------------------------
-	 communication: process(CLK,RESET)
+communication: process(CLK,RESET)
 ------------Variables-----------
-		variable start_seq 					: std_logic_vector(7 downto 0) := "01101001";
-		variable address 						: std_logic_vector(3 downto 0) := "0001";
-		variable errors						: std_logic_vector(3 downto 0) := X"0";
-		variable get_info						: std_logic_vector(3 downto 0) := "0001";
-		variable get_data						: std_logic_vector(3 downto 0) := "0010";
-		variable manchester_seq				: std_logic_vector(1 downto 0);
-		variable manchester_bit				: std_logic;
-		variable m1,m2							: std_logic;
-		variable fault							: std_logic;
-		variable address_counter			: integer range 0 to 4;
-		variable functioncode_counter 	: integer range 0 to 5;
-		variable functioncode				: std_logic_vector(3 downto 0);
-		variable r_address					: std_logic_vector(3 downto 0);
-		variable respond_counter			: integer range 0 to 24 := 0;	
-		variable respond_flag				: std_logic := '0';
-		variable fault_counts				: integer range 0 to 100 := 50;
-		variable Respond_Data				: std_logic_vector(23 downto 0);
-		variable Respond_Data_d				: std_logic_vector(23 downto 0);
-		variable new_value					: std_logic;
-		variable averaged_ADC_DATA			: std_logic_vector(23 downto 0);
-		variable averaged_ADC_DATA_OLD	: std_logic_vector(23 downto 0):= X"000000";
-		variable temp_temp					: std_logic_vector(11 downto 0);
+	variable start_seq 					: std_logic_vector(7 downto 0) := "01101001";
+	variable address 						: std_logic_vector(3 downto 0) := "0001";
+	variable errors						: std_logic_vector(3 downto 0) := X"0";
+	variable get_info						: std_logic_vector(3 downto 0) := "0001";
+	variable get_data						: std_logic_vector(3 downto 0) := "0010";
+	variable manchester_seq				: std_logic_vector(1 downto 0);
+	variable manchester_bit				: std_logic;
+	variable m1,m2							: std_logic;
+	variable fault							: std_logic;
+	variable address_counter			: integer range 0 to 4;
+	variable functioncode_counter 	: integer range 0 to 5;
+	variable functioncode				: std_logic_vector(3 downto 0);
+	variable r_address					: std_logic_vector(3 downto 0);
+	variable respond_counter			: integer range 0 to 24 := 0;	
+	variable respond_flag				: std_logic := '0';
+	variable fault_counts				: integer range 0 to 100 := 50;
+	variable Respond_Data				: std_logic_vector(23 downto 0);
+	variable Respond_Data_d				: std_logic_vector(23 downto 0);
+	variable new_value					: std_logic;
+	variable averaged_ADC_DATA			: std_logic_vector(23 downto 0);
+	variable averaged_ADC_DATA_OLD	: std_logic_vector(23 downto 0):= X"000000";
+	variable temp_temp					: std_logic_vector(11 downto 0);
 
-		begin
+	begin
 				
 		if falling_edge(CLK) then 
 			if RESET = '0' then
@@ -152,7 +152,7 @@ LEDS <= error_counter;
 			------------------------------------------------------------
 				statemachine_controller: case r_state is
 					when idle =>
-						--LEDS	<= X"00F";
+						LEDS	<= X"00F";
 						if (start_bit8 & start_bit7 & start_bit6 & start_bit5 & start_bit4 & start_bit3 & start_bit2 & start_bit1) = start_seq then
 							r_state <= check_address;
 							f_state <= manchester_converting;
@@ -162,7 +162,7 @@ LEDS <= error_counter;
 						end if;
 
 					when check_address =>
-						--LEDS	<= X"0F0";
+						LEDS	<= X"0F0";
 						r_address := m_a_bit4 & m_a_bit3 & m_a_bit2 & m_a_bit1;
 						if address_counter = 4 then
 							if r_address = address then
@@ -174,7 +174,7 @@ LEDS <= error_counter;
 						end if;
 						
 					when check_functioncode =>
-						--LEDS	<= X"F00";
+						LEDS	<= X"F00";
 						functioncode := m_f_bit4 & m_f_bit3 & m_f_bit2 & m_f_bit1;
 						if functioncode_counter = 4 then
 							if functioncode = get_info then

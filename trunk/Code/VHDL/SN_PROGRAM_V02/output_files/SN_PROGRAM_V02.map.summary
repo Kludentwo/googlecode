@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Apr 28 12:39:03 2014
+Analysis & Synthesis Status : Successful - Wed Apr 30 09:16:50 2014
 Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
 Revision Name : SN_PROGRAM_V02
 Top-level Entity Name : SN_PROGRAM_V02
 Family : Cyclone II
-Total logic elements : 196
-    Total combinational functions : 184
-    Dedicated logic registers : 111
-Total registers : 111
-Total pins : 63
+Total logic elements : 112
+    Total combinational functions : 104
+    Dedicated logic registers : 66
+Total registers : 66
+Total pins : 41
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
