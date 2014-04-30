@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SN_PROGRAM_V02
-Mon Apr 28 12:39:03 2014
+Wed Apr 30 09:16:50 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -18,10 +18,9 @@ Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
  10. Registers Removed During Synthesis
  11. Removed Registers Triggering Further Register Optimizations
  12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -47,16 +46,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 28 12:39:03 2014     ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 30 09:16:50 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
 ; Family                             ; Cyclone II                                ;
-; Total logic elements               ; 196                                       ;
-;     Total combinational functions  ; 184                                       ;
-;     Dedicated logic registers      ; 111                                       ;
-; Total registers                    ; 111                                       ;
-; Total pins                         ; 63                                        ;
+; Total logic elements               ; 112                                       ;
+;     Total combinational functions  ; 104                                       ;
+;     Dedicated logic registers      ; 66                                        ;
+; Total registers                    ; 66                                        ;
+; Total pins                         ; 41                                        ;
 ; Total virtual pins                 ; 0                                         ;
 ; Total memory bits                  ; 0                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                         ;
@@ -175,8 +174,6 @@ applicable agreement for further details.
 ; Sensor_interfacing.vhd           ; yes             ; User VHDL File                     ; C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/Sensor_interfacing.vhd ;         ;
 ; SN_PROGRAM_V02.bdf               ; yes             ; User Block Diagram/Schematic File  ; C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/SN_PROGRAM_V02.bdf     ;         ;
 ; debug.vhd                        ; yes             ; User VHDL File                     ; C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/debug.vhd              ;         ;
-; BCDtosevenseg.vhd                ; yes             ; User VHDL File                     ; C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/BCDtosevenseg.vhd      ;         ;
-; temptobcd.vhd                    ; yes             ; User VHDL File                     ; C:/Bachelor/Code/VHDL/SN_PROGRAM_V02/temptobcd.vhd          ;         ;
 +----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------+---------+
 
 
@@ -185,39 +182,38 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 196   ;
+; Estimated Total logic elements              ; 112   ;
 ;                                             ;       ;
-; Total combinational functions               ; 184   ;
+; Total combinational functions               ; 104   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 101   ;
-;     -- 3 input functions                    ; 52    ;
-;     -- <=2 input functions                  ; 31    ;
+;     -- 4 input functions                    ; 62    ;
+;     -- 3 input functions                    ; 19    ;
+;     -- <=2 input functions                  ; 23    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 164   ;
-;     -- arithmetic mode                      ; 20    ;
+;     -- normal mode                          ; 104   ;
+;     -- arithmetic mode                      ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 111   ;
-;     -- Dedicated logic registers            ; 111   ;
+; Total registers                             ; 66    ;
+;     -- Dedicated logic registers            ; 66    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 63    ;
+; I/O pins                                    ; 41    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out                             ; 114   ;
-; Total fan-out                               ; 916   ;
-; Average fan-out                             ; 2.56  ;
+; Maximum fan-out                             ; 67    ;
+; Total fan-out                               ; 515   ;
+; Average fan-out                             ; 2.44  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Library Name ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; |SN_PROGRAM_V02               ; 184 (0)           ; 111 (0)      ; 0           ; 0            ; 0       ; 0         ; 63   ; 0            ; |SN_PROGRAM_V02                          ;              ;
-;    |SN_program_v01:inst7|     ; 114 (114)         ; 79 (79)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|SN_program_v01:inst7     ;              ;
-;    |Sensor_interfacing:inst1| ; 70 (70)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|Sensor_interfacing:inst1 ;              ;
-+-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; |SN_PROGRAM_V02            ; 104 (0)           ; 66 (0)       ; 0           ; 0            ; 0       ; 0         ; 41   ; 0            ; |SN_PROGRAM_V02                      ;              ;
+;    |SN_program_v01:inst7|  ; 104 (104)         ; 66 (66)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|SN_program_v01:inst7 ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -250,36 +246,68 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------+------------------------------------------------------------------+
 ; Register name                                               ; Reason for Removal                                               ;
 +-------------------------------------------------------------+------------------------------------------------------------------+
+; Sensor_interfacing:inst1|DATA_OUT[0..11]                    ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|DATA_READY                         ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|first_clock                        ; Stuck at VCC due to stuck port clock                             ;
+; Sensor_interfacing:inst1|CS                                 ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|done_flag                          ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|wait_flag                          ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|wait_counter[0..19]                ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|wait_conv                          ; Stuck at GND due to stuck port clock                             ;
+; Sensor_interfacing:inst1|data_counter[0..3]                 ; Stuck at GND due to stuck port clock                             ;
+; SN_program_v01:inst7|flopped_ADC_DATA[0..11]                ; Stuck at GND due to stuck port clock_enable                      ;
+; SN_program_v01:inst7|new_sample                             ; Lost fanout                                                      ;
+; Sensor_interfacing:inst1|s_wait_conv                        ; Lost fanout                                                      ;
 ; SN_program_v01:inst7|\communication:errors[2,3]             ; Merged with SN_program_v01:inst7|\communication:errors[1]        ;
 ; SN_program_v01:inst7|\communication:Respond_Data[14,15]     ; Merged with SN_program_v01:inst7|\communication:Respond_Data[13] ;
 ; SN_program_v01:inst7|\communication:Respond_Data[19,21..23] ; Merged with SN_program_v01:inst7|\communication:Respond_Data[18] ;
 ; SN_program_v01:inst7|\communication:Respond_Data[18]        ; Stuck at GND due to stuck port data_in                           ;
 ; SN_program_v01:inst7|\communication:Respond_Data[20]        ; Stuck at VCC due to stuck port data_in                           ;
-; Sensor_interfacing:inst1|wait_counter[16..19]               ; Stuck at GND due to stuck port data_in                           ;
 ; SN_program_v01:inst7|\communication:errors[1]               ; Stuck at GND due to stuck port data_in                           ;
 ; SN_program_v01:inst7|\communication:Respond_Data[13]        ; Stuck at GND due to stuck port data_in                           ;
-; Sensor_interfacing:inst1|wait_counter[13..15]               ; Stuck at GND due to stuck port data_in                           ;
 ; SN_program_v01:inst7|\communication:Respond_Data[16]        ; Merged with SN_program_v01:inst7|\communication:Respond_Data[17] ;
-; Sensor_interfacing:inst1|wait_counter[9..12]                ; Stuck at GND due to stuck port data_in                           ;
-; Total Number of Removed Registers = 24                      ;                                                                  ;
+; Total Number of Removed Registers = 69                      ;                                                                  ;
 +-------------------------------------------------------------+------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                      ;
-+-----------------------------------------------+---------------------------+------------------------------------------------------+
-; Register name                                 ; Reason for Removal        ; Registers Removed due to This Register               ;
-+-----------------------------------------------+---------------------------+------------------------------------------------------+
-; Sensor_interfacing:inst1|wait_counter[19]     ; Stuck at GND              ; Sensor_interfacing:inst1|wait_counter[15],           ;
-;                                               ; due to stuck port data_in ; Sensor_interfacing:inst1|wait_counter[14],           ;
-;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[13],           ;
-;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[9],            ;
-;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[10],           ;
-;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[11],           ;
-;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[12]            ;
-; SN_program_v01:inst7|\communication:errors[1] ; Stuck at GND              ; SN_program_v01:inst7|\communication:Respond_Data[13] ;
-;                                               ; due to stuck port data_in ;                                                      ;
-+-----------------------------------------------+---------------------------+------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                     ;
++-----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                 ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Sensor_interfacing:inst1|first_clock          ; Stuck at VCC              ; Sensor_interfacing:inst1|data_counter[0], Sensor_interfacing:inst1|data_counter[1], ;
+;                                               ; due to stuck port clock   ; Sensor_interfacing:inst1|data_counter[3]                                            ;
+; Sensor_interfacing:inst1|DATA_OUT[0]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[0], SN_program_v01:inst7|new_sample           ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[1]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[1]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[2]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[2]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[3]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[3]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[4]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[4]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[5]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[5]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[6]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[6]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[7]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[7]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[8]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[8]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[9]          ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[9]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[10]         ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[10]                                           ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|DATA_OUT[11]         ; Stuck at GND              ; SN_program_v01:inst7|flopped_ADC_DATA[11]                                           ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|done_flag            ; Stuck at GND              ; Sensor_interfacing:inst1|data_counter[2]                                            ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; Sensor_interfacing:inst1|wait_flag            ; Stuck at GND              ; Sensor_interfacing:inst1|wait_conv                                                  ;
+;                                               ; due to stuck port clock   ;                                                                                     ;
+; SN_program_v01:inst7|\communication:errors[1] ; Stuck at GND              ; SN_program_v01:inst7|\communication:Respond_Data[13]                                ;
+;                                               ; due to stuck port data_in ;                                                                                     ;
++-----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -287,24 +315,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 111   ;
-; Number of registers using Synchronous Clear  ; 13    ;
+; Total registers                              ; 66    ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 45    ;
+; Number of registers using Clock Enable       ; 21    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; Sensor_interfacing:inst1|first_clock   ; 5       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -313,11 +331,9 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[20] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[7]  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[13] ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[4]  ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|error_counter[5]                ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|Sensor_interfacing:inst1|data_counter[1]             ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|m_a_bit4                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|address_counter                 ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|functioncode_counter            ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|Selector2                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
@@ -328,7 +344,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -338,7 +354,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Mon Apr 28 12:38:59 2014
+    Info: Processing started: Wed Apr 30 09:16:46 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file sn_program_v01.vhd
@@ -359,6 +375,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file temptob
     Info (12022): Found design unit 1: convert_to_BCD-rtl
     Info (12023): Found entity 1: convert_to_BCD
 Info (12127): Elaborating entity "SN_PROGRAM_V02" for the top level hierarchy
+Warning (275013): Port "CLK" of type Sensor_interfacing and instance "inst1" is missing source signal
 Info (12128): Elaborating entity "SN_program_v01" for hierarchy "SN_program_v01:inst7"
 Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(27): used implicit default value for signal "R_DATA_debigging" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10036): Verilog HDL or VHDL warning at SN_program_v01.vhd(56): object "r_manchester_counter" assigned a value but never read
@@ -369,46 +386,28 @@ Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(90): us
 Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(91): used initial value expression for variable "get_data" because variable was never assigned a value
 Info (12128): Elaborating entity "Sensor_interfacing" for hierarchy "Sensor_interfacing:inst1"
 Info (12128): Elaborating entity "debug" for hierarchy "debug:inst2"
-Info (12128): Elaborating entity "bcdto7seg" for hierarchy "bcdto7seg:inst14"
-Info (12128): Elaborating entity "convert_to_BCD" for hierarchy "convert_to_BCD:inst8"
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "S_CLK" is stuck at GND
+    Warning (13410): Pin "CS" is stuck at GND
     Warning (13410): Pin "SHDN" is stuck at VCC
     Warning (13410): Pin "SHDN_debug" is stuck at VCC
-    Warning (13410): Pin "BCD01s[6]" is stuck at VCC
-    Warning (13410): Pin "BCD01s[5]" is stuck at GND
-    Warning (13410): Pin "BCD01s[4]" is stuck at GND
-    Warning (13410): Pin "BCD01s[3]" is stuck at GND
-    Warning (13410): Pin "BCD01s[2]" is stuck at GND
-    Warning (13410): Pin "BCD01s[1]" is stuck at GND
-    Warning (13410): Pin "BCD01s[0]" is stuck at GND
-    Warning (13410): Pin "BCD10s[6]" is stuck at VCC
-    Warning (13410): Pin "BCD10s[5]" is stuck at GND
-    Warning (13410): Pin "BCD10s[4]" is stuck at GND
-    Warning (13410): Pin "BCD10s[3]" is stuck at GND
-    Warning (13410): Pin "BCD10s[2]" is stuck at GND
-    Warning (13410): Pin "BCD10s[1]" is stuck at GND
-    Warning (13410): Pin "BCD10s[0]" is stuck at GND
-    Warning (13410): Pin "BCD1s[6]" is stuck at VCC
-    Warning (13410): Pin "BCD1s[5]" is stuck at GND
-    Warning (13410): Pin "BCD1s[4]" is stuck at GND
-    Warning (13410): Pin "BCD1s[3]" is stuck at GND
-    Warning (13410): Pin "BCD1s[2]" is stuck at GND
-    Warning (13410): Pin "BCD1s[1]" is stuck at GND
-    Warning (13410): Pin "BCD1s[0]" is stuck at GND
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "DOUT"
+    Warning (15610): No output dependent on input pin "Reset_ADC_comm"
     Warning (15610): No output dependent on input pin "In_switches[15]"
     Warning (15610): No output dependent on input pin "In_switches[14]"
     Warning (15610): No output dependent on input pin "In_switches[13]"
     Warning (15610): No output dependent on input pin "In_switches[12]"
-Info (21057): Implemented 262 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 155 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 199 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 502 megabytes
-    Info: Processing ended: Mon Apr 28 12:39:03 2014
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 114 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 499 megabytes
+    Info: Processing ended: Wed Apr 30 09:16:50 2014
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 
