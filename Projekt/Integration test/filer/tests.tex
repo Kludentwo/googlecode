@@ -33,6 +33,9 @@
 \end{table}
 
 \chapter{Unit Tests}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CDU %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{CDU}
 %% The hardware tests of the CDU
 This section contains the hardware and software unit tests of the CDU.
@@ -42,6 +45,13 @@ In order to test the hardware of the CDU, a series of test points was put on the
 \textbf{Purpose:}\\
 The purpose of this test is to test the 3.3 volt circuitry of the power supply block in the CDU.\\
 
+\textbf{Test equipment:}
+\begin{itemize}
+\item Multimeter: Meterman 37XR
+\item CDU (UUT)
+\item Bus test stub
+\end{itemize}
+
 \textbf{Procedure:}\\
 Apply 20 V on the P+ and P- pins. Measure voltage between 3v3TEST pin and GNDPIN with an oscilloscope.\\
 
@@ -49,7 +59,13 @@ Apply 20 V on the P+ and P- pins. Measure voltage between 3v3TEST pin and GNDPIN
 3.35$\pm$0.17 volts are measured.\\
 
 \textbf{Actual Result:}\\
-3.36 volts\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+1 & 30-04-2014 & 3.36V & PASSED \\ \hline
+\end{tabular}
+\end{table}
 
 \textbf{Comment and remarks:}\\
 Well in range\\
@@ -58,6 +74,14 @@ Well in range\\
 \textbf{Purpose:}\\
 The purpose of this test is to test the communication to bus circuitry.\\
 
+\textbf{Test equipment:}
+\begin{itemize}
+\item HAMEG HM203-6 Oscilloscope
+\item HAMEG HM8030-3 Function generator
+\item CDU (UUT)
+\item Bus test stub
+\end{itemize}
+
 \textbf{Procedure:}\\
 Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode and a 5 ohm resistor. Apply 10 kHz signal to INPUTTEST pin. Observe AC coupled signal between SenseTEST pin and GNDPIN with an oscilloscope.\\
 
@@ -65,7 +89,13 @@ Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 vo
 10 kHz signal is observed.\\
 
 \textbf{Actual Result:}\\
-10 kHz signal is observed.\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+2 & 30-04-2014 & 10 kHz signal & PASSED \\ \hline
+\end{tabular}
+\end{table}
 
 \textbf{Comment and remarks:}\\
 -\\
@@ -74,6 +104,13 @@ Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 vo
 \textbf{Purpose:}\\
 The purpose of this test is to test the voltage reference in receiver circuitry.\\
 
+\textbf{Test equipment:}
+\begin{itemize}
+\item Multimeter: Meterman 37XR
+\item CDU (UUT)
+\item Bus test stub
+\end{itemize}
+
 \textbf{Procedure:}\\
 Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode and a 5 ohm resistor. Measure voltage between REFTEST pin and GNDPIN with an oscilloscope.\\
 
@@ -81,7 +118,13 @@ Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 vo
 0.43$\pm$0.02 volts are measured.\\
 
 \textbf{Actual Result:}\\
-0.44 volts are measured.\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+3 & 30-04-2014 & 0.44V & PASSED \\ \hline
+\end{tabular}
+\end{table}
 
 \textbf{Comment and remarks:}\\
 within range\\
@@ -90,8 +133,16 @@ within range\\
 \textbf{Purpose:}\\
 The purpose of this test is to test the communication from bus circuitry\\
 
+\textbf{Test equipment:}
+\begin{itemize}
+\item HAMEG HM203-6 Oscilloscope
+\item HAMEG HM8030-3 Function generator
+\item CDU (UUT)
+\item Bus test stub
+\end{itemize}
+
 \textbf{Procedure:}\\
-Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode, a 5 ohm resistor and a BAV21 diode and ZVN3306A. For clarification look at figure ~\ref{fig:busteststub}. Apply 10 kHz signal to the ZVN3306A on the pins shown in the bus test stub figure. Observe AC signal between OUTPUTTEST pin and GNDPIN with an oscilloscope.\\
+Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode, a 5 ohm resistor and a BAV21 diode and ZVN3306A. For clarification look at figure ~\ref{fig:busteststub}. Apply 10 kHz signal with the function generator to the ZVN3306A on the pins shown in the bus test stub figure. Observe AC signal between OUTPUTTEST pin and GNDPIN with the oscilloscope.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{billeder/BusTestStub}
@@ -104,14 +155,207 @@ Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 vo
 10 kHz signal is observed.\\
 
 \textbf{Actual Result:}\\
-\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+4 & 30-04-2014 & 10 kHz signal & PASSED \\ \hline
+\end{tabular}
+\end{table}
 
 \textbf{Comment and remarks:}\\
 -\\
 
 \subsection{Software}
 The software tests of the CDU
+\subsubsection{Test case 5: Test of function IntegerToBinary }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function IntegerToBinary with the parameters: unsigned char input, unsigned char size, unsigned char* outputbuffer.\\
 
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. A test program inserts values into the function. The size of the outputbuffer and a pointer to the outputbuffer is inserted into the function as well. The outputbuffer must be large enough to contain the number! Standard size is 8 bit for unsigned char data type.\\
+Verify the content of the outputbuffer with the the MPLAB X debugging feature. Values larger than zero and smaller than 255 will be converted to a bit string. Values larger than 255 cannot fit into the data type and this scenario should fail.\\
+
+\textbf{Expected Result:}\\
+Values from 0 to 255  will be successfully converted to bit strings.\\
+Values larger than 255 or smaller than 0 will fail because of the data type.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+5 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 6: Test of function PatMessage }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function PatMessage with the parameters: unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. A test program inserts addresses, function codes and a pointer to the outputbuffer is inserted into the function. The outputbuffer must be atleast 12 slots big.\\
+Verify the content of the outputbuffer with the the MPLAB X debugging feature. The buffer must contain the start sequence, address and function code inserted into the function.
+
+\textbf{Expected Result:}\\
+The function should create the proper content as long as function code and address is within range. If address or function code is out of range the buffer will contain the start sequence and zeros.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+6 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 7: Test of function ToManchester }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function ToManchester with the parameters: unsigned char* inputbuffer, unsigned char* outputbuffer, struct cduflags* CDUFlags.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. A test message is loaded into an inputbuffer. The buffer is inserted into the function. An outputbuffer that has to be atleast twice the size of the inputbuffer is inserted as well. Lastly a cduflags struct is inserted. Verify that the outputbuffers content is a manchester coded equivalent to the input signal.\\
+
+\textbf{Expected Result:}\\
+The content of the outputbuffer is a manchester coded equivalent to the content of the inputbuffer loaded with the test message.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+7 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 8: Test of function InitSensorArray }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function InitSensorArray with the parameter: Sensor* sensorarray.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. A sensorarray with defined slots is inserted into the function. After the function has been run, check the address of every sensor in the array. Addresses from 1 to 15 should be observed. Sensors after 15 in the array will not be initiated.\\
+
+\textbf{Expected Result:}\\
+The sensors in the array have been initiated with addresses from 1 to 15.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+8 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 9: Test of function CDUSend }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function CDUSend with the parameters: Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, struct cduflags* CDUFlags.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\item HAMEG HM203-6 Oscilloscope
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. Insert a sensor, a functioncode, a messagebuffer and a cduflags struct point into the function. Verify on an oscilloscope that a message was sent by observing on PORTA5 and GND.\\
+
+\textbf{Expected Result:}\\
+A message was observed on PORTA5. Message corresponds to inserted sensor and functioncode.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+9 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 10: Test of function CDUReceive }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function CDUReceive with the parameters: Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags and the return type unsigned char.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. Create 2 testbuffers. One with a correct message and wrong with a message containing errors. Insert a sensor, a function code, one of the testbuffers and a cduflags struct pointer. Observe the returned unsigned char and sensor struct. Switch the testbuffer and observe the returned unsigned char and sensor struct.\\
+
+\textbf{Expected Result:}\\
+When inserting a buffer containing a correct message, the returned unsigned char will be 1. The sensor struct is updated containing the data from the message.\\
+When inserting a buffer containing a message with errors, the returned unsigned char will be 0. The sensor struct is not updated.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+9 & - & - & - \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sensor Node}
 \subsection{Hardware}
 The hardware tests of the Sensor node
