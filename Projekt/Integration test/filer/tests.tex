@@ -46,13 +46,13 @@ The purpose of this test is to test the 3.3 volt circuitry of the power supply b
 Apply 20 V on the P+ and P- pins. Measure voltage between 3v3TEST pin and GNDPIN with an oscilloscope.\\
 
 \textbf{Expected Result:}\\
-3.3 volts are measured.\\
+3.35$\pm$0.17 volts are measured.\\
 
 \textbf{Actual Result:}\\
--\\
+3.36 volts\\
 
 \textbf{Comment and remarks:}\\
--\\
+Well in range\\
 
 \subsubsection{Test case 2: Communication to bus}
 \textbf{Purpose:}\\
@@ -65,7 +65,7 @@ Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 vo
 10 kHz signal is observed.\\
 
 \textbf{Actual Result:}\\
--\\
+10 kHz signal is observed.\\
 
 \textbf{Comment and remarks:}\\
 -\\
@@ -78,26 +78,33 @@ The purpose of this test is to test the voltage reference in receiver circuitry.
 Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode and a 5 ohm resistor. Measure voltage between REFTEST pin and GNDPIN with an oscilloscope.\\
 
 \textbf{Expected Result:}\\
-0.43 volts are measured.\\
+0.43$\pm$0.02 volts are measured.\\
 
 \textbf{Actual Result:}\\
--\\
+0.44 volts are measured.\\
 
 \textbf{Comment and remarks:}\\
--\\
+within range\\
 
 \subsubsection{Test case 4: Communication from bus}
 \textbf{Purpose:}\\
 The purpose of this test is to test the communication from bus circuitry\\
 
 \textbf{Procedure:}\\
-Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode, a 5 ohm resistor and a BAV21 diode and ZVN3306A. As seen in picture!  Apply 10 kHz signal to the sensor nodes response circuit. Observe AC signal between OUTPUTTEST pin and GNDPIN with an oscilloscope.\\
+Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode, a 5 ohm resistor and a BAV21 diode and ZVN3306A. For clarification look at figure ~\ref{fig:busteststub}. Apply 10 kHz signal to the ZVN3306A on the pins shown in the bus test stub figure. Observe AC signal between OUTPUTTEST pin and GNDPIN with an oscilloscope.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{billeder/BusTestStub}
+\caption{Bus test stub}
+\label{fig:busteststub}
+\end{figure} 
+
 
 \textbf{Expected Result:}\\
 10 kHz signal is observed.\\
 
 \textbf{Actual Result:}\\
--\\
+\\
 
 \textbf{Comment and remarks:}\\
 -\\
