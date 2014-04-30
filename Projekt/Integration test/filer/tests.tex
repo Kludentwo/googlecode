@@ -359,7 +359,7 @@ When inserting a buffer containing a message with errors, the returned unsigned 
 \section{Sensor Node}
 \subsection{Hardware}
 The hardware tests of the Sensor node
-\subsubsection{Test case 5: 3.3 volt power supply}
+\subsubsection{Test case 1: 3.3 volt power supply}
 \textbf{Purpose:}\\
 The purpose of this test is to test the 3.3 volt circuitry of the power supply block in the sensor node.\\
 
@@ -391,18 +391,18 @@ Measure the voltage from the GND testpin to the 3V3 testpin.
 \textbf{Result:}
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
-\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-5 & 30-04-2014 & 3.30V & PASSED \\ \hline
+\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+30-04-2014 & 3.30V & PASSED \\ \hline
 \end{tabular}
 \end{table}
 
 \textbf{Comment and remarks:}\\
 -\\
 
-\subsubsection{Test case 6: Data recovery circuit}
+\subsubsection{Test case 2: Data recovery circuit}
 \textbf{Purpose:}\\
-The purpose of this test is to test the data recovery circuit located on the sensor node. The levels and rise time must not vary more then specified in the implementation documentation.\\
+The purpose of this test is to test the data recovery circuit located on the sensor node.  The levels and frequency must not vary more then specified in the implementation documentation.\\
 
 \textbf{Test equipment:}
 \begin{itemize}
@@ -416,13 +416,13 @@ The purpose of this test is to test the data recovery circuit located on the sen
 Connect B+ from the sensor node communication test stub to the S+ on the UUT. Connect B- from the sensor node communication test stub to the S- on the UUT.
 Connect FG+ from the sensor node communication test stub to the positive connector on the Function generator. Connect FG- from the sensor node communication test stub to the negative connector on the Function generator.\\ Set the Function generator to:
 \begin{itemize}
-\item pk-pk: 3.3V$\pm$0.17V
-\item DC offset: pk-pk/2
+\item pk-pk: 3.3V
+\item DC offset: 1.65V
 \item frequency: 10kHz
 \item Waveform: Square
 \end{itemize}
 Connect the oscilloscope ground to the GND test point on the UUT.
-Connect the oscilloscope probe to the DIN point on the UUT.
+Connect the oscilloscope probe to the DIN point on the UUT.\\
 Set the Oscilloscope to:
 \begin{itemize}
 \item Volts/div: 1V
@@ -435,27 +435,82 @@ Set the Oscilloscope to:
 		\includegraphics[width=.48\linewidth]{billeder/sensor_node_communication_test_stub}}
 	\subbottom[Picture of the sensor node]{%
 		\includegraphics[width=.48\linewidth]{billeder/case6_picture}}
-
-%\label{fig:sensor_node_supply_test_Stub}
-%\end{subfigure}
 \end{figure}
 
 \textbf{Expected Result:}\\
-Frequency: 10kHz$pm$0.5kHz\\
-Rise time: <10$\mu$s\\
-Store a picture of the oscilloscope
+Frequency: 10kHz\\
+Amplitude: 3.3V$\pm$0.17V\\
+Store a picture of the oscilloscope as reference.
 
 
 \textbf{Result:}
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
-\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-5 & 30-04-2014 & 3.30V & PASSED \\ \hline
+\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+--- & --- & --- \\ \hline
 \end{tabular}
 \end{table}
 \textbf{Picture:}
 \textbf{Comment and remarks:}\\
 -\\
+
+\subsubsection{Test case 3: Phase lock circuit}
+\textbf{Purpose:}\\
+The purpose of this test is to test the clock recovery circuit located on the sensor node. The levels and frequency must not vary more then specified in the implementation documentation.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+	\item HAMEG HM203-6 Oscilloscope
+	\item HAMEG HM8030-3 Function generator
+	\item Sensor node (UUT)
+	\item Sensor node communication stub
+\end{itemize}
+\ \\
+\textbf{Procedure:}\\
+Connect B+ from the sensor node communication test stub to the S+ on the UUT. Connect B- from the sensor node communication test stub to the S- on the UUT.
+Connect FG+ from the sensor node communication test stub to the positive connector on the Function generator. Connect FG- from the sensor node communication test stub to the negative connector on the Function generator.\\ Set the Function generator to:
+\begin{itemize}
+	\item pk-pk: 3.3V
+	\item DC offset: 1.65V
+	\item frequency: 10kHz
+	\item Waveform: Square
+\end{itemize}
+
+Connect the oscilloscope ground to the GND test point on the UUT.
+Connect the oscilloscope probe 1 to the DIN point on the UUT.
+Connect the oscilloscope probe 2 to the 10kHz test point on the UUT.\\
+Set the Oscilloscope to:
+\begin{itemize}
+	\item Volts/div: 1V
+	\item Time/div: 50$\mu$s
+	\item Probe: AC coupled
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\subbottom[Sensor node supply test stub]{%
+		\includegraphics[width=.48\linewidth]{billeder/sensor_node_communication_test_stub}}
+	\subbottom[Picture of the sensor node]{%
+		\includegraphics[width=.48\linewidth]{billeder/case6_picture}}
+\end{figure}
+
+\textbf{Expected Result:}\\
+Frequency: 10 kHz in phase with the input signal.\\
+Store a picture of the oscilloscope as reference.
+
+
+\textbf{Result:}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+	\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+	6 & --- & --- & --- \\ \hline
+	\end{tabular}
+\end{table}
+\textbf{Picture:}
+\textbf{Comment and remarks:}\\
+-\\
+
 \subsection{Software}
 The software tests of the Sensor node
