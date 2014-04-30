@@ -16,7 +16,6 @@
 #include "MemCtl.h"
 #include "uart.h"
 
-
 _CONFIG1(JTAGEN_OFF & GCP_OFF & GWRP_OFF & COE_OFF & FWDTEN_OFF & ICS_PGx2)
 _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 /*
@@ -35,8 +34,18 @@ _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 #define     GETDATA         0b0010
 
 
+typedef struct cduflags {
+    unsigned char comflag;
+    unsigned char msgflag;
+    unsigned char clk_flag;
+    unsigned char recvflag;
+    unsigned char enableflag;
+} Cduflags;
+
 // Sensor array
 Sensor sensorarray[NUMBEROFSENSORS];
+// flag array
+Cduflags CDUFlags;
 
 // String arrays
 unsigned char message[(2 * MESSAGELENGTH)] = {0};
@@ -46,12 +55,6 @@ unsigned char dispray[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
 
-// Flags
-unsigned char comflag = 0;
-unsigned char msgflag = 0;
-unsigned char clk_flag = 0;
-unsigned char recvflag = 0;
-
 // Counters
 unsigned int loopcounter = 0;
 unsigned int outcounter = 0;
@@ -59,8 +62,10 @@ unsigned int recvcounter = 0;
 unsigned char waitclock = 0;
 unsigned int addresscounter = 0;
 unsigned int maincounter = 0;
-unsigned int maincounter2 = 0;
-unsigned int maincounter3 = 0;
+unsigned int errorcount = 0;
+unsigned int error = 0;
+unsigned int startupcounter = 0;
+unsigned int startupcounter2 = 0;
 
 /*========================================================================
                         FUNCTION DEFINITIONS
@@ -68,12 +73,13 @@ unsigned int maincounter3 = 0;
 void TimerInit(void);
 void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* outputbuffer);
 void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer);
-void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, unsigned char* msgflag);
-void InitSensorArray(struct Sensor* sensorarray);
-void CDUStartUpRoutine(struct Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, unsigned char* msgflag, unsigned char* comflag, unsigned char* receiveflag);
-void CDUSendStartUp(unsigned char Address, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag);
-void CDUSendRunning(struct Sensor* Sens, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag);
-unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer);
+void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, struct cduflags* CDUFlags);
+void InitSensorArray(Sensor* sensorarray);
+void InitCDUFlags(Cduflags* CDUFlags);
+void CDUInit(void);
+void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, struct cduflags* CDUFlags);
+void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, struct cduflags* CDUFlags);
+unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags);
 void CDUPCCom(void);
 
 /*========================================================================
@@ -95,43 +101,38 @@ int main(int argc, char** argv) {
     AD1PCFG = 0xFFFF; //set to all digital I/O
 
     initLCD();
+    InitCDUFlags(&CDUFlags);
+    InitSensorArray(sensorarray);
     TimerInit();
     InitMemory();
     UARTInit();
 
-    InitSensorArray(sensorarray);
-    //CDUStartUpRoutine(sensorarray, alive, message, response, &msgflag, &comflag, &recvflag);
+    while (startupcounter2 < 4) {
+        startupcounter++;
+        if (startupcounter == 50000)
+            startupcounter2++;
+    }
+
     writeString("STARTUP DONE");
     writeString("\r\n");
 
     //Main Program Loop, Loop forever
     while (1) {
-        maincounter++;
-        if (maincounter == 50000) {
-            maincounter = 0;
-            maincounter2++;
-            if (maincounter2 == 3) {
-                maincounter2 = 0;
-                /*
-                for(maincounter = 0; maincounter < NUMBEROFSENSORS; maincounter++)
-                {
-                    if(alive[maincounter] > 0)
-                    {
-                        CDUSendRunning(&(sensorarray[maincounter]),message, &msgflag, &comflag);
-                        while(!(recvflag));
-                        CDUReceive(&(sensorarray[maincounter]),response);
-                        putLCD((maincounter + 0x30));
-                        writeString("\r\n");
-                    }
-                }*/
-                CDUSendRunning(&(sensorarray[0]), message, &msgflag, &comflag);
-                while (!(recvflag));
-                CDUReceive(&(sensorarray[0]), testresponse);
-                IntegerToBinary(sensorarray[0].Data,12,dispray);
-                writeString(dispray);
-                writeString("\r\n");
-            }
+        CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
+        if (error == 0) {
+            errorcount += 1;
         }
+        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
+        if (error == 0) {
+            errorcount += 1;
+        }
+        //errorcount += sensorarray[0].Errors;
+        IntegerToBinary(errorcount, 8, dispray);
+        writeString(dispray);
+        //putLCD(sensorarray[0].Errors + 0x30);
+        writeString("\r\n");
     }
     return (EXIT_SUCCESS);
 }
@@ -175,12 +176,12 @@ void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* o
     }
 }
 
-void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, unsigned char* msgflag) {
+void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, struct cduflags* CDUFlags) {
     unsigned int bitcount = 0;
     unsigned int counter = 0;
     unsigned int j;
 
-    (*msgflag) = 0;
+    CDUFlags->msgflag = 0;
 
     for (j = 0; j < (2 * MESSAGELENGTH); j++) {
         if (bitcount == 2) {
@@ -211,10 +212,10 @@ void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, unsig
             counter = 0;
         }
     }
-    (*msgflag) = 1;
+    CDUFlags->msgflag = 1;
 }
 
-void InitSensorArray(struct Sensor* sensorarray) {
+void InitSensorArray(Sensor* sensorarray) {
     unsigned char addresscounter = 0;
 
     for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
@@ -223,35 +224,40 @@ void InitSensorArray(struct Sensor* sensorarray) {
     }
 }
 
-void CDUStartUpRoutine(struct Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, unsigned char* msgflag, unsigned char* comflag, unsigned char* receiveflag) {
+void InitCDUFlags(Cduflags* CDUFlags) {
+    CDUFlags->clk_flag = 0;
+    CDUFlags->comflag = 0;
+    CDUFlags->enableflag = 0;
+    CDUFlags->msgflag = 0;
+    CDUFlags->recvflag = 0;
+}
+
+void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, struct cduflags* CDUFlags) {
     unsigned char addresscounter = 0;
+    unsigned char alivevar = 0;
+
     for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
-        CDUSendStartUp(addresscounter, Messagebuffer, msgflag, comflag);
-        while ((*receiveflag) == 0);
-        alive[addresscounter] = CDUReceive(&(sensorarray[addresscounter]), receivebuffer);
     }
 }
 
-void CDUSendStartUp(unsigned char Address, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag) {
+void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, struct cduflags* CDUFlags) {
+    while (!CDUFlags->enableflag);
+    CDUFlags->enableflag = 0;
     unsigned char string[MESSAGELENGTH] = {0};
-    PatMessage(Address, GETINFO, string);
-    ToManchester(string, Messagebuffer, msgflag);
-    (*comflag) = 1;
+    PatMessage(Sens->Address, functioncode, string);
+    ToManchester(string, Messagebuffer, CDUFlags);
+    CDUFlags->comflag = 1;
 }
 
-void CDUSendRunning(struct Sensor* Sens, unsigned char* Messagebuffer, unsigned char* msgflag, unsigned char* comflag) {
-    unsigned char string[MESSAGELENGTH] = {0};
-    PatMessage(Sens->Address, GETDATA, string);
-    ToManchester(string, Messagebuffer, msgflag);
-    (*comflag) = 1;
-}
-
-unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
+unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags) {
     unsigned char datacnt = 0;
     unsigned char FunctioncodeHolder = 0;
     unsigned char AddressHolder = 0;
     unsigned char dummy = 0;
+    unsigned char reset = 0;
 
+    while (!(CDUFlags->recvflag));
+    CDUFlags->recvflag = 0;
     for (datacnt = 23; datacnt >= 0 && datacnt < 24; datacnt--) {
         if (datacnt > 19 && datacnt < 24) {
             AddressHolder |= (receivebuffer[datacnt] << (datacnt - 20));
@@ -259,7 +265,15 @@ unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
         if (datacnt > 15 && datacnt < 20) {
             FunctioncodeHolder |= (receivebuffer[datacnt] << (datacnt - 16));
         }
+        if ((datacnt == 15) && (FunctioncodeHolder != functioncode) && (AddressHolder != Sens->Address)) {
+            return 0;
+        }
         if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
+            if (reset == 0) {
+                Sens->Data = 0;
+                Sens->Errors = 0;
+                reset = 1;
+            }
             if (datacnt > 11 && datacnt < 16) {
                 Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
             }
@@ -271,6 +285,11 @@ unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
             }
         }
         if (AddressHolder == Sens->Address && FunctioncodeHolder == GETDATA) {
+            if (reset == 0) {
+                Sens->Data = 0;
+                Sens->Errors = 0;
+                reset = 1;
+            }
             if (datacnt > 11 && datacnt < 16) {
                 Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
             }
@@ -278,9 +297,6 @@ unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
                 Sens->Data |= (receivebuffer[datacnt] << (datacnt));
             }
         }
-    }
-    if (FunctioncodeHolder == 0) {
-        return 0;
     }
     return 1;
 }
@@ -292,6 +308,25 @@ unsigned char CDUReceive(struct Sensor* Sens, unsigned char* receivebuffer) {
 void __attribute__((__interrupt__)) _T1Interrupt(void);
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
+    maincounter++;
+    if (maincounter == 2000) {
+        maincounter = 0;
+        CDUFlags.enableflag = 1;
+    }
+    /*
+     * 10 kHz Clock Part
+     */
+    if (CDUFlags.clk_flag == 0) {
+        CDUFlags.clk_flag = 1;
+        if (CDUFlags.comflag == 0) {
+            LATAbits.LATA5 = CDUFlags.clk_flag;
+        }
+    } else {
+        CDUFlags.clk_flag = 0;
+        if (CDUFlags.comflag == 0) {
+            LATAbits.LATA5 = CDUFlags.clk_flag;
+        }
+    }
     /*
      * Receive part
      */
@@ -299,30 +334,16 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
         recvcounter--;
         response[recvcounter] = PORTAbits.RA4; // Recieve from BUS
         if (recvcounter == 0) {
-            recvflag = 1; // Recieve Complete
+            CDUFlags.recvflag = 1; // Recieve Complete
         }
     }
     if (waitclock != 0) {
         waitclock--; // Compensate for delay
     }
     /*
-     * 10 kHz Clock Part
-     */
-    if (clk_flag == 0) {
-        clk_flag = 1;
-        if (comflag == 0) {
-            LATAbits.LATA5 = clk_flag;
-        }
-    } else {
-        clk_flag = 0;
-        if (comflag == 0) {
-            LATAbits.LATA5 = clk_flag;
-        }
-    }
-    /*
      * Communication Part
      */
-    if (comflag == 1 && msgflag == 1) {
+    if (CDUFlags.comflag == 1 && CDUFlags.msgflag == 1) {
         if (message[loopcounter] == 0x01)
             LATAbits.LATA5 = 0;
         else
@@ -332,9 +353,9 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
     }
     if (loopcounter == (2 * MESSAGELENGTH)) {
         loopcounter = 0;
-        comflag = 0;
+        CDUFlags.comflag = 0;
         recvcounter = 24;
-        waitclock = 2;
+        waitclock = 1;
     }
 
 

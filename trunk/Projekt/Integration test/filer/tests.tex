@@ -33,63 +33,80 @@
 \end{table}
 
 \chapter{Unit Tests}
-
-\section{Test case scenarios}
-\subsection{CDU}
-\subsubsection{Hardware}
-\label{ch:CDUHWTEST}
+\section{CDU}
 %% The hardware tests of the CDU
-In order to test the hardware of the CDU, a series of test points was put on the circuitry. The CDU hardware must be connected to atleast one sensor node before testing. To test perform the tests, follow the steps explained in table ~\ref{table:CDUHWTESTCASES}.
-\begin{table}[H]
-\centering
-\begin{tabular}{| p{1cm} | p{4.5cm} | p{8cm} |}
-\hline
-Case 	&Purpose 								&Procedure\\
-\hline
-1 		&Test 3.3V circuit						&Measure voltage between 3v3TEST pin and GNDPIN with an oscilloscope.\\
-\hline
-2		&Test communication to sensor circuit	&Apply 10 kHz signal to INPUTTEST pin. Observe signal between SenseTEST pin and GNDPIN with an oscilloscope.\\
-\hline
-3		&Test voltage reference in receiver circuit	&Measure voltage between REFTEST pin and GNDPIN with an oscilloscope.\\
-\hline
-4		&Test communication from sensor circuit	&Apply 10 kHz signal to the sensor nodes response circuit. Observe signal between OUTPUTTEST pin and GNDPIN with an oscilloscope.\\
-\hline
-\end{tabular}
-\caption{Hardware Test Cases}
-\label{table:CDUHWTESTCASES}
-\end{table}
+This section contains the hardware and software unit tests of the CDU.
+\subsection{Hardware}
+In order to test the hardware of the CDU, a series of test points was put on the circuitry. External hardware will be needed for some tests. This will be stated clearly if needed.
+\subsubsection{Test case 1: 3.3 volt power supply}
+\textbf{Purpose:}\\
+The purpose of this test is to test the 3.3 volt circuitry of the power supply block in the CDU.\\
 
-\subsubsection{Software}
+\textbf{Procedure:}\\
+Apply 20 V on the P+ and P- pins. Measure voltage between 3v3TEST pin and GNDPIN with an oscilloscope.\\
+
+\textbf{Expected Result:}\\
+3.3 volts are measured.\\
+
+\textbf{Actual Result:}\\
+-\\
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 2: Communication to bus}
+\textbf{Purpose:}\\
+The purpose of this test is to test the communication to bus circuitry.\\
+
+\textbf{Procedure:}\\
+Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode and a 5 ohm resistor. Apply 10 kHz signal to INPUTTEST pin. Observe AC coupled signal between SenseTEST pin and GNDPIN with an oscilloscope.\\
+
+\textbf{Expected Result:}\\
+10 kHz signal is observed.\\
+
+\textbf{Actual Result:}\\
+-\\
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 3: Voltage reference in receiver circuit}
+\textbf{Purpose:}\\
+The purpose of this test is to test the voltage reference in receiver circuitry.\\
+
+\textbf{Procedure:}\\
+Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode and a 5 ohm resistor. Measure voltage between REFTEST pin and GNDPIN with an oscilloscope.\\
+
+\textbf{Expected Result:}\\
+0.43 volts are measured.\\
+
+\textbf{Actual Result:}\\
+-\\
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 4: Communication from bus}
+\textbf{Purpose:}\\
+The purpose of this test is to test the communication from bus circuitry\\
+
+\textbf{Procedure:}\\
+Apply 20 V on the P+ and P- pins. Between B+ and B- pins put a circuit of 4.7 volt Zener diode, a 5 ohm resistor and a BAV21 diode and ZVN3306A. As seen in picture!  Apply 10 kHz signal to the sensor nodes response circuit. Observe AC signal between OUTPUTTEST pin and GNDPIN with an oscilloscope.\\
+
+\textbf{Expected Result:}\\
+10 kHz signal is observed.\\
+
+\textbf{Actual Result:}\\
+-\\
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsection{Software}
 The software tests of the CDU
 
-\subsection{Sensor Node}
-\subsubsection{Hardware}
+\section{Sensor Node}
+\subsection{Hardware}
 The hardware tests of the Sensor node
-\subsubsection{Software}
+\subsection{Software}
 The software tests of the Sensor node
-
-\section{Test case results}
-Results from the test cases explained in Chapter ~\ref{ch:CDUHWTEST}.
-%% \begin{Huge}$\surd$\end{Huge}
-\subsection{CDU}
-\subsubsection{Hardware}
-\begin{table}
-\begin{tabular}{| p{1cm} | p{4cm} | p{6cm} | p{1cm} |}
-\hline
-Case 		&Expected result 		&Actual result 		&Done\\
-\hline
-1 			&3.3 volts are measured. & - 				& - \\
-\hline
-2 			&10 kHz "AC" is observed. & - 				& - \\
-\hline
-3 			&0.43 volts are measured. & - 				& - \\
-\hline
-4 			&10 kHz "AC" is observed. & - 				& - \\
-\hline
-\end{tabular}
-\end{table}
-\subsubsection{Software}
-
-\subsection{Sensor Node}
-\subsubsection{Hardware}
-\subsubsection{Software}
