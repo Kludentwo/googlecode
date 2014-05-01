@@ -50,9 +50,8 @@ Cduflags CDUFlags;
 // String arrays
 unsigned char message[(2 * MESSAGELENGTH)] = {0};
 unsigned char response[RESPONSELENGTH] = {0};
-unsigned char testresponse[RESPONSELENGTH] = {1, 0, 1, 0, 0, 1, 0, 1, 0, 0,
-0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0};
-unsigned char display[12] = {0};
+unsigned char testresponse[RESPONSELENGTH] = {1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0};
+unsigned char dispray[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
 
@@ -99,11 +98,11 @@ int main(int argc, char** argv) {
 
     AD1PCFG = 0xFFFF; //set to all digital I/O
 	
-//    PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
-//    IPC0bits.T1IP = 5; //set interrupt priority
-//    T1CON = 0b1000000000000000; //turn on the timer
-//    IFS0bits.T1IF = 0; //reset interrupt flag
-//    IEC0bits.T1IE = 1; //turn on the timer1 interrupt
+    PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
+    IPC0bits.T1IP = 5; //set interrupt priority
+    T1CON = 0b1000000000000000; //turn on the timer
+    IFS0bits.T1IF = 0; //reset interrupt flag
+    IEC0bits.T1IE = 1; //turn on the timer1 interrupt
 	
     initLCD();
     InitCDUFlags(&CDUFlags);
@@ -119,13 +118,9 @@ int main(int argc, char** argv) {
 
     writeString("STARTUP DONE");
     writeString("\r\n");
-  
+
     //Main Program Loop, Loop forever
     while (1) {
-
-
-        error++;
-        /*
         CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
         error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
         if (error == 0) {
@@ -137,10 +132,10 @@ int main(int argc, char** argv) {
             errorcount += 1;
         }
         //errorcount += sensorarray[0].Errors;
-        IntegerToBinary(errorcount, 8, display);
-        writeString(display);
+        IntegerToBinary(errorcount, 8, dispray);
+        writeString(dispray);
         //putLCD(sensorarray[0].Errors + 0x30);
-        writeString("\r\n");*/
+        writeString("\r\n");
     }
     return (EXIT_SUCCESS);
 }
