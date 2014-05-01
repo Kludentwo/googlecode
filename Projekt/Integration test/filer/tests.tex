@@ -406,7 +406,7 @@ The purpose of this test is to test the data recovery circuit located on the sen
 
 \textbf{Test equipment:}
 \begin{itemize}
-\item HAMEG HM203-6 Oscilloscope
+\item Analog Discovery USB oscilloscope
 \item HAMEG HM8030-3 Function generator
 \item Sensor node (UUT)
 \item Sensor node communication stub
@@ -461,7 +461,7 @@ The purpose of this test is to test the clock recovery circuit located on the se
 
 \textbf{Test equipment:}
 \begin{itemize}
-	\item HAMEG HM203-6 Oscilloscope
+	\item Analog Discovery USB oscilloscope
 	\item HAMEG HM8030-3 Function generator
 	\item Sensor node (UUT)
 	\item Sensor node communication stub
@@ -496,19 +496,23 @@ Set the Oscilloscope to:
 \end{figure}
 
 \textbf{Expected Result:}\\
-Frequency: 10 kHz in phase with the input signal.\\
+Frequency: 10 kHz locked in 90$^\circ$ phase with the input signal.\\
 Store a picture of the oscilloscope as reference.
 
 
 \textbf{Result:}
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
-	\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-	6 & --- & --- & --- \\ \hline
+	\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+	 	01-05-2014 & See scope picture & PASSED \\ \hline
 	\end{tabular}
 \end{table}
 \textbf{Picture:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/SN_Case_2_osc_picture}
+\end{figure}
 \textbf{Comment and remarks:}\\
 -\\
 
