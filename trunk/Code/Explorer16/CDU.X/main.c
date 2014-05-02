@@ -322,6 +322,38 @@ unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char
     return 1;
 }
 
+void CDUPCCom(void)
+{
+    unsigned int memcnt = 0;
+    unsigned char msg = 0;
+    Sensor output;
+    if(_RA7)
+    {
+        return;
+    }
+    msg = UARTGetChar();
+    if(msg == 'A')
+    {
+        T1CON.TON = 0;
+        for(memcnt = 0; memcnt < 4681; memcnt++)
+        {
+            Load( (memcnt*7), output);
+            UARTPutChar(output.Address);
+            UARTPutChar(output.Data >> 8);
+            UARTPutChar(output.Data);
+            UARTPutChar(output.Year);
+            UARTPutChar(output.Month);
+            UARTPutChar(output.Day);
+            UARTPutChar(output.Hour);
+            UARTPutChar(output.Minute);
+            UARTPutChar(output.Type);
+            UARTPutChar(output.Errors);
+        }
+        T1CON.TON = 1;
+
+    }
+}
+
 /*========================================================================
                             INTERRUPT ROUTINE
 ========================================================================*/
