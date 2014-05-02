@@ -33,6 +33,7 @@
 \end{table}
 
 \chapter{Unit Tests}
+This chapter describes all unit tests performed on each subsystem. A tolerance of 5\% (where applicable and not otherwise specified) is used as an acceptable test result.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CDU %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -449,14 +450,8 @@ Connect FG+ from the sensor node communication test stub to the positive connect
 \item frequency: 10kHz
 \item Waveform: Square
 \end{itemize}
-Connect the oscilloscope ground to the GND test point on the UUT.
+Connect the oscilloscope reference to the GND test point on the UUT.
 Connect the oscilloscope probe to the DIN point on the UUT.\\
-Set the Oscilloscope to:
-\begin{itemize}
-\item Volts/div: 1V
-\item Time/div: 50$\mu$s
-\item Probe: AC coupled
-\end{itemize}
 \begin{figure}[H]
 	\centering
 	\subbottom[Sensor node supply test stub]{%
@@ -476,10 +471,15 @@ Store a picture of the oscilloscope as reference.
 \centering
 \begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
 \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
---- & --- & --- \\ \hline
+01-05-2014 & See scope picture & PASSED \\ \hline
 \end{tabular}
 \end{table}
 \textbf{Picture:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/SN_Case2_osc_picture}
+\caption{Case 2 scope picture}
+\end{figure}
 \textbf{Comment and remarks:}\\
 -\\
 
@@ -505,22 +505,17 @@ Connect FG+ from the sensor node communication test stub to the positive connect
 	\item Waveform: Square
 \end{itemize}
 
-Connect the oscilloscope ground to the GND test point on the UUT.
+Connect the oscilloscope references to the GND test point on the UUT.
 Connect the oscilloscope probe 1 to the DIN point on the UUT.
 Connect the oscilloscope probe 2 to the 10kHz test point on the UUT.\\
-Set the Oscilloscope to:
-\begin{itemize}
-	\item Volts/div: 1V
-	\item Time/div: 50$\mu$s
-	\item Probe: AC coupled
-\end{itemize}
+
 
 \begin{figure}[H]
 	\centering
 	\subbottom[Sensor node supply test stub]{%
 		\includegraphics[width=.48\linewidth]{billeder/sensor_node_communication_test_stub}}
 	\subbottom[Picture of the sensor node]{%
-		\includegraphics[width=.48\linewidth]{billeder/case6_picture}}
+		\includegraphics[width=.48\linewidth]{billeder/SN_case_3_connections_picture}}
 \end{figure}
 
 \textbf{Expected Result:}\\
@@ -539,10 +534,67 @@ Store a picture of the oscilloscope as reference.
 \textbf{Picture:}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.9\textwidth]{billeder/SN_Case_2_osc_picture}
+\includegraphics[width=.9\textwidth]{billeder/SN_Case_3_osc_picture}
 \end{figure}
 \textbf{Comment and remarks:}\\
 -\\
+
+\subsubsection{Test case 4: Respond circuit}
+\textbf{Purpose:}\\
+The purpose of this test is to test respond circuit located on the sensor node. The levels must not exceed the limits specified in the implementation documentation.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+	\item Analog Discovery USB oscilloscope
+	\item HAMEG HM8030-3 Function generator
+	\item Sensor node (UUT)
+	\item Sensor node supply test stub
+\end{itemize}
+\ \\
+\textbf{Procedure:}\\
+Connect B+ from the sensor node supply test stub to the S+ on the UUT. Connect B- from the sensor node supply test stub to the S- on the UUT.
+Connect the positive connector from the function generator to the RE test point on the UUT. Connect the negative connector from the function generator to the GND test point on the UUT.\\ Set the Function generator to:
+\begin{itemize}
+	\item pk-pk: 3.3V
+	\item DC offset: 1.65V
+	\item frequency: 10kHz
+	\item Waveform: Square
+\end{itemize}
+
+Connect the oscilloscope reference to the S- point on the UUT.
+Connect the oscilloscope probe to the S+ point on the UUT.
+
+
+\begin{figure}[H]
+	\centering
+	\subbottom[Sensor node supply test stub]{%
+		\includegraphics[width=.48\linewidth]{billeder/Sensor_node_supply_test_stub}}
+	\subbottom[Picture of the sensor node]{%
+		\includegraphics[width=.48\linewidth]{billeder/SN_Case_4_connections_picture}}
+\end{figure}
+
+\textbf{Expected Result:}\\
+Frequency: 10 kHz.\\
+Amplitude: 710mV$\pm$36mV\\
+DC Offset: 5V$\pm$250mV\\
+Store a picture of the oscilloscope as reference.
+
+
+\textbf{Result:}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+	 	01-05-2014 & See scope picture & FAILED \\ \hline
+	\end{tabular}
+\end{table}
+\textbf{Picture:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]{billeder/SN_case_4_osc_picture}
+\end{figure}
+\textbf{Comment and remarks:}\\
+The pk-pk voltage is too low. The voltage level error isn't crusial to the system performance.\\
 
 \subsection{Software}
 The software tests of the Sensor node
