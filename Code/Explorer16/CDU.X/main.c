@@ -1,4 +1,4 @@
-/* 
+M/* 
  * File:   main.c
  * Author: Nicolai
  *
@@ -58,7 +58,6 @@ unsigned char alive[NUMBEROFSENSORS] = {0};
 
 // Counters
 unsigned int loopcounter = 0;
-unsigned int outcounter = 0;
 unsigned int recvcounter = 0;
 unsigned char waitclock = 0;
 unsigned int addresscounter = 0;
