@@ -1,4 +1,4 @@
-M/* 
+/* 
  * File:   main.c
  * Author: Nicolai
  *
@@ -52,7 +52,7 @@ unsigned char message[(2 * MESSAGELENGTH)] = {0};
 unsigned char response[RESPONSELENGTH] = {0};
 unsigned char testresponse[RESPONSELENGTH] = {1, 0, 1, 0, 0, 1, 0, 1, 0, 0,
 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0};
-unsigned char display[12] = {0};
+unsigned char display[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
 
@@ -91,20 +91,23 @@ int main(int argc, char** argv) {
 
     RCONbits.SWDTEN = 0; // Disable watchdog
 
-    TRISA = 0x0010; //configure (RA4 = Inputs, Rest = output)
+    TRISA = 0x0090; //configure (RA4 = Inputs, Rest = output)
     TRISB = 0x0000; //configure all PortB as output
     TRISD = 0x0000; //configure all PortD
     TRISF = 0x0010; //configure F4 = Input, Rest = output
 
     AD1PCFG = 0xFFFF; //set to all digital I/O
 	
-//    PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
-//    IPC0bits.T1IP = 5; //set interrupt priority
-//    T1CON = 0b1000000000000000; //turn on the timer
-//    IFS0bits.T1IF = 0; //reset interrupt flag
-//    IEC0bits.T1IE = 1; //turn on the timer1 interrupt
+    
 	
     initLCD();
+
+    PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
+    IPC0bits.T1IP = 5; //set interrupt priority
+    T1CON = 0b1000000000000000; //turn on the timer
+    IFS0bits.T1IF = 0; //reset interrupt flag
+    IEC0bits.T1IE = 1; //turn on the timer1 interrupt
+    
     InitCDUFlags(&CDUFlags);
     InitSensorArray(sensorarray);
     InitMemory();
@@ -121,10 +124,6 @@ int main(int argc, char** argv) {
   
     //Main Program Loop, Loop forever
     while (1) {
-
-
-        error++;
-        /*
         CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
         error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
         if (error == 0) {
@@ -139,7 +138,11 @@ int main(int argc, char** argv) {
         IntegerToBinary(errorcount, 8, display);
         writeString(display);
         //putLCD(sensorarray[0].Errors + 0x30);
-        writeString("\r\n");*/
+        writeString("\r\n");
+        sensorarray[0].Data += 1;
+        Save(&addresscounter,&(sensorarray[0]));
+        UARTPutChar('C');
+        CDUPCCom();
     }
     return (EXIT_SUCCESS);
 }
@@ -326,17 +329,20 @@ void CDUPCCom(void)
     unsigned int memcnt = 0;
     unsigned char msg = 0;
     Sensor output;
-    if(_RA7)
+    if(_RA7 != 0)
     {
+        UARTPutChar('N');
         return;
     }
+    UARTPutChar('F');
     msg = UARTGetChar();
     if(msg == 'A')
     {
-        T1CON.TON = 0;
-        for(memcnt = 0; memcnt < 4681; memcnt++)
+        T1CONbits.TON = 0;
+        for(memcnt = 0; memcnt < 700; memcnt++)
         {
-            Load( (memcnt*7), output);
+            //4681
+            Load( (memcnt*7), &output);
             UARTPutChar(output.Address);
             UARTPutChar(output.Data >> 8);
             UARTPutChar(output.Data);
@@ -347,8 +353,10 @@ void CDUPCCom(void)
             UARTPutChar(output.Minute);
             UARTPutChar(output.Type);
             UARTPutChar(output.Errors);
+            UARTPutChar(',');
+           // UARTPutChar('\n');
         }
-        T1CON.TON = 1;
+        T1CONbits.TON = 1;
 
     }
 }
