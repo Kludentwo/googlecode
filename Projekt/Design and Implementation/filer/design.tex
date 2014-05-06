@@ -118,6 +118,8 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \hline
 \texttt{waitclock} & This variable(counter) is used for delaying when in between writing to the bus and reading from the bus.\\ 
 \hline
+\texttt{addresscounter} & This variable(counter) is used for placing the point in memory in the right place.\\ 
+\hline
 \texttt{maincounter} & This variable(counter) is used for delaying in between transmission sequences.\\ 
 \hline
 \end{tabular}
@@ -138,6 +140,101 @@ Return value:&none\\
 \end{tabular}
 \end{table}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} IntegerToBinary( \texttt{\textcolor{blue}{unsigned char} input, \textcolor{blue}{unsigned char} size, \textcolor{blue}{unsigned char*} outputbuffer  }) } } \\
+\hline
+Description:& The function is used convert an integer to a binary array.\\
+Parameters:&\texttt{\textcolor{blue}{unsigned char} input}\\
+&\texttt{\textcolor{blue}{unsigned char} size}\\
+&\texttt{\textcolor{blue}{unsigned char*} outputbuffer}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} PatMessage( \texttt{\textcolor{blue}{unsigned char} addr, \textcolor{blue}{unsigned char} functioncode, \textcolor{blue}{unsigned char*} outputbuffer  }) } } \\
+\hline
+Description:& The function is used create a message from the start code, an address and a function code. This is put into the outputbuffer.\\
+Parameters:&\texttt{\textcolor{blue}{unsigned char} addr}\\
+&\texttt{\textcolor{blue}{unsigned char} functioncode}\\
+&\texttt{\textcolor{blue}{unsigned char*} outputbuffer}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} ToManchester( \texttt{\textcolor{blue}{unsigned char*} inputbuffer, \textcolor{blue}{unsigned char*} outputbuffer, \textcolor{blue}{struct cduflags*} CDUFlags  }) } } \\
+\hline
+Description:& The function is used convert the message contained in the inputbuffer to manchester coding and put it in the outputbuffer. The outputbuffer must be twice the size of the inputbuffer. The cduflags struct contains flags to signal when a message has been put into the outputbuffer.\\
+Parameters:&\texttt{\textcolor{blue}{unsigned char*} inputbuffer}\\
+&\texttt{\textcolor{blue}{unsigned char*} outputbuffer}\\
+&\texttt{\textcolor{blue}{struct cduflags*} CDUFlags}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} InitSensorArray( \texttt{\textcolor{blue}{Sensor*} sensorarray})}} \\
+\hline
+Description:& The function is used to Initiate the sensorarray with addresses and values. Addresses are assigned from 1 to 15. The rest is instantiated to zero.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} InitCDUFlags( \texttt{\textcolor{blue}{Cduflags*} CDUFlags})}} \\
+\hline
+Description:& The function is used to Initiate the cduflags in the Cduflags struct to zero.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} CDUStartUpRoutine( \texttt{\textcolor{blue}{Sensor*} sensorarray, \textcolor{blue}{unsigned char*} alive, \textcolor{blue}{unsigned char*} Messagebuffer, \textcolor{blue}{unsigned char*} receivebuffer, \textcolor{blue}{Cduflags*} CDUFlags})}} \\
+\hline
+Description:& The function is used to send messages with the GETINFO function code to every sensor in the sensorarray. If a response has been received, the type is stored in the relevant sensor struct in the sensorarray. The alive is updated with the responding sensor.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{unsigned char*} alive}\\
+&\texttt{\textcolor{blue}{unsigned char*} Messagebuffer}\\
+&\texttt{\textcolor{blue}{unsigned char*} receivebuffer}\\
+&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} CDUSend( \texttt{\textcolor{blue}{Sensor*} Sens, \textcolor{blue}{unsigned char} functioncode, \textcolor{blue}{unsigned char*} Messagebuffer, \textcolor{blue}{Cduflags*} CDUFlags})}} \\
+\hline
+Description:& The function is used to send messages with the function code to the sensor inserted. The cduflags struct is used to poll on when to send and to set the comflag. if a function code larger than 15 is inserted the function sends out function code 0 which will result in an error on the sensor node side.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{unsigned char} functioncode}\\
+&\texttt{\textcolor{blue}{unsigned char*} Messagebuffer}\\
+&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{unsigned char} CDUReceive( \texttt{\textcolor{blue}{Sensor*} Sens, \textcolor{blue}{unsigned char} functioncode, \textcolor{blue}{unsigned char*} receivebuffer, \textcolor{blue}{Cduflags*} CDUFlags})}} \\
+\hline
+Description:& The function is used to receive messages from the receivebuffer and verify address and function code. If the proper address and function code is received data or type is stored in the relevant sensor struct. If verification fails it returns 0. If everything went as expected a 1 is returned. 2 is returned if the function code is larger than 15.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{unsigned char} functioncode}\\
+&\texttt{\textcolor{blue}{unsigned char*} receivebuffer}\\
+&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&\texttt{\textcolor{blue}{unsigned char} errors}\\
+\end{tabular}
+\end{table}
 
 \subsection{PC communication}
 tbw
