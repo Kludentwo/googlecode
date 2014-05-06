@@ -56,16 +56,16 @@ The power supply block is responsible for power to the entire sensor. This invol
 \end{figure} 
 
 The goal is to create a steady 3.3V power to the components on the sensor node. The bus is specified as a line where all sensor nodes are placed in series. Therefore each sensor node has an individual reference ground. The line is a constant current modulated with communication.\\
-Interface levels:
+Interfaces:
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{3cm} | p{5cm}| }
+	\begin{tabular}{|p{3cm} | p{8cm}| }
 		\hline
-		Interface name: & 	Levels 								& Description \\ \hline
-		S+ 				& 	$\geq$4.7V (with respect to GND) 	& The S+ input is the positive connection from the CDU. \\ \hline
-		3.3V			&	3.3V (with respect to GND)			& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
-		Analog CDU com  &   $\sim$0V to $\sim$17.5mV			& The voltage drop caused by the communication current over the \\ \hline
-		GND				&	0V									& Voltage reference ground on the individual sensor.\\\hline 
+		Interface name: 	& Description \\ \hline
+		S+ 				& The S+ input is the positive connection from the CDU. \\ \hline
+		3.3V			& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
+		Analog CDU com  & The voltage drop caused by the communication current over the \\ \hline
+		GND				& Voltage reference ground on the individual sensor.\\\hline 
 	\end{tabular}
 \end{table}
 
@@ -95,13 +95,13 @@ The purpose of the communication is to synchronize the sensor node clock to the 
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{3cm} | p{5cm}| }
+	\begin{tabular}{|p{3cm} | p{8cm}| }
 		\hline
-		Interface name: & 	Levels 								& Description \\ \hline
-		Supply			& 	3.3V							 	& 3.3V from the power supply. \\ \hline
-		Analog com in	&	$\sim$0V to $\sim$17.5mV 			& The voltage-converted communication signal from the CDU.\\ \hline
-		Respond signal  &   $\sim$0V to $\sim$3.3V				& Digital input with the respond to the CDU from the logic handler. \\ \hline
-		GND				&	0V									& Voltage reference ground on the individual sensor.\\\hline 
+		Interface name: & Description \\ \hline
+		Supply			& 3.3V from the power supply. \\ \hline
+		Analog com in	& The voltage-converted communication signal from the CDU.\\ \hline
+		Respond signal  & Digital input with the respond to the CDU from the logic handler. \\ \hline
+		GND				& Voltage reference ground on the individual sensor.\\\hline 
 	\end{tabular}
 \end{table}
 
