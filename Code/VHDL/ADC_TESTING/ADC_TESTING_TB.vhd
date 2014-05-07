@@ -15,6 +15,12 @@ architecture bench of ADC_TESTING_TB is
 		  CS					   : out std_logic;
 		  SHDN	   			: out std_logic;
 		  LEDS	     	: out std_logic_vector(11 downto 0)
+		reset				: in std_logic;
+		----- testing-----
+		S_CLK_test		: out std_logic;
+		DATA_test		: out std_logic;
+		CS_test			: out std_logic;
+		pause				: in std_logic
     );
 
   end component;
@@ -39,7 +45,7 @@ begin
        LEDS          => LEDS);
 
   -- clock generation
-  CLK_27 <= not CLK_27 after 37ns/2;
+  CLK_27 <= not CLK_27 after 50000ns/2;
 
   stimulus : process
   begin
