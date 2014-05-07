@@ -1,4 +1,4 @@
-\chapter{Implementation}
+\chapter{Hardware}
 Each unit is described by the following procedure:
 \begin{itemize}
 \item Overall design and block description - Quick design overview
@@ -109,3 +109,10 @@ The purpose of the communication is to synchronize the sensor node clock to the 
 \subsubsection{Logic handler}
 
 \subsubsection{Sensor}
+
+\subsection{Block construction}
+This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
+
+\subsubsection{Powersupply}
+As seen on figure \ref{fig:SN_detailed_ps} the powersupply consists of a zener diode, a sense resistor and a voltage regulator.\\
+The diode is a BZX79-B4V7 and has a 4.7V drop when saturated. This enables the voltage regulator, LM317LZ, to create a steady 3.3V supply to the circuit.\\
