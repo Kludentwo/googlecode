@@ -3,7 +3,7 @@ Each unit is described by the following procedure:
 \begin{itemize}
 \item Overall design and block description - Quick design overview
 \item Block breakdown - Detailed design overview
-\item Block construction - Detailed implementation and calculations.
+\item Block construction - Detailed implementation, simulation and calculation results.
 \end{itemize}
 This procedure is meant to ease readability and help give an overview of the entire system implementation.
 \section{CDU}
@@ -115,4 +115,44 @@ This section describes all detailed calculations done to realize the implementat
 
 \subsubsection{Powersupply}
 As seen on figure \ref{fig:SN_detailed_ps} the powersupply consists of a zener diode, a sense resistor and a voltage regulator.\\
-The diode is a BZX79-B4V7 and has a 4.7V drop when saturated. This enables the voltage regulator, LM317LZ, to create a steady 3.3V supply to the circuit.\\
+The voltage regulator should output a 3.3V to supply the sensor. Below on figure \ref{fig:LM317} is shown a typical application from the datasheet. The to this application the following formula for output voltage is given:\\
+\begin{equation}
+	V_{out}=1.25V\left(1+\frac{R2}{R1}\right)+ I_{ADJ}*R2
+\end{equation}
+
+With R1 given as 240$\Omega$, V$_{OUT}$=3.3V and I$_{ADJ}$=50$\mu$A(typ.) R2 will be $\approx$ 390$\Omega$.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/LM317}
+	\caption{LM117 voltage regulator series typical application}
+	\label{fig:LM317}
+\end{figure}
+
+In the datasheet the input voltage versus output voltage is specified to a minimum of 3V to ensure the specified output current of 100mA. But since we doesn't need more then 20mA at max we tested the regulator with $V_{IN}-V_{OUT}=1.3V$ and the output voltage is well within acceptable levels.\\
+
+\textbf{Simulation result:}\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/PS_lm317_sim}
+	\caption{Powersupply simulation}
+	\label{fig:ps_sim}
+\end{figure}
+
+
+
+\subsubsection{Communication}
+
+\subsubsection{Logic handler}
+
+\subsubsection{Sensor}
+
+
+
+
+
+
+
+
