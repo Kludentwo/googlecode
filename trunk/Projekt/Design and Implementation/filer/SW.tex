@@ -2,51 +2,6 @@
 This chapter contains the design choices and an explanation of the different design blocks.
 
 \section{CDU}
-This section contains the CDU design blocks.
-\subsection{Power Supply}
-tbw
-%The power supply is in charge of providing the system with 3.3 volts. This supply is for analog parts of the CDU and the µ-controller. The design is shown in figure \ref{fig:cdupowersupply}.
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdupowersupply}
-%\label{fig:cdupowersupply}
-%\caption{CDU Power Supply}
-%\end{figure}
-
-\subsection{Sensor Power Supply}
-tbw
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdusensorpowersupply}
-%\label{fig:cdusensorpowersupply}
-%\caption{Sensor Power Supply part of the CDU}
-%\end{figure}
-
-\subsection{Sensor communication}
-tbw
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdusensorsend}
-%\label{fig:cdusensorsend}
-%\caption{Writing to Sensor node(s)}
-%\end{figure}
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=1\textwidth]{billeder/cdusensorread}
-%\label{fig:cdusensorread}
-%\caption{Reading from Sensor node(s)}
-%\end{figure}
-
-
-
-\subsection{µ-Controller}
-The microcontroller block is a hybrid hardware and software block. Both blocks will be explained in this subsection.
-\subsubsection{Hardware}
-
-\subsubsection{Software}
 The software on the microcontroller governs the sensor communication, the PC communication and the memory. The hierarchy of software can be seen on the class diagram in figure ~\ref{fig:cduclassd}.
 
 \begin{figure}[H]
@@ -56,7 +11,7 @@ The software on the microcontroller governs the sensor communication, the PC com
 \caption{CDU Class diagram}
 \end{figure}
 
-\textbf{Variables:}\\
+\subsection{Variables:}
 The global variables in the CDU includes 2 structs. These 2 structs will be shown in their own table.
 \begin{table}[H]
 \begin{tabular}{|l|p{10cm}|}
@@ -128,7 +83,7 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \end{table}
 
 
-\textbf{Function descriptions:}\\
+\subsection{Function descriptions:}
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
@@ -166,12 +121,12 @@ Return value:&none\\
 
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} ToManchester( \texttt{\textcolor{blue}{unsigned char*} inputbuffer, \textcolor{blue}{unsigned char*} outputbuffer, \textcolor{blue}{struct cduflags*} CDUFlags  }) } } \\
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} ToManchester( \texttt{\textcolor{blue}{unsigned char*} inputbuffer, \textcolor{blue}{unsigned char*} outputbuffer, \textcolor{blue}{Cduflags*} CDUFlags  }) } } \\
 \hline
 Description:& The function is used convert the message contained in the inputbuffer to manchester coding and put it in the outputbuffer. The outputbuffer must be twice the size of the inputbuffer. The cduflags struct contains flags to signal when a message has been put into the outputbuffer.\\
 Parameters:&\texttt{\textcolor{blue}{unsigned char*} inputbuffer}\\
 &\texttt{\textcolor{blue}{unsigned char*} outputbuffer}\\
-&\texttt{\textcolor{blue}{struct cduflags*} CDUFlags}\\
+&\texttt{\textcolor{blue}{Cduflags*} CDUFlags}\\
 Return value:&none\\
 \end{tabular}
 \end{table}
@@ -205,7 +160,7 @@ Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 &\texttt{\textcolor{blue}{unsigned char*} alive}\\
 &\texttt{\textcolor{blue}{unsigned char*} Messagebuffer}\\
 &\texttt{\textcolor{blue}{unsigned char*} receivebuffer}\\
-&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{Cduflags*} CDUFlags}\\
 Return value:&none\\
 \end{tabular}
 \end{table}
@@ -218,7 +173,7 @@ Description:& The function is used to send messages with the function code to th
 Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 &\texttt{\textcolor{blue}{unsigned char} functioncode}\\
 &\texttt{\textcolor{blue}{unsigned char*} Messagebuffer}\\
-&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{Cduflags*} CDUFlags}\\
 Return value:&none\\
 \end{tabular}
 \end{table}
@@ -231,27 +186,9 @@ Description:& The function is used to receive messages from the receivebuffer an
 Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 &\texttt{\textcolor{blue}{unsigned char} functioncode}\\
 &\texttt{\textcolor{blue}{unsigned char*} receivebuffer}\\
-&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+&\texttt{\textcolor{blue}{Cduflags*} CDUFlags}\\
 Return value:&\texttt{\textcolor{blue}{unsigned char} errors}\\
 \end{tabular}
 \end{table}
 
-\subsection{PC communication}
-tbw
-
-\subsection{Memory}
-tbw
-
 \section{Sensor node}
-This section contains the Sensor node design blocks.
-\subsection{Communication}
-tbw
-
-\subsection{Logic handler}
-tbw
-
-\subsection{Power supply}
-tbw
-
-\subsection{Sensor}
-tbw

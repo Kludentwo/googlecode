@@ -7,13 +7,62 @@ Each unit is described by the following procedure:
 \end{itemize}
 This procedure is meant to ease readability and help give an overview of the entire system implementation.
 \section{CDU}
+This section contains the CDU design blocks.
+\subsection{Power Supply}
+tbw
+%The power supply is in charge of providing the system with 3.3 volts. This supply is for analog parts of the CDU and the µ-controller. The design is shown in figure \ref{fig:cdupowersupply}.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=1]{billeder/cdupowersupply}
+%\label{fig:cdupowersupply}
+%\caption{CDU Power Supply}
+%\end{figure}
+
+\subsection{Sensor Power Supply}
+tbw
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=1]{billeder/cdusensorpowersupply}
+%\label{fig:cdusensorpowersupply}
+%\caption{Sensor Power Supply part of the CDU}
+%\end{figure}
+
+\subsection{Sensor communication}
+tbw
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=1]{billeder/cdusensorsend}
+%\label{fig:cdusensorsend}
+%\caption{Writing to Sensor node(s)}
+%\end{figure}
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1\textwidth]{billeder/cdusensorread}
+%\label{fig:cdusensorread}
+%\caption{Reading from Sensor node(s)}
+%\end{figure}
+
+
+
+\subsection{µ-Controller}
+The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter
+
+
+\subsection{PC communication}
+tbw
+
+\subsection{Memory}
+tbw
 
 \section{Sensor Node}
 The sensor node responsibility is, as described in the previous documents, to capture a temperature and support the custom powerline communication protocol. Below is described in detail how each block in the sensor node is implemented and designed.
 
 \subsection{Overall design}
 Below is shown a figure of the overall sensor node design.
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=.9\textwidth]{billeder/sn_overall_design}
 \caption{Sensor node overall design}
@@ -34,7 +83,7 @@ The sensor part of the sensor node serves as the actual measurement circuit. Thi
 
 \subsection{Block breakdown}
 This section describes the interfaces and the design of each individual block.\\
-Below, in figure \ref{fig:SN_detailed} is shown a detailed overview of the sensor node design. This will be the basis of the block breakdown section.
+Below, in figure \ref{fig:SN_detailed}, is shown a detailed overview of the sensor node design. This will be the basis of the block breakdown section.
 
 \begin{figure}[H]
 	\centering
@@ -79,7 +128,7 @@ Below, on figure \ref{fig:SN_detailed_ps}, is shown a simplified implementation 
 	\label{fig:SN_detailed_ps}
 \end{figure}
 
-The diode and R$_{\text{com}}$ creates a voltage drop from which the voltage regulator creates the steady 3.3V suuply. The R$_{\text{com}}$ resistor serves to "convert" the current modulated communication to a voltage to the communication block.
+The diode and R$_{\text{com}}$ creates a voltage drop from which the voltage regulator creates the steady 3.3V supply. The R$_{\text{com}}$ resistor serves to "convert" the current modulated communication to a voltage to the communication block.
 
 \subsubsection{Communication}
 The communication block generates a steady synchronized clock and converts data to the correct logic levels. It also has a logical interface which enables responds to the CDU by modulate the current drop over the entire sensor. Below in figure \ref{fig:SN_com_fig} the communication block interfaces is shown.

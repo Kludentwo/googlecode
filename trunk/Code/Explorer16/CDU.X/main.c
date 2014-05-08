@@ -4,8 +4,6 @@
  *
  * Created on 2. april 2014, 11:11
  */
-
-
 /*========================================================================
                                 INCLUDES
 ========================================================================*/
@@ -18,9 +16,6 @@
 
 _CONFIG1(JTAGEN_OFF & GCP_OFF & GWRP_OFF & COE_OFF & FWDTEN_OFF & ICS_PGx2)
 _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
-/*
- * 
- */
 /*========================================================================
                                 DEFINES
 ========================================================================*/
@@ -72,13 +67,13 @@ unsigned int startupcounter2 = 0;
 ========================================================================*/
 void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* outputbuffer);
 void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer);
-void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, struct cduflags* CDUFlags);
+void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, Cduflags* CDUFlags);
 void InitSensorArray(Sensor* sensorarray);
 void InitCDUFlags(Cduflags* CDUFlags);
 void CDUInit(void);
-void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, struct cduflags* CDUFlags);
-void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, struct cduflags* CDUFlags);
-unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags);
+void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, Cduflags* CDUFlags);
+void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, Cduflags* CDUFlags);
+unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, Cduflags* CDUFlags);
 void CDUPCCom(void);
 
 /*========================================================================
@@ -129,11 +124,11 @@ int main(int argc, char** argv) {
         if (error == 0) {
             errorcount += 1;
         }
-        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
-        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
-        if (error == 0) {
-            errorcount += 1;
-        }
+//        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
+//        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
+//        if (error == 0) {
+//            errorcount += 1;
+//        }
         //errorcount += sensorarray[0].Errors;
         IntegerToBinary(errorcount, 8, display);
         writeString(display);
@@ -192,7 +187,7 @@ void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* o
     }
 }
 
-void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, struct cduflags* CDUFlags) {
+void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, Cduflags* CDUFlags) {
     unsigned int bitcount = 0;
     unsigned int counter = 0;
     unsigned int j;
@@ -248,7 +243,7 @@ void InitCDUFlags(Cduflags* CDUFlags) {
     CDUFlags->recvflag = 0;
 }
 
-void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, struct cduflags* CDUFlags) {
+void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, Cduflags* CDUFlags) {
     unsigned char addresscounter = 0;
     for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
        CDUSend(&(sensorarray[addresscounter]), GETINFO, Messagebuffer, CDUFlags);
@@ -256,7 +251,7 @@ void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char*
     }
 }
 
-void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, struct cduflags* CDUFlags) {
+void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, Cduflags* CDUFlags) {
     if (functioncode > 15)
     {
         return;
@@ -269,7 +264,7 @@ void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuf
     CDUFlags->comflag = 1;
 }
 
-unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags) {
+unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, Cduflags* CDUFlags) {
     unsigned char datacnt = 0;
     unsigned char FunctioncodeHolder = 0;
     unsigned char AddressHolder = 0;
