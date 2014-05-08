@@ -5,8 +5,8 @@
     \begin{tabular}{|l|l|l|p{10cm}|}
     \hline
     Case & Control Unit & Unit under Test & Execution \\ \hline
-    1 & CDU & Sensor & CDU sends a get data request to a sensor. \\ \hline
-    2 & Sensor & CDU & Sensor sends data to the CDU \\ \hline
+    1 & CDU & Sensor & CDU sends a get info request to a sensor. \\ \hline
+    2 & Sensor & CDU & Sensor sends info to the CDU \\ \hline
     3 & PC & CDU & PC sends a get data request to the CDU \\ \hline
     4 & CDU & Sensor & CDU requests data from a sensor that does not exists \\ \hline
     5 & PC & CDU & PC sends a message to the CDU that the CDU does not recognise. \\ \hline
@@ -31,6 +31,13 @@
     8 & ~ & ~ & ~\\ \hline
     \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{billeder/CDUtestcase9}
+\caption{Test Case 1 Result}
+\label{fig:InteTestCase1}
+\end{figure}
 
 \chapter{Unit Tests}
 This chapter describes all unit tests performed on each subsystem. A tolerance of 5\% (where applicable and not otherwise specified) is used as an acceptable test result.
@@ -344,9 +351,10 @@ A message was observed on PORTA5. Message corresponds to inserted sensor and fun
 \centering
 \begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
 \textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-9 & - & - & - \\ \hline
+9 & 06-05-2014 & See Below & Passed \\ \hline
 \end{tabular}
 \end{table}
+A message was observed on PORTA5. Message corresponded to inserted sensor and functioncode.\\
 
 \textbf{Comment and remarks:}\\
 -\\
@@ -364,10 +372,46 @@ The purpose of this test is to test the function CDUReceive with the parameters:
 \end{itemize}
 
 \textbf{Procedure:}\\
-Connect the Explorer 16 board to the ICD 3 Debugger. Create 2 testbuffers. One with a correct message and wrong with a message containing errors. Insert a sensor, a function code, one of the testbuffers and a cduflags struct pointer. Set the recvflag to 1. Observe the returned unsigned char and sensor struct. Switch the testbuffer and observe the returned unsigned char and sensor struct.\\
+Connect the Explorer 16 board to the ICD 3 Debugger. Create a testbuffer with a correct message. Insert a sensor, a function code, one of the testbuffers and a cduflags struct pointer. Set the recvflag to 1. Observe the returned unsigned char and sensor struct.\\
 
 \textbf{Expected Result:}\\
 When inserting a buffer containing a correct message, the returned unsigned char will be 1. The sensor struct is updated containing the data from the message.\\
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+10 & 02-05-2014 & See below & Passed \\ \hline
+\end{tabular}
+\end{table}
+The struct was updated and the returned value was 1. See figure \ref{fig:cdutestcase10} for updated struct.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{billeder/CDUtestcase10}
+\caption{Test Case 10 Result}
+\label{fig:cdutestcase10}
+\end{figure}
+
+\textbf{Comment and remarks:}\\
+-\\
+
+\subsubsection{Test case 11: Test of function CDUReceive error handling }
+\textbf{Purpose:}\\
+The purpose of this test is to test the function CDUReceive with the parameters: Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, struct cduflags* CDUFlags and the return type unsigned char.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item CDU (UUT)
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\end{itemize}
+
+\textbf{Procedure:}\\
+Connect the Explorer 16 board to the ICD 3 Debugger. Create a testbuffer with a message containing an error in function code. Insert a sensor, a function code, one of the testbuffers and a cduflags struct pointer. Set the recvflag to 1. Observe the returned unsigned char and sensor struct.\\
+
+\textbf{Expected Result:}\\
 When inserting a buffer containing a message with errors, the returned unsigned char will be 0. The sensor struct is not updated.\\
 
 \textbf{Actual Result:}\\
@@ -375,9 +419,16 @@ When inserting a buffer containing a message with errors, the returned unsigned 
 \centering
 \begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
 \textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-9 & - & - & - \\ \hline
+11 & - & - & - \\ \hline
 \end{tabular}
 \end{table}
+The struct was not updated and the returned value was 0. See figure \ref{fig:cdutestcase11} for struct.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{billeder/CDUtestcase10_fail}
+\caption{Test Case 11 Result}
+\label{fig:cdutestcase11}
+\end{figure}
 
 \textbf{Comment and remarks:}\\
 -\\
