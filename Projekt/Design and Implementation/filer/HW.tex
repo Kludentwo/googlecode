@@ -7,8 +7,48 @@ Each unit is described by the following procedure:
 \end{itemize}
 This procedure is meant to ease readability and help give an overview of the entire system implementation.
 \section{CDU}
-This section contains the CDU design blocks.
-\subsection{Power Supply}
+The CDU responsibility is, as described in the previous documents, to control the custom powerline communication and to govern the information about the sensor nodes. The information is stored in memory and can be loaded out to a PC.
+\subsection{Overall design}
+Below is shown a figure of the overall CDU design.
+\subsubsection{Block description}
+\textbf{Power Supply}
+
+\subsection{Block breakdown}
+This section describes the interfaces and the design of each individual block.\\
+Below, in figure \ref{fig:detailedCDU}, is shown a detailed overview of the CDU design. This will be the basis of the block breakdown section.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/detailedCDU}
+	\caption{Detailed CDU breakdown}
+	\label{fig:detailedCDU}
+\end{figure}
+
+The following subsection will cover all interfaces and design considerations.
+\subsubsection{Power Supply}
+tbw
+
+
+\subsubsection{Sensor Power supply}
+tbw
+
+
+\subsubsection{Sensor communication}
+tbw
+
+
+
+\subsubsection{µ-Controller}
+The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
+
+\subsubsection{PC communication}
+tbw
+
+\subsubsection{Memory}
+tbw
+
+\subsection{Block construction}
+This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
+\subsubsection{Power Supply}
 tbw
 %The power supply is in charge of providing the system with 3.3 volts. This supply is for analog parts of the CDU and the µ-controller. The design is shown in figure \ref{fig:cdupowersupply}.
 %
@@ -19,7 +59,7 @@ tbw
 %\caption{CDU Power Supply}
 %\end{figure}
 
-\subsection{Sensor Power Supply}
+\subsubsection{Sensor Power supply}
 tbw
 %\begin{figure}[H]
 %\centering
@@ -28,7 +68,7 @@ tbw
 %\caption{Sensor Power Supply part of the CDU}
 %\end{figure}
 
-\subsection{Sensor communication}
+\subsubsection{Sensor communication}
 tbw
 %
 %\begin{figure}[H]
@@ -47,14 +87,14 @@ tbw
 
 
 
-\subsection{µ-Controller}
-The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter
+\subsubsection{µ-Controller}
+The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
 
 
-\subsection{PC communication}
+\subsubsection{PC communication}
 tbw
 
-\subsection{Memory}
+\subsubsection{Memory}
 tbw
 
 \section{Sensor Node}
