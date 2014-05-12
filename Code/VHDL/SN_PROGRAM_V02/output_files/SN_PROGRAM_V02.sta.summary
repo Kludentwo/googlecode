@@ -3,8 +3,8 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'Buffer_in'
-Slack : -2.831
-TNS   : -99.636
+Slack : -2.891
+TNS   : -187.423
 
 Type  : Slow Model Hold 'Buffer_in'
 Slack : 0.391
@@ -12,11 +12,11 @@ TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'Buffer_in'
 Slack : -1.222
-TNS   : -67.222
+TNS   : -112.222
 
 Type  : Fast Model Setup 'Buffer_in'
-Slack : -1.076
-TNS   : -28.953
+Slack : -1.120
+TNS   : -49.413
 
 Type  : Fast Model Hold 'Buffer_in'
 Slack : 0.215
@@ -24,6 +24,6 @@ TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'Buffer_in'
 Slack : -1.222
-TNS   : -67.222
+TNS   : -112.222
 
 ------------------------------------------------------------

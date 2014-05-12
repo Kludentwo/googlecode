@@ -135,12 +135,12 @@ Below, in figure \ref{fig:SN_detailed}, is shown a detailed overview of the sens
 The following subsection will cover all interfaces and design considerations.
 
 \subsubsection{Powersupply}
-The power supply block is responsible for power to the entire sensor. This involves making 3.3V to the system in the sensor node and thereby making a reference voltage as ground to the system. Below in figure \ref{fig:SN_PS_FIGURE} is shown the interface to the power supply.
+The power supply block is responsible for power to the entire sensor. This involves making 3.3V to the system in the sensor node and thereby making a reference voltage as ground to the system. Below in figure \ref{fig:SN_PS_FIGURE} is shown the power supply block.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.4\textwidth]{billeder/sn_powersupply_figure}
-	\caption{Sensor node power supply block interfaces}
+	\includegraphics[width=.5\textwidth]{billeder/powersupply_detailed_sn}
+	\caption{Sensor node power supply block}
 	\label{fig:SN_PS_FIGURE}
 \end{figure} 
 
@@ -150,52 +150,75 @@ Interfaces:
 	\centering
 	\begin{tabular}{|p{3cm} | p{8cm}| }
 		\hline
-		Interface name: 	& Description \\ \hline
-		S+ 				& The S+ input is the positive connection from the CDU. \\ \hline
-		3.3V			& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
-		Analog CDU com  & The voltage drop caused by the communication current over the \\ \hline
-		GND				& Voltage reference ground on the individual sensor.\\\hline 
+		Interface name: 	& Description: \\ \hline
+		S+ 					& The S+ input is the positive connection from the CDU. \\ \hline
+		3.3V				& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
+		Analog CDU com  	& The voltage drop caused by the communication current over the communication resistor (R$_{\text{com}}$).\\ \hline
+		GND					& Voltage reference ground on the individual sensor.\\\hline 
 	\end{tabular}
+	\caption{Sensor node power supply block interface descriptions}
 \end{table}
 
 The S+ and S- signals are from the powerline bus where S+ is connected to the previous sensor or the CDU B+ pin. The S- is connected to the next sensor or the CDU B- pin.\\
-Below, on figure \ref{fig:SN_detailed_ps}, is shown a simplified implementation of the powersupply.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.5\textwidth]{billeder/powersupply_detailed_sn}
-	\caption{Detailed powersupply design.}
-	\label{fig:SN_detailed_ps}
-\end{figure}
 
 The diode and R$_{\text{com}}$ creates a voltage drop from which the voltage regulator creates the steady 3.3V supply. The R$_{\text{com}}$ resistor serves to "convert" the current modulated communication to a voltage to the communication block.
 
 \subsubsection{Communication}
-The communication block generates a steady synchronized clock and converts data to the correct logic levels. It also has a logical interface which enables responds to the CDU by modulate the current drop over the entire sensor. Below in figure \ref{fig:SN_com_fig} the communication block interfaces is shown.
+
+The purpose of the communication block is to synchronize the sensor node clock to the CDU clock to make sure the data is sampled properly.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{billeder/communication_sn}
-	\caption{Sensor node communication block interfaces}
+	\caption{Sensor node communication block}
 	\label{fig:SN_com_fig}
 \end{figure}
 
-The purpose of the communication is to synchronize the sensor node clock to the CDU clock to make sure the data is sampled properly.
+The communication block generates a steady synchronized clock and converts data to the correct logic levels. It also has a logical interface which enables responds to the CDU by modulating the voltage drop over the entire sensor. In figure \ref{fig:SN_com_fig} the communication block is shown.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|p{3cm} | p{8cm}| }
 		\hline
-		Interface name: & Description \\ \hline
+		Interface name: & Description: \\ \hline
 		Supply			& 3.3V from the power supply. \\ \hline
 		Analog com in	& The voltage-converted communication signal from the CDU.\\ \hline
 		Respond signal  & Digital input with the respond to the CDU from the logic handler. \\ \hline
 		GND				& Voltage reference ground on the individual sensor.\\\hline 
 	\end{tabular}
+	\caption{Sensor node communication block interface descriptions}
 \end{table}
 
+The Analog CDU com signal received from the powersupply is converted to the correct logic levels on the sensor node. This is done with an amplifier and a signal reference. The converted signal is now a direct image of the data transmitted from the CDU. The clock recovery circuit is responsible for creating a synchronized clock from this data signal. The respond circuit receives logic levels from the logic handler and generate an analog signal which is received at the CDU.
 
 \subsubsection{Logic handler}
+The logic handler is the central computational unit and is a programmable logic chip. It serves to interpret incoming messages and act accordingly whilst also interfacing with the ADC to acquire new data to be sent to the CDU. In figure \ref{fig:sn_logic_handler} the logic handler block is shown.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/logic_handler_sn}
+	\caption{Sensor node logic handler block}
+	\label{fig:sn_logic_handler}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} |p{3cm} | p{8cm}| }
+		\hline
+		Interface name: 			& Direction: 	& Description: \\ \hline
+		Supply						& NA			& 3.3V from the power supply. \\ \hline
+		GND							& NA			& The voltage-converted communication signal from the CDU.\\ \hline
+		Respond		  				& Output		& Digital respond signal to the respond circuit in the communication block. \\ \hline
+		Clock						& Input			& 20kHz synchronized clock from the communication block.\\\hline 
+		Data						& Input			& Digital data from the communication block.\\\hline
+		SCK							& Output		& Serial clock to the SPI interface to the Data acquisition block.\\\hline
+		DIN							& Input			& Data received from the Data acquisition block.\\\hline
+		$\overline{\text{CS}}$		& Output		& Active low chip select to the Data acquisition block.\\\hline
+		$\overline{\text{SHDN}}$	& Output		& Active low shutdown input on the Data acquisition block.\\\hline
+	\end{tabular}
+	\caption{Sensor node logic handler block interface descriptions}
+\end{table}
+
 
 \subsubsection{Sensor}
 
