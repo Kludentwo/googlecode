@@ -354,6 +354,10 @@ void CDUPCCom(void)
         T1CONbits.TON = 1;
 
     }
+    else
+    {
+        UARTSendString("unknown cmd");
+    }
 }
 
 /*========================================================================

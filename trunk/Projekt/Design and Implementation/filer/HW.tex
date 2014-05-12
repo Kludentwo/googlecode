@@ -35,14 +35,14 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUPS}.\\
 Interfaces:
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{3cm}| p{8cm}| }
 		\hline
-		Interface name: 	& Description \\ \hline
-		P+ 				& The P+ input is the positive supply connection. \\ \hline
-		P- 				& The P- input is the reference/ground supply connection. \\ \hline
-		3.3V			& This is the 3.3V supply voltage to the internal circuitry on the CDU. \\ 	\hline
-		Sensor Power	  & The power dictated by the formula previously defined in this subsection. \\ \hline
-		GND				& Voltage reference ground. \\\hline 
+		Interface name: &Direction:	& Description \\ \hline
+		P+ 				&N/A & The P+ input is the positive supply connection. \\ \hline
+		P- 				&N/A & The P- input is the reference/ground supply connection. \\ \hline
+		3.3V			&N/A & This is the 3.3V supply voltage to the internal circuitry on the CDU. \\ 	\hline
+		Sensor Power	&N/A & The power dictated by the formula previously defined in this subsection. \\ \hline
+		GND				&N/A & Voltage reference ground. \\\hline 
 	\end{tabular}
 \end{table}
 
@@ -57,15 +57,15 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUSPS}.\\
 Interfaces:
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{3cm} | p{8cm}| }
 		\hline
-		Interface name: 	& Description \\ \hline
-		Sensor Power	  & The Sensor power from the Power supply. \\ \hline
-		GND				& Voltage reference ground. \\\hline 
-		A Sensor com send	& Analog sensor communication to bus. \\\hline 
-		A Sensor com receive	& Analog sensor communication from bus. \\\hline
-		B+ 				& The B+ input is the positive bus supply connection. \\ \hline
-		B- 				& The B- input is the negative bus supply connection. \\ \hline
+		Interface name: 	&Direction: & Description \\ \hline
+		Sensor Power	 &N/A & The Sensor power from the Power supply. \\ \hline
+		GND				&N/A & Voltage reference ground. \\\hline 
+		A Sensor com send	&Input & Analog sensor communication to bus. \\\hline 
+		A Sensor com receive	&Output & Analog sensor communication from bus. \\\hline
+		B+ 				&N/A & The B+ input is the positive bus supply connection. \\ \hline
+		B- 				&N/A & The B- input is the negative bus supply connection. \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -80,15 +80,15 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUSC}.\\
 Interfaces:
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{3cm}| p{8cm}| }
 		\hline
-		Interface name: 	& Description \\ \hline
-		Com power	  & The 3.3V power from the Power supply. \\ \hline
-		GND				& Voltage reference ground. \\\hline 
-		A Sensor com send	& Analog sensor communication to bus. \\\hline 
-		A Sensor com receive	& Analog sensor communication from bus. \\\hline
-		D Sensor com send	& Analog sensor communication from µ-Controller. \\\hline 
-		A Sensor com receive	& Analog sensor communication to µ-Controller. \\\hline
+		Interface name: & Direction: 	& Description \\ \hline
+		Com power	  &N/A & The 3.3V power from the Power supply. \\ \hline
+		GND				&N/A & Voltage reference ground. \\\hline 
+		A Sensor com send	&Output & Analog sensor communication to bus. \\\hline 
+		A Sensor com receive &Input	& Analog sensor communication from bus. \\\hline
+		D Sensor com send & Input	& Digital sensor communication from µ-Controller. \\\hline 
+		D Sensor com receive &Output	& Digital sensor communication to µ-Controller. \\\hline
 	\end{tabular}
 \end{table}
 
@@ -102,6 +102,22 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUuC}.\\
 	\caption{Detailed CDU µ-Controller design.}
 	\label{fig:CDUuC}
 \end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} |p{3cm}| p{8cm}| }
+		\hline
+		Interface name: & Direction: 	& Description \\ \hline
+		µC power	  &N/A & The 3.3V power from the Power supply. \\ \hline
+		GND				&N/A & Voltage reference ground. \\\hline 
+		D Sensor com send & Output	& Digital sensor communication from µ-Controller. \\\hline 
+		D Sensor com receive & Input	& Digital sensor communication to µ-Controller. \\\hline
+		Pc data in		&Input & Communication from PC. \\\hline 
+		Pc data out		&Output & Communication to PC. \\\hline
+		Mem data in		&Output & Data to memory. \\\hline 
+		Mem data out	&Input & Data from memory. \\\hline  
+	\end{tabular}
+\end{table}
 
 \subsubsection{PC communication}
 The interfaces to this block can be seen on figure ~\ref{fig:CDUPCC}.\\
@@ -111,6 +127,18 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUPCC}.\\
 	\caption{Detailed CDU PC communication design.}
 	\label{fig:CDUPCC}
 \end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} |p{3cm}| p{8cm}| }
+		\hline
+		Interface name: & Direction: 	& Description \\ \hline
+		Pc data in		&Output & Communication to µ-Controller. \\\hline 
+		Pc data out		&Input & Communication from µ-Controller. \\\hline
+		Rx		&Input & Communication from PC. \\\hline 
+		Tx		&Output & Communication to PC. \\\hline
+	\end{tabular}
+\end{table}
 
 \subsubsection{Memory}
 The interfaces to this block can be seen on figure ~\ref{fig:CDUM}.\\
@@ -120,6 +148,16 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUM}.\\
 	\caption{Detailed CDU Memory design.}
 	\label{fig:CDUM}
 \end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} |p{3cm}| p{8cm}| }
+		\hline
+		Interface name: & Direction: 	& Description \\ \hline
+		Mem data in		&Output & Data from µ-Controller. \\\hline 
+		Mem data out	&Output & Data to µ-Controller. \\\hline  
+	\end{tabular}
+\end{table}
 
 \subsection{Block construction}
 This section describes all detailed calculations done to realize the implementation as well as detailed schematics.\\
