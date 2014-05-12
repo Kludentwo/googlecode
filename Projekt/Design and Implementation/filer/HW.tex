@@ -9,9 +9,8 @@ This procedure is meant to ease readability and help give an overview of the ent
 \section{CDU}
 The CDU responsibility is, as described in the previous documents, to control the custom powerline communication and to govern the information about the sensor nodes. The information is stored in memory and can be loaded out to a PC.
 \subsection{Overall design}
-Below is shown a figure of the overall CDU design.
-\subsubsection{Block description}
-\textbf{Power Supply}
+The conceptual design of the CDU can be found in the architecture documentation in chapter Structural view, subsubsection CDU.\\
+We take each block and create a block breakdown diagram.\\
 
 \subsection{Block breakdown}
 This section describes the interfaces and the design of each individual block.\\
@@ -23,31 +22,107 @@ Below, in figure \ref{fig:detailedCDU}, is shown a detailed overview of the CDU 
 	\label{fig:detailedCDU}
 \end{figure}
 
-The following subsection will cover all interfaces and design considerations.
-\subsubsection{Power Supply}
-tbw
-
+The following subsections will cover all interfaces and design considerations.
+\subsubsection{Power supply}
+The Power supply is responsible for providing power to the internal circuitry and the powerline communication. 3.3V is provided for the internal circuitry. The voltage provided to the bus is determined by number of sensors and the sensor power supply circuit. The minimum voltage needed on P+ and P- pins is found by using the following formula: $( 5.5V - 0.7V ) + (5V * n + 0.7V) -> 5.5V + 5V * n$. The first parenthesis is the sensor power supply circuit and the second parenthesis is the bus voltage.\\
+The interfaces to this block can be seen on figure ~\ref{fig:CDUPS}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUPS}
+	\caption{Detailed CDU Power supply design.}
+	\label{fig:CDUPS}
+\end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} | p{8cm}| }
+		\hline
+		Interface name: 	& Description \\ \hline
+		P+ 				& The P+ input is the positive supply connection. \\ \hline
+		P- 				& The P- input is the reference/ground supply connection. \\ \hline
+		3.3V			& This is the 3.3V supply voltage to the internal circuitry on the CDU. \\ 	\hline
+		Sensor Power	  & The power dictated by the formula previously defined in this subsection. \\ \hline
+		GND				& Voltage reference ground. \\\hline 
+	\end{tabular}
+\end{table}
 
 \subsubsection{Sensor Power supply}
-tbw
-
+The interfaces to this block can be seen on figure ~\ref{fig:CDUSPS}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUSPS}
+	\caption{Detailed CDU Sensor Power supply design.}
+	\label{fig:CDUSPS}
+\end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} | p{8cm}| }
+		\hline
+		Interface name: 	& Description \\ \hline
+		Sensor Power	  & The Sensor power from the Power supply. \\ \hline
+		GND				& Voltage reference ground. \\\hline 
+		A Sensor com send	& Analog sensor communication to bus. \\\hline 
+		A Sensor com receive	& Analog sensor communication from bus. \\\hline
+		B+ 				& The B+ input is the positive bus supply connection. \\ \hline
+		B- 				& The B- input is the negative bus supply connection. \\ \hline
+	\end{tabular}
+\end{table}
 
 \subsubsection{Sensor communication}
-tbw
-
+The interfaces to this block can be seen on figure ~\ref{fig:CDUSC}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUSC}
+	\caption{Detailed CDU Sensor communication design.}
+	\label{fig:CDUSC}
+\end{figure}
+Interfaces:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} | p{8cm}| }
+		\hline
+		Interface name: 	& Description \\ \hline
+		Com power	  & The 3.3V power from the Power supply. \\ \hline
+		GND				& Voltage reference ground. \\\hline 
+		A Sensor com send	& Analog sensor communication to bus. \\\hline 
+		A Sensor com receive	& Analog sensor communication from bus. \\\hline
+		D Sensor com send	& Analog sensor communication from µ-Controller. \\\hline 
+		A Sensor com receive	& Analog sensor communication to µ-Controller. \\\hline
+	\end{tabular}
+\end{table}
 
 
 \subsubsection{µ-Controller}
 The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
+The interfaces to this block can be seen on figure ~\ref{fig:CDUuC}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUuC}
+	\caption{Detailed CDU µ-Controller design.}
+	\label{fig:CDUuC}
+\end{figure}
 
 \subsubsection{PC communication}
-tbw
+The interfaces to this block can be seen on figure ~\ref{fig:CDUPCC}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUPCC}
+	\caption{Detailed CDU PC communication design.}
+	\label{fig:CDUPCC}
+\end{figure}
 
 \subsubsection{Memory}
-tbw
+The interfaces to this block can be seen on figure ~\ref{fig:CDUM}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{billeder/CDUM}
+	\caption{Detailed CDU Memory design.}
+	\label{fig:CDUM}
+\end{figure}
 
 \subsection{Block construction}
-This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
+This section describes all detailed calculations done to realize the implementation as well as detailed schematics.\\
 \subsubsection{Power Supply}
 tbw
 %The power supply is in charge of providing the system with 3.3 volts. This supply is for analog parts of the CDU and the µ-controller. The design is shown in figure \ref{fig:cdupowersupply}.
