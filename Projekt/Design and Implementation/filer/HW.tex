@@ -360,14 +360,28 @@ The data acquisition block handles physical measurements of temperature and has 
 	\label{fig:sn_data_acquisition}
 \end{figure}
 
-
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm} |p{2cm} | p{8cm}| }
+		\hline
+		Interface name: 			& Direction: 	& Description: \\ \hline
+		Supply						& NA			& 3.3V from the power supply. \\ \hline
+		GND							& NA			& The voltage-converted communication signal from the CDU.\\ \hline
+		Respond		  				& Output		& Digital respond signal to the respond circuit in the communication block. \\ \hline
+		SCK							& Input			& Serial clock from the logic handler block.\\\hline
+		DOUT						& Output		& Data from the ADC to the logic handler block.\\\hline
+		$\overline{\text{CS}}$		& Input			& Active low chip select.\\\hline
+		$\overline{\text{SHDN}}$	& Input			& Active low shutdown input from the logic handler block.\\\hline
+	\end{tabular}
+	\caption{Sensor node data acquisition block interface descriptions}
+\end{table}
 
 
 \subsection{Block construction}
 This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
 
 \subsubsection{Powersupply}
-As seen on figure \ref{fig:SN_detailed_ps} the powersupply consists of a zener diode, a sense resistor and a voltage regulator.\\
+As seen on figure \ref{fig:SN_PS_FIGURE} the powersupply consists of a zener diode, a sense resistor and a voltage regulator.\\
 The voltage regulator should output a 3.3V to supply the sensor. Below on figure \ref{fig:LM317} is shown a typical application from the datasheet. The to this application the following formula for output voltage is given:\\
 \begin{equation}
 	V_{out}=1.25V\left(1+\frac{R2}{R1}\right)+ I_{ADJ}*R2
