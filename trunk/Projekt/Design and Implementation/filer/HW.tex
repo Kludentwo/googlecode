@@ -261,13 +261,13 @@ The goal is to create a steady 3.3V power to the components on the sensor node. 
 Interfaces:
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{2cm} | p{8cm}| }
 		\hline
-		Interface name: 	& Description: \\ \hline
-		S+ 					& The S+ input is the positive connection from the CDU. \\ \hline
-		3.3V				& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
-		Analog CDU com  	& The voltage drop caused by the communication current over the communication resistor (R$_{\text{com}}$).\\ \hline
-		GND					& Voltage reference ground on the individual sensor.\\\hline 
+		Interface name:	& Direction: 		& Description: \\ \hline
+		S+ 				& N/A				& The S+ input is the positive connection from the CDU. \\ \hline
+		3.3V			& Output			& This is the 3.3V supply voltage to the descrete components on the sensor node. \\ 	\hline
+		Analog CDU com  & Output			& The voltage drop caused by the communication current over the communication resistor (R$_{\text{com}}$).\\ \hline
+		GND				& N/A				& Voltage reference ground on the individual sensor.\\\hline 
 	\end{tabular}
 	\caption{Sensor node power supply block interface descriptions}
 \end{table}
@@ -291,13 +291,16 @@ The communication block generates a steady synchronized clock and converts data 
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{2cm} | p{8cm}| }
 		\hline
-		Interface name: & Description: \\ \hline
-		Supply			& 3.3V from the power supply. \\ \hline
-		Analog com in	& The voltage-converted communication signal from the CDU.\\ \hline
-		Respond signal  & Digital input with the respond to the CDU from the logic handler. \\ \hline
-		GND				& Voltage reference ground on the individual sensor.\\\hline 
+		Interface name:	& Direction: 		& Description: \\ \hline
+		Supply			& N/A				& 3.3V from the power supply. \\ \hline
+		GND				& N/A				& Voltage reference ground on the individual sensor.\\\hline 
+		Analog com in	& Input				& The voltage-converted communication signal from the CDU.\\ \hline
+		Respond signal  & Input				& Digital input with the respond to the CDU from the logic handler. \\ \hline
+		Data			& Output			& Digital output of the incoming data stream from the CDU.\\ \hline
+		Clock			& Output			& Clock recovered from the incoming data stream from the CDU. \\ \hline
+		S-				& N/A				& The connection out of the sensor node\\ \hline
 	\end{tabular}
 	\caption{Sensor node communication block interface descriptions}
 \end{table}
@@ -316,7 +319,7 @@ The logic handler is the central computational unit and is a programmable logic 
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{3cm} |p{3cm} | p{8cm}| }
+	\begin{tabular}{|p{3cm} |p{2cm} | p{8cm}| }
 		\hline
 		Interface name: 			& Direction: 	& Description: \\ \hline
 		Supply						& NA			& 3.3V from the power supply. \\ \hline
@@ -332,8 +335,33 @@ The logic handler is the central computational unit and is a programmable logic 
 	\caption{Sensor node logic handler block interface descriptions}
 \end{table}
 
+The incoming message is received by the scheme described in the architecture section regarding the protocol. The logic handler shift between several states to accommodate the functionality described in the architecture. These states makes sure the sensor are able to decode the incoming messages correct and the respond with the right message corresponding to the function code. 
 
-\subsubsection{Sensor}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/logic_handler_stm}
+	\caption{Sensor node logic handler state machine}
+\end{figure}
+
+The state machine controller state machine checks incoming data for the right pattern. When the start sequence is received it changes the state to "check address" in the state machine controller state machine and "Manchester converting" in the Line coding state machine. If the correct address is received the state machine controller state machine then changes its state to "Check function code", lastly, depending on the function code, the state machine controller state machine prepares the data to be sent in the response. The state machine controller state machine then changes the state of the Line coding state machine to the "Respond" state and goes into the "Idle" state.\\
+The Line coding state machine samples all data in an 8 bit buffer in the idle state. This buffer is used in the idle state of the state machine controller. If this matches the start sequence the state is changed to "Manchester converting". This state handles the manchester decoding of the incoming stream of data. The first four manchester bits is then stored in an address buffer. If this address corresponds to the sensor nodes address then next four manchester bits are stored in a function code buffer. If this fits within the known function code the respond data buffer is filled with the corresponding data and the line coding state machine state is changed to the Respond state. The respond state serially runs through the respond data buffer as the clocks ticks in.\\
+
+The physical structure of the logic handler is divided into two parts. One which handles the power line communication bus and one the handles the interface with the data acquisition block. These two parts are then interconnected and the power line communication bus floppes the data from the data acquisition interface block when it is not sampling new data. The conversion from ADC steps to actual temperature is handled in the data acquisition interface block.
+
+
+\subsubsection{Data acquisition}
+
+The data acquisition block handles physical measurements of temperature and has a digital interface to the logic handler. It's comprised of a measurement bridge, a differential amplifier and an ADC.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/data_aqcuisition_sn}
+	\caption{Sensor node data acquisition block}
+	\label{fig:sn_data_acquisition}
+\end{figure}
+
+
+
 
 \subsection{Block construction}
 This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
