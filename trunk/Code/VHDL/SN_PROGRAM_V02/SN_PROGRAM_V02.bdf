@@ -566,10 +566,6 @@ applicable agreement for further details.
 	(pt 912 48)
 )
 (connector
-	(pt 720 16)
-	(pt 680 16)
-)
-(connector
 	(pt 816 240)
 	(pt 752 240)
 	(bus)
@@ -641,82 +637,95 @@ applicable agreement for further details.
 	(pt 704 224)
 )
 (connector
-	(pt 384 176)
-	(pt 456 176)
-)
-(connector
-	(pt 432 48)
-	(pt 720 48)
-)
-(connector
-	(pt 664 160)
-	(pt 736 160)
-)
-(connector
-	(pt 448 32)
-	(pt 720 32)
-)
-(connector
-	(pt 664 176)
-	(pt 736 176)
-)
-(connector
-	(pt 680 264)
-	(pt 680 16)
-)
-(connector
 	(pt 424 352)
 	(pt 464 352)
-)
-(connector
-	(pt 432 48)
-	(pt 432 368)
-)
-(connector
-	(pt 464 368)
-	(pt 432 368)
-)
-(connector
-	(pt 432 368)
-	(pt 424 368)
-)
-(connector
-	(pt 680 264)
-	(pt 760 264)
-)
-(connector
-	(pt 760 264)
-	(pt 760 336)
-)
-(connector
-	(pt 448 32)
-	(pt 448 336)
 )
 (connector
 	(pt 32 336)
 	(pt 56 336)
 )
 (connector
-	(pt 104 336)
-	(pt 448 336)
-)
-(connector
-	(pt 448 336)
-	(pt 464 336)
-)
-(connector
-	(pt 744 336)
-	(pt 760 336)
-)
-(connector
-	(pt 760 336)
-	(pt 808 336)
-)
-(connector
 	(pt 856 336)
 	(pt 896 336)
 )
+(connector
+	(pt 456 160)
+	(pt 440 160)
+)
+(connector
+	(pt 104 336)
+	(pt 440 336)
+)
+(connector
+	(pt 440 336)
+	(pt 464 336)
+)
+(connector
+	(pt 384 176)
+	(pt 456 176)
+)
+(connector
+	(pt 664 176)
+	(pt 736 176)
+)
+(connector
+	(pt 440 16)
+	(pt 720 16)
+)
+(connector
+	(pt 440 16)
+	(pt 440 160)
+)
+(connector
+	(pt 440 160)
+	(pt 440 336)
+)
+(connector
+	(pt 664 160)
+	(pt 736 160)
+)
+(connector
+	(pt 432 32)
+	(pt 720 32)
+)
+(connector
+	(pt 432 32)
+	(pt 432 368)
+)
+(connector
+	(pt 424 368)
+	(pt 432 368)
+)
+(connector
+	(pt 432 368)
+	(pt 464 368)
+)
+(connector
+	(pt 720 48)
+	(pt 680 48)
+)
+(connector
+	(pt 680 48)
+	(pt 680 256)
+)
+(connector
+	(pt 680 256)
+	(pt 776 256)
+)
+(connector
+	(pt 776 256)
+	(pt 776 336)
+)
+(connector
+	(pt 744 336)
+	(pt 776 336)
+)
+(connector
+	(pt 776 336)
+	(pt 808 336)
+)
 (junction (pt 696 192))
+(junction (pt 440 336))
+(junction (pt 440 160))
 (junction (pt 432 368))
-(junction (pt 760 336))
-(junction (pt 448 336))
+(junction (pt 776 336))

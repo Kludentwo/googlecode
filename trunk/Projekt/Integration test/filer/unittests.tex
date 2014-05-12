@@ -404,9 +404,9 @@ The purpose of this test is to test the 3.3 volt circuitry of the power supply b
 
 \textbf{Test equipment:}
 \begin{itemize}
-\item Multimeter: Meterman 37XR
-\item Sensor node (UUT)
-\item Sensor node supply test stub
+	\item Multimeter: Meterman 37XR
+	\item Sensor node (UUT)
+	\item Sensor node supply test stub
 \end{itemize}
 \ \\
 \textbf{Procedure:}\\
@@ -429,11 +429,11 @@ Measure the voltage from the GND testpin to the 3V3 testpin.
 
 \textbf{Result:}
 \begin{table}[H]
-\centering
-\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
-\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-30-04-2014 & 3.30V & PASSED \\ \hline
-\end{tabular}
+	\centering
+	\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+		30-04-2014 & 3.30V & PASSED \\ \hline
+	\end{tabular}
 \end{table}
 
 \textbf{Comment and remarks:}\\
@@ -445,20 +445,20 @@ The purpose of this test is to test the data recovery circuit located on the sen
 
 \textbf{Test equipment:}
 \begin{itemize}
-\item Analog Discovery USB oscilloscope
-\item HAMEG HM8030-3 Function generator
-\item Sensor node (UUT)
-\item Sensor node communication stub
+	\item Analog Discovery USB oscilloscope
+	\item HAMEG HM8030-3 Function generator
+	\item Sensor node (UUT)
+	\item Sensor node communication stub
 \end{itemize}
 \ \\
 \textbf{Procedure:}\\
 Connect B+ from the sensor node communication test stub to the S+ on the UUT. Connect B- from the sensor node communication test stub to the S- on the UUT.
 Connect FG+ from the sensor node communication test stub to the positive connector on the Function generator. Connect FG- from the sensor node communication test stub to the negative connector on the Function generator.\\ Set the Function generator to:
 \begin{itemize}
-\item pk-pk: 3.3V
-\item DC offset: 1.65V
-\item frequency: 10kHz
-\item Waveform: Square
+	\item pk-pk: 3.3V
+	\item DC offset: 1.65V
+	\item frequency: 10kHz
+	\item Waveform: Square
 \end{itemize}
 Connect the oscilloscope reference to the GND test point on the UUT.
 Connect the oscilloscope probe to the DIN point on the UUT.\\
@@ -478,17 +478,17 @@ Store a picture of the oscilloscope as reference.
 
 \textbf{Result:}
 \begin{table}[H]
-\centering
-\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
-\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-01-05-2014 & See scope picture & PASSED \\ \hline
-\end{tabular}
+	\centering
+	\begin{tabular}{|p{2cm}|p{3cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+		01-05-2014 & See scope picture & PASSED \\ \hline
+	\end{tabular}
 \end{table}
 \textbf{Picture:}
 \begin{figure}[H]
-\centering
-\includegraphics[width=.8\textwidth]{billeder/SN_Case2_osc_picture}
-\caption{Case 2 scope picture}
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/SN_Case2_osc_picture}
+	\caption{Case 2 scope picture}
 \end{figure}
 \textbf{Comment and remarks:}\\
 -\\
@@ -542,9 +542,10 @@ Store a picture of the oscilloscope as reference.
 	\end{tabular}
 \end{table}
 \textbf{Picture:}
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=.9\textwidth]{billeder/SN_Case_3_osc_picture}
+	\centering
+	\includegraphics[width=.9\textwidth]{billeder/SN_Case_3_osc_picture}
 \end{figure}
 \textbf{Comment and remarks:}\\
 -\\
@@ -599,12 +600,124 @@ Store a picture of the oscilloscope as reference.
 	\end{tabular}
 \end{table}
 \textbf{Picture:}
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=.9\textwidth]{billeder/SN_case_4_osc_picture}
+	\centering
+	\includegraphics[width=.9\textwidth]{billeder/SN_case_4_osc_picture}
 \end{figure}
+
 \textbf{Comment and remarks:}\\
 The pk-pk voltage is too low. The voltage level error isn't crusial to the system performance.\\
 
 \subsection{Software}
 The software tests of the Sensor node
+
+\subsubsection{Test case 5: CDU communication}
+\textbf{Purpose:}\\
+The purpose of this test is to test decoding of incoming transmissions and the respond on the sensor node. The respond must correspond to the received instruction.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+	\item Analog Discovery USB logic analyzer
+	\item CDU test stub
+	\item Sensor node (UUT)
+	\item Sensor node communication stub
+\end{itemize}
+\ \\
+\textbf{Procedure:}\\
+Connect B+ from the sensor node supply test stub to the S+ on the UUT. Connect B- from the sensor node supply test stub to the S- on the UUT.
+Connect the CDU test stub to FG- and FG+ on the Sensor node communication stub.\\ 
+Connect the logic analyzer to the 4 test pins located on the sensor node (GND, clk\_20kHz, Respond and receive).
+The CDU test stub should send a transmission containing: start sequence, address 1 and function code 1.
+
+\begin{figure}[H]
+	\centering
+	\subbottom[Sensor node supply test stub]{%
+		\includegraphics[width=.48\linewidth]{billeder/Sensor_node_supply_test_stub}}
+	\subbottom[Picture of the sensor node]{%
+		\includegraphics[width=.48\linewidth]{billeder/SN_Case_4_connections_picture}}
+\end{figure}
+
+\textbf{Expected Result:}\\
+The SN responds corresponding to the specified transmission.
+
+
+\textbf{Result:}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2cm}|p{4.2cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+	 	01-05-2014 & See logic analyser picture & PASSED \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Picture:}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/SN_case6_communication}
+\end{figure}
+
+\textbf{Comment and remarks:}\\
+--\\
+
+\subsubsection{Test case 6: ADC interfacing}
+\textbf{Purpose:}\\
+The purpose of this test is to test the interface to the MAX1241 ADC from the logic handler.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+	\item Analog Discovery USB logic analyzer
+	\item HAMEG HM8030-3 Function generator
+	\item Sensor node (UUT)
+	\item Sensor node communication stub 
+\end{itemize}
+\ \\
+\textbf{Procedure:}\\
+Connect B+ from the sensor node supply test stub to the S+ on the UUT. Connect B- from the sensor node supply test stub to the S- on the UUT.
+Connect FG+ from the sensor node communication test stub to the positive connector on the Function generator. Connect FG- from the sensor node communication test stub to the negative connector on the Function generator.\\ Set the Function generator to:
+\begin{itemize}
+	\item pk-pk: 3.3V
+	\item DC offset: 1.65V
+	\item frequency: 10kHz
+	\item Waveform: Square
+\end{itemize}
+
+Connect the logic analyser to the ADC dublicated interface on the the logic handler.\\
+Apply a 110$\Omega$ resistor the the pt100 + and - on the ADC board.
+
+
+\begin{figure}[H]
+	\centering
+	\subbottom[Sensor node communication test stub]{%
+		\includegraphics[width=.48\linewidth]{billeder/Sensor_node_communication_test_stub}}
+	\subbottom[Picture of the sensor node]{%
+		\includegraphics[width=.48\linewidth]{billeder/SN_Case_4_connections_picture}}
+\end{figure}
+
+\textbf{Expected Result:}\\
+As specified in the datasheet for the MAX1241 ADC the tranmission waveform for a communication is expected. Figure below is shown as reference.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.9\textwidth]{billeder/ADC_waveform}
+	\caption{Max1241 transmission waveform}
+\end{figure}
+
+
+\textbf{Result:}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2cm}|p{4.2cm}|p{2cm}|}\hline
+		\textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+	 	01-05-2014 & See logic analyser picture & PASSED \\ \hline
+	\end{tabular}
+\end{table}
+
+\textbf{Picture:}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.9\textwidth]{billeder/ADC_interfacing}
+\end{figure}
+
+\textbf{Comment and remarks:}\\
+--\\
