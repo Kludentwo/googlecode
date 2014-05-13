@@ -3,7 +3,7 @@ This chapter contains the design choices and an explanation of the different des
 
 \section{CDU}
 \subsection{General Description}
-The software on the microcontroller governs the sensor communication, the PC communication and the memory. The hierarchy of software can be seen on the class diagram in figure ~\ref{fig:cduclassd}. The software is composed of a main "while(1)" loop and an interrupt routine. Messages are composed in the main while messages are sent using the interrupt routine. This means that the message is sent using the clock tied to the routine. A timer governs when to interrupt.\\
+The software on the microcontroller governs the sensor communication, the PC communication and the memory. The hierarchy of software can be seen on the class diagram in figure ~\ref{fig:cduclassd}. The software is composed of a main "while(1)" loop and an interrupt routine. Messages are composed in the main while messages are sent using the interrupt routine. This means that the message is sent using the clock tied to the routine. A timer governs when to interrupt. The software uses a series of flags to make sure that messages are only sent if they are ready and that transmissions happen at a set rate.\\
 
 \begin{figure}[H]
 \centering
@@ -59,6 +59,7 @@ We use primary prescaler 1:1, secondary prescaler 2:1, CKE clock select set to 1
 \subsubsection{UART}
 The UART is set using the U2MODE and U2STA registers. We use setup found in figure ~\ref{fig:uartsetp}.\\
 \begin{table}[H]
+	\centering
     \begin{tabular}{|l l|}
     \hline
     Baud rate    & : 38400 \\ \hline
@@ -144,17 +145,9 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 
 
 \subsection{Function descriptions:}
+This subsection contains an explanation of the most important functions in the CDU software.
 
-\begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} CDUInit( \texttt{\textcolor{blue}{void}})}} \\
-\hline
-Description:& The function is used to Initiate the whole CDU. The proper register settings for timer, uart and spi are set. Arrays and structs are initialised.\\
-Parameters:&none\\
-Return value:&none\\
-\end{tabular}
-\end{table}
-
+\subsubsection{Line coding block}
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} IntegerToBinary( \texttt{\textcolor{blue}{unsigned char} input, \textcolor{blue}{unsigned char} size, \textcolor{blue}{unsigned char*} outputbuffer  }) } } \\
@@ -187,6 +180,17 @@ Description:& The function is used convert the message contained in the inputbuf
 Parameters:&\texttt{\textcolor{blue}{unsigned char*} inputbuffer}\\
 &\texttt{\textcolor{blue}{unsigned char*} outputbuffer}\\
 &\texttt{\textcolor{blue}{Cduflags*} CDUFlags}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\subsubsection{CDU block}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} CDUInit( \texttt{\textcolor{blue}{void}})}} \\
+\hline
+Description:& The function is used to Initiate the whole CDU. The proper register settings for timer, uart and spi are set. Arrays and structs are initialised.\\
+Parameters:&none\\
 Return value:&none\\
 \end{tabular}
 \end{table}
@@ -251,15 +255,67 @@ Return value:&\texttt{\textcolor{blue}{unsigned char} errors}\\
 \end{tabular}
 \end{table}
 
-\subsection{Flowcharts}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} CDUPCCom( \texttt{\textcolor{blue}{void}})}} \\
+\hline
+Description:& The function checks whether RA7 button is pressed. If it is pressed it will check the uart receive buffer. If an 'A' is received it will begin to load data from memory and send it to the pc via uart. If anything else is received it will send "unknown cmd" to the pc via uart.\\
+Parameters:&none\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} CDUPCCom( \texttt{\textcolor{blue}{void}})}} \\
+\hline
+Description:& The function checks whether RA7 button is pressed. If it is pressed it will check the uart receive buffer. If an 'A' is received it will begin to load data from memory and send it to the pc via uart. If anything else is received it will send "unknown cmd" to the pc via uart.\\
+Parameters:&none\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+\subsubsection{MemCtl block}
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} Save( \textcolor{blue}{unsigned int*} address,\texttt{\textcolor{blue}{Sensor*} Sens})}} \\
+\hline
+Description:& The save function saves the information stored in the inserted sensor struct to memory starting at the address stored in the address parameter. While saving to memory the function increments the address stored in the address parameter. The memory block is explained later in this chapter.\\
+Parameters:&\texttt{\textcolor{blue}{unsigned int*} address}\\
+&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{void} Load( \textcolor{blue}{unsigned int} address,\texttt{\textcolor{blue}{Sensor*} Sens})}} \\
+\hline
+Description:& The load function loads the information stored at the address inserted in the address parameter. It loads it into the struct inserted as a parameter. A dummy struct is best used. If an address inserted will result in data being loaded from addresses larger than the largest address defined, it will return 1. If data is succesfully loaded it will return 0.\\
+Parameters:&\texttt{\textcolor{blue}{unsigned int*} address}\\
+&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
+
+\subsection{Flow charts}
+This subsection contains flowcharts explaining the software on the CDU. The main flow chart seen on figure ~\ref{fig:mainflowchart} is the application layer while the isr flow chart seen on figure ~\ref{fig:isrflowchart} is part of the protocol layer. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/mainflowchart}
+\label{fig:mainflowchart}
+\caption{CDU main flow chart}
+\end{figure}
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/isrflowchart}
 \label{fig:isrflowchart}
-\caption{CDU Interrupt service routine flowchart}
+\caption{CDU Interrupt service routine flow chart}
 \end{figure}
 
 \subsection{Memory Slot allocation}
+This subsection contains the explanation of how the sensor information is saved to memory. There is a grand total of 4681 sensor slots in memory. How to save and load to memory is explained in the function descriptions early in this document.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{billeder/memoryslots}
