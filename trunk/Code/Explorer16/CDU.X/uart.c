@@ -14,6 +14,7 @@
 
 void UARTInit(void) {
     char dummy;
+	TRISF = 0x0010; //configure F4 = Input, Rest = output
     //Set up registers
     U2BRG = U_BRG; //set baud speed
     dummy = U2RXREG;

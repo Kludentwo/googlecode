@@ -210,6 +210,28 @@ tbw
 \subsubsection{Memory}
 tbw
 
+\subsection{PIN Connections}
+The PINOUT table for the CDU is found below.
+\begin{table}[H]
+	\centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    Pin name & Pin number & Direction: & Description \\ \hline
+    RA4    & 60 & Input          & Send (D Sensor com send)            \\ \hline
+    RA5    & 61 & Output          & Receive (D Sensor com receive)    \\ \hline
+    RA7	   & 92 & Input			 & UART Test button   \\ \hline
+    RF4		& 49 & Input		 & UART Rx \\ \hline
+    RF5		& 50 & Output		 & UART Tx \\ \hline
+    RD12	& 79 & Output			 & SPI chip select           \\ \hline
+    RG6		& 10 & Output			 & SPI clock           \\ \hline
+    RG7		& 11 & Input			& SPI MISO		\\ \hline
+    RG8		& 12 & Output			& SPI MOSI		\\ \hline
+    VSS		& 15 & GND				& Ground for everything \\ \hline
+    \end{tabular}
+    \caption{PINOUT table for the CDU.}
+\end{table}
+
+
 \section{Sensor Node}
 The sensor node responsibility is, as described in the previous documents, to capture a temperature and support the custom powerline communication protocol. Below is described in detail how each block in the sensor node is implemented and designed.
 
