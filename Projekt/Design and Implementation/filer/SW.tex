@@ -2,7 +2,8 @@
 This chapter contains the design choices and an explanation of the different design blocks.
 
 \section{CDU}
-The software on the microcontroller governs the sensor communication, the PC communication and the memory. The hierarchy of software can be seen on the class diagram in figure ~\ref{fig:cduclassd}.
+\subsection{General Description}
+The software on the microcontroller governs the sensor communication, the PC communication and the memory. The hierarchy of software can be seen on the class diagram in figure ~\ref{fig:cduclassd}. The software is composed of a main "while(1)" loop and an interrupt routine. Messages are composed in the main while messages are sent using the interrupt routine. This means that the message is sent using the clock tied to the routine. A timer governs when to interrupt.\\
 
 \begin{figure}[H]
 \centering
@@ -10,6 +11,65 @@ The software on the microcontroller governs the sensor communication, the PC com
 \label{fig:cduclassd}
 \caption{CDU Class diagram}
 \end{figure}
+\subsection{Module Responsibility}
+Each module from the figure ~\ref{fig:cduclassd} has a different responsibility. These will be described here.
+\subsubsection{CDU}
+The responsibility of the CDU block is to function as an API layer. It contains Init functions, a startup routine, a send and receive function and lastly a function for PC communication. The CDU block contains everything needed to write the application layer of this project.\\
+\subsubsection{Line Coding}
+The line coding block contains everything needed to create messages for this project. It is used by the CDU block in the startup routine and the send function.
+\subsubsection{MemCtl}
+The MemCtl or Memory Control block contains the functions to initiate memory as well as save and load memory. Load is used by the PC communication function while save is intented to be used in the receive function. 
+\subsubsection{eeprom}
+The eeprom block handles all the hardware and timing parts of memory as well as the actual write and read functions. Write is used by the save function and read is used by the load function.
+\subsubsection{spi}
+The spi block is a driver block for spi communication.
+\subsubsection{Uart}
+The Uart block is a driver block for uart communication.
+
+\subsection{Setup}
+The setup is handled by the init function. The registers are described in this subsection.
+\subsubsection{General Registers}
+The general registers of the microcontroller handles general purpose pins and clock setups. The clock setup register is called "OSCCON" and are set to the following settings: "0x2200". This setting means we get a primary clock of 4 MHz with no clock division. The setup from the datasheet is found in figure ~\ref{fig:clocksetup}.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/clocksetup}
+\label{fig:clocksetup}
+\caption{CDU Clock Setup from datasheet}
+\end{figure}
+To setup the general purpose pins the registers TRISA, TRISB, TRISD and TRISF are used. By writing to TRISA the PORT A pins are controlled. If a pin is set to 1 it is an input pin otherwise it is an output pin. We setup PIN A4, A7, F4 and G7 for input. The rest for output. The full pinout table is explained in the hardware chapter of design and implementation.
+\subsubsection{Timer}
+In order to setup the timer we need 4 registers: "IPC0, T1CON, IFS0 and IEC0". IPC0 is used to setup interrupt priority. T1CON is the Timer 1 control register. IFS0 contains the interrupt flag tied to timer 1. IEC0 enables interrupt on timer1. The setup from the datasheet is found in figure ~\ref{fig:timersetup}.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/timersetup}
+\label{fig:timersetup}
+\caption{CDU Timer1 Setup from datasheet}
+\end{figure}
+We use interrupt priority 5.\\
+To control when the timer interrupts we choose the value of PR1 (timer counter register). With the value 0xC8 or 200 we get a 20 kHz interrupt.
+\subsubsection{SPI}
+SPI is controlled by two registers: "SPI2CON and SPI2STAT" A control and a status register. The setup for SPI1 from the datasheet is found in figure ~\ref{fig:spisetup}. SPI2 is setup the same way but the registers are not included in the datasheet.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/spisetup}
+\label{fig:spisetup}
+\caption{CDU SPI Setup from datasheet}
+\end{figure}
+We use primary prescaler 1:1, secondary prescaler 2:1, CKE clock select set to 1 and master enable. SPI is enabled and the overflow flag is reset.
+\subsubsection{UART}
+The UART is set using the U2MODE and U2STA registers. We use setup found in figure ~\ref{fig:uartsetp}.\\
+\begin{table}[H]
+    \begin{tabular}{|l l|}
+    \hline
+    Baud rate    & : 38400 \\ \hline
+    Data bit     & : 8    \\ \hline
+    Parity       & : None \\ \hline
+    Stop bit     & : 1    \\ \hline
+    Flow control & : None \\ \hline
+    \end{tabular}
+    \label{fig:uartsetp}
+    \caption{UART setup}
+\end{table}
 
 \subsection{Variables:}
 The global variables in the CDU includes 2 structs. These 2 structs will be shown in their own table.
@@ -190,5 +250,21 @@ Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 Return value:&\texttt{\textcolor{blue}{unsigned char} errors}\\
 \end{tabular}
 \end{table}
+
+\subsection{Flowcharts}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/isrflowchart}
+\label{fig:isrflowchart}
+\caption{CDU Interrupt service routine flowchart}
+\end{figure}
+
+\subsection{Memory Slot allocation}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{billeder/memoryslots}
+\label{fig:memoryslots}
+\caption{CDU memory slots}
+\end{figure}
 
 \section{Sensor node}

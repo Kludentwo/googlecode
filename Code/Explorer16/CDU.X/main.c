@@ -81,15 +81,13 @@ void CDUPCCom(void);
 ========================================================================*/
 int main(int argc, char** argv) {
     // INIT
-    OSCCON = 0x22C0; //select Primary Oscillator, External XL
+    OSCCON = 0x2200; //select Primary Oscillator, External XL
     CLKDIV = 0x0000; //do not divide 
 
     RCONbits.SWDTEN = 0; // Disable watchdog
 
     TRISA = 0x0090; //configure (RA4 = Inputs, Rest = output)
-    TRISB = 0x0000; //configure all PortB as output
-    TRISD = 0x0000; //configure all PortD
-    TRISF = 0x0010; //configure F4 = Input, Rest = output
+
 
     AD1PCFG = 0xFFFF; //set to all digital I/O
 	
@@ -99,7 +97,7 @@ int main(int argc, char** argv) {
 
     PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
     IPC0bits.T1IP = 5; //set interrupt priority
-    T1CON = 0b1000000000000000; //turn on the timer
+    T1CONbits.TON = 1;; //turn on the timer
     IFS0bits.T1IF = 0; //reset interrupt flag
     IEC0bits.T1IE = 1; //turn on the timer1 interrupt
     
@@ -107,6 +105,8 @@ int main(int argc, char** argv) {
     InitSensorArray(sensorarray);
     InitMemory();
     UARTInit();
+	
+	// INIT END (to be wrapped into function).
 
     while (startupcounter2 < 4) {
         startupcounter++;
