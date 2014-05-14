@@ -47,6 +47,7 @@ Interfaces:
 \end{table}
 
 \subsubsection{Sensor Power supply}
+The Sensor Power supply is responsible for providing a constant current to the communication bus. Communication is merged with the constant current to create small changes in current on the bus that can be read by the sensor.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUSPS}.\\
 \begin{figure}[H]
 	\centering
@@ -70,6 +71,7 @@ Interfaces:
 \end{table}
 
 \subsubsection{Sensor communication}
+The Sensor communication block is responsible for converting digital to analog and analog to digital converting of the signals to and from the sensor nodes. The analog parts are connected to the Sensor Power supply block.
 The interfaces to this block can be seen on figure ~\ref{fig:CDUSC}.\\
 \begin{figure}[H]
 	\centering
@@ -94,7 +96,7 @@ Interfaces:
 
 
 \subsubsection{µ-Controller}
-The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
+The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter. The hardware part of the µ-Controller block contains the physical pins on the microcontroller.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUuC}.\\
 \begin{figure}[H]
 	\centering
@@ -119,7 +121,9 @@ Interfaces:
 	\end{tabular}
 \end{table}
 
+
 \subsubsection{PC communication}
+The PC communication block is responsible for converting signals from the levels provided by the microcontroller, from the µ-Controller block, to levels that the PC can understand. The block contains a level converter.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUPCC}.\\
 \begin{figure}[H]
 	\centering
@@ -140,7 +144,9 @@ Interfaces:
 	\end{tabular}
 \end{table}
 
+
 \subsubsection{Memory}
+The Memory block is responsible for storing sensor information and data. The Memory block contains a communication interface and a eeprom or flash memory.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUM}.\\
 \begin{figure}[H]
 	\centering
@@ -162,56 +168,114 @@ Interfaces:
 \subsection{Block construction}
 This section describes all detailed calculations done to realize the implementation as well as detailed schematics.\\
 \subsubsection{Power Supply}
-tbw
-%The power supply is in charge of providing the system with 3.3 volts. This supply is for analog parts of the CDU and the µ-controller. The design is shown in figure \ref{fig:cdupowersupply}.
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdupowersupply}
-%\label{fig:cdupowersupply}
-%\caption{CDU Power Supply}
-%\end{figure}
+The Power Supply consist of a voltage regulator block. This block is implemented using a LM317LZ linear voltage regulator. The typical application is found in the data sheet as of figure ~\ref{fig:LM317}. The equation from the datasheet is used to determine the output voltage is given:\\
+\begin{equation}
+	V_{out}=1.25V\left(1+\frac{R2}{R1}\right)+ I_{ADJ}*R2
+\end{equation}
+Given is:
+\begin{equation}
+	R1 = 240\Omega $\\$
+	V_{OUT}=3.3V	$\\$
+	I_{ADJ}=50 \mu A(typ.)
+\end{equation}
+Solving for R2 gives us:
+\begin{equation}
+	R2 \approx 390\Omega
+\end{equation}
+
+To determine the input voltage needed on the P+ and P- pins:\\
+\begin{equation}
+	V_{supply}=5.5V + 5V * n
+\end{equation}
+Given is n = 2, for 2 sensors used for feasibility testing:
+\begin{equation}
+	V_{supply}=15.5V
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{billeder/impps}
+	\caption{CDU Power supply implementation}
+	\label{fig:CDUimpps}
+\end{figure}
 
 \subsubsection{Sensor Power supply}
-tbw
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdusensorpowersupply}
-%\label{fig:cdusensorpowersupply}
-%\caption{Sensor Power Supply part of the CDU}
-%\end{figure}
+The Sensor Power supply block consists of constant current generator. The A Sensor com send input allows the constant current generator to assume 2 current values. These are given by the formula extracted from the circuit found in figure ~\ref{fig:ccg}.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{billeder/ccg}
+	\caption{Constant current generator}
+	\label{fig:ccg}
+\end{figure}
+The constant current on the bus is found using the following equations:
+\begin{equation}
+	I_{R2}= \frac{(V_{Zener}-V_{BE})}{R2}
+\end{equation}
+Given is:
+\begin{equation}
+	V_{Zener} = 4.8V $\\$
+	V_{BE} = 0.65V $\\$
+	R2 = 200\Omega
+\end{equation}
+The current on the bus is:
+\begin{equation}
+	I_{R2}= 20.75 mA
+\end{equation}
+In order to open the zener diodes and the transistor we have to dimension the R1. R1 is given by:
+\begin{equation}
+	R1= \frac{(V_{Supply}-V_{Zener})}{i_{Zener}+K * I_B}
+\end{equation}
+Given is:
+\begin{equation}
+	I_{Zener} = 1 mA $\\$
+	V_{Supply} = 15.5V $\\$
+	V_{Zener} = 4.8V $\\$
+	K = 1.2 $\\$
+	I_B = 1 mA
+\end{equation}
+R1 will be:
+\begin{equation}
+	R1 \approx 5.1k\Omega
+\end{equation}
+Communication levels are determined by the A Sensor com send input. Toggling a diode nets us a $\Delta$current of:
+\begin{equation}
+	\Delta I = \frac{0.7V}{200\Omega} = 3.5 mA
+\end{equation}
+The finished implementation is found in figure ~\ref{fig:CDUimpsps}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{billeder/impsps}
+	\caption{CDU Sensor Power supply implementation}
+	\label{fig:CDUimpsps}
+\end{figure}
+
 
 \subsubsection{Sensor communication}
-tbw
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=1]{billeder/cdusensorsend}
-%\label{fig:cdusensorsend}
-%\caption{Writing to Sensor node(s)}
-%\end{figure}
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=1\textwidth]{billeder/cdusensorread}
-%\label{fig:cdusensorread}
-%\caption{Reading from Sensor node(s)}
-%\end{figure}
+The sensor communication block is implemented with 2 functions. The sending part is composed of a digital signal input that opens and closes a transistor. When the digital signal is high, the transistor is open, meaning the bus will have a constant current of 20.75 mA (From Sensor Power supply block). When the digital signal is low, the transistor is closed, meaning the bus will have a constant current of 20.75 mA + 3.5 mA. This in turn means that a high on the input will be low on the bus. Low on the input will be high on the bus. The input is actually inverse.\\
+The receiving part is made up of a high pass filter and an amplifier. The levels from the bus will be explained later. For now it will be defined as $\Delta$V = 0.7V. The amplifier is coupled as a comparitor. A voltage reference determines when the output of the amplifier is low and when it is high. The reference is calculted from the following formula:
+\begin{equation}
+	V_{ref} = 0.430 = \frac{R2}{R1+R2} * V_{in} $\\$
+	V_{in} = 3.3V $\\$
+	R1 = 100k\Omega $\\$
+	R2 = 15k\Omega
+\end{equation}
+This means when the voltage level on the input of the comparitor is above 0.430, the amplifier output will be high. When below, the amplifier output will be low. The effective gain will be determined by the following formula:
+\begin{equation}
+	Gain = \frac{V_{out}}{V_{in}} = \frac{3.3V}{0.7V} \approx 5 
+\end{equation}
+The with a gain of 5, we are well within the Gain Bandwidth Product limit. The Gain Bandwidth Product is defined in the datasheet for the amplifier.\\
+The finished implementation is found in figure ~\ref{fig:CDUimpsc}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/impsc}
+	\caption{CDU Sensor communication implementation}
+	\label{fig:CDUimpsc}
+\end{figure}
 
 
 
 \subsubsection{µ-Controller}
 The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
-
-
-\subsubsection{PC communication}
-tbw
-
-\subsubsection{Memory}
-tbw
-
-\subsection{PIN Connections}
-The PINOUT table for the CDU is found below.
+The PINOUT table for the CDU is found in figure ~\ref{fig:PINOUT}.
 \begin{table}[H]
 	\centering
     \begin{tabular}{|l|l|l|l|}
@@ -229,7 +293,28 @@ The PINOUT table for the CDU is found below.
     VSS		& 15 & GND				& Ground for everything \\ \hline
     \end{tabular}
     \caption{PINOUT table for the CDU.}
+    \label{fig:PINOUT}
 \end{table}
+
+
+\subsubsection{PC communication}
+The PC communication block is a part of the Explorer 16 board. All hardware connections are handled by the board. This means implementation is done solely by software. The hardware connections from the datasheet is found in figure ~\ref{fig:CDUimppcc}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/imppcc}
+	\caption{CDU PC communication implementation}
+	\label{fig:CDUimppcc}
+\end{figure}
+
+\subsubsection{Memory}
+The Memory block is a part of the Explorer 16 board. All hardware connections are handled by the board. This means implementation is done solely by software. The hardware connections from the datasheet is found in figure ~\ref{fig:CDUimpm}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{billeder/impm}
+	\caption{CDU Memory implementation}
+	\label{fig:CDUimpm}
+\end{figure}
+
 
 
 \section{Sensor Node}
