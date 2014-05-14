@@ -7,29 +7,27 @@ The blocks are derived from previous documentation.
 
 \section{System overview}
 The system consist of a central data unit(CDU) and n number of sensor nodes (SN).\\
-Through the 1-wire bus on which all sensor nodes are serially connected both power and communication to all sensors are carried. Below is shown a figure of the system overall blocks and interfaces.
+Through the 1-wire bus on which all sensor nodes are serially connected both power and communication to all sensors are carried. Below, on figure \ref{fig:systembdd}, is shown a figure of the system overall blocks and interfaces.
 \begin{figure}[hbpt]
-\centering
-\includegraphics[width=.9\textwidth]{billeder/systembdd}
-\caption{System block definition diagram}
-\label{systembdd}
+	\centering
+	\includegraphics[width=.9\textwidth]{billeder/systembdd}
+	\caption{System overview}
+	\label{fig:systembdd}
 \end{figure}
 
 \subsection{General interfaces}
-From the CDU power needs to be transmitted to all sensors. As per design, the CDU needs to output 5 volts for every sensor along with 0.7 volts for sensors to be able to respond.\\
-Each sensor has a 5V voltage-drop to power the sensor. The response is max 0.7 volts. A formula explains the power needed to power the bus $5V * n + 0.7V$.
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{|p{2.5cm}|p{1cm}| p{9cm}| }
-\hline
-\textbf{Block} & \textbf{IO} & \textbf{Description} \\\hline
-\multirow{2}{2.5cm}[-2em]{CDU} & B+& The possitive voltage out from the CDU is supplied to the first sensor. The level must be sufficient to supply the number of sensors connected(n).\\ \cline{2-3}
+	\begin{center}
+		\begin{tabular}{|p{2.5cm}|p{1cm}| p{9cm}| }
+			\hline
+			\textbf{Block} & \textbf{IO} & \textbf{Description} \\\hline
+			\multirow{2}{2.5cm}[-2em]{CDU} & B+& The possitive voltage out from the CDU is supplied to the first sensor. The level must be sufficient to supply the number of sensors connected.\\ \cline{2-3}
  & B-  & The negative port on the CDU is connected to the last sensors in the system and thereby ends the sensor loop. \\ \hline
-\multirow{2}{2.5cm}[-2em]{Sensor node} & S+ &The In\_pos is where the high potential voltage is supplied to the sensor node. \\ \cline{2-3}
+			\multirow{2}{2.5cm}[-2em]{Sensor node} & S+ &The In\_pos is where the high potential voltage is supplied to the sensor node. \\ \cline{2-3}
 & S- & The negative port at the sensor node is looped to the possitive port on the next sensor or on the "B-" port at the CDU. \\ \hline
-\end{tabular}
-\end{center}
+		\end{tabular}
+	\end{center}
 \end{table}
 
 \subsection{Block responsibility}
@@ -38,6 +36,30 @@ The CDU contacts each sensor to collect the data values. This is then stored for
 
 \subsubsection{Sensor node n}
 The sensor node measures temperature.
+
+\subsection{System layers}
+The system is divided into four layers, as shown on figure \ref{fig:system_layers}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/system_layers}
+	\caption{System layers}
+	\label{fig:system_layers}
+\end{figure}
+
+This architecture simplifies the communication process and clearly separates responsibility. This structure is based upon the idea of the OSI model [1].
+
+\subsubsection{Application layer}
+The application layer is only application specific functionality. This covers all functionality enabling the device to full fill the use cases, but does not handle any communication.
+
+\subsubsection{Protocol layer}
+The protocol layer handles the protocol specific functionality. This covers composing messages which complies with the protocol as well as interpreting incoming messages.
+
+\subsubsection{Line coding layer}
+The line coding layer converts the messages to the right sequence to be transmitted on the physical layer. This also covers converting incoming messages into buffers to be interpreted by the protocol layer.
+
+\subsubsection{Physical layer}
+The physical layer converts the digital message to an analog signal carried on the power line and vice versa.
 
 \section{Detailed block overview}
 Below are detailed figures for each block in the system.\\
@@ -91,17 +113,17 @@ The PC communication is an interface to a PC.\\
 \subsubsection{Block description}
 
 \textbf{Power supply:}\\
-The power supply located in the sensor regulates the voltage and current levels to fit the need of the individual blocks in the sensor.\\
+The power supply located in the sensor regulates the voltage levels to fit the need of the individual blocks in the sensor.\\
 
 \textbf{Communication:}\\
-The communication block demodulates the communcation on the input line and feeds it to the sensor logic.\\
+The communication block demodulates the communication on the input line and feeds it to the sensor logic. It also handles the conversion from a digital stream from the logic handler to a physical response to the CDU.\\
 
 \textbf{Logic handler;}\\
 The logic handler interprets the incomming communication and responds accordingly.\\
-It also handles communication with the Sensor block.\\
+It also handles communication with the data acquisition block as well as converting the data to a temperature value.\\
 
-\textbf{Sensor:}\\
-The sensor block is a complete measurement system with a digital interface.\\
+\textbf{Data acquisition:}\\
+The data acquisition block is a complete measurement system with a digital interface to the logic handler. It serves to measure the physical biometric parameter.\\
 
 
 
