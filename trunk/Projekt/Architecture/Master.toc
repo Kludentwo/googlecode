@@ -16,29 +16,35 @@
 \contentsline {chapter}{\chapternumberline {3}Structural view}{6}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introduction}{6}{section.3.1}
 \contentsline {section}{\numberline {3.2}System overview}{6}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}General interfaces}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.1}General interfaces}{7}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Block responsibility}{7}{subsection.3.2.2}
 \contentsline {subsubsection}{CDU}{7}{section*.2}
 \contentsline {subsubsection}{Sensor node n}{7}{section*.3}
-\contentsline {section}{\numberline {3.3}Detailed block overview}{7}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}CDU}{7}{subsection.3.3.1}
-\contentsline {subsubsection}{Block description}{7}{section*.4}
-\contentsline {subsection}{\numberline {3.3.2}Sensor node n}{8}{subsection.3.3.2}
-\contentsline {subsubsection}{Block description}{8}{section*.5}
-\contentsline {chapter}{\chapternumberline {4}Behavioural view}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Behavioural overview}{10}{section.4.2}
-\contentsline {section}{\numberline {4.3}Detailed behavioural overview}{11}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Startup sequence}{11}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Normal Operation}{11}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Data extraction}{12}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Detailed block behaviour}{13}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}CDU}{13}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Sensor node}{13}{subsection.4.4.2}
-\contentsline {chapter}{\chapternumberline {5}Protocols}{14}{chapter.5}
-\contentsline {section}{\numberline {5.1}Function codes}{14}{section.5.1}
-\contentsline {section}{\numberline {5.2}Communication sequence}{14}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}GETINFO function code}{15}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}GETDATA function code}{15}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Type}{15}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Errors}{15}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {3.2.3}System layers}{7}{subsection.3.2.3}
+\contentsline {subsubsection}{Application layer}{8}{section*.4}
+\contentsline {subsubsection}{Protocol layer}{8}{section*.5}
+\contentsline {subsubsection}{Line coding layer}{8}{section*.6}
+\contentsline {subsubsection}{Physical layer}{8}{section*.7}
+\contentsline {section}{\numberline {3.3}Detailed block overview}{8}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}CDU}{8}{subsection.3.3.1}
+\contentsline {subsubsection}{Block description}{8}{section*.8}
+\contentsline {subsection}{\numberline {3.3.2}Sensor node n}{9}{subsection.3.3.2}
+\contentsline {subsubsection}{Block description}{9}{section*.9}
+\contentsline {chapter}{\chapternumberline {4}Behavioural view}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}Behavioural overview}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}Detailed behavioural overview}{12}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Startup sequence}{12}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Normal Operation}{12}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Data extraction}{13}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Detailed block behaviour}{14}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}CDU}{14}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Sensor node}{14}{subsection.4.4.2}
+\contentsline {chapter}{\chapternumberline {5}Protocols}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Function codes}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}Communication sequence}{15}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}GETINFO function code}{16}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}GETDATA function code}{16}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Type}{16}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Errors}{16}{subsection.5.2.4}
+\contentsline {chapter}{\chapternumberline {6}References}{17}{chapter.6}

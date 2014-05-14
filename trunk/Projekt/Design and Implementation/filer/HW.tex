@@ -368,8 +368,7 @@ The incoming message is received by the scheme described in the architecture sec
 The state machine controller state machine checks incoming data for the right pattern. When the start sequence is received it changes the state to "check address" in the state machine controller state machine and "Manchester converting" in the Line coding state machine. If the correct address is received the state machine controller state machine then changes its state to "Check function code", lastly, depending on the function code, the state machine controller state machine prepares the data to be sent in the response. The state machine controller state machine then changes the state of the Line coding state machine to the "Respond" state and goes into the "Idle" state.\\
 The Line coding state machine samples all data in an 8 bit buffer in the idle state. This buffer is used in the idle state of the state machine controller. If this matches the start sequence the state is changed to "Manchester converting". This state handles the manchester decoding of the incoming stream of data. The first four manchester bits is then stored in an address buffer. If this address corresponds to the sensor nodes address then next four manchester bits are stored in a function code buffer. If this fits within the known function code the respond data buffer is filled with the corresponding data and the line coding state machine state is changed to the Respond state. The respond state serially runs through the respond data buffer as the clocks ticks in.\\
 
-The physical structure of the logic handler is divided into two parts. One which handles the power line communication bus and one the handles the interface with the data acquisition block. These two parts are then interconnected and the power line communication bus floppes the data from the data acquisition interface block when it is not sampling new data. The conversion from ADC steps to actual temperature is handled in the data acquisition interface block.
-
+The physical structure of the logic handler is divided into two parts. One which handles the power line communication bus and one the handles the interface with the data acquisition block. These two parts are then interconnected and the power line communication bus flops the data from the data acquisition interface block when it is not sampling new data. The conversion from ADC steps to actual temperature is handled in the data acquisition interface block.
 
 \subsubsection{Data acquisition}
 
@@ -398,12 +397,14 @@ The data acquisition block handles physical measurements of temperature and has 
 	\caption{Sensor node data acquisition block interface descriptions}
 \end{table}
 
+The measurement bridge is powered by the 3.3V supply. The bridge should be balanced at a low enough temperature so data isn't lost if the actual temperature is lower than this, the gain in the differential amplifier must not exceed so the maximum temperature measurement is too low of what would be expected. Due to low power at our disposal the bridge must not draw too much current.\\
+The voltage measurement is performed by an ADC with an external voltage reference and a SPI [1] like interface.
 
 \subsection{Block construction}
 This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
 
-\subsubsection{Powersupply}
-As seen on figure \ref{fig:SN_PS_FIGURE} the powersupply consists of a zener diode, a sense resistor and a voltage regulator.\\
+\subsubsection{Power supply}
+As seen on figure \ref{fig:SN_PS_FIGURE} the power supply consists of a zener diode, a sense resistor and a voltage regulator.\\
 The voltage regulator should output a 3.3V to supply the sensor. Below on figure \ref{fig:LM317} is shown a typical application from the datasheet. The to this application the following formula for output voltage is given:\\
 \begin{equation}
 	V_{out}=1.25V\left(1+\frac{R2}{R1}\right)+ I_{ADJ}*R2
@@ -420,8 +421,8 @@ With R1 given as 240$\Omega$, V$_{OUT}$=3.3V and I$_{ADJ}$=50$\mu$A(typ.) R2 wil
 \end{figure}
 
 In the datasheet the input voltage versus output voltage is specified to a minimum of 3V to ensure the specified output current of 100mA. But since we doesn't need more then 20mA at max we tested the regulator with $V_{IN}-V_{OUT}=1.3V$ and the output voltage is well within acceptable levels.\\
-
-\textbf{Simulation result:}\\
+The sense resistor is placed in series with the diode. The resistor serves to "convert" the current modulated communication to a voltage signal. The current level change for a 0 and a 1 the CDU is specified to 3.5mA. A communication resistor of $\sim$ 5$\Omega$ is chosen. Therefore a logical 0 will be a voltage drop $5\Omega * 20.5mA = 103mV$ and a logical 1 will be have a drop of $5\Omega * 24mA = 120mV$. The communication will therefore have $\Delta V=17mV$. This analog signal is connected to the input of the communication block for further conversion.\\
+\textbf{Simulation result:}
 
 \begin{figure}[H]
 	\centering
@@ -430,9 +431,60 @@ In the datasheet the input voltage versus output voltage is specified to a minim
 	\label{fig:ps_sim}
 \end{figure}
 
-
-
 \subsubsection{Communication}
+As seen on figure \ref{fig:SN_com_fig}, the communication block comprises of an amplifier, a signal reference, a clock recovery circuit and a respond circuit. Each block will be described here.\\
+\textbf{Amplifier and signal reference:}\\
+The amplifier serves to amplify the received signal to logic levels. On the sensor node logic levels are 0 ($\sim$ 0V) and 1 ($\sim$ 3.3V). Therefore a rail-to-rail amplifier is chosen. The amplifier comprises of a two step amplification, the first one amplifies the raw signal and the second amplifies the signal with reference to the filtered signal (averaged signal). Below on figure \ref{fig:communication_amplifier_circuit} is shown the implementation:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/communication_amplifier_sn}
+	\caption{Communication amplifier circuit}
+	\label{fig:communication_amplifier_circuit}
+\end{figure}
+
+After the first amplifier $\Delta V$ is amplified by the gain factor(k):
+\begin{equation}
+	k=\frac{100k\Omega+10k\Omega}{10k\Omega}=11
+\end{equation}
+Therefore $\Delta V=k*17mV=187mV$. The signal is then averaged by the filter comprised of R7 and C1 (see figure \ref{fig:communication_amplifier_circuit}) and the operation amplifier works as a comparator. The comparator amplifies the signal from 187mV to rail ($\sim$3.3V) when the signal is high and to ground ($\sim$0V) when the signal is low. The comparator gains the signal $\frac{3.3V}{120mV*k}\approx 2.5$ when it is high.\\
+This is done because of the slew rate of the operation amplifier MCP6002 wasn't sufficient. The MCP6002 series was the available rail-to-rail operation amplifier.\\
+According to the calculations the slew rate should be sufficient but after testing the design the decision was made to make it a two stage amplifier.
+Slew rate calculation:
+\begin{equation}
+	F_{MAX}=\frac{0.6\frac{V}{\mu s}}{2*\pi*3.3V}\approx29kHz
+\end{equation}
+
+\textbf{Clock recovery:}\\
+The clock recovery circuit comprises of a Phased lock loop (PLL) and a clock divider (JK flip flop). The PLL consists of a phase detector (PD), a voltage controlled oscillator (VCO) and a loop filter. The PLL's purpose is to lock on the frequency of the incomming data, and then providing a steady clock to sample the received data. The PLL is a CD4046BE from texas instruments. Below, in figure \ref{fig:cd4046} is shown the block diagram for the CD4046.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/CD4046}
+	\caption{CD4046 block diagram}
+	\label{fig:cd4046}
+\end{figure}
+
+In this design the phase comparator (PD) type 1 is used. It is basically an x-or gate comparing the two input clock. If the two clock are logically different the PD sends a high output and if the two input clocks are logically equal it sends a low output. The output of the PD is then filtered with a low pass filter and fed to the input of the VCO. If the CD4046 is in lock the input to the VCO should be V$_{\text{DD}}$/2. This means when the PLL is locked with PD type 1 it will be in exactly 90$^{\circ}$deg phase. By using a clock divider the logic handler can sample the incoming data
+on each rising edge following the waveforms shown in figure \ref{fig:cd4046waveforms} below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/cd4046waveforms}
+	\caption{clock and data waveform scheme}
+	\label{fig:cd4046waveforms}
+\end{figure}
+
+The PLLs VCO is configured by the values of C1, R1 and R2 but also the filter comprised of C2 and R3 impacts the loop.\\
+The C1, R1 and R2 component define the frequency lock range. This range is the total range of the VCO meaning it can lock from f$_{\text{max}}$-f$_{\text{min}}$=2f$_{\text{l}}$, the VCO outputs f$_{\text{min}}$ when VCO in = V$_{\text{SS}}$ and f$_{\text{max}}$ when VCO in = V$_{\text{DD}}$. The filter then defines the frequency capture range. This is the range where the PLL will automatically lock if the input frequency is within this span. On figure ... the relation between VCO in and VCO out is illustrated.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/VCO_graph}
+	\caption{VCO voltage in vs. VCO frequency out}
+\end{figure}
+
+The first step when dimensioning the VCO is to determine f$_{\text{min}}$. Here we know f$_{\text{min}}$=f$_{\text{0}}$-f$_{\text{l}}$. I this case f$_{\text{0}}$=20kHz since we have a clock divider and f$_{\text{l}}$ is chosen to 4kHz. Therefore f$_{\text{min}}$=16kHz
 
 \subsubsection{Logic handler}
 
