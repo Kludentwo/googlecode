@@ -71,6 +71,15 @@ The UART is set using the U2MODE and U2STA registers. We use setup found in figu
     \label{fig:uartsetp}
     \caption{UART setup}
 \end{table}
+The Baud register value is calculated:\\
+\begin{equation}
+XTAL = 4 MHz $\\$ 
+BAUD = 38400 
+\end{equation}
+\begin{equation}
+BRG = \frac{XTAL}{BAUD*4} - 1 = 25
+\end{equation}
+When 25 is written to the baud rate register, a baud rate of 38400 is achieved.
 
 \subsection{Variables:}
 The global variables in the CDU includes 2 structs. These 2 structs will be shown in their own table.
