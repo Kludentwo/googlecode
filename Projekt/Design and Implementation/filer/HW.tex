@@ -569,28 +569,71 @@ The C1, R1 and R2 component define the frequency lock range. This range is the t
 	\caption{VCO voltage in vs. VCO frequency out}
 \end{figure}
 
-The first step when dimensioning the VCO is to determine f$_{\text{min}}$. Here we know f$_{\text{min}}$=f$_{\text{0}}$-f$_{\text{l}}$. I this case f$_{\text{0}}$=20kHz since we have a clock divider and f$_{\text{l}}$ is chosen to 4kHz. Therefore f$_{\text{min}}$=16kHz. In the datasheet the a graph is provided, see figure \ref{graph:C1}, to dimension the capacitor with regards to R2 and f$_{\text{l}}$, R2=100k$\Omega$.
+The first step when dimensioning the VCO is to determine f$_{\text{min}}$. Here we know f$_{\text{min}}$=f$_{\text{0}}$-f$_{\text{l}}$. I this case f$_{\text{0}}$=20kHz since we have a clock divider and f$_{\text{l}}$ is chosen to 10kHz. Therefore f$_{\text{min}}$=10kHz. In the datasheet the a graph is provided, see figure \ref{graph:C1}, to dimension the capacitor with regards to R2 and f$_{\text{l}}$, R2=100k$\Omega$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.7\textwidth]{billeder/c1_graph_cd4046}
+	\includegraphics[width=.6\textwidth]{billeder/c1_graph_cd4046}
 	\caption{C1 dimension graph CD4046}
 	\label{graph:C1}
 \end{figure}
 
-The capacitor should be in the 1nF area but as seen on the graph the variation in components can vary as much as 15\% operating at 5V, and since the sensor node is running at 3.3V a large variation is expected. When the capacitor is determined R1 is the last component. R1 is determined with the relation f$_{\text{max}}$/f$_{\text{min}}$ versus R2/R1, the relation is seen on figure
+The capacitor should be in the 1nF area.  When the capacitor is determined R1 is the last component. R1 is determined with the relation f$_{\text{max}}$/f$_{\text{min}}$ versus R2/R1, the relation is seen on figure \ref{graph:R1}. 
+\begin{equation}
+	\frac{F_{max}}{F_{min}}=3
+\end{equation}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.7\textwidth]{billeder/R1_graph_cd4046}
+	\includegraphics[width=.6\textwidth]{billeder/R1_graph_cd4046}
+	\caption{Typical f$_{\text{max}}$/f$_{\text{min}}$ as a function of R2/R1}
+	\label{graph:R1}
+\end{figure}
+
+By this:
+
+\begin{equation}
+	\frac{R2}{R1}\approx3 \Rightarrow \frac{R2}{3}=R1\approx33k\Omega
+\end{equation}
+
+Due to the fact that the unit-to-unit variation can vary as much as 25\% regarding f$_{\text{min}}$/f$_{\text{min}}$ and 12\% regarding f$_{\text{max}}$/f$_{\text{min}}$, operating at 5V, and since the sensor node is running at 3.3V a large variation is expected.
+So to determine the correct components starting with the values found above, a "trial and error" method is used. When there are no frequency on the input signal (of the PD) the VCO will output f$_{\text{0}}$, this is used to determine the capacitor.\\
+This will have to be done for PLL to PLL.\\
+
+The implementation of the clock recovery circuit is found on figure \ref{fig:clock_recovery}, note the actual values may vary.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/clock_recovery_imp}
+	\caption{Clock recovery implementation.}
+	\label{fig:clock_recovery}
 \end{figure}
 
 
+\textbf{Respond:}\\
+The respond circuit is implemented with a BAV21 general purpose diode and a ZVN3306A mosfet for switching. The circuit is illustrated on the figure \ref{fig:respond_Circ} below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/respond_imp}
+	\caption{Respond circuit implementation}
+	\label{fig:respond_Circ}
+\end{figure} 
+
+When the logic handler outputs a logic 1 (3.3V) the mosfet will close and the current will flow through the diode, making an additional ~0.7V drop over the sensor node. When the logic handler outputs a logic 0 (0V) the mosfet will open and the current will flow through the mosfet and the sensor node will have the normal voltage drop.
 
 
-So to determine the correct capacitor a "trial and error" method is used. When there are no frequency on the input signal (of the PD) the VCO will output f$_{\text{0}}$.
 
 \subsubsection{Logic handler}
+Below on figure ... a figure of the implementation of the logic handler. 
+
+
+\textbf{Data acquisition interfacing:}\\
+The data acquisition interfacing has a SPI implementation that fits the interface of the MAX1241 adc.
+
+\textbf{Powerline communication:}\\
+
+
 
 \subsubsection{Sensor}
 
