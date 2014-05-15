@@ -87,7 +87,9 @@ int main(int argc, char** argv) {
     RCONbits.SWDTEN = 0; // Disable watchdog
 
     TRISA = 0x0090; //configure (RA4 = Inputs, Rest = output)
-
+    TRISB = 0x0000; //configure all PortB as output
+    TRISD = 0x0000; //configure all PortD
+    TRISF = 0x0010; //configure F4 = Input, Rest = output
 
     AD1PCFG = 0xFFFF; //set to all digital I/O
 	
@@ -97,7 +99,7 @@ int main(int argc, char** argv) {
 
     PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
     IPC0bits.T1IP = 5; //set interrupt priority
-    T1CONbits.TON = 1;; //turn on the timer
+    T1CON = 0b1000000000000000; //turn on the timer
     IFS0bits.T1IF = 0; //reset interrupt flag
     IEC0bits.T1IE = 1; //turn on the timer1 interrupt
     
@@ -119,8 +121,8 @@ int main(int argc, char** argv) {
   
     //Main Program Loop, Loop forever
     while (1) {
-        CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
-        error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
+        CDUSend(&(sensorarray[0]), 3, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[0]), 3, response, &CDUFlags);
         if (error == 0) {
             errorcount += 1;
         }
