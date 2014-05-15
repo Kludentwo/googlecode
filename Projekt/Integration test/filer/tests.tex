@@ -29,7 +29,7 @@ A full message with address: "1" and function code: "1" has been received on the
 1 & 11-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-As seen below a full message with address: "1" and function code: "1" has been received.
+As seen below a full message with address: "1" and function code: "1" has been received. This is seen on figure ~\ref{fig:InteTestCase1}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{billeder/CDUtestcase9}
@@ -68,10 +68,10 @@ A full message with address: "1" and function code: "2" has been received on the
 2 & 15-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-
+A full message with address: "1" and function code: "2" was received on the sensor as seen on figure ~\ref{fig:InteTestCase2}.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{billeder/intetestcase2}
+\includegraphics[scale=1]{billeder/intetestcase2}
 \caption{Test Case 2 Result}
 \label{fig:InteTestCase2}
 \end{figure}
@@ -104,10 +104,16 @@ A message containing address: "1", function code: "1" and the remainder of the r
 \centering
 \begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
 \textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-3 & - & - & - \\ \hline
+3 & 15-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-
+A message containing address: "1", function code: "1" and the remainder of the response was received on the CDU. See figure ~\ref{fig:InteTestCase3}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{billeder/intetestcase3}
+\caption{Test Case 3 Result}
+\label{fig:InteTestCase3}
+\end{figure}
 
 \textbf{Comment and remarks:}\\
 -\\
@@ -140,7 +146,7 @@ A message containing address: "1", function code: "2" and the remainder of the r
 4 & 15-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-
+A message containing address: "1", function code: "2" and the remainder of the response was received on the CDU. See figure ~\ref{fig:InteTestCase4}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{billeder/intetestcase4}
@@ -179,7 +185,7 @@ A full response with address: "1" and function code: "2" has been received on th
 5 & 15-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-
+A full response with address: "1" and function code: "2" was received on the CDU. See figure ~\ref{fig:InteTestCase5}. Data maches In-switches.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{billeder/intetestcase5}
@@ -216,10 +222,16 @@ A full response with address: "1" and function code: "3" has been received on th
 \centering
 \begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
 \textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
-6 & - & - & - \\ \hline
+6 & 15-05-2014 & See below & PASSED \\ \hline
 \end{tabular}
 \end{table}
-
+A full response with address: "1", function code: "3" and Error code 2 was received on the CDU.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{billeder/intetestcase6}
+\caption{Test Case 6 Result}
+\label{fig:InteTestCase6}
+\end{figure}
 
 \textbf{Comment and remarks:}\\
 -\\
@@ -232,7 +244,6 @@ The purpose of the test is to test the communication from PC to the CDU.\\
 
 \textbf{Test equipment:}
 \begin{itemize}
-\item Analog Discovery USB oscilloscope
 \item MPLAB X IDE
 \item Explorer 16 board
 \item ICD 3 Debugger
@@ -272,12 +283,12 @@ The purpose of the test is to test the communication from PC to the CDU.\\
 
 \textbf{Test equipment:}
 \begin{itemize}
-\item Analog Discovery USB oscilloscope
 \item MPLAB X IDE
 \item Explorer 16 board
 \item ICD 3 Debugger
 \item CDU stub
 \item Sensor node with address 1
+\item Realterm software
 \end{itemize}
 
 \textbf{Procedure:}\\
@@ -304,3 +315,41 @@ unknown cmd was printed to the terminal as shown on figure ~\ref{fig:InteTestCas
 
 \textbf{Comment and remarks:}\\
 -\\
+
+\subsection{Reliability test case 1: Timed Transmissions and errors}
+\textbf{Purpose:}\\
+The purpose of the test is to test the communication from CDU to the sensor.\\
+
+\textbf{Test equipment:}
+\begin{itemize}
+\item MPLAB X IDE
+\item Explorer 16 board
+\item ICD 3 Debugger
+\item CDU stub
+\item Sensor node with address 1
+\end{itemize}
+
+\textbf{Procedure:}\\
+Apply 20 V on the P+ and P- pins of the CDU. Connect a sensor node to B+ and B- pins of the CDU. Connect the Explorer 16 board to the CDU circuit. Run a communcation test stub and observe the amounts of errors collected in the system. Run the test for 60 minutes.\\
+
+\textbf{Expected Result:}\\
+With 10 messages each second for 60 minutes a total of 36000 messages are sent. 1\%\char24 ~of errors or 1 error per thousand transmission is expected.
+
+\textbf{Actual Result:}\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|p{2cm}|}\hline
+\textbf{Test case:} & \textbf{Date:} & \textbf{Measurement:} & \textbf{Result:} \\ \hline
+1 & 15-05-2014 & See below & PASSED \\ \hline
+\end{tabular}
+\end{table}
+5 errors of 36000 messages = 0.01\% errors or 1 error per 7200 transmissions. This is seen on figure ~\ref{fig:Reliacase1}. The counter start at 1. 1 + 5 = 6 which is displayed on the screen.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{billeder/reliabilitytestcase1}
+\caption{Reliability test case 1}
+\label{fig:Reliacase1}
+\end{figure}
+
+\textbf{Comment and remarks:}\\
+Well within specified limit.\\
