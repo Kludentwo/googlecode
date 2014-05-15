@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SN_PROGRAM_V02
-Sun May 11 14:39:08 2014
+Thu May 15 16:57:30 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -47,15 +47,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 11 14:39:08 2014     ;
+; Analysis & Synthesis Status        ; Successful - Thu May 15 16:57:30 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
 ; Family                             ; Cyclone II                                ;
-; Total logic elements               ; 196                                       ;
-;     Total combinational functions  ; 176                                       ;
-;     Dedicated logic registers      ; 111                                       ;
-; Total registers                    ; 111                                       ;
+; Total logic elements               ; 154                                       ;
+;     Total combinational functions  ; 142                                       ;
+;     Dedicated logic registers      ; 89                                        ;
+; Total registers                    ; 89                                        ;
 ; Total pins                         ; 41                                        ;
 ; Total virtual pins                 ; 0                                         ;
 ; Total memory bits                  ; 0                                         ;
@@ -183,27 +183,27 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 196   ;
+; Estimated Total logic elements              ; 154   ;
 ;                                             ;       ;
-; Total combinational functions               ; 176   ;
+; Total combinational functions               ; 142   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 99    ;
-;     -- 3 input functions                    ; 54    ;
-;     -- <=2 input functions                  ; 23    ;
+;     -- 4 input functions                    ; 81    ;
+;     -- 3 input functions                    ; 35    ;
+;     -- <=2 input functions                  ; 26    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 167   ;
+;     -- normal mode                          ; 133   ;
 ;     -- arithmetic mode                      ; 9     ;
 ;                                             ;       ;
-; Total registers                             ; 111   ;
-;     -- Dedicated logic registers            ; 111   ;
+; Total registers                             ; 89    ;
+;     -- Dedicated logic registers            ; 89    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 41    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out                             ; 113   ;
-; Total fan-out                               ; 870   ;
-; Average fan-out                             ; 2.65  ;
+; Maximum fan-out                             ; 91    ;
+; Total fan-out                               ; 694   ;
+; Average fan-out                             ; 2.55  ;
 +---------------------------------------------+-------+
 
 
@@ -212,9 +212,9 @@ applicable agreement for further details.
 +-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
 ; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Library Name ;
 +-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
-; |SN_PROGRAM_V02               ; 176 (0)           ; 111 (0)      ; 0           ; 0            ; 0       ; 0         ; 41   ; 0            ; |SN_PROGRAM_V02                          ;              ;
-;    |SN_program_v01:inst7|     ; 106 (106)         ; 79 (79)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|SN_program_v01:inst7     ;              ;
-;    |Sensor_interfacing:inst1| ; 70 (70)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|Sensor_interfacing:inst1 ;              ;
+; |SN_PROGRAM_V02               ; 142 (0)           ; 89 (0)       ; 0           ; 0            ; 0       ; 0         ; 41   ; 0            ; |SN_PROGRAM_V02                          ;              ;
+;    |SN_program_v01:inst7|     ; 98 (98)           ; 70 (70)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|SN_program_v01:inst7     ;              ;
+;    |Sensor_interfacing:inst1| ; 44 (44)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SN_PROGRAM_V02|Sensor_interfacing:inst1 ;              ;
 +-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -243,24 +243,21 @@ Encoding Type:  One-Hot
 +----------------------------+----------------------------+-----------------------+--------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                             ;
-+-------------------------------------------------------------+------------------------------------------------------------------+
-; Register name                                               ; Reason for Removal                                               ;
-+-------------------------------------------------------------+------------------------------------------------------------------+
-; SN_program_v01:inst7|\communication:errors[2,3]             ; Merged with SN_program_v01:inst7|\communication:errors[1]        ;
-; SN_program_v01:inst7|\communication:Respond_Data[14,15]     ; Merged with SN_program_v01:inst7|\communication:Respond_Data[13] ;
-; SN_program_v01:inst7|\communication:Respond_Data[19,21..23] ; Merged with SN_program_v01:inst7|\communication:Respond_Data[18] ;
-; SN_program_v01:inst7|\communication:Respond_Data[18]        ; Stuck at GND due to stuck port data_in                           ;
-; SN_program_v01:inst7|\communication:Respond_Data[20]        ; Stuck at VCC due to stuck port data_in                           ;
-; Sensor_interfacing:inst1|wait_counter[16..19]               ; Stuck at GND due to stuck port data_in                           ;
-; SN_program_v01:inst7|\communication:errors[1]               ; Stuck at GND due to stuck port data_in                           ;
-; SN_program_v01:inst7|\communication:Respond_Data[13]        ; Stuck at GND due to stuck port data_in                           ;
-; Sensor_interfacing:inst1|wait_counter[13..15]               ; Stuck at GND due to stuck port data_in                           ;
-; SN_program_v01:inst7|\communication:Respond_Data[16]        ; Merged with SN_program_v01:inst7|\communication:Respond_Data[17] ;
-; Sensor_interfacing:inst1|wait_counter[9..12]                ; Stuck at GND due to stuck port data_in                           ;
-; Total Number of Removed Registers = 24                      ;                                                                  ;
-+-------------------------------------------------------------+------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                          ;
++----------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                            ; Reason for Removal                                               ;
++----------------------------------------------------------+------------------------------------------------------------------+
+; SN_program_v01:inst7|\communication:Respond_Data[20]     ; Stuck at VCC due to stuck port data_in                           ;
+; SN_program_v01:inst7|\communication:Respond_Data[21..23] ; Stuck at GND due to stuck port data_in                           ;
+; SN_program_v01:inst7|\communication:errors[2,3]          ; Merged with SN_program_v01:inst7|\communication:errors[1]        ;
+; SN_program_v01:inst7|\communication:Respond_Data[15]     ; Merged with SN_program_v01:inst7|\communication:Respond_Data[14] ;
+; Sensor_interfacing:inst1|wait_counter[13..19]            ; Stuck at GND due to stuck port data_in                           ;
+; SN_program_v01:inst7|\communication:errors[1]            ; Stuck at GND due to stuck port data_in                           ;
+; SN_program_v01:inst7|\communication:Respond_Data[14]     ; Stuck at GND due to stuck port data_in                           ;
+; Sensor_interfacing:inst1|wait_counter[9..12]             ; Stuck at GND due to stuck port data_in                           ;
+; Total Number of Removed Registers = 20                   ;                                                                  ;
++----------------------------------------------------------+------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------+
@@ -275,7 +272,7 @@ Encoding Type:  One-Hot
 ;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[10],           ;
 ;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[11],           ;
 ;                                               ;                           ; Sensor_interfacing:inst1|wait_counter[12]            ;
-; SN_program_v01:inst7|\communication:errors[1] ; Stuck at GND              ; SN_program_v01:inst7|\communication:Respond_Data[13] ;
+; SN_program_v01:inst7|\communication:errors[1] ; Stuck at GND              ; SN_program_v01:inst7|\communication:Respond_Data[14] ;
 ;                                               ; due to stuck port data_in ;                                                      ;
 +-----------------------------------------------+---------------------------+------------------------------------------------------+
 
@@ -285,12 +282,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 111   ;
+; Total registers                              ; 89    ;
 ; Number of registers using Synchronous Clear  ; 1     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 33    ;
+; Number of registers using Clock Enable       ; 23    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -300,7 +297,7 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; Sensor_interfacing:inst1|first_clock   ; 5       ;
+; Sensor_interfacing:inst1|first_clock   ; 4       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
 
@@ -310,13 +307,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[16] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[13] ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[8]  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|Sensor_interfacing:inst1|data_counter[2]             ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[6]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:Respond_Data[16] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|Sensor_interfacing:inst1|data_counter[0]             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |SN_PROGRAM_V02|SN_program_v01:inst7|\communication:errors[0]        ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|address_counter                 ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|m_f_bit2                        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|functioncode_counter            ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|Selector0                       ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |SN_PROGRAM_V02|SN_program_v01:inst7|Selector5                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
 
 
@@ -335,7 +333,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Sun May 11 14:39:05 2014
+    Info: Processing started: Thu May 15 16:57:27 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file sn_program_v01.vhd
@@ -359,6 +357,7 @@ Info (12127): Elaborating entity "SN_PROGRAM_V02" for the top level hierarchy
 Info (12128): Elaborating entity "SN_program_v01" for hierarchy "SN_program_v01:inst7"
 Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(27): used implicit default value for signal "R_DATA_debigging" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10036): Verilog HDL or VHDL warning at SN_program_v01.vhd(56): object "r_manchester_counter" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at SN_program_v01.vhd(57): object "flopped_ADC_DATA" assigned a value but never read
 Warning (10541): VHDL Signal Declaration warning at SN_program_v01.vhd(66): used implicit default value for signal "temperature" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(87): used initial value expression for variable "start_seq" because variable was never assigned a value
 Warning (10542): VHDL Variable Declaration warning at SN_program_v01.vhd(88): used initial value expression for variable "address" because variable was never assigned a value
@@ -371,18 +370,19 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SHDN_debug" is stuck at VCC
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "DOUT"
     Warning (15610): No output dependent on input pin "In_switches[15]"
     Warning (15610): No output dependent on input pin "In_switches[14]"
     Warning (15610): No output dependent on input pin "In_switches[13]"
     Warning (15610): No output dependent on input pin "In_switches[12]"
-Info (21057): Implemented 240 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 197 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 199 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 502 megabytes
-    Info: Processing ended: Sun May 11 14:39:08 2014
+    Info (21061): Implemented 156 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 507 megabytes
+    Info: Processing ended: Thu May 15 16:57:30 2014
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

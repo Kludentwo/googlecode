@@ -186,14 +186,14 @@ communication: process(CLK,RESET)
 							elsif functioncode = get_data then
 								f_state <= respond;
 								r_state <= idle;
-								Respond_Data := address & get_data & errors & flopped_ADC_DATA;
+								Respond_Data := address & get_data & errors & in_switches(11 downto 0);
 								errors := x"0";
 								
 							else
 								r_state <= idle;
-								f_state <= idle;
-								errors := "0001";
-								--error_counter <= std_logic_vector(unsigned(error_counter) + 1);
+								f_state <= respond;
+								Respond_Data := address & functioncode & "0010" & X"000";
+
 							end if;
 						end if;
 						
