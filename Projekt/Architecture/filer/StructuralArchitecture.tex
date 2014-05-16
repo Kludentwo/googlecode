@@ -100,6 +100,33 @@ The memory stores all data collected by the µ-Controller. The memory can be det
 \textbf{PC communication:}\\
 The PC communication is an interface to a PC.\\
 
+\subsubsection{Signal description}
+\begin{table}[H]
+	\centering
+    \begin{tabular}{|l|p{9cm}|}
+    \hline
+    Sensor power & This signal contains the power to the Sensor Power supply block. \\
+    \hline
+    Power \& communication & The signal contains the power for the sensor nodes along with the communication signal. \\
+    \hline
+    µC power & This signal contains the power for the µ-Controller block. \\
+    \hline
+    Com power & This signal contains the power for the Sensor communication block. \\
+    \hline
+    A Sensor com & This signal contains the analog levels for sensor communication \\
+    \hline
+    D Sensor com & This signal contains the digital levels for sensor communication \\
+    \hline
+    Pc data & This signal contains the µ-Controller levels of Pc data \\
+    \hline
+    Mem data & This signal contains data to and from memory \\
+    \hline
+    Pc data* & This signal contains the PC levels of Pc data \\
+    \hline
+    \end{tabular}
+    \caption{Signal description for CDU block}
+    \label{CDUsignaldes}
+\end{table}
 
 \subsection{Sensor node n}
 
@@ -125,5 +152,25 @@ It also handles communication with the data acquisition block as well as convert
 \textbf{Data acquisition:}\\
 The data acquisition block is a complete measurement system with a digital interface to the logic handler. It serves to measure the physical biometric parameter.\\
 
-
+\subsubsection{Signal description}
+\begin{table}[H]
+	\centering
+    \begin{tabular}{|l|p{9cm}|}
+    \hline
+    Power \& CDU com & This signal contains the power, clock and data from the bus. \\
+    \hline
+   	Communication supply & This signal contains the supply power for the communication block. \\
+    \hline
+    CDU com & This signal contains the communication to and from the CDU. \\
+    \hline
+    Logic supply & This signal contains the supply power for the logic handler block. \\
+    \hline
+    Data acquisition com & This signal contains the communication to and from the data acquisition block. \\
+    \hline
+    Data acquisition supply & This signal contains the supply power for the data acquisition block. \\
+    \hline
+    \end{tabular}
+    \caption{Signal description for SN block}
+    \label{SNsignaldes}
+\end{table}
 
