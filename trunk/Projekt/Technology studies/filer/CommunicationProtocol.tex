@@ -1,2 +1,22 @@
 \chapter{Communication protocol}
-This chapter desribes the technology studies of the communication protocol implemented in the project.
+This chapter describes the technology studies of the communication protocol implemented in the project.
+\section{Introduction}
+Before starting on this project we had never designed a communication protocol from scratch before. We started out by investigating other communication protocols currently in use. We took inspiration in Modbus and likewise protocols to create a prototype protocol containing a start code, an address, a function code and data. \\
+We knew from the beginning that we had to convert digital signals to analog in order to transmit messages. In the receiving end we had to convert the analog levels back to digital in order to decode these messages.\\
+\section{Digital part}
+The digital part was designed with a start code, an address and a function code. We thought of uses for the CDU to send data to the sensor node. This data could be calibration data for the data acquirement circuit or likewise. This would be out of our scope so we choose to not implement this. 
+\section{Analog part}
+The analog part of the communication technology study was by far the largest. We had to decide which method we wanted to use to carry our messages. We also had to design the digital to analog level and analog to digital level conversion. Knowing we only had one wire on our custom power line communication bus we had to think of a way to send both data and a clock on the same line.
+\subsection{Method}
+When looking at the method of carrying our message, we investigated already implemented methods like HART. This gave us a way of looking at frequency modulated methods. After some consideration we decided to not use frequency modulation and look to a simple method. From the inspiration of HART we decided to use a current loop as it is very resistant to noise. The communication would be to assume two different levels of current. One as a logic low and another one as a logic high.
+\subsection{Custom power line communication issues}
+The custom power line would have to provide power for every component on the sensor node while in assuming a logic low. This is the minimum current to be provided on the bus. It is defined by the formula:
+\begin{equation}
+I_{base} = \frac{P_{tot}}{5V}
+\end{equation}
+P_{tot} is the combined power use of the sensor nodes components.\\
+The logic high level will be determined by two things: A resistor and an analog to digital level converter. The formula is:
+\begin{equation}
+\Delta I * R_{sense} * Gain = Top Rail
+\end{equation}
+Where Top Rail is supply voltage for a rail-to-rail amplifier. $\Delta$I is determined by the CDU. R_{sense} and Gain is located on the sensor node.
