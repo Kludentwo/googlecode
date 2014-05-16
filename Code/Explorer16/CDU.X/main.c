@@ -22,8 +22,9 @@ _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 // Pre defines for project
 #define     MESSAGELENGTH   12
 #define     STARTCODE       0b0110
-#define     RESPONSELENGTH   24
+#define     RESPONSELENGTH  24
 #define     NUMBEROFSENSORS 15
+#define     COUNTTOMSG      667
 // Function Codes:
 #define     GETINFO         0b0001
 #define     GETDATA         0b0010
@@ -121,8 +122,8 @@ int main(int argc, char** argv) {
   
     //Main Program Loop, Loop forever
     while (1) {
-        CDUSend(&(sensorarray[0]), 3, message, &CDUFlags);
-        error = CDUReceive(&(sensorarray[0]), 3, response, &CDUFlags);
+        CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
         if (error == 0) {
             errorcount += 1;
         }
@@ -370,7 +371,7 @@ void __attribute__((__interrupt__)) _T1Interrupt(void);
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void) {
     maincounter++;
-    if (maincounter == 2000) {
+    if (maincounter == COUNTTOMSG) {
         maincounter = 0;
         CDUFlags.enableflag = 1;
     }
