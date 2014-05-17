@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for SN_PROGRAM_V02
-Thu May 15 16:57:54 2014
+Fri May 16 11:02:46 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -1280,7 +1280,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Thu May 15 16:57:52 2014
+    Info: Processing started: Fri May 16 11:02:45 2014
 Info: Command: quartus_sta SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
@@ -1329,8 +1329,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 411 megabytes
-    Info: Processing ended: Thu May 15 16:57:54 2014
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Fri May 16 11:02:46 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

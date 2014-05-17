@@ -1,5 +1,5 @@
 Flow report for SN_PROGRAM_V02
-Thu May 15 16:57:56 2014
+Fri May 16 11:02:48 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Flow Summary                                                                   ;
 +------------------------------------+-------------------------------------------+
-; Flow Status                        ; Successful - Thu May 15 16:57:56 2014     ;
+; Flow Status                        ; Successful - Fri May 16 11:02:48 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/15/2014 16:57:27 ;
+; Start date & time ; 05/16/2014 11:02:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SN_PROGRAM_V02      ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 49273389870329.140016584702036 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 49273389870329.140023095007580 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -90,12 +90,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 507 MB              ; 00:00:03                           ;
-; Fitter                    ; 00:00:13     ; 1.6                     ; 664 MB              ; 00:00:13                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 429 MB              ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 411 MB              ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 499 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:07     ; 1.4                     ; 662 MB              ; 00:00:08                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 429 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 411 MB              ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 382 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:24     ; --                      ; --                  ; 00:00:23                           ;
+; Total                     ; 00:00:15     ; --                      ; --                  ; 00:00:14                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
