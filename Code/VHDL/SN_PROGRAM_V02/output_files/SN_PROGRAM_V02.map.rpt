@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SN_PROGRAM_V02
-Thu May 15 16:57:30 2014
+Fri May 16 11:02:32 2014
 Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 15 16:57:30 2014     ;
+; Analysis & Synthesis Status        ; Successful - Fri May 16 11:02:32 2014     ;
 ; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Full Version ;
 ; Revision Name                      ; SN_PROGRAM_V02                            ;
 ; Top-level Entity Name              ; SN_PROGRAM_V02                            ;
@@ -323,7 +323,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -333,7 +333,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Thu May 15 16:57:27 2014
+    Info: Processing started: Fri May 16 11:02:29 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SN_PROGRAM_V02 -c SN_PROGRAM_V02
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file sn_program_v01.vhd
@@ -381,9 +381,9 @@ Info (21057): Implemented 197 device resources after synthesis - the final resou
     Info (21059): Implemented 20 output pins
     Info (21061): Implemented 156 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 507 megabytes
-    Info: Processing ended: Thu May 15 16:57:30 2014
+    Info: Peak virtual memory: 499 megabytes
+    Info: Processing ended: Fri May 16 11:02:32 2014
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -625,17 +625,68 @@ When the logic handler outputs a logic 1 (3.3V) the mosfet will close and the cu
 
 
 \subsubsection{Logic handler}
-Below on figure ... a figure of the implementation of the logic handler. 
+Below on figure \ref{fig:logic_handler_imp} a figure of the implementation of the logic handler. 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/logic_handler_imp}
+	\caption{Logic handler implementation}
+	\label{fig:logic_handler_imp}
+\end{figure}
+
+As seen in the block breakdown the logic handler consists of two element, each with its own responsibility. Below is a description of each block.
 
 \textbf{Data acquisition interfacing:}\\
-The data acquisition interfacing has a SPI implementation that fits the interface of the MAX1241 adc.
+The data acquisition interfacing has a SPI implementation that fits the interface of the MAX1241(see section \textbf{Data acquisition} for further information) adc. A counter is incremented with the input clock and once every second a new measurement from the ADC is acquired. This measurement is then converted to 1/10th degrees and fed to the power line communication block. For calculations regarding the ADC counts to temperature see section \textbf{Data acquisition}.\\
+Below on figure \ref{fig:data_acq} is shown a flowchart of the functionality of the data acquisition block.
 
-\textbf{Powerline communication:}\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/data_aqc_flowchart}
+	\caption{Data acquisition flowchart.}
+	\label{fig:data_acq}
+\end{figure}
+
+\textbf{Power line communication:}\\
+The power line communication block monitor the data line and awaits the start sequence. Once the start sequence is received it checks the incoming transmission for the address, if this address is the address of the sensor node it checks the incoming function code. Lastly it responds to the function code with either, get data, get type or unknown function code. In the background it flops the data from the data acquisition block. The data acquisition block sets a pin low when data is ready, once the pin is low the power line communication block flops the data to an internal signal, which is transmitted back as data when needed. Below on figure \ref{fig:powerline_flow} is shown a flowchart of the functionality of the power line communication block.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/powerline_communication_flowchart}
+	\caption{Power line communication flowchart}
+	\label{fig:powerline_flow}
+\end{figure}
 
 
+\subsubsection{Data acquisition}
+The measurement bridge in the data acquisition block is balanced to have 0V at 20$^\circ$C corresponding to 108$\Omega$ for at pt100 temperature resistance element. The bridge is implemented as shown in the figure \ref{fig:m_bridge} below.
 
-\subsubsection{Sensor}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\textwidth]{billeder/m_bridge}
+	\caption{Wheatstone measurement bridge implementation}
+	\label{fig:m_bridge}
+\end{figure}
+
+Due to the fact that power consumption is an issue on the sensor node R1 and R2 has been chosen to 10k$\Omega$ to limit the current flow through the bridge. The problem with this is that the majority of the voltage drop over the bridge is taking place over R1 and R2. Therefore the voltage measured because of a change in the resistance of the PT100 sensor is very small. Below is calculated the relationship between change in the PT100 resistance from $\sim$20$^\circ$C to $\sim$50$^\circ$C and the voltage between m+ and m-.\\
+Given:
+\begin{equation}
+		R3=108\Omega $\\$ R1=R2=10k\Omega $\\$ VDD=3.3V
+\end{equation}
+Wheatstone bridge function:
+\begin{equation}
+		V_{Bridge}(PT100)=VDD*\left(\frac{PT100}{PT100+R2}-\frac{R3}{R3+R1}\right)
+\end{equation}
+Therefore will the voltage output of the bridge at $\sim$50$^\circ$C (120$\Omega$) be:
+\begin{equation}
+	V_{Bridge}(120\Omega)= 3.87mV
+\end{equation}
+
+To use the dynamic area of the ADC this needs to be amplified to 2.5V since the reference voltage to the ADC is 2.5V. The signal must be amplified:
+\begin{equation}
+	Amp_{differential}=\frac{2.5V}{3.87mV}\approx600
+\end{equation}
+The amplification is handled by a differential amplified implemented with three operational amplifiers as seen on the figure below.
 
 
 
