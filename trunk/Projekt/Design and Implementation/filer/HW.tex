@@ -676,6 +676,7 @@ Given:
 Wheatstone bridge function:
 \begin{equation}
 		V_{Bridge}(PT100)=VDD*\left(\frac{PT100}{PT100+R2}-\frac{R3}{R3+R1}\right)
+		\label{eq:vbridge}
 \end{equation}
 Therefore will the voltage output of the bridge at $\sim$50$^\circ$C (120$\Omega$) be:
 \begin{equation}
@@ -686,9 +687,47 @@ To use the dynamic area of the ADC this needs to be amplified to 2.5V since the 
 \begin{equation}
 	Amp_{differential}=\frac{2.5V}{3.87mV}\approx600
 \end{equation}
-The amplification is handled by a differential amplified implemented with three operational amplifiers as seen on the figure below.
+The amplification is handled by a differential amplified implemented with three operational amplifiers as seen on the figure \ref{fig:inst_amp_imp} below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/diff_amp_imp}
+	\caption{Instrumental amplifier implementation, G=600}
+	\label{fig:inst_amp_imp}
+\end{figure}
+
+The conversion from 12-bit voltage measurement to temperature is made by firstly working out the relation between steps in the ADC ($2^{12}$) and the resistance of the PT100. The calculation is made as a rough simplification and assumes the measurement is perfectly linear. It is made as a function of steps from the ADC to 10th of degrees Celsius. We know that at 50$^\circ$C the MAX1241 must measure $2^{12}$ steps and at 20$^\circ$C it must measure 0 steps. The slope of the fit is then given as:
+\begin{equation}
+	a=\frac{500-200}{2^{12}-0}=0.07324
+\end{equation}
+
+Handling floats in VHDL isn't desirable so the slope value is bitshiftet by 10, therefore:
+\begin{equation}
+	a=75
+\end{equation}
+
+The offset of the linear fit is given as 200 therefore:
+
+\begin{equation}
+	b=200*2^{12}=204800
+\end{equation}
+
+The temperature can now be measured as a function of steps from the ADC via the following formula:
+\begin{equation}
+	\text{temperature in 10th deg Celcius} = \frac{75*steps+204800}{2^{10}}
+\end{equation}
+
+As mentioned the ADC is a low-power, 12-bit MAX1241. The interface to the ADC is SPI and follows the timing specified in the datasheet, shown in figure \ref{fig:max1241_timing} below.
 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/max1241_interface_timing}
+	\caption{MAX1241 interface timing diagram}
+	\label{fig:max1241_timing}
+\end{figure}
+
+When chip select is pulled low a conversion starts, in this time the interface is idle and the MAX1241 responds by pulling DOUT low while the conversion is in progress. When the DOUT line goes high again the data acquisition block can start clocking to the MAX1241. The first clock should be disregarded. Data is sampled on rising edge and changed on falling edge.
 
 \subsection{Power consumption}
 
