@@ -7,14 +7,14 @@ Each unit is described by the following procedure:
 \end{itemize}
 This procedure is meant to ease readability and help give an overview of the entire system implementation.
 \section{CDU}
-The CDU responsibility is, as described in the previous documents, to control the custom powerline communication and to govern the information about the sensor nodes. The information is stored in memory and can be loaded out to a PC.
+The CDU responsibility is, as described in the previous documents, to control the custom power line communication and to govern the information about the sensor nodes. The information is stored in memory and can be loaded out to a PC.
 \subsection{Overall design}
 The conceptual design of the CDU can be found in the architecture documentation in chapter Structural view, subsubsection CDU.\\
-We take each block and create a block breakdown diagram.\\
+We begin by taking each block and creating a block breakdown diagram.\\
 
 \subsection{Block breakdown}
 This section describes the interfaces and the design of each individual block.\\
-Below, in figure \ref{fig:detailedCDU}, is shown a detailed overview of the CDU design. This will be the basis of the block breakdown section.
+A detailed overview of the CDU design is shown in figure \ref{fig:detailedCDU}. This will be the basis of the block breakdown section.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/detailedCDU}
@@ -24,7 +24,12 @@ Below, in figure \ref{fig:detailedCDU}, is shown a detailed overview of the CDU 
 
 The following subsections will cover all interfaces and design considerations.
 \subsubsection{Power supply}
-The Power supply is responsible for providing power to the internal circuitry and the powerline communication. 3.3V is provided for the internal circuitry. The voltage provided to the bus is determined by number of sensors and the sensor power supply circuit. The minimum voltage needed on P+ and P- pins is found by using the following formula: $( 5.5V - 0.7V ) + (5V * n + 0.7V) -> 5.5V + 5V * n$. The first parenthesis is the sensor power supply circuit and the second parenthesis is the bus voltage.\\
+The Power supply is responsible for providing power to the internal circuitry and the power line communication. 3.3V is provided for the internal circuitry. The voltage provided to the bus is determined by number of sensors and the sensor power supply circuit. The minimum voltage needed on P+ and P- pins is found by using the formula \ref{eq:powermath}.
+\begin{equation}
+( 5.5V - 0.7V ) + (5V * n + 0.7V) \rightarrow 5.5V + 5V * n
+\label{eq:powermath}
+\end{equation}
+The first parenthesis is voltage needed by the sensor power supply circuit. The second parenthesis is the voltage needed by the bus.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUPS}.\\
 \begin{figure}[H]
 	\centering
@@ -71,7 +76,7 @@ Interfaces:
 \end{table}
 
 \subsubsection{Sensor communication}
-The Sensor communication block is responsible for converting digital to analog and analog to digital converting of the signals to and from the sensor nodes. The analog parts are connected to the Sensor Power supply block.
+The Sensor communication block is responsible for converting digital to analog levels and analog to digital levels of the signals to and from the sensor nodes. The analog parts are connected to the Sensor Power supply block.
 The interfaces to this block can be seen on figure ~\ref{fig:CDUSC}.\\
 \begin{figure}[H]
 	\centering
@@ -79,6 +84,7 @@ The interfaces to this block can be seen on figure ~\ref{fig:CDUSC}.\\
 	\caption{Detailed CDU Sensor communication design.}
 	\label{fig:CDUSC}
 \end{figure}
+The HBF block is a high pass filter used to block out DC-levels from the bus.\\
 Interfaces:
 \begin{table}[H]
 	\centering
@@ -96,7 +102,7 @@ Interfaces:
 
 
 \subsubsection{µ-Controller}
-The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter. The hardware part of the µ-Controller block contains the physical pins on the microcontroller.\\
+The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter. The hardware part of the µ-Controller block contains the physical pins on the microcontroller. For the functionality see the software chapter.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUuC}.\\
 \begin{figure}[H]
 	\centering
@@ -146,7 +152,7 @@ Interfaces:
 
 
 \subsubsection{Memory}
-The Memory block is responsible for storing sensor information and data. The Memory block contains a communication interface and a eeprom or flash memory.\\
+The Memory block is responsible for storing sensor information and data. The Memory block contains a communication interface and eeprom memory.\\
 The interfaces to this block can be seen on figure ~\ref{fig:CDUM}.\\
 \begin{figure}[H]
 	\centering
@@ -224,6 +230,7 @@ In order to open the zener diodes and the transistor we have to dimension the R1
 \begin{equation}
 	R1= \frac{(V_{Supply}-V_{Zener})}{i_{Zener}+K * I_B}
 \end{equation}
+In this equation the K is a factor used to ensure that the transistor has enough current on the basis pin.\\
 Given is:
 \begin{equation}
 	I_{Zener} = 1 mA $\\$
@@ -250,15 +257,15 @@ The finished implementation is found in figure ~\ref{fig:CDUimpsps}
 
 
 \subsubsection{Sensor communication}
-The sensor communication block is implemented with 2 functions. The sending part is composed of a digital signal input that opens and closes a transistor. When the digital signal is high, the transistor is open, meaning the bus will have a constant current of 20.75 mA (From Sensor Power supply block). When the digital signal is low, the transistor is closed, meaning the bus will have a constant current of 20.75 mA + 3.5 mA. This in turn means that a high on the input will be low on the bus. Low on the input will be high on the bus. The input is actually inverse.\\
-The receiving part is made up of a high pass filter and an amplifier. The levels from the bus will be explained later. For now it will be defined as $\Delta$V = 0.7V. The amplifier is coupled as a comparitor. A voltage reference determines when the output of the amplifier is low and when it is high. The reference is calculted from the following formula:
+The sensor communication block is implemented with 2 functions. The sending part is composed of a digital signal input that opens and closes a transistor. When the digital signal is high, the transistor is open, meaning the bus will have a constant current of 20.75 mA (from Sensor Power supply block). When the digital signal is low, the transistor is closed, meaning the bus will have a constant current of 20.75 mA + 3.5 mA. This in turn means that a high on the input will be low on the bus. Low on the input will be high on the bus. The input is actually inverse.\\
+The receiving part is made up of a high pass filter and an amplifier. The levels from the bus will be explained in the respond section of subsubsection \ref{sss:com}. For now it will be used as $\Delta$V = 0.7V. The amplifier is coupled as a comparitor. A voltage reference determines when the output of the amplifier is low and when it is high. The reference is calculted from the following formula:
 \begin{equation}
 	V_{ref} = 0.430 = \frac{R2}{R1+R2} * V_{in} $\\$
 	V_{in} = 3.3V $\\$
 	R1 = 100k\Omega $\\$
 	R2 = 15k\Omega
 \end{equation}
-This means when the voltage level on the input of the comparitor is above 0.430, the amplifier output will be high. When below, the amplifier output will be low. The effective gain will be determined by the following formula:
+This means when the voltage level on the input of the comparitor is above 0.430, the amplifier output will be logic high (3.3V). When below, the amplifier output will be logic low(0V). The effective gain will be determined by the following formula:
 \begin{equation}
 	Gain = \frac{V_{out}}{V_{in}} = \frac{3.3V}{0.7V} \approx 5 
 \end{equation}
@@ -274,7 +281,7 @@ The finished implementation is found in figure ~\ref{fig:CDUimpsc}.
 
 
 \subsubsection{µ-Controller}
-The microcontroller block is a hybrid hardware and software block. Software can be found in the software chapter.\\
+The microcontroller block is a hybrid hardware and software block. Software and functionality can be found in the software chapter.\\
 The PINOUT table for the CDU is found in figure ~\ref{fig:PINOUT}.
 \begin{table}[H]
 	\centering
@@ -517,6 +524,7 @@ The sense resistor is placed in series with the diode. The resistor serves to "c
 \end{figure}
 
 \subsubsection{Communication}
+\label{sss:com}
 As seen on figure \ref{fig:SN_com_fig}, the communication block comprises of an amplifier, a signal reference, a clock recovery circuit and a respond circuit. Each block will be described here.\\
 \textbf{Amplifier and signal reference:}\\
 The amplifier serves to amplify the received signal to logic levels. On the sensor node logic levels are 0 ($\sim$ 0V) and 1 ($\sim$ 3.3V). Therefore a rail-to-rail amplifier is chosen. The amplifier comprises of a two step amplification, the first one amplifies the raw signal and the second amplifies the signal with reference to the filtered signal (averaged signal). Below on figure \ref{fig:communication_amplifier_circuit} is shown the implementation:

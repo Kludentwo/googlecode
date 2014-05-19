@@ -48,7 +48,7 @@ char readLCD( int addr)
 }
 
 // write to LCD at particular address
-void writeLCD( int addr, char c)
+void writeLCD( int addr, unsigned char c)
 {
   while( busyLCD());
   while( PMMODEbits.BUSY);    // wait for PMP to be available
@@ -57,7 +57,7 @@ void writeLCD( int addr, char c)
 }
 
 // send a character to be displayed on screen
-void putLCD( char d)
+void putLCD( unsigned char d)
 {
   int z,x;
 
@@ -87,7 +87,7 @@ void putLCD( char d)
   }
 }
 
-void writeString( char *string )
+void writeString( unsigned char *string )
 {
     while(*string)
     {
@@ -102,4 +102,21 @@ char array[7];
   itoa(array,Number, 10);
   // - then send the string
   writeString(array);
+}
+
+void LCDwriteLine(unsigned char lineNum, unsigned char * inputDisplay)
+{
+	unsigned char Local_8, Local_82;
+
+	for (Local_82 = 0; Local_82 < 250; Local_82++);
+	if (lineNum==LCD_LINE1)
+		writeLCD(LCDCMD, LCD_DDRAM1(0));	// go to 1st char of line 1
+	else if (lineNum==LCD_LINE2)
+		writeLCD(LCDCMD, LCD_DDRAM2(0));	// go to 1st char of line 2
+
+	for (Local_8 = 0; Local_8 < LCD_DISPLAY_LEN; Local_8++) {
+		for (Local_82 = 0; Local_82 < 30; Local_82++);
+		writeLCD(LCDDATA, *inputDisplay);
+		inputDisplay++;
+	}
 }

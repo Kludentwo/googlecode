@@ -15,7 +15,20 @@ extern "C" {
 #include <p24fj128ga010.h>
 #include <stdlib.h>
 
+ // number of characters displayed in a line
+#define LCD_DISPLAY_LEN 	16
+
+// number of lines displayed on the LCD
+#define LCD_DISPLAY_LINE	2
+
 // define some useful constants
+#define LCD_LINE1			0		// first line
+#define LCD_LINE2			1		// second line
+
+// set 7-bit DDRAM address, line 1
+#define LCD_DDRAM1(_ddramAddr)	(((_ddramAddr)&0x0f)|0x80)		
+// set 7-bit DDRAM address, line 2
+#define LCD_DDRAM2(_ddramAddr)	(((_ddramAddr)&0x0f)|0xc0)		
 
 // access data register
 #define LCDDATA 1
@@ -38,15 +51,17 @@ char readLCD(int addr); // read from the LCD
 // set cursor position
 #define setLCDC( a) writeLCD( LCDCMD, (a & 0x7F) | 0x80)
 
-void writeLCD( int addr, char c);    // write to LCD at particular address
+void writeLCD( int addr, unsigned char c);    // write to LCD at particular address
 
-void putLCD(char d);    // send a character to be displayed on screen
+void putLCD( unsigned char d);    // send a character to be displayed on screen
 
-void writeString( char *string );
+void writeString( unsigned char *string );
 
 void writeInteger(int Number);
 
 void clearLCD( void );
+
+void LCDwriteLine(unsigned char lineNum, unsigned char * inputDisplay);
 
 #ifdef	__cplusplus
 }

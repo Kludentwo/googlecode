@@ -8,8 +8,8 @@ The software on the microcontroller governs the sensor communication, the PC com
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{billeder/CDUClassDiagramme}
-\label{fig:cduclassd}
 \caption{CDU Class diagram}
+\label{fig:cduclassd}
 \end{figure}
 \subsection{Module Responsibility}
 Each module from the figure ~\ref{fig:cduclassd} has a different responsibility. These will be described here.
@@ -33,8 +33,8 @@ The general registers of the microcontroller handles general purpose pins and cl
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/clocksetup}
-\label{fig:clocksetup}
 \caption{CDU Clock Setup from datasheet}
+\label{fig:clocksetup}
 \end{figure}
 To setup the general purpose pins the registers TRISA, TRISB, TRISD and TRISF are used. By writing to TRISA the PORT A pins are controlled. If a pin is set to 1 it is an input pin otherwise it is an output pin. We setup PIN A4, A7, F4 and G7 for input. The rest for output. The full pinout table is explained in the hardware chapter of design and implementation.
 \subsubsection{Timer}
@@ -42,22 +42,22 @@ In order to setup the timer we need 4 registers: "IPC0, T1CON, IFS0 and IEC0". I
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/timersetup}
-\label{fig:timersetup}
 \caption{CDU Timer1 Setup from datasheet}
+\label{fig:timersetup}
 \end{figure}
 We use interrupt priority 5.\\
 To control when the timer interrupts we choose the value of PR1 (timer counter register). With the value 0xC8 or 200 we get a 20 kHz interrupt.
 \subsubsection{SPI}
-SPI is controlled by two registers: "SPI2CON and SPI2STAT" A control and a status register. The setup for SPI1 from the datasheet is found in figure ~\ref{fig:spisetup}. SPI2 is setup the same way but the registers are not included in the datasheet.\\
+SPI is controlled by two registers: "SPI2CON and SPI2STAT" A control and a status register. The setup for SPIx from the datasheet is found in figure ~\ref{fig:spisetup}. SPI2 is setup the same way but the registers are included as SPIx.\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/spisetup}
-\label{fig:spisetup}
 \caption{CDU SPI Setup from datasheet}
+\label{fig:spisetup}
 \end{figure}
 We use primary prescaler 1:1, secondary prescaler 2:1, CKE clock select set to 1 and master enable. SPI is enabled and the overflow flag is reset.
 \subsubsection{UART}
-The UART is set using the U2MODE and U2STA registers. We use setup found in figure ~\ref{fig:uartsetp}.\\
+The UART is set using the U2MODE and U2STA registers. We use setup found in table ~\ref{fig:uartsetp}.\\
 \begin{table}[H]
 	\centering
     \begin{tabular}{|l l|}
@@ -68,8 +68,8 @@ The UART is set using the U2MODE and U2STA registers. We use setup found in figu
     Stop bit     & : 1    \\ \hline
     Flow control & : None \\ \hline
     \end{tabular}
-    \label{fig:uartsetp}
     \caption{UART setup}
+    \label{fig:uartsetp}
 \end{table}
 The Baud register value is calculated:\\
 \begin{equation}
@@ -98,8 +98,8 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \texttt{enableflag} & This varible(flag) determines when a transmission can be written on the bus.\\ 
 \hline
 \end{tabular}
-\label{tab:structcduflags}
 \caption{Struct CDUFlags}
+\label{tab:structcduflags}
 \end{table}
 
 \begin{table}[H]
@@ -123,8 +123,8 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \texttt{Type} & This variable contains the type of the sensor node.\\ 
 \hline
 \end{tabular}
-\label{tab:structsensor}
 \caption{Struct Sensor}
+\label{tab:structsensor}
 \end{table}
 
 \begin{table}[H]
@@ -148,8 +148,8 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \texttt{maincounter} & This variable(counter) is used for delaying in between transmission sequences.\\ 
 \hline
 \end{tabular}
-\label{tab:globalvar}
 \caption{Global variables}
+\label{tab:globalvar}
 \end{table}
 
 
@@ -312,15 +312,15 @@ This subsection contains flowcharts explaining the software on the CDU. The main
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/mainflowchart}
-\label{fig:mainflowchart}
 \caption{CDU main flow chart}
+\label{fig:mainflowchart}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{billeder/isrflowchart}
-\label{fig:isrflowchart}
 \caption{CDU Interrupt service routine flow chart}
+\label{fig:isrflowchart}
 \end{figure}
 
 \subsection{Memory Slot allocation}
@@ -328,8 +328,8 @@ This subsection contains the explanation of how the sensor information is saved 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{billeder/memoryslots}
-\label{fig:memoryslots}
 \caption{CDU memory slots}
+\label{fig:memoryslots}
 \end{figure}
 
 \section{Sensor node}
