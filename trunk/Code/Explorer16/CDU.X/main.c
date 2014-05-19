@@ -24,7 +24,7 @@ _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 #define     STARTCODE       0b0110
 #define     RESPONSELENGTH  24
 #define     NUMBEROFSENSORS 15
-#define     COUNTTOMSG      667
+#define     COUNTTOMSG      10000
 // Function Codes:
 #define     GETINFO         0b0001
 #define     GETDATA         0b0010
@@ -52,6 +52,9 @@ unsigned char display[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
 
+unsigned char line1array[16] = {'0'};
+unsigned char line2array[16] = {'0'};
+
 // Counters
 unsigned int loopcounter = 0;
 unsigned int recvcounter = 0;
@@ -62,6 +65,8 @@ unsigned int errorcount = 0;
 unsigned int error = 0;
 unsigned int startupcounter = 0;
 unsigned int startupcounter2 = 0;
+unsigned char l1cnt = 0;
+unsigned char l2cnt = 0;
 
 /*========================================================================
                         FUNCTION DEFINITIONS
@@ -116,14 +121,11 @@ int main(int argc, char** argv) {
         if (startupcounter == 50000)
             startupcounter2++;
     }
-
-    writeString("STARTUP DONE");
-    writeString("\r\n");
   
     //Main Program Loop, Loop forever
     while (1) {
-        CDUSend(&(sensorarray[0]), GETINFO, message, &CDUFlags);
-        error = CDUReceive(&(sensorarray[0]), GETINFO, response, &CDUFlags);
+        CDUSend(&(sensorarray[0]), GETDATA, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[0]), GETDATA, response, &CDUFlags);
         if (error == 0) {
             errorcount += 1;
         }
@@ -133,11 +135,25 @@ int main(int argc, char** argv) {
 //            errorcount += 1;
 //        }
         //errorcount += sensorarray[0].Errors;
-        IntegerToBinary(errorcount, 8, display);
-        writeString(display);
-        //putLCD(sensorarray[0].Errors + 0x30);
-        writeString("\r\n");
-        sensorarray[0].Data += 1;
+        /*for(l2cnt = 0; l2cnt < LCD_DISPLAY_LEN; l2cnt++)
+        {
+            if( ((sensorarray[0].Data>>l2cnt) & 1) == 1 )
+            {
+                line2array[15-l2cnt] = '1';
+            }
+            else
+            {
+                line2array[15-l2cnt] = '0';
+            }
+        }*/
+        //sensorarray[0].Data += 1;
+        itoa(line2array,sensorarray[0].Data, 10);
+        
+        LCDwriteLine(LCD_LINE1,line1array);
+        LCDwriteLine(LCD_LINE1,"temperature is: ");
+        LCDwriteLine(LCD_LINE2,line2array);
+        
+        //sensorarray[0].Data += 1;
         Save(&addresscounter,&(sensorarray[0]));
         UARTPutChar('C');
         CDUPCCom();
