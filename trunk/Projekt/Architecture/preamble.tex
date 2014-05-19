@@ -150,22 +150,22 @@
 }
 \nouppercaseheads											% Ingen Caps oenskes
 
-\makeevenhead{IHA}{}{}{\leftmark}				% Definerer lige siders sidehoved (\makeevenhead{Navn}{Venstre}{Center}{Hoejre})
-\makeoddhead{IHA}{\rightmark}{}{Ingeniørhøjskolen i Aarhus}		% Definerer ulige siders sidehoved (\makeoddhead{Navn}{Venstre}{Center}{Hoejre})
-\makeevenfoot{IHA}{}{\thepage}{}							% Definerer lige siders sidefod (\makeevenfoot{Navn}{Venstre}{Center}{Hoejre})
-\makeoddfoot{IHA}{}{\thepage}{}								% Definerer ulige siders sidefod (\makeoddfoot{Navn}{Venstre}{Center}{Hoejre})
-\makeheadrule{IHA}{\textwidth}{0.5pt}						% Tilfoejer en streg under sidehovedets indhold
-%\makefootrule{IHA}{\textwidth}{0.5pt}{1mm}					% Tilfoejer en streg under sidefodens indhold
+\makeevenhead{IHA}{\leftmark}{}{Ingeniørhøjskolen i Aarhus}								% Definerer lige siders sidehoved (\makeevenhead{Navn}{Venstre}{Center}{Hoejre})
+\makeoddhead{IHA}{\leftmark}{}{Ingeniørhøjskolen i Aarhus}		% Definerer ulige siders sidehoved (\makeoddhead{Navn}{Venstre}{Center}{Hoejre})
+\makeevenfoot{IHA}{}{\thepage}{}								% Definerer lige siders sidefod (\makeevenfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeoddfoot{IHA}{}{\thepage}{}									% Definerer ulige siders sidefod (\makeoddfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeheadrule{IHA}{\textwidth}{0.5pt}							% Tilfoejer en streg under sidehovedets indhold
+\makefootrule{IHA}{\textwidth}{0.5pt}{1mm}						% Tilfoejer en streg under sidefodens indhold
 
 \copypagestyle{IHAchap}{IHA}								% Sidehoved for kapitelsider defineres som standardsider, men med blank sidehoved
 \makeoddhead{IHAchap}{}{}{}
 \makeevenhead{IHAchap}{}{}{}
 \makeheadrule{IHAchap}{\textwidth}{0pt}
+\makefootrule{IHAchap}{\textwidth}{0.5pt}{1mm}						% Tilfoejer en streg under sidefodens indhold
 \aliaspagestyle{chapter}{IHAchap}							% Den ny style vaelges til at gaelde for chapters
 															% ... her
 															
 \pagestyle{IHA}												% Valg af sidehoved og sidefod
-
 
 %%%% CUSTOM COMMANDS %%%%
 
