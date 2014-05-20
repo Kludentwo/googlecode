@@ -322,31 +322,13 @@ The Memory block is a part of the Explorer 16 board. All hardware connections ar
 	\label{fig:CDUimpm}
 \end{figure}
 
-
+\newpage
 
 \section{Sensor Node}
 The sensor node responsibility is, as described in the previous documents, to capture a temperature and support the custom powerline communication protocol. Below is described in detail how each block in the sensor node is implemented and designed.
 
 \subsection{Overall design}
-Below is shown a figure of the overall sensor node design.
-\begin{figure}[H]
-\centering
-\includegraphics[width=.9\textwidth]{billeder/sn_overall_design}
-\caption{Sensor node overall design}
-\end{figure}
-
-\subsubsection{Block description}
-\textbf{Power supply:}\\
-The power supply is creates a steady 3.3V supply to the system from the powerline communication bus.\\
-
-\textbf{Communication:}\\
-The communication block convertes the analog communication signal from the CDU to a digital stream of data and clock to the system and the digital communication from the logic handler to an analog signal on the bus to the CDU.\\
-
-\textbf{Logic handler:}\\
-The logic handler serves to analyse the incoming data transmission and act accordingly, at the current state this is to either respond with information about the sensor or respond with measured data.\\
-
-\textbf{Sensor:}\\
-The sensor part of the sensor node serves as the actual measurement circuit. This has a logical interface to the logic handler.\\
+The sensor node responsibility is, as described in the previous documents, to respond to incoming messages from the CDU and act accordingly. This involves making data acquisition of biometric data as well as handle the custom power line communication protocol.
 
 \subsection{Block breakdown}
 This section describes the interfaces and the design of each individual block.\\
@@ -493,7 +475,7 @@ The measurement bridge is powered by the 3.3V supply. The bridge should be balan
 The voltage measurement is performed by an ADC with an external voltage reference and a SPI [1] like interface.
 
 \subsection{Block construction}
-This section describes all detailed calculations done to realize the implementation aswell as detailed schematics.\\
+This section describes all detailed calculations done to realize the implementation as well as detailed schematics.\\
 
 \subsubsection{Power supply}
 As seen on figure \ref{fig:SN_PS_FIGURE} the power supply consists of a zener diode, a sense resistor and a voltage regulator.\\
@@ -513,8 +495,7 @@ With R1 given as 240$\Omega$, V$_{OUT}$=3.3V and I$_{ADJ}$=50$\mu$A(typ.) R2 wil
 \end{figure}
 
 In the datasheet the input voltage versus output voltage is specified to a minimum of 3V to ensure the specified output current of 100mA. But since we doesn't need more then 20mA at max we tested the regulator with $V_{IN}-V_{OUT}=1.3V$ and the output voltage is well within acceptable levels.\\
-The sense resistor is placed in series with the diode. The resistor serves to "convert" the current modulated communication to a voltage signal. The current level change for a 0 and a 1 the CDU is specified to 3.5mA. A communication resistor of $\sim$ 5$\Omega$ is chosen. Therefore a logical 0 will be a voltage drop $5\Omega * 20.5mA = 103mV$ and a logical 1 will be have a drop of $5\Omega * 24mA = 120mV$. The communication will therefore have $\Delta V=17mV$. This analog signal is connected to the input of the communication block for further conversion.\\
-\textbf{Simulation result:}
+The sense resistor is placed in series with the diode. The resistor serves to "convert" the current modulated communication to a voltage signal. The current level change for a 0 and a 1 the CDU is specified to 3.5mA. A communication resistor of $\sim$ 5$\Omega$ is chosen. Therefore a logical 0 will be a voltage drop $5\Omega * 20.5mA = 103mV$ and a logical 1 will be have a drop of $5\Omega * 24mA = 120mV$. The communication will therefore have $\Delta V=17mV$. This analog signal is connected to the input of the communication block for further conversion.\\ These levels are the absolute maximum voltage levels due to the fact that all current isn't flowing through the diode and com resistor but some is flowing through the voltage regulator to supply the circuit. Below on figure \ref{fig:ps_sim} the implementation is shown.
 
 \begin{figure}[H]
 	\centering
@@ -558,7 +539,7 @@ The clock recovery circuit comprises of a Phased lock loop (PLL) and a clock div
 	\label{fig:cd4046}
 \end{figure}
 
-In this design the phase comparator (PD) type 1 is used. It is basically an x-or gate comparing the two input clock. If the two clock are logically different the PD sends a high output and if the two input clocks are logically equal it sends a low output. The output of the PD is then filtered with a low pass filter and fed to the input of the VCO. If the CD4046 is in lock the input to the VCO should be V$_{\text{DD}}$/2. This means when the PLL is locked with PD type 1 it will be in exactly 90$^{\circ}$deg phase. By using a clock divider the logic handler can sample the incoming data
+In this design the phase comparator (PD) type 1 is used. It is basically an XOR gate comparing the two input clock. If the two clock are logically different the PD sends a high output and if the two input clocks are logically equal it sends a low output. The output of the PD is then filtered with a low pass filter and fed to the input of the VCO. If the CD4046 is in lock the input to the VCO should be V$_{\text{DD}}$/2. This means when the PLL is locked with PD type 1 it will be in exactly 90$^{\circ}$deg phase. By using a clock divider the logic handler can sample the incoming data
 on each rising edge following the waveforms shown in figure \ref{fig:cd4046waveforms} below.
 
 \begin{figure}[H]
@@ -569,12 +550,13 @@ on each rising edge following the waveforms shown in figure \ref{fig:cd4046wavef
 \end{figure}
 
 The PLLs VCO is configured by the values of C1, R1 and R2 but also the filter comprised of C2 and R3 impacts the loop.\\
-The C1, R1 and R2 component define the frequency lock range. This range is the total range of the VCO meaning it can lock from f$_{\text{max}}$-f$_{\text{min}}$=2f$_{\text{l}}$, the VCO outputs f$_{\text{min}}$ when VCO in = V$_{\text{SS}}$ and f$_{\text{max}}$ when VCO in = V$_{\text{DD}}$. The filter then defines the frequency capture range. This is the range where the PLL will automatically lock if the input frequency is within this span. On figure ... the relation between VCO in and VCO out is illustrated.
+The C1, R1 and R2 component define the frequency lock range. This range is the total range of the VCO meaning it can lock from f$_{\text{max}}$-f$_{\text{min}}$=2f$_{\text{l}}$, the VCO outputs f$_{\text{min}}$ when VCO in = V$_{\text{SS}}$ and f$_{\text{max}}$ when VCO in = V$_{\text{DD}}$. The filter then defines the frequency capture range. This is the range where the PLL will automatically lock if the input frequency is within this span. On figure \ref{fig:VCO_graph} the relation between VCO in and VCO out is illustrated.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.7\textwidth]{billeder/VCO_graph}
 	\caption{VCO voltage in vs. VCO frequency out}
+	\label{fig:VCO_graph}
 \end{figure}
 
 The first step when dimensioning the VCO is to determine f$_{\text{min}}$. Here we know f$_{\text{min}}$=f$_{\text{0}}$-f$_{\text{l}}$. I this case f$_{\text{0}}$=20kHz since we have a clock divider and f$_{\text{l}}$ is chosen to 10kHz. Therefore f$_{\text{min}}$=10kHz. In the datasheet the a graph is provided, see figure \ref{graph:C1}, to dimension the capacitor with regards to R2 and f$_{\text{l}}$, R2=100k$\Omega$.
