@@ -46,12 +46,9 @@ Cduflags CDUFlags;
 // String arrays
 unsigned char message[(2 * MESSAGELENGTH)] = {0};
 unsigned char response[RESPONSELENGTH] = {0};
-unsigned char testresponse[RESPONSELENGTH] = {1, 0, 1, 0, 0, 1, 0, 1, 0, 0,
-0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0};
-unsigned char display[16] = {0};
 // alive array
 unsigned char alive[NUMBEROFSENSORS] = {0};
-
+// Screen Display
 unsigned char line1array[16] = {'0'};
 unsigned char line2array[16] = {'0'};
 
@@ -61,21 +58,18 @@ unsigned int recvcounter = 0;
 unsigned char waitclock = 0;
 unsigned int addresscounter = 0;
 unsigned int maincounter = 0;
-unsigned int errorcount = 0;
-unsigned int error = 0;
-unsigned int startupcounter = 0;
-unsigned int startupcounter2 = 0;
-unsigned char l1cnt = 0;
-unsigned char l2cnt = 0;
+
 
 /*========================================================================
                         FUNCTION DEFINITIONS
 ========================================================================*/
+// Line Coding
 void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* outputbuffer);
 void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer);
 void ToManchester(unsigned char* inputbuffer, unsigned char* outputbuffer, Cduflags* CDUFlags);
-void InitSensorArray(Sensor* sensorarray);
 void InitCDUFlags(Cduflags* CDUFlags);
+// CDU
+void InitSensorArray(Sensor* sensorarray);
 void CDUInit(void);
 void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, Cduflags* CDUFlags);
 void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, Cduflags* CDUFlags);
@@ -98,9 +92,12 @@ int main(int argc, char** argv) {
     TRISF = 0x0010; //configure F4 = Input, Rest = output
 
     AD1PCFG = 0xFFFF; //set to all digital I/O
-	
-    
-	
+
+    unsigned int errorcount = 0;
+    unsigned int error = 0;
+    unsigned int startupcounter = 0;
+    unsigned int startupcounter2 = 0;
+
     initLCD();
 
     PR1 = 0x00C8; // C8 = 200, 64 = 100, 190 = 400
@@ -108,20 +105,20 @@ int main(int argc, char** argv) {
     T1CON = 0b1000000000000000; //turn on the timer
     IFS0bits.T1IF = 0; //reset interrupt flag
     IEC0bits.T1IE = 1; //turn on the timer1 interrupt
-    
+
     InitCDUFlags(&CDUFlags);
     InitSensorArray(sensorarray);
     InitMemory();
     UARTInit();
-	
-	// INIT END (to be wrapped into function).
+
+    // INIT END (to be wrapped into function).
 
     while (startupcounter2 < 4) {
         startupcounter++;
         if (startupcounter == 50000)
             startupcounter2++;
     }
-  
+
     //Main Program Loop, Loop forever
     while (1) {
         CDUSend(&(sensorarray[0]), GETDATA, message, &CDUFlags);
@@ -129,11 +126,11 @@ int main(int argc, char** argv) {
         if (error == 0) {
             errorcount += 1;
         }
-//        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
-//        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
-//        if (error == 0) {
-//            errorcount += 1;
-//        }
+        //        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
+        //        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
+        //        if (error == 0) {
+        //            errorcount += 1;
+        //        }
         //errorcount += sensorarray[0].Errors;
         /*for(l2cnt = 0; l2cnt < LCD_DISPLAY_LEN; l2cnt++)
         {
@@ -147,14 +144,13 @@ int main(int argc, char** argv) {
             }
         }*/
         //sensorarray[0].Data += 1;
-        itoa(line2array,sensorarray[0].Data, 10);
-        
-        LCDwriteLine(LCD_LINE1,line1array);
-        LCDwriteLine(LCD_LINE1,"temperature is: ");
-        LCDwriteLine(LCD_LINE2,line2array);
-        
-        //sensorarray[0].Data += 1;
-        Save(&addresscounter,&(sensorarray[0]));
+        itoa(line2array, sensorarray[0].Data, 10);
+
+        LCDwriteLine(LCD_LINE1, line1array);
+        LCDwriteLine(LCD_LINE1, "temperature is: ");
+        LCDwriteLine(LCD_LINE2, line2array);
+
+        Save(&addresscounter, &(sensorarray[0]));
         UARTPutChar('C');
         CDUPCCom();
     }
@@ -162,14 +158,12 @@ int main(int argc, char** argv) {
 }
 
 void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* outputbuffer) {
-	unsigned char sizevar = 0;
-	if(size > 8){
-		sizevar = 8;
-	}
-	else
-	{
-		sizevar = size;
-	}
+    unsigned char sizevar = 0;
+    if (size > 8) {
+        sizevar = 8;
+    } else {
+        sizevar = size;
+    }
     unsigned int j;
     for (j = 0; j < (sizevar); j++) {
         outputbuffer[j] = (input << j) & (1 << (sizevar - 1)) ? '1' : '0';
@@ -180,18 +174,15 @@ void IntegerToBinary(unsigned char input, unsigned char size, unsigned char* out
 void PatMessage(unsigned char addr, unsigned char functioncode, unsigned char* outputbuffer) {
     unsigned char tempbuf[4];
     unsigned int j;
-	unsigned char addrvar = 0;
-	unsigned char functioncodevar = 0;
-    if( (addr > 15) || ( functioncode > 15 ) )
-    {
-		addrvar = 0; // this will lead to an error after receiving!
-		functioncodevar = 0; //
+    unsigned char addrvar = 0;
+    unsigned char functioncodevar = 0;
+    if ((addr > 15) || (functioncode > 15)) {
+        addrvar = 0; // this will lead to an error after receiving!
+        functioncodevar = 0; //
+    } else {
+        addrvar = addr;
+        functioncodevar = functioncode;
     }
-	else
-	{
-		addrvar = addr;
-		functioncodevar = functioncode;
-	}
     IntegerToBinary(STARTCODE, 4, tempbuf);
     for (j = 0; j < 4; j++) {
         outputbuffer[j] = tempbuf[j];
@@ -265,20 +256,19 @@ void InitCDUFlags(Cduflags* CDUFlags) {
 void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char* Messagebuffer, unsigned char* receivebuffer, Cduflags* CDUFlags) {
     unsigned char addresscounter = 0;
     for (addresscounter = 0; addresscounter <= NUMBEROFSENSORS; addresscounter++) {
-       CDUSend(&(sensorarray[addresscounter]), GETINFO, Messagebuffer, CDUFlags);
+        CDUSend(&(sensorarray[addresscounter]), GETINFO, Messagebuffer, CDUFlags);
         alive[addresscounter] = CDUReceive(&(sensorarray[addresscounter]), GETINFO, receivebuffer, CDUFlags);
     }
 }
 
 void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, Cduflags* CDUFlags) {
-    if (functioncode <= 15)
-    {
+    if (functioncode <= 15) {
         while (!CDUFlags->enableflag);
-		CDUFlags->enableflag = 0;
-		unsigned char string[MESSAGELENGTH] = {0};
-		PatMessage(Sens->Address, functioncode, string);
-		ToManchester(string, Messagebuffer, CDUFlags);
-		CDUFlags->comflag = 1;
+        CDUFlags->enableflag = 0;
+        unsigned char string[MESSAGELENGTH] = {0};
+        PatMessage(Sens->Address, functioncode, string);
+        ToManchester(string, Messagebuffer, CDUFlags);
+        CDUFlags->comflag = 1;
     }
 }
 
@@ -288,81 +278,87 @@ unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char
     unsigned char AddressHolder = 0;
     unsigned char dummy = 0;
     unsigned char reset = 0;
-	unsigned char retval = 0;
-    if (functioncode > 15)
-    {
+    unsigned char retval = 255;
+    if (functioncode > 15) {
         retval = 2;
-    }
-	else
-	{
-    while (!(CDUFlags->recvflag));
-    CDUFlags->recvflag = 0;
-    for (datacnt = 23; datacnt >= 0 && datacnt < 24; datacnt--) {
-        if (datacnt > 19 && datacnt < 24) {
-            AddressHolder |= (receivebuffer[datacnt] << (datacnt - 20));
+    } else {
+        while (!(CDUFlags->recvflag));
+        CDUFlags->recvflag = 0;
+        for (datacnt = 23; datacnt >= 0 && datacnt < 24; datacnt--) {
+            if (datacnt > 19 && datacnt < 24) {
+                AddressHolder |= (receivebuffer[datacnt] << (datacnt - 20));
+            }
+            if (datacnt > 15 && datacnt < 20) {
+                FunctioncodeHolder |= (receivebuffer[datacnt] << (datacnt - 16));
+            }
+            if (((datacnt == 15) && ((FunctioncodeHolder != functioncode) || (AddressHolder != Sens->Address))) || retval == 0) {
+                retval = 1;
+            } else {
+                if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
+                    if (reset == 0) {
+                        Sens->Data = 0;
+                        Sens->Errors = 0;
+                        reset = 1;
+                    }
+                    if (datacnt > 11 && datacnt < 16) {
+                        Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
+                    }
+                    if (datacnt > 7 && datacnt < 12) {
+                        Sens->Type |= (receivebuffer[datacnt] << (datacnt - 8));
+                    }
+                    if (datacnt < 8) {
+                        dummy |= (receivebuffer[datacnt] << (datacnt));
+                    }
+                }
+                else if (AddressHolder == Sens->Address && FunctioncodeHolder == GETDATA) {
+                    if (reset == 0) {
+                        Sens->Data = 0;
+                        Sens->Errors = 0;
+                        reset = 1;
+                    }
+                    if (datacnt > 11 && datacnt < 16) {
+                        Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
+                    }
+                    if (datacnt < 12) {
+                        Sens->Data |= (receivebuffer[datacnt] << (datacnt));
+                    }
+                }
+                else
+                {
+                    if (reset == 0) {
+                        Sens->Data = 0;
+                        Sens->Errors = 0;
+                        reset = 1;
+                    }
+                    if (datacnt > 11 && datacnt < 16) {
+                        Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
+                    }
+                    retval = 3;
+                }
+            }
         }
-        if (datacnt > 15 && datacnt < 20) {
-            FunctioncodeHolder |= (receivebuffer[datacnt] << (datacnt - 16));
-        }
-        if ((datacnt == 15) && (FunctioncodeHolder != functioncode) && (AddressHolder != Sens->Address)) {
+        if (retval == 255 ) {
             retval = 0;
         }
-		else
-		{
-        if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
-            if (reset == 0) {
-                Sens->Data = 0;
-                Sens->Errors = 0;
-                reset = 1;
-            }
-            if (datacnt > 11 && datacnt < 16) {
-                Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
-            }
-            if (datacnt > 7 && datacnt < 12) {
-                Sens->Type |= (receivebuffer[datacnt] << (datacnt - 8));
-            }
-            if (datacnt < 8) {
-                dummy |= (receivebuffer[datacnt] << (datacnt));
-            }
-        }
-        if (AddressHolder == Sens->Address && FunctioncodeHolder == GETDATA) {
-            if (reset == 0) {
-                Sens->Data = 0;
-                Sens->Errors = 0;
-                reset = 1;
-            }
-            if (datacnt > 11 && datacnt < 16) {
-                Sens->Errors |= (receivebuffer[datacnt] << (datacnt - 12));
-            }
-            if (datacnt < 12) {
-                Sens->Data |= (receivebuffer[datacnt] << (datacnt));
-            }
-        }
-		}
     }
-	}
     return retval;
 }
 
-void CDUPCCom(void)
-{
+void CDUPCCom(void) {
     unsigned int memcnt = 0;
     unsigned char msg = 0;
     Sensor output;
-    if(_RA7 != 0)
-    {
+    if (_RA7 != 0) {
         UARTPutChar('N');
         return;
     }
     UARTPutChar('F');
     msg = UARTGetChar();
-    if(msg == 'A')
-    {
+    if (msg == 'A') {
         T1CONbits.TON = 0;
-        for(memcnt = 0; memcnt < 700; memcnt++)
-        {
+        for (memcnt = 0; memcnt < 700; memcnt++) {
             //4681
-            Load( (memcnt*7), &output);
+            Load((memcnt * 7), &output);
             UARTPutChar(output.Address);
             UARTPutChar(output.Data >> 8);
             UARTPutChar(output.Data);
@@ -374,13 +370,11 @@ void CDUPCCom(void)
             UARTPutChar(output.Type);
             UARTPutChar(output.Errors);
             UARTPutChar(',');
-           // UARTPutChar('\n');
+            // UARTPutChar('\n');
         }
         T1CONbits.TON = 1;
 
-    }
-    else
-    {
+    } else {
         UARTSendString("unknown cmd");
     }
 }
