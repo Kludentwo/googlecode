@@ -97,7 +97,7 @@ void writeString( unsigned char *string )
 
 void writeInteger( int Number )
 {
-char array[7];
+unsigned char array[7];
   // Convert the integer to an ASCII string (array), radix = 10
   itoa(array,Number, 10);
   // - then send the string

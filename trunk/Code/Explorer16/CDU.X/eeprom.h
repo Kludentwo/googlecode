@@ -1,7 +1,9 @@
 /* 
  * File:   eeprom.h
  * Author: Nicolai
- *
+ * Code Originally from:
+ * http://www.engscope.com/pic24-tutorial/12-2-spi-master-usage/
+ * 20 april 2014.
  * Created on 20. april 2014, 13:40
  */
 

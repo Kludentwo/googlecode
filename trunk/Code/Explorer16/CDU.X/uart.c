@@ -1,5 +1,4 @@
-
-#include <p24Fxxxx.h>	//see tutorial below!
+#include <p24Fxxxx.h>	
 #include "uart.h"
 
 
