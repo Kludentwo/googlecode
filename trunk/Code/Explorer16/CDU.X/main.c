@@ -19,12 +19,7 @@ _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 /*========================================================================
                                 DEFINES
 ========================================================================*/
-// Pre defines for project
-#define     NUMBEROFSENSORS 15
-#define     COUNTTOMSG      10000
-// Function Codes:
-#define     GETINFO         0b0001
-#define     GETDATA         0b0010
+
 
 
 // Sensor array

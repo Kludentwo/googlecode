@@ -12,7 +12,11 @@
 #include "uart.h"
 #include "LineCoding.h"
  
-
+// Pre defines for project
+#define     NUMBEROFSENSORS 15
+// Function Codes:
+#define     GETINFO         0b0001
+#define     GETDATA         0b0010
  
 void InitSensorArray(Sensor* sensorarray);
 void CDUInit(void);
