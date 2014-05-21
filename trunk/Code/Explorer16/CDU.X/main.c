@@ -271,16 +271,15 @@ void CDUStartUpRoutine(Sensor* sensorarray, unsigned char* alive, unsigned char*
 }
 
 void CDUSend(Sensor* Sens, unsigned char functioncode, unsigned char* Messagebuffer, Cduflags* CDUFlags) {
-    if (functioncode > 15)
+    if (functioncode <= 15)
     {
-        return;
+        while (!CDUFlags->enableflag);
+		CDUFlags->enableflag = 0;
+		unsigned char string[MESSAGELENGTH] = {0};
+		PatMessage(Sens->Address, functioncode, string);
+		ToManchester(string, Messagebuffer, CDUFlags);
+		CDUFlags->comflag = 1;
     }
-    while (!CDUFlags->enableflag);
-    CDUFlags->enableflag = 0;
-    unsigned char string[MESSAGELENGTH] = {0};
-    PatMessage(Sens->Address, functioncode, string);
-    ToManchester(string, Messagebuffer, CDUFlags);
-    CDUFlags->comflag = 1;
 }
 
 unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char* receivebuffer, Cduflags* CDUFlags) {
@@ -289,10 +288,13 @@ unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char
     unsigned char AddressHolder = 0;
     unsigned char dummy = 0;
     unsigned char reset = 0;
+	unsigned char retval = 0;
     if (functioncode > 15)
     {
-        return 2;
+        retval = 2;
     }
+	else
+	{
     while (!(CDUFlags->recvflag));
     CDUFlags->recvflag = 0;
     for (datacnt = 23; datacnt >= 0 && datacnt < 24; datacnt--) {
@@ -303,8 +305,10 @@ unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char
             FunctioncodeHolder |= (receivebuffer[datacnt] << (datacnt - 16));
         }
         if ((datacnt == 15) && (FunctioncodeHolder != functioncode) && (AddressHolder != Sens->Address)) {
-            return 0;
+            retval = 0;
         }
+		else
+		{
         if (AddressHolder == Sens->Address && FunctioncodeHolder == GETINFO) {
             if (reset == 0) {
                 Sens->Data = 0;
@@ -334,8 +338,10 @@ unsigned char CDUReceive(Sensor* Sens, unsigned char functioncode, unsigned char
                 Sens->Data |= (receivebuffer[datacnt] << (datacnt));
             }
         }
+		}
     }
-    return 1;
+	}
+    return retval;
 }
 
 void CDUPCCom(void)
