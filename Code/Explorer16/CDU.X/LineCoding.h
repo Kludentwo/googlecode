@@ -8,6 +8,7 @@
 #define     STARTCODE       0b0110
 #define     MESSAGELENGTH   12
 #define     RESPONSELENGTH  24
+#define     COUNTTOMSG      10000
  
  typedef struct cduflags {
     unsigned char comflag;
