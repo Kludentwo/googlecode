@@ -14,17 +14,53 @@ The software on the microcontroller governs the sensor communication, the PC com
 \subsection{Module Responsibility}
 Each module from the figure ~\ref{fig:cduclassd} has a different responsibility. These will be described here.
 \subsubsection{CDU}
+\begin{figure}[H]
+\centering
+\includegraphics[width = 1\textwidth]{billeder/CDUCDUClass}
+\caption{CDU Class}
+\label{fig:cduclass}
+\end{figure}
 The responsibility of the CDU block is to function as an API layer. It contains Init functions, a startup routine, a send and receive function and lastly a function for PC communication. The CDU block contains everything needed to write the application layer of this project.\\
 \subsubsection{Line Coding}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{billeder/CDULineCodingClass}
+\caption{Line Coding Class}
+\label{fig:cdulcclass}
+\end{figure}
 The line coding block contains everything needed to create messages for this project. It is used by the CDU block in the startup routine and the send function.
 \subsubsection{MemCtl}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{billeder/CDUMemCtlClass}
+\caption{MemCtl or Memory Control Class}
+\label{fig:cdumcclass}
+\end{figure}
 The MemCtl or Memory Control block contains the functions to initiate memory as well as save and load memory. Load is used by the PC communication function while save is intented to be used in the receive function. 
 \subsubsection{eeprom}
-The eeprom block handles all the hardware and timing parts of memory as well as the actual write and read functions. Write is used by the save function and read is used by the load function.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{billeder/CDUEEPROMClass}
+\caption{EEPROM Class}
+\label{fig:cduEEPclass}
+\end{figure}
+The eeprom block handles all the hardware and timing parts of memory as well as the actual write and read functions. Write is used by the save function and read is used by the load function. The code used in this block has been retrieved from the engscope website [2].
 \subsubsection{spi}
-The spi block is a driver block for spi communication.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{billeder/CDUspiClass}
+\caption{spi Class}
+\label{fig:cduspiclass}
+\end{figure}
+The spi block is a driver block for spi communication. The code used in this block takes inspiration from the engscope website [3].
 \subsubsection{Uart}
-The Uart block is a driver block for uart communication.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{billeder/CDUUartClass}
+\caption{Uart Class}
+\label{fig:cduuartclass}
+\end{figure}
+The Uart block is a driver block for uart communication. The code used in this block takes inspiration from the engscope website [4].
 
 \subsection{Setup}
 The setup is handled by the init function. The registers are described in this subsection.
@@ -84,6 +120,7 @@ When 25 is written to the baud rate register, a baud rate of 38400 is achieved.
 \subsection{Variables:}
 The global variables in the CDU includes 2 structs. These 2 structs will be shown in their own table.
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \cellcolor[gray]{0.8}\textbf{Variable} &\cellcolor[gray]{0.8} \textbf{Description}\\ \hline
@@ -103,6 +140,7 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \end{table}
 
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \cellcolor[gray]{0.8}\textbf{Variable} &\cellcolor[gray]{0.8} \textbf{Description}\\ \hline
@@ -128,6 +166,7 @@ The global variables in the CDU includes 2 structs. These 2 structs will be show
 \end{table}
 
 \begin{table}[H]
+\centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \cellcolor[gray]{0.8}\textbf{Variable} &\cellcolor[gray]{0.8} \textbf{Description}\\ \hline
@@ -193,12 +232,22 @@ Return value:&none\\
 \end{tabular}
 \end{table}
 
+\begin{table}[H]
+\begin{tabular}{l p{12.5cm}}
+\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} InitCDUFlags( \texttt{\textcolor{blue}{Cduflags*} CDUFlags})}} \\
+\hline
+Description:& The function is used to Initiate the cduflags in the Cduflags struct to zero.\\
+Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
+Return value:&none\\
+\end{tabular}
+\end{table}
+
 \subsubsection{CDU block}
 \begin{table}[H]
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{void} CDUInit( \texttt{\textcolor{blue}{void}})}} \\
 \hline
-Description:& The function is used to Initiate the whole CDU. The proper register settings for timer, uart and spi are set. Arrays and structs are initialised.\\
+Description:& The function is used to Initiate the whole CDU. The proper register settings for timer and instruction clock. Uart and Spi are set using init functions from included headers. Arrays and structs are initialised.\\
 Parameters:&none\\
 Return value:&none\\
 \end{tabular}
@@ -209,16 +258,6 @@ Return value:&none\\
 \multicolumn{2}{l}{\texttt{\textcolor{blue}{void} InitSensorArray( \texttt{\textcolor{blue}{Sensor*} sensorarray})}} \\
 \hline
 Description:& The function is used to Initiate the sensorarray with addresses and values. Addresses are assigned from 1 to 15. The rest is instantiated to zero.\\
-Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
-Return value:&none\\
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\begin{tabular}{l p{12.5cm}}
-\multicolumn{2}{l}{\texttt{\textcolor{blue}{void} InitCDUFlags( \texttt{\textcolor{blue}{Cduflags*} CDUFlags})}} \\
-\hline
-Description:& The function is used to Initiate the cduflags in the Cduflags struct to zero.\\
 Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 Return value:&none\\
 \end{tabular}
@@ -255,7 +294,7 @@ Return value:&none\\
 \begin{tabular}{l p{12.5cm}}
 \multicolumn{2}{p{15cm}}{\texttt{\textcolor{blue}{unsigned char} CDUReceive( \texttt{\textcolor{blue}{Sensor*} Sens, \textcolor{blue}{unsigned char} functioncode, \textcolor{blue}{unsigned char*} receivebuffer, \textcolor{blue}{Cduflags*} CDUFlags})}} \\
 \hline
-Description:& The function is used to receive messages from the receivebuffer and verify address and function code. If the proper address and function code is received data or type is stored in the relevant sensor struct. If verification fails it returns 0. If everything went as expected a 1 is returned. 2 is returned if the function code is larger than 15.\\
+Description:& The function is used to receive messages from the receivebuffer and verify address and function code. If the proper address and function code is received data or type is stored in the relevant sensor struct. If everything went as expected a 0 is returned. If verification fails it returns 1.  2 is returned if the function code is larger than 15. 3 is returned if the function code is not defined.\\
 Parameters:&\texttt{\textcolor{blue}{Sensor*} sensorarray}\\
 &\texttt{\textcolor{blue}{unsigned char} functioncode}\\
 &\texttt{\textcolor{blue}{unsigned char*} receivebuffer}\\
@@ -331,5 +370,3 @@ This subsection contains the explanation of how the sensor information is saved 
 \caption{CDU memory slots}
 \label{fig:memoryslots}
 \end{figure}
-
-\section{Sensor node}

@@ -30,4 +30,4 @@ unsigned char spiWrite( unsigned char i )
     SPI2BUF = i;
     while(!SPI2STATbits.SPIRBF);
     return SPI2BUF;
-}//spiWrite2
+}
