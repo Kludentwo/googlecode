@@ -19,30 +19,43 @@ This chapter serves to describe the communication protocol. Each sensor has an u
 
 \section{Communication sequence}
 The communication consist of a write sequence followed by a read sequence.\\
-Writing to a sensor node takes a message of variable length. The message is comprised of a start sequence, an address, a function code, a data length multiplier (DLM), data and lastly a CRC code. This is shown in table ~\ref{table:stdmsgtosensor}. The message length tells how many bytes of data will be send. This way the receiver knows how much data it must receive. Once the CDU has written to the sensor node, the sensor node responds using the the same format. \\
+Writing to a sensor node takes 3 nibbles that are comprised of a start sequence, an address and a function code. This is shown in table ~\ref{table:stdmsgtosensor}.\\ 
+Reading takes 3 bytes that are comprised of an address, a function code and data. This is shown in table ~\ref{table:stdmsgfromsensor}. Once the CDU has written to the sensor node, the sensor node responds using the this format. \\
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|}
 	\hline
-	Start Sequence & Address & Function Code & DLM & Data & CRC  \\ \hline
-	1 nibble & 1 nibble	& 1 nibble & 1 nibble & n bytes & 1 byte\\
+	Start Sequence & Address & Function Code \\ \hline
+	1 nibble & 1 nibble	& 1 nibble \\
 	\hline
 \end{tabular}
-\caption{Message format for writing and reading}
+\caption{Message format for writing to sensors}
 \label{table:stdmsgtosensor}
 \end{table}
 The start sequence is always "0110".\\
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Address & Function Code & Data \\ \hline
+	1 nibble & 1 nibble	& 2 bytes \\
+	\hline
+\end{tabular}
+\caption{Message format for reading from sensors }
+\label{table:stdmsgfromsensor}
+\end{table}
 The data coincides with the function code. This is further explained below.
+
 \subsection{GETINFO function code}
 Data is read as in table ~\ref{table:Datagetinfo}.
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|l|l|}
 	\hline
-	Errors & Type \\ \hline
-	1 nibble & 1 nibble \\
+	Errors & Type & dummy \\ \hline
+	1 nibble & 1 nibble	& 1 bytes \\
 	\hline
 \end{tabular}
 \caption{Data format for function code GETINFO }
@@ -55,7 +68,7 @@ Data is read as in table ~\ref{table:Datagetdata}.
 \begin{tabular}{|l|l|}
 	\hline
 	Errors & Data \\ \hline
-	1 nibble &  12 bit \\
+	1 nibble & 12 bit \\
 	\hline
 \end{tabular}
 \caption{Data format for function code GETDATA }
