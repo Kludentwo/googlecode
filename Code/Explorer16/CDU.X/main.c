@@ -13,7 +13,6 @@
 #include "lcd.h"
 #include "CDU.h"
 
-
 _CONFIG1(JTAGEN_OFF & GCP_OFF & GWRP_OFF & COE_OFF & FWDTEN_OFF & ICS_PGx2)
 _CONFIG2(FCKSM_CSDCMD & OSCIOFNC_OFF & POSCMOD_XT & FNOSC_PRI)
 /*========================================================================
@@ -43,8 +42,6 @@ unsigned char waitclock = 0;
 unsigned int addresscounter = 0;
 unsigned int maincounter = 0;
 
-
-
 /*========================================================================
                             MAIN
 ========================================================================*/
@@ -52,19 +49,19 @@ int main(int argc, char** argv) {
     // INIT
     OSCCON = 0x2200; //select Primary Oscillator, External XL
     CLKDIV = 0x0000; //do not divide 
-	
+
 
     RCONbits.SWDTEN = 0; // Disable watchdog
-	initLCD();
-	CDUInit();
+    initLCD();
+    CDUInit();
     InitCDUFlags(&CDUFlags);
     InitSensorArray(sensorarray);
 
-	unsigned int errorcount = 0;
+    unsigned int errorcount = 0;
     unsigned int error = 0;
     unsigned int startupcounter = 0;
     unsigned int startupcounter2 = 0;
-	
+
     while (startupcounter2 < 4) {
         startupcounter++;
         if (startupcounter == 50000)
@@ -78,11 +75,11 @@ int main(int argc, char** argv) {
         if (error == 0) {
             errorcount += 1;
         }
-        //        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
-        //        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
-        //        if (error == 0) {
-        //            errorcount += 1;
-        //        }
+        CDUSend(&(sensorarray[1]), GETINFO, message, &CDUFlags);
+        error = CDUReceive(&(sensorarray[1]), GETINFO, response, &CDUFlags);
+        if (error == 0) {
+            errorcount += 1;
+        }
         //errorcount += sensorarray[0].Errors;
         /*for(l2cnt = 0; l2cnt < LCD_DISPLAY_LEN; l2cnt++)
         {
