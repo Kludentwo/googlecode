@@ -720,6 +720,18 @@ As mentioned the ADC is a low-power, 12-bit MAX1241. The interface to the ADC is
 When chip select is pulled low a conversion starts, in this time the interface is idle and the MAX1241 responds by pulling DOUT low while the conversion is in progress. When the DOUT line goes high again the data acquisition block can start clocking to the MAX1241. The first clock should be disregarded. Data is sampled on rising edge and changed on falling edge.
 
 \subsection{Power consumption}
+Below is calculation of the power consumed by the sensor node components. The values are found in the datasheet. Power consumption for capacitors and resistors which are not included in the calculations are assumed to be neglectable.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		component 	&	power consumption (mW)\\ \hline
+		74HC109 	&	0.005118
+		CD4046		&	500 \\ \hline
+		
+	\end{tabular}
+\end{table}
 
 
 \subsection{Print layout}
