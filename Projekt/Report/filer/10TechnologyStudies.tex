@@ -11,6 +11,52 @@ The technology studies covers the studies leading up to the design and implement
 
 \section{Protocol and communications}
 
+\subsection{Communications}
+The field of communication is very large, so to determine how to physically perform the communication in this system other methods were studied.\\
+Commonly used for communcation is level shifting, this is known from many common communication protocols such as RS232, i$^2$C, SPI etc.\\
+These physical protocol layers depend on synchronization either by including a clock or specifying a baudrate.\\
+
+
+
+\subsection{Protocol}
+To determine how the protocol should structured parallels to known communication protocols were made. The bus with multiple slaves/nodes have a lot of similarities physically with the i$^2$C protocol.\\
+The i$^2$C protocol is a two wire system with multiple slaves, which responds to requests from the master. An i$^2$C transfer sequence is seen on the figure \ref{fig:i2cheader} below, it is found in the i$^2$C protocol specification \fixme{reference til i2c protocol specificationen på http://i2c.info/i2c-bus-specification}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/7-bit-address-writing}
+	\caption{i$^2$C protocol transfer sequence}
+	\label{fig:i2cheader}
+\end{figure}
+
+The transfer sequence is initiated by a start sequence from the master, this alerts the slaves and they are now listening on the bus. The next step for the master is to transmit the address of the slave. Because several slaves are connected an addressing system must be utilized. Lastly the master tells whether it is a read or write command. \\
+The same principles are applied to the power line communication bus where an addressing system and start sequence is used.\\
+
+Another known protocol is the modbus protocol which is a widely used protocol. The modbus protocol has a start and addressing system, as the i$^2$C. But after the address a function code is transmitted. This code is used to tell the slave exactly what to do. Below on figure \ref{fig:modbusframe} is shown the modbus frame format.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/modbusframe}
+	\caption{Modbus frame/header}
+	\label{fig:modbusframe}
+\end{figure}
+
+The function codes are standardized and covers a wide variety of uses, which covers all from simple request as, read discrete inputs, to diagnostic.
+
+\subsection{The OSI model}
+The structure of the communication is based upon the principle from the OSI model. The OSI model is an abbreviation of the Open Systems Intercommunication Model. The model helps describe and standardize the structure of communication systems. The OSI model has seven layers:
+\begin{enumerate}
+	\item Physical
+	\item Data link
+	\item Network
+	\item Transport
+	\item Session
+	\item Presentation
+	\item Application
+\end{enumerate}
+
+Each layer has a specific responsibility to enable the entire communication system. The layers utilized in the power line communication bus implemented in this project is, the physical layer, \fixme{reference til OSI modellen skal eventuelt bare drages i arkitekturen}
+
 
 \section{Clock and data recovery}
 Normally a data transmission consists of two elements, clock and data. In this system that is not possible and therefore the area of clock and data recovery was investigated.
@@ -65,7 +111,7 @@ The advantage for the type 2 phase detector is the ability to detect a lead or a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/pd2_waveform}
+	\includegraphics[width=1\textwidth]{billeder/10technologystudies/pd2_waveform}
 	\caption{Phase detector type 2 waveforms}
 	\label{fig:pd2_waveform}
 \end{figure}
