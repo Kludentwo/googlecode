@@ -21,7 +21,7 @@ The CDU and the sensor nodes can be described as several layers with regards to 
 \end{figure}
 
 Principle designs of the different parts of the system are made by taking the blocks from the block definition diagram (figure \ref{fig:systembdd}) and creating internal block diagrams.\\
-The CDU is comprised of six conceptual blocks as seen on figure \ref{CDU_IBD}. Each block has a unique responsibility. For instance the sensor power supply has the responsibility of powering the sensors. The sensor power supply and sensor communication makes up the physical layer with regards to figure \ref{fig:systemlayers}.
+The CDU is comprised of six conceptual blocks as seen on figure \ref{CDU_IBD}. Each block has a unique responsibility. For instance the sensor power supply has the responsibility of powering the sensors. The sensor power supply block and sensor communication block makes up the physical layer with regards to figure \ref{fig:systemlayers} while the line coding and protocol layer is handled by the µ-Controller block. 
 
 \begin{figure}[hbpt]
 \centering
@@ -30,10 +30,15 @@ The CDU is comprised of six conceptual blocks as seen on figure \ref{CDU_IBD}. E
 \label{CDU_IBD}
 \end{figure}
 
-\textbf{Noget om sensor note architecture.}\\
+A sensor node can be divided into 4 conceptual block as seen on figure \ref{fig:SN_IBD}. The Power supply block and the Communication block make up the physical layer as described in the CDU. The line coding and protocol layer is handled by the Logic handler block.
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/11ProjectDescription/Sensor_IBD}
+\caption{Internal Block Diagram of the sensor node}
+\label{fig:SN_IBD}
+\end{figure}
 
-
-
+The protocol layer (or protocol) was designed with the knowledge from the technology study. A full header can be seen in table \ref{table:stdmsgtosensor}.
 
 \begin{table}[H]
 \centering
