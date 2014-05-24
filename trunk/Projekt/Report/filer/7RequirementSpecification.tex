@@ -31,10 +31,16 @@ The sensor system has two main functionalities:
 \section{General requirements}
 \textit{This section seeks to explain the most important general requirements of the system}.
 \subsection{Power consumption}
-
+In order to comply with the original idea of the system, a demand for low power consumption has made. The power consumption requirements are based on rough estimates made by the group. The power consumption requirements are as follows:
+\begin{table}[H]
+	\begin{tabular}{p{8cm} p{2cm}}
+	$\bullet$ CDU Power consumption: & <0.5W\\
+	$\bullet$ Sensor node Power consumption: & <0.05W\\
+	\end{tabular}
+\end{table}
+The CDU power consumption requirement is excluding the sensor node power consumption.
 \subsection{Interface requirements}
 In the central data unit requirements part of the general requirement section in the requirement specification document it is stated that the external interfaces must be:
-\subsubsection{External interfaces}
 \begin{table}[H]
 	\begin{tabular}{p{8cm} p{2cm}}
 	$\bullet$ Custom power line communication bus: & Yes\\
@@ -42,5 +48,5 @@ In the central data unit requirements part of the general requirement section in
 	\end{tabular}
 \end{table}
 The sensor nodes require the Custom power line communication bus as an external interface as well. These non-constricting requirements make room for a lot of different design opportunities.
-
 \subsection{Other requirements}
+A BOM (Build of Materials) price have been specified in the requirements. The original project formulation specifies a need for minimising the production cost. The price is rather high as it serves as food for thought. The production price still has unknown elements like assembly cost which is why a materials price have been specified.
