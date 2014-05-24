@@ -22,7 +22,6 @@ The CDU and the sensor nodes can be described as several layers with regards to 
 
 Principle designs of the different parts of the system are made by taking the blocks from the block definition diagram (figure \ref{fig:systembdd}) and creating internal block diagrams.\\
 The CDU is comprised of six conceptual blocks as seen on figure \ref{CDU_IBD}. Each block has a unique responsibility. For instance the sensor power supply has the responsibility of powering the sensors. The sensor power supply block and sensor communication block makes up the physical layer with regards to figure \ref{fig:systemlayers} while the line coding and protocol layer is handled by the µ-Controller block. 
-
 \begin{figure}[hbpt]
 \centering
 \includegraphics[width=.8\textwidth]{billeder/11ProjectDescription/CDU_IBD}
@@ -38,9 +37,16 @@ A sensor node can be divided into 4 conceptual block as seen on figure \ref{fig:
 \label{fig:SN_IBD}
 \end{figure}
 
-The protocol layer (or protocol) was designed with the knowledge from the technology study. A full header can be seen in table \ref{table:stdmsgtosensor}.
+Communication on the bus can be broken down to a series of steps. The CDU takes the initiative to write to a sensor node. It creates the message that will be sent and starts transmitting. The message is received on the sensor node and the sensor node starts processing the message. When it is finished processing it will respond according to the message. The response is received on the CDU where it will be processed. This transmission sequence can be seen on figure \ref{fig:sintrans}. The figure also shows the flow of information through the layers. 
+\begin{figure}[hbpt]
+\centering
+\includegraphics[width=.8\textwidth]{billeder/11ProjectDescription/singletransmission}
+\caption{A single transmission}
+\label{fig:sintrans}
+\end{figure}
 
-\begin{table}[H]
+The protocol layer (or protocol) was designed with the knowledge from the technology study. A full header can be seen in table \ref{table:stdmsgtosensor}. The DLM(Data Length Multiplier) determines how many bytes of data will be sent up to a maximum of 15 bytes. If there is no data the DLM is zero.
+\begin{table}[hbpt]
 \centering
 \begin{tabular}{|l|l|l|l|l|l|}
 	\hline
@@ -51,7 +57,7 @@ The protocol layer (or protocol) was designed with the knowledge from the techno
 \caption{Message format for writing and reading}
 \label{table:stdmsgtosensor}
 \end{table}
-
+The CRC check ensures that the message has been received corrected.
 
 \section{Design and implementation}
 The design and implementation of the system is a naturally continuation of the technology study made in this project. The key part was integrating the acquired knowledge from the study and applying it to design and implement the prototype system.\\

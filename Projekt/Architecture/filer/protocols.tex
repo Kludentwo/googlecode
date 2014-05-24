@@ -19,7 +19,7 @@ This chapter serves to describe the communication protocol. Each sensor has an u
 
 \section{Communication sequence}
 The communication consist of a write sequence followed by a read sequence.\\
-Writing to a sensor node takes a message of variable length. The message is comprised of a start sequence, an address, a function code, a data length multiplier (DLM), data and lastly a CRC code. This is shown in table ~\ref{table:stdmsgtosensor}. The message length tells how many bytes of data will be send. This way the receiver knows how much data it must receive. Once the CDU has written to the sensor node, the sensor node responds using the the same format. \\
+Writing to a sensor node takes a message of variable length. The message is comprised of a start sequence, an address, a function code, a data length multiplier (DLM), data and lastly a CRC code. "CRC8 bit, normal" is used for CRC. This is shown in table ~\ref{table:stdmsgtosensor}. The message length tells how many bytes of data will be send. This way the receiver knows how much data it must receive. Once the CDU has written to the sensor node, the sensor node responds using the the same format. \\
 
 \begin{table}[H]
 \centering
