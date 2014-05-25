@@ -95,3 +95,52 @@ Each sensor node will react to the difference in current levels. The current is 
 Responding starts once the addressed sensor node has finished chewing through the message it has received. The digital level signal is converted to two different voltage levels by the communication block of the sensor node. The voltage levels on the bus is then directed from the sensor power supply of the CDU to the sensor communication block of CDU. The voltage levels will then be converted to digital logic levels and handled by the CDU.
 
 \section{Tests}
+\textit{The tests section seeks to explain the methods, reasons and procedures for testing in this project.}\\
+
+The internal tests in this project is made up of unit tests and integration tests. The unit tests seek to tests the functionality of each device while the integration tests are designed to tests the communication in between devices.\\
+
+The unit tests were made such that there were as few variable circumstances as possible. This means possible errors will most certainly stem from the unit under test (uut). This principle of testing was also applied when unit testing.\\
+
+The tests made in this project are by no means exhaustive. The tests made are suppose to provide a baseline for improving the system or otherwise prove a basic concept. As the outcome of this project is a technology and not an actual product there is no accept-test.\\
+
+The full extent of tests are:\\
+Integration:\\
+\begin{itemize}
+\item Integration test case 1: Sensor getinfo request
+\item Integration test case 2: Sensor getdata request
+\item Integration test case 3: Sensor respond to getinfo
+\item Integration test case 4: Sensor respond to getdata
+\item Integration test case 5: Full transmission
+\item Integration test case 6: Full transmission, unknown function code
+\item Integration test case 7: PC sends getdata request to CDU
+\item Integration test case 8: PC sends unknown request to CDU
+\end{itemize}
+Reliability:\\
+\begin{itemize}
+\item Reliability test case 1: Timed transmissions and errors
+\end{itemize}
+CDU unit tests:\\
+\begin{itemize}
+\item Test case 1: 3.3 volt power supply
+\item Test case 2: Communcation to bus
+\item Test case 3: Voltage reference in receiver circuit
+\item Test case 4: Communication from bus
+\item Test case 5: Test of function IntegerToBinary
+\item Test case 6: Test of function PatMessage
+\item Test case 7: Test of function ToManchester
+\item Test case 8: Test of function InitSensorArray
+\item Test case 9: Test of function CDUSend
+\item Test case 10: Test of function CDUReceive
+\item Test case 11: Test of function CDUReceive error handling
+\end{itemize}
+Sensor node unit tests:\\
+\begin{itemize}
+\item Test case 1: 3.3 volt power supply
+\item Test case 2: Data recovery circuit
+\item Test case 3: Phase lock circuit
+\item Test case 4: Respond circuit
+\item Test case 5: CDU communication
+\item Test case 6: ADC interfacing
+\end{itemize}
+The content of a test can be explained on the basis of integration test case 1 which can be found in the Internal tests document in the appendixa. Each test case contains the purpose of the tests, which tests equipment is used in the test, the procedure, the expected result and the actual result.\\ 
+The purpose explains what is being tested. The test equipment used includes stubs of the units that are being tested. This could be a sensor stub needed for testing the CDU or a full sensor node tests stub used for testing communication. The procedure seeks to explain how to do the tests in a way such that a technician can perform the test without prior knowledge to the system. The expected result provides a range or a basis on which the actual result can be evaluated.\\
