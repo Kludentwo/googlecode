@@ -58,11 +58,18 @@ The CRC check ensures that the message has been received correctly.
 
 \section{Design and implementation}
 The design and implementation of the system is a naturally continuation of the technology study made in this project. The key part was integrating the acquired knowledge from the study and applying it to design and implement the prototype system.\\
-When taking the system layers into consideration (figure \ref{fig:systemlayers}), the protocol and line coding layers fits well into software design. The physical layer matches hardware design and implementation.\\
+The blocks from the architecture document were incorporated in order to create a detailed breakdown of the different parts of the system. The CDU block breakdown can be found in figure \ref{fig:detailedCDU}. The figure seeks to explain the block in a conceptual manner. The blocks and components inside the different design blocks explains the design choices. The block also contains the different external interfaces. For the CDU there are three external interfaces with two pins each. These pins belong to the power supply block, the sensor power supply block and the pc communication block.\\
+The brain of the CDU is the µ-Controller block. As seen on the figure, it contains a power line communication protocol block, a spi block and an uart block. The power line communication protocol block handles the protocol and line coding layer with respect to figure \ref{fig:systemlayers}.\\
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/11ProjectDescription/detailedCDU}
+	\caption{Detailed CDU breakdown}
+	\label{fig:detailedCDU}
+\end{figure}
 The design of the physical hardware layer was derived from the technology study of how a communication bus could be made. The central parts of the communication is carrying the communication and the conversion from digital levels to something that can be carried by the bus.\\ 
-The technology study led to a current loop being used to communicate with the sensor nodes. Two different current levels corresponds to logic 0(low) and 1(high). When responding, the sensor nodes use two different voltage levels.\\
+The during the technology study phase it became apparent that a current loop was the smartest way to communicate with- and power the sensor nodes. Two different current levels corresponds to logic 0(low) and 1(high). When responding, the sensor nodes use two different voltage levels.\\
 The conversion from digital levels to analog current levels is handled by two block in the CDU: The Sensor power supply block (figure \ref{fig:CDUSPS}) and the Sensor communication block (figure \ref{fig:CDUSC}).\\
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\begin{minipage}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[scale=1]{billeder/11ProjectDescription/CDUSPS}
@@ -77,7 +84,17 @@ The conversion from digital levels to analog current levels is handled by two bl
 	\label{fig:CDUSC}
 	\end{minipage}
 \end{figure}
-Each sensor node will react to the difference in current levels. The current is converted to a voltage in the power supply block of the sensor node (figure \ref{fig:SN_PS_FIGURE}). The voltage levels are then converted to digital levels by the communication block of the sensor node(figure \ref{fig:SN_com_fig}). The digital levels are handled by the logic handler which will be described later in this chapter.\\
+\fixme{Afslut CDU}
+
+The sensor node breakdown can be found in figure \ref{fig:SN_detailed}. The figure contains both simple electronic components and conceptual blocks. 
+\fixme{Skriv mere til SN}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/11ProjectDescription/SN_detailed_design}
+	\caption{Detailed sensor node breakdown}
+	\label{fig:SN_detailed}
+\end{figure}
+When the CDU starts communicating on the custom power line communication bus, each sensor node will react to the difference in current levels. The current is converted to a voltage in the power supply block of the sensor node (figure \ref{fig:SN_PS_FIGURE}). The voltage levels are then converted to digital levels by the communication block of the sensor node(figure \ref{fig:SN_com_fig}). The digital levels are handled by the logic handler which will be described later in this chapter.\\
 \begin{figure}[H]
 	\begin{minipage}[b]{0.45\linewidth}
 	\centering
