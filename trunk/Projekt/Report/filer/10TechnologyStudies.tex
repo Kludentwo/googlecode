@@ -26,7 +26,7 @@ The I$^2$C protocol is a two wire system with multiple slaves, which responds to
 The transfer sequence is initiated by a start sequence from the master, this alerts the slaves and they are now listening on the bus. The next step for the master is to transmit the address of the slave. Because several slaves are connected an addressing system must be utilized. Lastly the master tells whether it is a read or write command. \\
 The same principles are applied to the power line communication bus where an addressing system and start sequence is used.
 
-Another known protocol is the modbus protocol which is a widely used protocol. The modbus protocol has a start and addressing system, as the I$^2$C. But after the address a function code is transmitted. This code is used to tell the slave exactly what to do. Below on figure \ref{fig:modbusframe} is shown the modbus frame format.
+Another known protocol is the modbus protocol which is a widely used protocol. The modbus protocol has a start and addressing system, like I$^2$C. But after the address a function code is transmitted. This code is used to tell the slave exactly what to do. Below on figure \ref{fig:modbusframe} is shown the modbus frame format.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/modbusframe}
@@ -35,7 +35,7 @@ Another known protocol is the modbus protocol which is a widely used protocol. T
 \end{figure}
 The function codes are standardized and covers a wide variety of uses, which covers all from simple request as, read discrete inputs, to diagnostic.
 \section{Clock and data recovery}
-Normally a data transmission consists of two elements, clock and data. In this system that is not possible and therefore the area of clock and data recovery was investigated.\\
+Normally a data transmission consists of two elements, clock and data. That is not possible in this project and therefore the area of clock and data recovery was investigated.\\
 Clock and data recovery is widely used in the field of data transmission. Especially in high bandwidth systems. Many of such systems use NRZ (Non-return to zero) line coding where in essence the clock is embedded in the data stream.\\
 On figure \ref{fig:CDR} a conceptual block diagram of clock and data recovery is shown. From the recovered clock derived from the incoming data, the data is sampled.
 \begin{figure}[hbpt]
@@ -44,7 +44,7 @@ On figure \ref{fig:CDR} a conceptual block diagram of clock and data recovery is
 	\caption{Conceptual clock and data recovery block diagram}
 	\label{fig:CDR}
 \end{figure}
-The clock recovery can be achieved by a virous different solutions but commonly used is the phase locked loop(PLL). The following subsection will describe the basics of the PLL loop used in this project.
+The clock recovery can be achieved by a variation of different solutions but commonly used is the phase locked loop(PLL). The following subsection will describe the basics of the PLL loop used in this project.
 \subsection{The Phase-locked loop}
 The PLL comes in a large variety of designs but they all have one common conceptual diagram. A PLL consists of a phase-detector, a filter and a voltage controlled oscillator(VCO). Optionally it can contain a clock divider as well to speed up the VCO clock. Below on figure \ref{fig:conceptualpll} is shown the structure of the conceptual PLL.
 \begin{figure}[H]
@@ -54,7 +54,7 @@ The PLL comes in a large variety of designs but they all have one common concept
 	\label{fig:conceptualpll}
 \end{figure}
 \subsubsection{Phase detector and loop filter}
-The phase detector has two inputs. The input signal and the loop feedback signal. The phase detector compares the two input and produces a series of phase pulses depending on the phase difference of the two input signals. There is a vareity of different phase detector but two types are so common they are named type 1 and type 2 phase detectors. Each type of detector has an impact on how the loop locks and at what phase.
+The phase detector has two inputs. The input signal and the loop feedback signal. The phase detector compares the two input and produces a series of phase pulses depending on the phase difference of the two input signals. There is a variety of different phase detector but two types are so common they are named type 1 and type 2 phase detectors. Each type of detector has an impact on how the loop locks and at what phase.
 \\ \textbf{Type 1:}\\
 The type 1 phase detector is basically a XOR gate. 
 \begin{figure}[H]
@@ -70,8 +70,8 @@ The XOR gate outputs a digital high when the two input signals are different fro
 	\caption{Phase detector type 1 waveforms}
 	\label{fig:pd1_waveforms}
 \end{figure}
-The two input signals are out of frequency. And on the PD out line it is shown how this changes with regards to the two inputs.  The output of the low pass filter i used as an input to the VCO to either speed up the clock or slow it down.\\
-When the PLL is in lock the LPF output will be $\frac{\text{V}_{\text{DD}}}{2}$. This effectively means that when the PLL locks on the In 1 signal the In 2 signal will be in exactly 90$^{\circ}$ deg phase.\\
+The two input signals are different in frequency. And on the PD out line it is shown how this changes with regards to the two inputs.  The output of the low pass filter is used as an input to the VCO to either speed up the clock or slow it down.\\
+When the PLL is locked onto the incoming frequency the LPF output will be $\frac{\text{V}_{\text{DD}}}{2}$. This effectively means that when the PLL locks onto the In 1 signal, the In 2 signal will be in exactly 90$^{\circ}$ deg phase.\\
 \textbf{Type 2:}\\
 The type 2 phase detector comprises of a phase comparator and a charge pump. The comparator is basically two D type flip-flops connected with and AND gate as seen on the figure \ref{fig:pd2_imp} below. The output from the phase comparator controls the charge pump to either charge or discharge the filter.
 \begin{figure}[H]
@@ -80,7 +80,7 @@ The type 2 phase detector comprises of a phase comparator and a charge pump. The
 	\caption{Phase detector type 2 functional figure}
 	\label{fig:pd2_imp}
 \end{figure}
-The advantage for the type 2 phase detector is the ability to detect a lead or a lag in frequency. Below on figure \ref{fig:pd2_waveform}, the waveform is illustrated for both leading and lagging. Depending on the amount of lead og lag the pump will be on/off for longer or lower periods of time.
+The advantage for the type 2 phase detector is the ability to detect a lead or a lag in frequency. Below on figure \ref{fig:pd2_waveform}, the waveform is illustrated for both leading and lagging. Depending on the amount of lead or lag the pump will be on/off for longer or shorter periods of time.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/10technologystudies/pd2_waveform}
@@ -88,7 +88,7 @@ The advantage for the type 2 phase detector is the ability to detect a lead or a
 	\label{fig:pd2_waveform}
 \end{figure}
 \subsubsection{Voltage controlled oscillator and Clock divider}
-The voltage controlled oscillator serves to convert the voltage output of the low pass filter to an output frequency. Below on figure \ref{fig:VCO_func} is shown the conceptual relationship between voltage input and frequency output. The frequency is increasing as the voltage in increases. For the PLL to operate properly it is important that the VCO is as linear as possible and it must not be negative at any point or else the loop could become unstable.
+The voltage controlled oscillator serve to convert the voltage output of the low pass filter to an output frequency. The conceptual relationship between voltage input and frequency output is shown on figure \ref{fig:VCO_func}. The frequency is increasing as the voltage input increases. For the PLL to operate properly it is important that the VCO is as linear as possible and it must be positive at any point or else the loop could become unstable.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/10technologystudies/VCO_functionality}

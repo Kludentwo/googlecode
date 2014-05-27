@@ -1,34 +1,28 @@
 \chapter{Requirement specification}
-
-The requirement specification is focused around the CDU and the sensor node. It describes the functionality requirements along with other general requirements.
-
+\textit{The requirement specification is focused around the CDU and the sensor node. It describes the functionality requirements along with other general requirements.}
 \section{General description}
 Below on figure \ref{fig:project_system} the system is shown. The focus of the requirement specification will be upon the elements shown in this figure.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.9\textwidth]{billeder/7requirementspec/GeneralSystem}
 	\caption{Project system}
 	\label{fig:project_system}
 \end{figure}
-
 The system will be mounted on and around the foot of a person who is likely to develop charcot foot. 
-
 \section{Functionality requirements}
 The sensor system has two main functionalities:
 \begin{enumerate}
 	\item Set system to normal operation
 	\item Extract data from CDU
 \end{enumerate}
-These use cases handles the expected normal functionality as seen from the end user. The use case set system to normal operation has the responsibility to power on the system and set it to normal operation mode. It is initiated by the patient actor described in the requirement specification.
-For further information about the use cases see the requirement specification document.
+These use cases handles the expected normal functionality as seen from the end user. The use case set system to normal operation has the responsibility to power on the system and set it to normal operation mode. It is initiated by the patient actor described in the requirement specification.\\
+The use case extract data from CDU has the responsibility to move the stored data from the CDU to a piece of computer software. It is initiated by the patient actor and has a computer as the secondary actor. Both actors are described in the requirement specification.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.7\textwidth]{billeder/7requirementspec/usecase_vector}
 	\caption{Use case diagram}
 \end{figure}
-
-
+For the full use cases see the requirement specification document.
 \section{General requirements}
 \textit{This section seeks to explain the most important general requirements of the system}.
 \subsection{Power consumption}
