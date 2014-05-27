@@ -7,7 +7,7 @@ The whole project was made with discrete components that were available from the
 An example could be improving the operational amplifier handling the incoming data amplifying with one with better slew rate, better signal-noise ratio and/or wider gain-bandwidth product might improve stability in the data transmission.
 
 \section{Supplying the unit}
-A full battery supply system will need to be designed. It must take the total power consumption over time in consideration in order to comply with the requirement specified in the original project formulation. In order to comply with the low power demands of battery using applications, the device will need components working at a lower voltage. The smaller the voltage needed by the bus, the smaller the battery needed to power the whole system. The battery must also be rechargeable which further limits the power consumption by the total system.
+A full battery supply system will need to be designed. It must take the total power consumption over time in consideration in order to comply with the requirement specified in the original project formulation. The voltage to the bus must also be taken into consideration, see section \ref{sec:DO}.
 
 \section{IC synthesizing}
 A big part of the further development is the design and synthesis of an integrated circuit. The whole sensor node must be redesigned with the same blocks but different components and layouts. The finished sensor node IC will still need to have a small circuit board with a few capacitors to ensure stability.
@@ -18,5 +18,6 @@ Another part is the application layer of the CDU. The functions and descriptions
 \section{Data acquisition}
 The measurement system will also have to be improved. Either through a redesign or implementation of a know system with low power consumption and low noise. This could be a full project on its own.
 
-\section{Design improvements}
-Bus current and sensor voltage level.
+\section{Design optimization}
+\label{sec:DO}
+Currently the voltage supply level on the sensor node are 3.3V. To lower power consumption and make it practically possible to have a lot of sensors serially connected it is needed to lower the operating voltage level throughout the entire sensor node. The group suggests a voltage maximum of about 2V for a sensor node. This enables for a lot more sensors then now or a lower voltage level to supply the bus. It also helps the battery power extension since the need for a high voltage can be inefficient.
