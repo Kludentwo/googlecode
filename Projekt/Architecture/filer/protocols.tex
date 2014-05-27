@@ -1,7 +1,9 @@
-\chapter{Protocols}
-This chapter serves to describe the communication protocol. Each sensor has an unique address. The sensors responds to function codes shown in table ~\ref{table:functioncodes}.
+\chapter{Interfaces}
+This chapter serves to describe the communication interfaces and protocols. 
+\section{Custom power line communication protocol}
+Each sensor has an unique address. The sensors responds to function codes shown in table ~\ref{table:functioncodes}.
 
-\section{Function codes}
+\subsection{Function codes}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -17,7 +19,7 @@ This chapter serves to describe the communication protocol. Each sensor has an u
 \label{table:functioncodes}
 \end{table}
 
-\section{Communication sequence}
+\subsection{Communication sequence}
 The communication consist of a write sequence followed by a read sequence.\\
 Writing to a sensor node takes a message of variable length. The message is comprised of a start sequence, an address, a function code, a data length multiplier (DLM), data and lastly a CRC code. "CRC8 bit, normal" is used for CRC. This is shown in table ~\ref{table:stdmsgtosensor}. The message length tells how many bytes of data will be send. This way the receiver knows how much data it must receive. Once the CDU has written to the sensor node, the sensor node responds using the the same format. \\
 
@@ -35,7 +37,7 @@ Writing to a sensor node takes a message of variable length. The message is comp
 The start sequence is always "0110".\\
 
 The data coincides with the function code. This is further explained below.
-\subsection{GETINFO function code}
+\subsubsection{GETINFO function code}
 Data is read as in table ~\ref{table:Datagetinfo}.
 \begin{table}[H]
 \centering
@@ -48,7 +50,7 @@ Data is read as in table ~\ref{table:Datagetinfo}.
 \caption{Data format for function code GETINFO }
 \label{table:Datagetinfo}
 \end{table}
-\subsection{GETDATA function code}
+\subsubsection{GETDATA function code}
 Data is read as in table ~\ref{table:Datagetdata}.
 \begin{table}[H]
 \centering
@@ -63,7 +65,7 @@ Data is read as in table ~\ref{table:Datagetdata}.
 \end{table}
 An example of 12 bit data from a sensor of the type temperature sensor is "432" or "000110110000" which corresponds to 43.2 degrees Celsius.
 
-\subsection{Type}
+\subsubsection{Type}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -81,7 +83,7 @@ An example of 12 bit data from a sensor of the type temperature sensor is "432" 
 \label{table:typetable}
 \end{table}
 
-\subsection{Errors}
+\subsubsection{Errors}
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -97,6 +99,27 @@ An example of 12 bit data from a sensor of the type temperature sensor is "432" 
 \label{table:errortable}
 \end{table}
 
+\section{PC communication protocol}
+When the CDU has been disconnected from the sensor nodes and connected to the PC it is ready to receive requests from the PC. UART has been chosen for the communication between CDU and PC. The characters used in the communication can be found in table \ref{table:UARTtable}.
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+	\hline
+	Character  & Description\\ 
+	\hline
+	'A' 	  & The Request data character. \\
+	\hline
+	Every other char & Unknown characters \\
+	\hline
+\end{tabular}
+\caption{PC communication characters}
+\label{table:UARTtable}
+\end{table}
 
+\subsection{CDU GetData Response}
+When the CDU receives the getdata character from the PC it will begin to output data. The data is output serially in the following manner:
+\begin{verbatim}
+Address,Data,Type,Error,Year,Month,Day,Hour,Minute;
+\end{verbatim}
 
 
