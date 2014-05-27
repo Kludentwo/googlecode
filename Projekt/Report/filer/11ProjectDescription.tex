@@ -2,11 +2,7 @@
 \textit{This chapter seeks to explain the design and implementation of the project along with the tests used for improving the system.}
 \section{Architecture}
 The architecture of the system explains the conceptual design blocks and interfaces. The system consist of the CDU and a number of sensor nodes as seen on figure \ref{fig:systembdd}. The CDU is responsible for contacting the sensor nodes in order to collect and store the data that has been acquired by the sensor nodes. The sensor nodes sole responsibility is to acquire data.\\
-<<<<<<< .mine
 The supply for the sensors nodes is taken from the custom power line communication bus. Communication signals between the CDU and sensor nodes are found on the bus as well. 
-=======
-The supply for the sensors nodes is taken from the custom power line communication bus. Communication signals between the CDU and sensor nodes are found on the bus as well.
->>>>>>> .r209
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.9\textwidth]{billeder/11ProjectDescription/systembdd}
@@ -113,6 +109,18 @@ When the CDU starts communicating on the custom power line communication bus, ea
 	\end{minipage}
 \end{figure} 
 Responding starts once the addressed sensor node has finished chewing through the message it has received. The digital level signal is converted to two different voltage levels by the communication block of the sensor node. The voltage levels on the bus is then directed from the sensor power supply of the CDU to the sensor communication block of CDU. The voltage levels will then be converted to digital logic levels and handled by the CDU.
+
+\section{Prototype}
+Realising the system meant taking the designs and making an initial prototype. The earliest versions of the prototypes were realised on breadboards. The first prototype provided a basis for testing the system and improving on the design. With the improvements to the design, the hardware was routed and put on PCBs. The tightly coupled hardware parts were put on the same PCB. The PCB blocks can be seen on figure \ref{fig:prototype}. The CDU prototype contains two circuit boards one made by the group and a development board. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{billeder/11ProjectDescription/prototypesystem}
+	\caption{Prototype system}
+	\label{fig:prototype}
+\end{figure}
+The development board is an explorer 16 board. It contains a PIC24FJ chip, a memory chip and various level converters. The prototype CDU board contains a voltage regulator block, a constant current generator and an amplifier along with supporting circuitry.
+
+The sensor nodes are comprised of three circuit boards. The data acquisition board, the logic handler board and the tighly coupled power supply and communication board. The logic handler board is an Altera DE2 board. The data acquisition board contains a measuring circuit and communication so that the logic handler can retrieve data. The power supply and communication board contains a CD4046 phase lock loop, a voltage regulator block, amplifiers and supporting circuitry. In the prototype there are two sensor nodes.
 
 \section{Tests}
 \textit{The tests section seeks to explain the methods, reasons and procedures for testing in this project.}
