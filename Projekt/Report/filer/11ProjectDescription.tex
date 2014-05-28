@@ -147,20 +147,20 @@ The data acquisition block consists of two functionalities, a measurement scheme
 Responding starts once the addressed sensor node has finished processing the message it has received. The digital level signal is converted to two different voltage levels by the communication block of the sensor node. The voltage levels on the bus is then directed from the sensor power supply of the CDU to the sensor communication block of CDU. The voltage levels will then be converted to digital logic levels and handled by the CDU.
 
 \section{Prototype}
-This section describes the end result of the prototype.
-Realising the system meant taking the designs and making an initial prototype. The earliest versions of the prototypes were realised on breadboards. The first prototype provided a basis for testing the system and improving on the design. With the improvements to the design, the hardware was routed and put on PCBs. The tightly coupled hardware parts were put on the same PCB. The PCB blocks can be seen on figure \ref{fig:prototype}. The CDU prototype contains two circuit boards one made by the group and a development board. 
+This section describes the end result of the prototype.\\
+The development phase generated a lot of prototypes. The earliest versions of the prototypes were realised on breadboards, since this was a fast method of testing parts of the system. In these early iterations focus was more on design and finding the right design. But as the design became more and more complete the magnitude of the implementation/realisation of the parts became larger and larger. The first prototype provided a basis for testing the system and improving on the design. With the improvements to the design, the hardware was routed and put on PCBs. The tightly coupled hardware parts were put on the same PCB. The PCB blocks can be seen on figure \ref{fig:prototype}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{billeder/11ProjectDescription/prototypesystem}
 	\caption{Prototype system}
 	\label{fig:prototype}
 \end{figure}
-The development board is an explorer 16 board. It contains a PIC24FJ chip, a memory chip and various level converters. The prototype CDU board contains a voltage regulator block, a constant current generator and an amplifier along with supporting circuitry.
+The CDU (green box) is comprised of hardware made by the group which interfaces to a development board provided by Microchip Denmark. The board is an explorer 16 development kit. It contains eeprom memory, RS232 connect and in-circuit debugger.
 
-The sensor nodes are comprised of three circuit boards. The data acquisition board, the logic handler board and the tighly coupled power supply and communication board. The logic handler board is an Altera DE2 board. The data acquisition board contains a measuring circuit and communication so that the logic handler can retrieve data. The power supply and communication board contains a CD4046 phase lock loop, a voltage regulator block, amplifiers and supporting circuitry. In the prototype there are two sensor nodes.
+The sensor node (red and grey box) is comprised of two hardware PCB's made by the group. These represent the physical interface of the system as well as the digital interfaces to the logic handler block. The logic handler is a cyclone II fpga chip on a DE2 development board from Altera. These were available to borrow from the school. The cyclone II chip is programmed to handle all application, protocol and line coding.
 
 \subsection{Central data unit}
-schematics printlayout sådan ngoet tænker jeg
+
 
 \subsection{Sensor node}
 
