@@ -21,3 +21,5 @@ The measurement system will also have to be improved. Either through a redesign 
 \section{Design optimization}
 \label{sec:DO}
 Currently the voltage supply level on the sensor node are 3.3V. To lower power consumption and make it practically possible to have a lot of sensors serially connected it is needed to lower the operating voltage level throughout the entire sensor node. The group suggests a voltage maximum of about 2V for a sensor node. This enables for a lot more sensors then now or a lower voltage level to supply the bus. It also helps the battery power extension since the need for a high voltage can be inefficient.
+
+Another design optimisation is the choice of µ-Controller to be used in the CDU. The current software only utilise about 4\% of the program memory and 7 (of a total of 85) of the general purpose pins. A smaller and cheaper µ-Controller will most certainly fit the project.
