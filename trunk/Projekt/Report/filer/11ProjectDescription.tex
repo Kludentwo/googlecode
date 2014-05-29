@@ -148,7 +148,7 @@ Responding starts once the addressed sensor node has finished processing the mes
 
 \section{Prototype}
 This section describes the end result of the prototype.\\
-The development phase generated a lot of prototypes. The earliest versions of the prototypes were realised on breadboards, since this was a fast method of testing parts of the system. In these early iterations focus was more on design and finding the right design. But as the design became more and more complete the magnitude of the implementation/realisation of the parts became larger and larger. The first prototype provided a basis for testing the system and improving on the design. With the improvements to the design, the hardware was routed and put on PCBs. The tightly coupled hardware parts were put on the same PCB. The PCB blocks can be seen on figure \ref{fig:prototype}.
+The development phase generated a lot of prototypes. The earliest versions of the prototypes were realised on breadboards, since this was a fast method of testing parts of the system. In these early iterations focus was more on finding the right design. But as the design became more and more complete the magnitude of the implementation/realisation of the parts became larger and larger. The first prototype provided a basis for testing the system and improving on the design. With the improvements to the design, the hardware was routed and put on PCBs. The tightly coupled hardware parts were put on the same PCB. An overview of the prototype can be seen on figure \ref{fig:prototype}, each white block represents a PCB (except for the power supply).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{billeder/11ProjectDescription/prototypesystem}
@@ -157,12 +157,27 @@ The development phase generated a lot of prototypes. The earliest versions of th
 \end{figure}
 The CDU (green box) is comprised of hardware made by the group which interfaces to a development board provided by Microchip Denmark. The board is an explorer 16 development kit. It contains eeprom memory, RS232 connect and in-circuit debugger.
 
-The sensor node (red and grey box) is comprised of two hardware PCB's made by the group. These represent the physical interface of the system as well as the digital interfaces to the logic handler block. The logic handler is a cyclone II fpga chip on a DE2 development board from Altera. These were available to borrow from the school. The cyclone II chip is programmed to handle all application, protocol and line coding.
+The two sensor nodes (red and grey box) is comprised of two hardware PCB's made by the group. These represent the physical interface of the system as well as the digital interfaces to the logic handler block. The logic handler is a cyclone II fpga chip on a DE2 development board from Altera. These were available to borrow from the school. The cyclone II chip is programmed to handle all application, protocol and line coding.
 
+In addition to all the component in the schematic test points played a key part when debugging the circuits. These schematics have been made to made into PCB's at the schools electronics laboratory.\\
+For good practise all pin outs from both the explorer 16 and the DE2 board from each revision has been stored in a spreadsheet for an easy overview.
 \subsection{Central data unit}
-
+The CDU hardware schematic is seen on figure \ref{schematic:CDU}. This is the current iteration of the CDU and has the revision number 0.4.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\textwidth]{billeder/11projectdescription/CDU_schematic_rotated}
+	\caption{CDU hardware schematic}
+	\label{schematic:CDU}
+\end{figure}
 
 \subsection{Sensor node}
+The SN hardware schematic is seen on figure \ref{schematic:SN}. The figure is displaying the current iteration of the two PCB's of the sensor node. The top schematic is the power supply, communication and clock recovery block. The bottom part is the data acquisition part of the sensor node comprising of a instrumental amplifier and an ADC with a reference voltage circuit.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\textwidth]{billeder/11projectdescription/SN_schematic_rotated}
+	\caption{SN hardware schematic}
+	\label{schematic:SN}
+\end{figure}
 
 
 \section{Tests}

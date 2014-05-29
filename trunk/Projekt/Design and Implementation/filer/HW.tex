@@ -646,7 +646,38 @@ The power line communication block monitor the data line and awaits the start se
 	\caption{Power line communication flowchart}
 	\label{fig:powerline_flow}
 \end{figure}
-
+\textbf{Logic handler pin assignment table table:}\\
+\begin{table}[H]
+	\begin{tabular}{|l|l|l|l|l|}
+    	\hline
+    	\textbf{Pin name} 	& \textbf{Pin number}& \textbf{Assigned to} 		&  \textbf{Direction} 	 & \textbf{Description} \\ \hline
+    	SW[0]    	& PIN\_N25 	& Switches[15..0] 	& Input        	 & Switch for debugging           \\ \hline
+    	SW[1]    	& PIN\_N26 	& Switches[15..0] 	& Input     	 & Switch for debugging    \\ \hline
+    	SW[2]	 	& PIN\_P25 	& Switches[15..0] 	& Input			 & Switch for debugging  \\ \hline
+    	SW[3]	 	& PIN\_AE14 & Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+    	SW[4]	 	& PIN\_AF14 & Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+    	SW[5]	 	& PIN\_AD13 & Switches[15..0] 	& Input			 & Switch for debugging           \\ \hline
+    	SW[6]	 	& PIN\_AC13 & Switches[15..0] 	& Input			 & Switch for debugging           \\ \hline
+    	SW[7]	 	& PIN\_C13 	& Switches[15..0] 	& Input			 & Switch for debugging		\\ \hline
+    	SW[8]	 	& PIN\_B13 	& Switches[15..0] 	& Input			 & Switch for debugging		\\ \hline
+   		SW[9]	 	& PIN\_A13 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[10]	 	& PIN\_N1 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[11]	 	& PIN\_P1 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[12]	 	& PIN\_P2 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[13]	 	& PIN\_T7 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[14]	 	& PIN\_U3 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		SW[15]	 	& PIN\_U4 	& Switches[15..0] 	& Input			 & Switch for debugging \\ \hline
+   		KEY[0]	 	& PIN\_G26 	& Reset\_comm 		& Input			 & Reset logic handler states \\ \hline
+   		GPIO\_1[0]	& PIN\_K25 	& CLK\_20kHz 		& Input			 & 20kHz clock \\ \hline
+   		GPIO\_1[1]	& PIN\_K26 	& DIN 				& Input			 & Data in from CDU \\ \hline
+   		GPIO\_1[2]	& PIN\_M22 	& R\_data 			& Output		 & Respons to CDU \\ \hline
+   		GPIO\_0[0]	& PIN\_D25 	& S\_CLK 			& Output		 & Serial SPI clk \\ \hline
+   		GPIO\_0[1]	& PIN\_J22 	& CS 				& Output		 & ADC chip select \\ \hline
+   		GPIO\_0[2]	& PIN\_E26 	& SHDN 				& Output		 & ADC shutdown control \\ \hline
+   		GPIO\_0[3]	& PIN\_E25 	& DOUT 				& Input			 & SPI data out from ADC, \\ \hline
+    \end{tabular}
+    \caption{Pin assignment table for the logic handler.}
+\end{table}
 
 \subsubsection{Data acquisition}
 The measurement bridge in the data acquisition block is balanced to have 0V at 20$^\circ$C corresponding to 108$\Omega$ for at pt100 temperature resistance element. The bridge is implemented as shown in the figure \ref{fig:m_bridge} below.
@@ -719,24 +750,27 @@ As mentioned the ADC is a low-power, 12-bit MAX1241. The interface to the ADC is
 
 When chip select is pulled low a conversion starts, in this time the interface is idle and the MAX1241 responds by pulling DOUT low while the conversion is in progress. When the DOUT line goes high again the data acquisition block can start clocking to the MAX1241. The first clock should be disregarded. Data is sampled on rising edge and changed on falling edge.
 
-\subsection{Power consumption}
-Below is calculation of the power consumed by the sensor node components. The values are found in the datasheet. Power consumption for capacitors and resistors which are not included in the calculations are assumed to be neglectable.
-
-\begin{table}[H]
+\subsection{Sensor node schematic}
+The entire sensor node schematic is found on figure \ref{Schematic:SN}. The line is dividing the schematic into the two PCB. They have been laid out separately due to no real coupling between the two.
+\begin{figure}[H]
 	\centering
-	\begin{tabular}{|c|c|}
-		\hline
-		component 	&	power consumption (mW)\\ \hline
-		74HC109 	&	0.005118 \\ \hline
-		CD4046		&	500 \\ \hline
-		
-	\end{tabular}
-\end{table}
-
+	\includegraphics[width=1\textwidth]{billeder/SN_Schematic_rotated}
+	\caption{Sensor node schematic revision 6}
+	\label{Schematic:SN}
+\end{figure}
 
 \subsection{Print layout}
-
-
+Below is shown the final revision of the print layouts.\\
+\textbf{Communication and power supply:}\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.85\textwidth]{billeder/SN_ps_com}
+\end{figure}
+\textbf{Data acquisition:}\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/SN_data_acq}
+\end{figure}
 
 
 
