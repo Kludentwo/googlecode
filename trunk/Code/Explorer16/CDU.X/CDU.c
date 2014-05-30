@@ -133,7 +133,7 @@ void CDUPCCom(void) {
     msg = UARTGetChar();
     if (msg == 'A') {
         T1CONbits.TON = 0;
-        for (memcnt = 0; memcnt < 700; memcnt++) {
+        for (memcnt = 0; memcnt < 4681; memcnt++) {
             //4681
             Load((memcnt * 7), &output);
             UARTPutChar(output.Address);
