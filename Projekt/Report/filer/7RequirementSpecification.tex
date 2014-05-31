@@ -1,7 +1,7 @@
-\chapter{Requirement specification}
-\textit{The requirement specification is focused around the CDU and the sensor node. It describes the functionality requirements along with other general requirements.}
+\chapter{Requirements specification}
+\textit{The requirements specification is focused around the CDU and the sensor node. It describes the functionality requirements along with other general requirements.}
 \section{General description}
-Below on figure \ref{fig:project_system} the system is shown. The focus of the requirement specification will be upon the elements shown in this figure.
+Th6e system is shown on figure \ref{fig:project_system} below. The focus of the requirement specification will be upon the elements shown in this figure.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.9\textwidth]{billeder/7requirementspec/GeneralSystem}
@@ -10,7 +10,7 @@ Below on figure \ref{fig:project_system} the system is shown. The focus of the r
 \end{figure}
 The system will be mounted on and around the foot of a person who is likely to develop charcot foot. 
 \section{Functionality requirements}
-The sensor system has two main functionalities:
+The system has two main functionalities:
 \begin{enumerate}
 	\item Set system to normal operation
 	\item Extract data from CDU
@@ -21,7 +21,7 @@ These use cases handles the expected normal functionality as seen from the end u
 	\begin{tabular}{|l|l|p{9.5cm}|}
 	\hline
 	Actor name & Type & Description \\ \hline
-	Patient & Primary & The patient set the system to run and initiates data extraction from the CDU. \\ \hline
+	Patient & Primary & The patient sets the system to run and initiates data extraction from the CDU. \\ \hline
 	Computer & Secondary  & The computer can extract data from the Central data unit. It is not intended as a control unit but mostly just for demonstration and debug purposes.\\ \hline
 	\end{tabular}
 	\caption{Actors of the system}
@@ -34,9 +34,9 @@ The use case extract data from CDU has the responsibility to move the stored dat
 	\includegraphics[width=.7\textwidth]{billeder/7requirementspec/usecase_vector}
 	\caption{Use case diagram}
 \end{figure}
-For the full use cases see the requirement specification document.
+For the use cases procedures see the requirements specification document which can be found in appendix\fxfatal{reqspec ref}.
 \section{General requirements}
-\textit{This section seeks to explain the most important general requirements of the system}.
+The requirements stated in the specifications seeks to be non-contricting to avoid restricting design opportunities.
 \subsection{Functionality requirements}
 \begin{table}[H]
 \begin{tabular}{p{8cm} p{2cm}}
@@ -53,12 +53,12 @@ $\bullet$ Save entries must contain: &Sensor identifier. \\
 ~ 									&Temperature. \\
 ~									&Timestamp. \\
 ~									&Type. \\
-~									&Erros. \\
+~									&Errors. \\
 \end{tabular}
 \end{table}
-A real time clock must be used in order to acquire the timestamp needed in the save entries. The type of the sensor is hard coded into the device.
+A real time clock must be used in order to acquire the timestamp needed in the save entries. The type of the sensor should hard coded into the device.
 \subsection{Power consumption}
-In order to comply with the original idea of the system, a demand for low power consumption has made. The power consumption requirements are based on rough estimates made by the group. The power consumption requirements are as follows:
+In order to comply with the original idea of the system, a demand for low power consumption has been made. The power consumption requirements are based on rough estimates made by the group. The power consumption requirements are as follows:
 \begin{table}[H]
 	\begin{tabular}{p{8cm} p{2cm}}
 	$\bullet$ CDU Power consumption: & <0.5W\\
@@ -67,13 +67,13 @@ In order to comply with the original idea of the system, a demand for low power 
 \end{table}
 The CDU power consumption requirement is excluding the sensor node power consumption.
 \subsection{Interface requirements}
-In the central data unit requirements part of the general requirement section in the requirement specification document it is stated that the external interfaces must be:
+In the central data unit requirements part of the general requirement section in the requirements specification document it is stated that the system interfaces must be:
 \begin{table}[H]
 	\begin{tabular}{p{8cm} p{2cm}}
 	$\bullet$ Custom power line communication bus: & Yes\\
 	$\bullet$ CDU to computer interface: & Yes\\
 	\end{tabular}
 \end{table}
-The sensor nodes require the Custom power line communication bus as an external interface as well. These non-constricting requirements make room for a lot of different design opportunities.
+The sensor nodes require the Custom power line communication bus as a system interface as well.
 %\subsection{Other requirements}
 %A BOM (Build of Materials) price have been specified in the requirements. The original project formulation specifies a need for minimising the production cost. The price is rather high as it serves as food for thought. The production price still has unknown elements like assembly cost which is why a materials price have been specified.
