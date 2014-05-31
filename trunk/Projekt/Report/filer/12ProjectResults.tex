@@ -1,9 +1,9 @@
 \chapter{Project results}
 \textit{This chapter seeks to present the results from this project.}
 \section{CDU}
-The CDU prototype has memory, pc communication, sensor communication, sensor power supply and power supply fully implemented. The µ-Controller used has the first iteration of the protocol and line-coding layer implemented. The µ-Controller, memory and pc communication are supplied a power supply connected to the explorer 16 board. The prototype board is powered by an external power supply.\\
+The CDU prototype has memory, pc communication, sensor communication, sensor power supply and power supply fully implemented. The µ-Controller used has the first iteration of the protocol and line-coding layer implemented. The µ-controller, memory and pc communication are supplied by a power supply connected to the explorer 16 board. The prototype board is powered by an external power supply.\\
 The software on the µ-Controller is written in C with the approximate size of 6kB (4\% of total memory).\\
-The first iteration of PC communication has been achieved.
+%The first iteration of PC communication has been achieved.
 
 \section{Sensor node}
 The sensor node prototype has power supply, logic handler and communication fully implemented. The data acquisition has been partly implemented with a variable resistor as sensor. The logic handler is powered by a power supply connected to the DE2 board. The sensor node prototype is powered by the communication bus.\\
@@ -15,8 +15,5 @@ The cusom power line communication bus has been fully implemented on the CDU and
 \section{Test results}
 The tests in this project provided a baseline for improving the system. The reliability test result showed that less than 1 in 7200 transmissions resulted in an error. The integration tests in the internal test document are all done on the first iteration of the protocol. 
 
-\section{Full system}
-\fxfatal{Billeder af systemet og enheder}
-As seen on the picture the CDU prototype board and the Explorer 16 is powered by external power supplies. The boards are interconnected with 3 wires: digital send(Yellow), digital receive(Blue) and gnd(Green). Two sensor nodes are connected to the bus via the B+(Yellow) and B-(Black) wires.\\
-A Altera DE2 board is connected to both sensor node prototype boards in the chain. The connections wires are: Clock(Hest), Data(Hest), Respond(Hest), gnd(Hest). The data acquisition prototype board is powered by the  sensor node prototype board with VCC(Red), gnd(Black). The data acquisition prototype board is connected to the DE2 board with the following wires: Chip select(Hest), SHDN(Hest), Data out(Hest), Clock(Hest). The DE2 board is powered by an external power supply.
+
 
