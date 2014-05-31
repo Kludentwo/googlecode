@@ -20,7 +20,7 @@ These physical protocol layers depend on synchronization either by including a c
 Another inspiration to the communcation layer of the project is the HART industrial protocol. HART is a protocol overlaying the 4-20mA standard. The HART protocol transmit a logic 1 with a 2200Hz frequency and a logic 0 with a 1200Hz frequency. This enables filtering to separate the analog data and the digital data. Often times the transmitters are loop powered meaning they are powered by the 4-20mA loop also similar to this project.
 \subsection{Protocol}
 To determine how the protocol should be structured, parallels to known communication protocols were made. The bus with multiple slaves/nodes has a lot of similarities physically with the I$^2$C protocol.\\
-The I$^2$C protocol is a two wire system with multiple slaves, which responds to requests from the master. An I$^2$C transfer sequence is seen on the figure \ref{fig:i2cheader}. The figure originates from the I$^2$C protocol specification \fixme{reference til i2c protocol specificationen på http://i2c.info/i2c-bus-specification}
+The I$^2$C protocol is a two wire system with multiple slaves, which responds to requests from the master. An I$^2$C transfer sequence is seen on the figure \ref{fig:i2cheader}. The figure originates from the I$^2$C protocol specification\cite{I2CInfo}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/7-bit-address-writing}
@@ -101,6 +101,18 @@ The voltage controlled oscillator serve to convert the voltage output of the LPF
 \end{figure}
 
 \section{Outcome}
-\fxfatal{sludder for en sladder om valg!}
+%Section med valg der er foretaget i design af systemet. Skal være i bunden af tech studies. Der skal stå præcis hvilke valg vi har foretaget ud fra vores studies som bliver inkorporeret i systemet. "Outcome"
+
 %During the technology study phase it became apparent that a current loop was the smartest way to power and communicate with the sensor nodes. Two different current levels corresponds to logic 0(low) and 1(high).\\
 
+Manchester code\\
+
+PLL PD type selection\\
+
+Clocking på bussen\\
+
+Strøm loop\\
+
+Function codes, addressing, start seq, CRC, DLM\\
+
+A minor part of the technology study was the study of the PIC24FJ µ-controller. The PIC24FJ was new to the group and some new knowledge had to be obtained. This was made easy by the PIC24 Tutorial on the engscope website \citep{Engscope}.

@@ -21,7 +21,7 @@ The CDU and the sensor nodes can be described as several layers with regards to 
 	\caption{System Layers}
 	\label{fig:systemlayers}
 \end{figure}
-The model is inspired by the OSI model and each layers responsibility is as follows\fxfatal{reference til OSI wikipedia}:
+The model is inspired by the OSI model\citep{WikipediaOSI} and each layers responsibility is as follows:
 
 \hspace*{.6cm}$\bullet$Application layer\\
 Found in the application layer is the entire application. All functionality is handled here.\\
@@ -74,7 +74,21 @@ The data acquisition block serves to acquire physical data from the surroundings
 \label{fig:SN_IBD}
 \end{figure}
 \subsection{System communication}
-The protocol is defined in the following section. The bus, named custom power line communication bus, has a header as seen in table \ref{table:stdmsgtosensor}. The communication sequence is initiated by a start sequence. This sequence indicates the beginning of a transmission sequence. It is followed by an address and a function code. The address tells the sensor nodes which one is being contacted and the function code tells the sensor node how to react. The function codes are defined in a table found in the architecture document. An example could be the function code GetData. When a sensor node receives this function code it responds with the data measured in the sensor and errors if any occured. The data length multiplier (DLM) defines how many bytes of data which is to be transmitted, and it can also be zero in which case no data is transmitted. This functionality is made to enable for variable message length so you don't waste time on sending dummy bytes etc. The data is then a multiple of the DLM in bytes. This could be the measured data from the sensor node to the CDU or it could be calibration data to the sensor node etc. Lastly the CRC is a standard cyclic redundancy check. The CRC is used to determine if the data was correctly received. If this is not the case the message is discarded. 
+The protocol is defined in the following section. The bus, named custom power line communication bus, has a header as seen in table \ref{table:stdmsgtosensor}. The communication sequence is initiated by a start sequence. This sequence indicates the beginning of a transmission sequence. It is followed by an address and a function code. The address tells the sensor nodes which one is being contacted and the function code tells the sensor node how to react. The defined function codes can be found in table \ref{table:functioncodes}. An example could be the function code GetData. When a sensor node receives this function code it responds with the data measured in the sensor and errors if any occured. The data length multiplier (DLM) defines how many bytes of data which is to be transmitted, and it can also be zero in which case no data is transmitted. This functionality is made to enable for variable message length so you don't waste time on sending dummy bytes etc. The data is then a multiple of the DLM in bytes. This could be the measured data from the sensor node to the CDU or it could be calibration data to the sensor node etc. Lastly the CRC is a standard cyclic redundancy check. The CRC is used to determine if the data was correctly received. If this is not the case the message is discarded. 
+\begin{table}[hbpt]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	Function code & Name & Data \\ 
+	\hline
+	0001 	& GetInfo & Error codes and Type \\
+	\hline
+	0010	& GetData & Error codes and 12 bit of data from sensor \\
+	\hline
+\end{tabular}
+\caption{Function code table with names and data explanation}
+\label{table:functioncodes}
+\end{table}
 \begin{table}[hbpt]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|l|}
@@ -98,7 +112,7 @@ The communication frame is identical when transmitting or responding. Communicat
 The design and implementation of the system is a naturally continuation of the technology study made in this project. The key part was integrating the acquired knowledge from the study and applying it to design and implement the prototype system.\\
 \subsection{Central data unit design}
 The blocks from the architecture document were incorporated in order to create a detailed breakdown of the different parts of the system. The CDU block breakdown can be found in figure \ref{fig:detailedCDU}. The figure seeks to explain the block in a conceptual manner. The blocks and components inside the different design blocks explains the design choices. The block also contains the different external interfaces. \\
-For the CDU there are three external interfaces with two pins each. These pins belong to the power supply block, the sensor power supply block and the pc communication block.\\
+For the CDU there are three external interfaces with two pins each. These pins belong to the power supply block, the sensor power supply block and the pc communication block. The power supply pins, P+ and P-, are used to power the whole system. The sensor power supply pins, B+ and B-, are a part of the communication bus. The sensors are daisy chained to these pins. The pc communication pins, Rx and Tx, are used for communicating with the PC using UART.\\
 The brain of the CDU is the µ-Controller block. As seen on the figure, it contains a power line communication protocol block, a spi block and an uart block. The power line communication protocol block handles the protocol and line coding layer with respect to figure \ref{fig:systemlayers}.
 \begin{figure}[H]
 	\centering

@@ -1,8 +1,12 @@
 \chapter{Project results}
 \textit{This chapter seeks to present the results from this project.}
+
+A system of a CDU and two sensor nodes have been made. The CDU can communicate with the sensors notes using the custom power line communication bus. The sensor nodes can respond to all the defined function codes and if the address sensor receives an unknown function code it will respond with an error.\\
+The data from the sensor node is received by the CDU and stored in the memory of the CDU. This can be exported to a PC by requesting data from the CDU.\\
+The sensor nodes can acquire data from the data acquisition block.
 \section{CDU}
 The CDU prototype has memory, pc communication, sensor communication, sensor power supply and power supply fully implemented. The µ-Controller used has the first iteration of the protocol and line-coding layer implemented. The µ-controller, memory and pc communication are supplied by a power supply connected to the explorer 16 board. The prototype board is powered by an external power supply.\\
-The software on the µ-Controller is written in C with the approximate size of 6kB (4\% of total memory).\\
+The software on the µ-Controller is written in C with the approximate size of 6kB (4\% of total memory). The functionality currently implemented consists of sending and receiving from the sensor nodes, saving and loading from memory and responding to requests from the PC.
 %The first iteration of PC communication has been achieved.
 
 \section{Sensor node}
