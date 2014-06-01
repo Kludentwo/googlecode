@@ -168,9 +168,10 @@ The development phase generated a lot of prototypes. The earliest versions of th
 	\caption{Prototype system}
 	\label{fig:prototype}
 \end{figure}
-The CDU (green box) is comprised of hardware made by the group which interfaces to a development board provided by Microchip Denmark. The board is an explorer 16 development kit. It contains a PIC24FJ family µ-controller, eeprom memory, RS232 connection and in-circuit debugger.
+The CDU (green box) is comprised of hardware made by the group which interfaces to a development board provided by Microchip Denmark. The board is an explorer 16 development kit. It contains a PIC24FJ family µ-controller, eeprom memory, RS232 connection and in-circuit debugger. The CDU controls the power line communication bus. The levels one the bus are 20 mA when logic low and 24 mA when logic high. When the CDU communicates with the sensor nodes it uses the protocol and line coding layers to compose a message and the physical layer to transmit it. When not transmitting the CDU clocks with 10 kHz on the bus. The CDU is supplied with 15.5 V 29 mA by an external power supply. 
 
-The two sensor nodes (red and grey box) is comprised of two hardware PCB's made by the group. These represent the physical interface of the system as well as the digital interfaces to the logic handler block. The logic handler is a cyclone II fpga chip on a DE2 development board from Altera. These were available to lend from the school. The cyclone II chip is programmed to handle all application, protocol and line coding.
+The two sensor nodes (red and grey box) is comprised of two hardware PCB's made by the group. These represent the physical interface of the system as well as the digital interfaces to the logic handler block. The logic handler is a cyclone II fpga chip on a DE2 development board from Altera. These were available to lend from the school. The cyclone II chip is programmed to handle all application, protocol and line coding.\\
+The current on the bus is read by a sensing resistor and amplified to 3.3V. The messages are recovered by using the PLLs output 20 kHz clock to sample and convert the manchester encoded signal to a string. The logic handler acts upon the message and responds to the CDU.
 
 In addition to all the components found in the schematic, test points played a key part when debugging the circuits. These schematics have been routed and made into PCB's at the schools electronics laboratory.\\
 For good practise all pin outs from both the explorer 16 and the DE2 board from each revision has been stored in a spreadsheet for an easy overview.
@@ -187,7 +188,8 @@ The prototype (seen on picture \ref{pic:prototype}) is connected as seen on figu
 	\label{pic:prototype}
 \end{figure}
 As seen on figure \ref{pic:prototype} the CDU prototype board and the Explorer 16 is powered by external power supplies. The boards are interconnected with 3 wires: digital send(Yellow), digital receive(Blue) and gnd(Green). Two sensor nodes are connected to the bus via the B+(Yellow) and B-(Black) wires.\\
-A Altera DE2 board is connected to both sensor node prototype boards in the chain. The connections wires are: Clock(Hest), Data(Hest), Respond(Hest), gnd(Hest). The data acquisition prototype board is powered by the  sensor node prototype board with VCC(Red), gnd(Black). The data acquisition prototype board is connected to the DE2 board with the following wires: Chip select(Hest), SHDN(Hest), Data out(Hest), Clock(Hest). The DE2 board is powered by an external power supply.
+A Altera DE2 board is connected to both sensor node prototype boards in the chain. The connections wires are: Clock, Data, Respond and gnd. The data acquisition prototype board is powered by the  sensor node prototype board with VCC(Red), gnd(Black). The data acquisition prototype board is connected to the DE2 board with the following wires: Chip select, SHDN, Data out and Clock. The DE2 board is powered by an external power supply.
+
 
 
 \section{Tests}

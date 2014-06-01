@@ -6,7 +6,7 @@ The data from the sensor node is received by the CDU and stored in the memory of
 The sensor nodes can acquire data from the data acquisition block.
 \section{CDU}
 The CDU prototype has memory, pc communication, sensor communication, sensor power supply and power supply fully implemented. The µ-Controller used has the first iteration of the protocol and line-coding layer implemented. The µ-controller, memory and pc communication are supplied by a power supply connected to the explorer 16 board. The prototype board is powered by an external power supply.\\
-The software on the µ-Controller is written in C with the approximate size of 6kB (4\% of total memory). The functionality currently implemented consists of sending and receiving from the sensor nodes, saving and loading from memory and responding to requests from the PC.
+The software on the µ-controller is written in C with the approximate size of 6kB (4\% of total memory). The functionality currently implemented consists of communicating with the sensor nodes using the custom power line communication bus, saving data to- and loading data from memory and responding to requests from the PC.
 %The first iteration of PC communication has been achieved.
 
 \section{Sensor node}
