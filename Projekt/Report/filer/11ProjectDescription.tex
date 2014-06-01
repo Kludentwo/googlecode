@@ -148,7 +148,14 @@ The sensor node breakdown can be found in figure \ref{fig:SN_detailed}.\\
 The power supply contains a voltage regulator. The voltage regulator converts the voltage drop from the sensor diode and the communication resistor to a steady 3.3V to supply the internal circuitry of the sensor node.\\
 The communication resistor creates a small voltage drop change caused by the current modulated from the CDU. This voltage change is amplified to logic levels in the communication block and then sampled by the logic handler.\\
 The communication block has two main functionalities, clock and data recovery (CDR) and respond functionality. The CDR serves to recover the clock from the incoming stream of data so it can be sampled correctly. This is done firstly by amplifying the incoming data signal. This is done with an operational amplifier coupled as a comperator, where the reference voltage is an average of the communication signal.\\
-The clock recovery is achieved by a PLL with the data signal as input. The output clock is double the frequency of the data clock. By doing this data should always be sampled on the rising edge of the clock.\\
+The clock recovery is achieved by a PLL with the data signal as input. The output clock is double the frequency of the data clock. By doing this data should always be sampled on the rising edge of the clock. The sampling scheme is seen on figure \ref{fig:datasamp}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/11projectdescription/datasampling}
+	\caption{Data sampling scheme}
+	\label{fig:datasamp}
+\end{figure}
+When the PLL is in lock the phase of the loop clock will be 90$^{\circ}$deg.\\
 The logic handler interfaces with the data acquisition block. This is done once every second to make sure new data is acquired before receiving a new request from the CDU. The logic handler also manages the power line communications protocol and line coding. It operates with the clock from the communication block.\\
 The data acquisition block consists of two functionalities, a measurement wheatstone bridge modified to low current consumption and an ADC block. The logic handler interfaces with the ADC to acquire the measured data.
 \begin{figure}[H]
