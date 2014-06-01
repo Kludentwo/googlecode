@@ -1,7 +1,17 @@
 \chapter{Requirements specification}
-\textit{The requirements specification is focused around the CDU and the sensor node. It describes the functionality requirements along with other general requirements.}
+\textit{The requirements specification is focused around the central data uni and the sensor node. It describes the functionality requirements along with other general requirements.}
 \section{General description}
-Th6e system is shown on figure \ref{fig:project_system} below. The focus of the requirement specification will be upon the elements shown in this figure.
+The system comprises a Central data unit(CDU) and an arbitrary number of sensor nodes. The CDU serves as the main component which have several main functionalities:
+\begin{itemize}
+	\item Contact all sensor node within fixed time intervals
+	\item Store the data locally
+	\item Evaluate data and warn patient if necessary
+	\item Send data to PC for analysis
+\end{itemize}
+The CDU supplies a bus where all sensor nodes are interconnected in a daisy chain.
+The CDU continuously request measurement data from each sensor node via the bus. The CDU will be powered by a rechargeable battery with enough power to run the system for atleast a day.\\
+The data should be extractable from the CDU to a PC. The connection could be bluetooth, wireless, USB, UART or some other fourth option.\\
+The system is shown on figure \ref{fig:project_system} below. The focus of the requirement specification will be upon the elements shown in this figure.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.9\textwidth]{billeder/7requirementspec/GeneralSystem}

@@ -30,7 +30,7 @@ The I$^2$C protocol is a two wire system with multiple slaves, which responds to
 The transfer sequence is initiated by a start sequence from the master, this alerts the slaves and they are now listening on the bus. The next step for the master is to transmit the address of the slave. An addressing system must be utilized because several slaves are connected to the bus. Lastly the master tells whether it is a read or write command. \\
 The same principles are applied to the power line communication bus where an addressing system and start sequence is used.
 
-Another known protocol is the modbus protocol which is a widely used industrial protocol. The modbus protocol has a start and addressing system, like I$^2$C. However after the address a function code is transmitted. This code is used to tell the slave exactly what to do. The modbus frame format is shown on figure \ref{fig:modbusframe}.
+Another known protocol is the modbus protocol\cite{Mbspec} which is a widely used industrial protocol. The modbus protocol has a start and addressing system, like I$^2$C. However after the address a function code is transmitted. This code is used to tell the slave exactly what to do. The modbus frame format is shown on figure \ref{fig:modbusframe}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.8\textwidth]{billeder/10technologystudies/modbusframe}
@@ -101,18 +101,10 @@ The voltage controlled oscillator serve to convert the voltage output of the LPF
 \end{figure}
 
 \section{Outcome}
-%Section med valg der er foretaget i design af systemet. Skal være i bunden af tech studies. Der skal stå præcis hvilke valg vi har foretaget ud fra vores studies som bliver inkorporeret i systemet. "Outcome"
-
-%During the technology study phase it became apparent that a current loop was the smartest way to power and communicate with the sensor nodes. Two different current levels corresponds to logic 0(low) and 1(high).\\
-
-Manchester code\\
-
-PLL PD type selection\\
-
-Clocking på bussen\\
-
-Strøm loop\\
-
-Function codes, addressing, start seq, CRC, DLM\\
-
+Based upon the technology studies several choices were made.\\
+The daisy chain of sensor will be constructed as a current loop to power the sensors, much like the scheme used in the HART protocol. The main unit can then control the current to modulate communication to the sensors. The sensors will be addressable and will all have a unique address. They will respond to the function code scheme and the necessary codes will be determined in the architecture.\\
+The communication will be based upon a NRZ scheme. This allows for simplicity as well as a lesser need for computational power to for example FSK. The NRZ scheme will enable for clock recovery using general purpose PPL's and this clock can be used to drive the sensor nodes. An extension to the NRZ line coding is manchester coding\cite{MC}. Although not covered above manchester coding ensures that the line is not low (or high) if a series of zeros (or ones) are transmitted. This helps to ensure a stable data sampling clock from the PLL. The manchester coding will follow the E. G. Thomas definitions\\
 A minor part of the technology study was the study of the PIC24FJ µ-controller. The PIC24FJ was new to the group and some new knowledge had to be obtained. This was made easy by the PIC24 Tutorial on the engscope website \citep{Engscope}.
+
+
+
