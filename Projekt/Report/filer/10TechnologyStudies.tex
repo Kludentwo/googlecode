@@ -9,13 +9,13 @@ During the technology studies the procedure were:
 \item Read and understand
 \item Experiment
 \end{enumerate}
-The studies below are partly based on previous knowledge from courses and experience and partly new knowledge and literature. The new literature can be found in appendix \fxfatal{reference!}.
+The studies below are partly based on previous knowledge from courses and experience and partly new knowledge and literature. The new literature can be found on the enclosed CD \cite{cd}.
 
 \section{Protocol and communications}
 \subsection{Communications}
 The field of communication is very large, so to determine how to physically perform the communication in this system other methods were studied.\\
 Communication systems use a lot of different ways of signaling data and it spans from frequency shift keying, phase shift keying, non-return to zero etc.
-Commonly used for communication is level shifting (NRZ), this is known from many common communication protocols such as RS232, I$^2$C, SPI etc.\\
+Commonly used for communication is level shifting (NRZ \citep{WikipediaNRZ}), this is known from many common communication protocols such as RS232, I$^2$C, SPI etc.\\
 These physical protocol layers depend on synchronization either by including a clock or specifying a baudrate.\\
 Another inspiration to the communcation layer of the project is the HART industrial protocol. HART is a protocol overlaying the 4-20mA standard. The HART protocol transmit a logic 1 with a 2200Hz frequency and a logic 0 with a 1200Hz frequency. This enables filtering to separate the analog data and the digital data. Often times the transmitters are loop powered meaning they are powered by the 4-20mA loop also similar to this project.
 \subsection{Protocol}
