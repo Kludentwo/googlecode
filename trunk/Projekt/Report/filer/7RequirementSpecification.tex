@@ -1,15 +1,16 @@
 \chapter{Requirements specification}
-\textit{The requirements specification is focused around the central data uni and the sensor node. It describes the functionality requirements along with other general requirements.}
+\textit{The requirements specification is focused around the central data unit and the sensor node. It describes the functionality requirements along with other general requirements.}
 \section{General description}
-The system comprises a Central data unit(CDU) and an arbitrary number of sensor nodes. The CDU serves as the main component which have several main functionalities:
+The system will be mounted on and around the foot of a person who is likely to develop charcot foot. 
+The system comprises a Central data unit(CDU) and an arbitrary number of sensor nodes. The CDU serves as the main component and it has several main functionalities:
 \begin{itemize}
-	\item Contact all sensor node within fixed time intervals
-	\item Store the data locally
+	\item Contact all sensor nodes within fixed time intervals
+	\item Store data
 	\item Evaluate data and warn patient if necessary
 	\item Send data to PC for analysis
 \end{itemize}
 The CDU supplies a bus where all sensor nodes are interconnected in a daisy chain.
-The CDU continuously request measurement data from each sensor node via the bus. The CDU will be powered by a rechargeable battery with enough power to run the system for atleast a day.\\
+The CDU continuously requests measurement data from each sensor node via the bus. The CDU will be powered by a rechargeable battery with enough power to run the system for atleast a day.\\
 The data should be extractable from the CDU to a PC. The connection could be bluetooth, wireless, USB, UART or some other fourth option.\\
 The system is shown on figure \ref{fig:project_system} below. The focus of the requirement specification will be upon the elements shown in this figure.
 \begin{figure}[H]
@@ -18,7 +19,6 @@ The system is shown on figure \ref{fig:project_system} below. The focus of the r
 	\caption{Project system}
 	\label{fig:project_system}
 \end{figure}
-The system will be mounted on and around the foot of a person who is likely to develop charcot foot. 
 \section{Functionality requirements}
 The system has two main functionalities:
 \begin{enumerate}
